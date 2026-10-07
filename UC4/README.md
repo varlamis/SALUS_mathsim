@@ -1,10 +1,10 @@
-# SALUS T4.3 Entity and Process Modelling
+﻿# SALUS mathematical simulation Entity and Process Modelling
 
 Executable UC4 entity, relationship, process, lifecycle, and configuration contracts for the SALUS Digital Twin Infrastructure.
 
 ## Current implementation state
 
-Stages 0–12 of the repository implementation plan are complete. The repository contains the frozen UC4 scenario, canonical entity/process models, deterministic simulation, a 16-branch experiment matrix, temporal runtime graphs, nine data-driven competency queries, explicit performance/privacy/integrity metrics, a reproducible 100-sample Monte Carlo sensitivity analysis, consolidated validation and traceability, seven versioned integration contracts, and a hashed final handoff manifest.
+Stages 0â€“12 of the repository implementation plan are complete. The repository contains the frozen UC4 scenario, canonical entity/process models, deterministic simulation, a 16-branch experiment matrix, temporal runtime graphs, nine data-driven competency queries, explicit performance/privacy/integrity metrics, a reproducible 100-sample Monte Carlo sensitivity analysis, consolidated validation and traceability, seven versioned integration contracts, and a hashed final handoff manifest.
 
 ## Installation
 
@@ -22,8 +22,8 @@ For ordinary development, `python -m pip install -e ".[test]"` installs the exac
 ## Validate the model contracts
 
 ```powershell
-salus-t43 validate --config configs/uc4/incident_lawful_access.yaml --write-graph
-salus-t43 validate --config configs/uc4/baseline.yaml
+salus-mathsim validate --config configs/uc4/incident_lawful_access.yaml --write-graph
+salus-mathsim validate --config configs/uc4/baseline.yaml
 python -m pytest -q
 ```
 
@@ -36,8 +36,8 @@ See `docs/04_validation_plan.md` for the validation boundary and test matrix, an
 The complete selected scenario executes with one command:
 
 ```powershell
-salus-t43 run --config configs/uc4/incident_lawful_access.yaml
-salus-t43 run --config configs/uc4/baseline.yaml
+salus-mathsim run --config configs/uc4/incident_lawful_access.yaml
+salus-mathsim run --config configs/uc4/baseline.yaml
 ```
 
 Use `--output <directory>` to override the configured destination. A successful run emits the 14 core files defined by the UC4 scenario contract plus Stage 9 competency-query JSON and an SVG graph overview. The generation timestamp is isolated in `run_manifest.json`; it is excluded from the canonical result hash.
@@ -62,7 +62,7 @@ See `docs/simulation/UC4_simulation.md` for the runtime architecture, determinis
 ## Execute the experiment matrix
 
 ```powershell
-salus-t43 experiment --matrix configs/uc4/experiments.yaml --output reports/generated/uc4/experiments
+salus-mathsim experiment --matrix configs/uc4/experiments.yaml --output reports/generated/uc4/experiments
 ```
 
 The command resolves every branch against the lawful-incident configuration, validates it, emits a separate run package, evaluates declared expectations, and writes JSON/Markdown comparison reports. The committed result summary is `reports/validation/UC4_stage8_experiment_report.md`.
@@ -70,8 +70,8 @@ The command resolves every branch against the lawful-incident configuration, val
 ## Query a runtime graph
 
 ```powershell
-salus-t43 graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json
-salus-t43 graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json --query claim_support
+salus-mathsim graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json
+salus-mathsim graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json --query claim_support
 ```
 
 Every generated package includes all query results in `competency_queries.json` and an aggregated `graph_overview.svg`. See `docs/graph/UC4_graph_queries.md` and `reports/validation/UC4_stage9_graph_query_report.md`.
@@ -79,7 +79,7 @@ Every generated package includes all query results in `competency_queries.json` 
 ## Run the Stage 10 analysis
 
 ```powershell
-salus-t43 analyze --design configs/uc4/monte_carlo.yaml --output reports/generated/uc4/monte_carlo
+salus-mathsim analyze --design configs/uc4/monte_carlo.yaml --output reports/generated/uc4/monte_carlo
 ```
 
 This runs the deterministic nominal case and the complete declared 100-sample uncertainty design. It records every seed and sample, reports 95% confidence intervals without converting undefined metrics to zero, and generates a sensitivity heatmap. Results are explicitly synthetic and uncalibrated. See `docs/analysis/UC4_metrics_and_sensitivity.md` and the committed `reports/generated/uc4/monte_carlo/monte_carlo_report.md`.
@@ -95,7 +95,7 @@ The authoritative machine-readable contract set is `contracts/integration/uc4_in
 Generate and verify the final hash inventory after any change:
 
 ```powershell
-salus-t43 manifest --output reports/final/UC4_artifact_manifest.json
+salus-mathsim manifest --output reports/final/UC4_artifact_manifest.json
 ```
 
 The manifest excludes itself, caches, bytecode, virtual environments, and editable-install metadata. This prevents recursive hashes and keeps build products out of the deliverable inventory.

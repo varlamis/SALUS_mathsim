@@ -1,4 +1,4 @@
-"""Build the directed attributed UC4 multigraph from canonical model files."""
+﻿"""Build the directed attributed UC4 multigraph from canonical model files."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from typing import Any
 
 import networkx as nx
 
-from salus_t43 import __version__
+from salus_mathsim import __version__
 
 
 def _list_value(value: str) -> list[str]:
@@ -77,7 +77,7 @@ def graph_document(graph: nx.MultiDiGraph, *, sources: list[Path]) -> dict[str, 
         "metadata": {
             "schema_version": graph.graph["schema_version"],
             "use_case": graph.graph["use_case"],
-            "generator": f"salus-t43 {__version__}",
+            "generator": f"salus-mathsim {__version__}",
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "source_sha256": source_digest(*sources),
             "directed": True,

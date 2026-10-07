@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+﻿\documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -28,7 +28,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{SALUS T4.3 --- UC4 Technical Report}
+\fancyhead[L]{SALUS mathematical simulation --- UC4 Technical Report}
 \fancyhead[R]{Version 1.0}
 \fancyfoot[C]{\thepage}
 
@@ -51,7 +51,7 @@
 \title{\vspace{-12mm}\textbf{An End-to-End, Evidence-Centric Hybrid Model for SALUS Use Case 4}\\[2mm]
 \large Canonical Entity Modelling, BPMN Processes, Deterministic Simulation,\\
 Policy-Controlled Acquisition, Runtime Graphs, and Reproducible Evaluation}
-\author{SALUS T4.3 UC4 Technical Implementation Report}
+\author{SALUS mathematical simulation UC4 Technical Implementation Report}
 \date{8 September 2026}
 
 \begin{document}
@@ -72,9 +72,9 @@ The main contribution is not a claim of pilot performance. It is a reusable mode
 
 \section{Introduction}
 
-SALUS Task T4.3 requires formal and mathematical modelling of physical entities, their digital counterparts, properties, processes, information exchanges and relationships. UC4 places this requirement in a particularly demanding setting: smart-home observations may be incomplete or delayed, forensic collection must be controlled by lawful scope, and an analytical reconstruction must not silently become more certain than its evidence permits. The proposal also situates UC4 at the intersection of customer-premises equipment (CPE), Home Assistant, IoT devices, Digital Twin services and law-enforcement investigation~\cite{proposal}.
+SALUS the modelling task requires formal and mathematical modelling of physical entities, their digital counterparts, properties, processes, information exchanges and relationships. UC4 places this requirement in a particularly demanding setting: smart-home observations may be incomplete or delayed, forensic collection must be controlled by lawful scope, and an analytical reconstruction must not silently become more certain than its evidence permits. The proposal also situates UC4 at the intersection of customer-premises equipment (CPE), Home Assistant, IoT devices, Digital Twin services and law-enforcement investigation~\cite{proposal}.
 
-The initial repository contained preliminary device and process material but not a complete executable chain from scenario definition to validated results. The implementation described here followed the ordered T4.3 roadmap~\cite{roadmap}. Partner feedback was explicitly removed from the completion gate at the user's direction; missing real-world facts were therefore represented as documented engineering decisions, replaceable synthetic defaults, abstract interfaces or first-class \code{TBD} values. This avoids both implementation deadlock and fabricated precision.
+The initial repository contained preliminary device and process material but not a complete executable chain from scenario definition to validated results. The implementation described here followed the ordered mathematical simulation roadmap~\cite{roadmap}. Partner feedback was explicitly removed from the completion gate at the user's direction; missing real-world facts were therefore represented as documented engineering decisions, replaceable synthetic defaults, abstract interfaces or first-class \code{TBD} values. This avoids both implementation deadlock and fabricated precision.
 
 The selected vertical slice is deliberately specific: an unauthorized actor opens a smart-home entrance, a configured Home Assistant rule activates a light, and the actor tampers with and disconnects the door sensor. A separate case trigger precedes a remotely requested, purpose-limited and time-bounded acquisition. CPE metadata, Home Assistant events and device-state events are minimized, preserved, hashed, placed under modelled custody and used to produce qualified claims.
 
@@ -111,7 +111,7 @@ The project contributes the following integrated approach.
 
 The implementation used four evidence classes. Proposal statements have the highest authority for SALUS intent; roadmap statements determine modelling completeness and order; user-agreed decisions specialize the runnable scenario; engineering assumptions fill only those values required to execute. When sources disagree, the lower-authority item cannot silently override the higher one. Each entity and relationship therefore carries source references, record status, confidence and assumption identifiers.
 
-The key proposal references were pages 162--164 for the Digital Twin and evidence architecture, pages 169--170 for UC4 and lawful access through CPE/Home Assistant, page 171 for candidate research datasets, and page 190 for the T4.3 modelling obligation~\cite{proposal}. The roadmap supplied the phased decomposition, entity, process, mathematical, simulation, graph and validation requirements~\cite{roadmap}.
+The key proposal references were pages 162--164 for the Digital Twin and evidence architecture, pages 169--170 for UC4 and lawful access through CPE/Home Assistant, page 171 for candidate research datasets, and page 190 for the mathematical simulation modelling obligation~\cite{proposal}. The roadmap supplied the phased decomposition, entity, process, mathematical, simulation, graph and validation requirements~\cite{roadmap}.
 
 \subsection{Assumption register}
 
@@ -629,16 +629,16 @@ python -m venv .venv
 .venv\Scripts\python -m pip install --no-deps -e .
 .venv\Scripts\python -m pip check
 
-.venv\Scripts\salus-t43 validate \
+.venv\Scripts\salus-mathsim validate \
   --config configs/uc4/incident_lawful_access.yaml
 .venv\Scripts\python -m pytest -q
-.venv\Scripts\salus-t43 run \
+.venv\Scripts\salus-mathsim run \
   --config configs/uc4/incident_lawful_access.yaml
-.venv\Scripts\salus-t43 experiment \
+.venv\Scripts\salus-mathsim experiment \
   --matrix configs/uc4/experiments.yaml
-.venv\Scripts\salus-t43 analyze \
+.venv\Scripts\salus-mathsim analyze \
   --design configs/uc4/monte_carlo.yaml
-.venv\Scripts\salus-t43 manifest \
+.venv\Scripts\salus-mathsim manifest \
   --output reports/final/UC4_artifact_manifest.json
 \end{lstlisting}
 
@@ -672,17 +672,17 @@ SALUS Consortium,
 technical proposal, especially pp.~162--164, 169--171 and 190.
 
 \bibitem{roadmap}
-SALUS T4.3 Team,
-\emph{SALUS HUA T4.3 Roadmap},
+SALUS mathematical simulation Team,
+\emph{SALUS HUA mathematical simulation Roadmap},
 project roadmap document, phases 1--7 and ordered implementation guidance.
 
 \bibitem{uc4contract}
-SALUS T4.3 UC4 Implementation,
+SALUS mathematical simulation UC4 Implementation,
 \emph{UC4: Lawful Forensic Investigation in a Smart Home},
 \path{docs/use_cases/UC4.md}, version 1.0, 2026.
 
 \bibitem{formalmodel}
-SALUS T4.3 UC4 Implementation,
+SALUS mathematical simulation UC4 Implementation,
 \emph{UC4 Formal Hybrid Mathematical Model},
 \path{models/formal/uc4_mathematical_model.md}, version 1.0, 2026.
 

@@ -1,7 +1,7 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://salus-project.eu/schemas/t43/evidence.schema.json",
-  "title": "SALUS T4.3 Canonical Evidence Item",
+  "$id": "https://salus-project.eu/schemas/mathsim/evidence.schema.json",
+  "title": "SALUS mathematical simulation Canonical Evidence Item",
   "type": "object",
   "additionalProperties": false,
   "required": [

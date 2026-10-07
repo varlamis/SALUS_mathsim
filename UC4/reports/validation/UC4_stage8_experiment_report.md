@@ -1,4 +1,4 @@
-# UC4 Stage 8 experiment and negative-path report
+﻿# UC4 Stage 8 experiment and negative-path report
 
 ## Result
 
@@ -51,7 +51,7 @@ Post-collection content modification is detected by hash recomputation and quara
 
 ```powershell
 python -m pip install -e ".[test]"
-salus-t43 experiment --matrix configs/uc4/experiments.yaml --output reports/generated/uc4/experiments
+salus-mathsim experiment --matrix configs/uc4/experiments.yaml --output reports/generated/uc4/experiments
 python -m pytest -q
 ```
 

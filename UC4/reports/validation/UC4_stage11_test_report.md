@@ -1,4 +1,4 @@
-# UC4 Stage 11 test and validation report
+﻿# UC4 Stage 11 test and validation report
 
 ## Outcome
 
@@ -31,8 +31,8 @@ The only warning concerned pytest's optional cache directory being non-writable 
 python -m venv .venv
 .venv\Scripts\python -m pip install -e ".[test]"
 .venv\Scripts\python -m pytest -q --junitxml=reports/validation/UC4_stage11_junit.xml
-.venv\Scripts\salus-t43 validate --config configs/uc4/incident_lawful_access.yaml
-.venv\Scripts\salus-t43 validate --config configs/uc4/baseline.yaml
+.venv\Scripts\salus-mathsim validate --config configs/uc4/incident_lawful_access.yaml
+.venv\Scripts\salus-mathsim validate --config configs/uc4/baseline.yaml
 ```
 
 The full judgment-by-judgment assessment and requirement traceability are in `reports/validation/UC4_validation_matrix.md`.

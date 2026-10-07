@@ -1,4 +1,4 @@
-# UC4 metrics, Monte Carlo, and sensitivity contract
+﻿# UC4 metrics, Monte Carlo, and sensitivity contract
 
 ## Purpose and interpretation boundary
 
@@ -46,7 +46,7 @@ Each sample records the five drawn values, simulation seed, canonical simulation
 Run the analysis with:
 
 ```powershell
-salus-t43 analyze --design configs/uc4/monte_carlo.yaml --output reports/generated/uc4/monte_carlo
+salus-mathsim analyze --design configs/uc4/monte_carlo.yaml --output reports/generated/uc4/monte_carlo
 ```
 
 The output contains the full nominal run package, `monte_carlo_samples.jsonl`, `monte_carlo_summary.json`, `monte_carlo_report.md`, and `sensitivity.svg`.

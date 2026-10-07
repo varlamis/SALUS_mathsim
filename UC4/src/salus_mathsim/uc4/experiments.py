@@ -1,4 +1,4 @@
-"""Resolve, execute, assert, and compare the Stage 8 UC4 experiment matrix."""
+﻿"""Resolve, execute, assert, and compare the Stage 8 UC4 experiment matrix."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 import yaml
 
-from salus_t43.validation import RepositoryValidationError, validate_repository
+from salus_mathsim.validation import RepositoryValidationError, validate_repository
 
 from .models import SimulationConfig
 from .simulation import SimulationResult, UC4Simulation, export_result

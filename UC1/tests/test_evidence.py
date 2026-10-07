@@ -1,7 +1,7 @@
-from copy import deepcopy
+﻿from copy import deepcopy
 
-from salus_t43.uc1.evidence import verify
-from salus_t43.uc1.simulation import run_simulation
+from salus_mathsim.uc1.evidence import verify
+from salus_mathsim.uc1.simulation import run_simulation
 
 
 def test_evidence_is_minimized_and_custody_verifies(repo_root):

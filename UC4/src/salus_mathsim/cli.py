@@ -1,4 +1,4 @@
-"""Command-line entry points for validating UC4 before simulation."""
+﻿"""Command-line entry points for validating UC4 before simulation."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from .validation import RepositoryValidationError, validate_repository
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="salus-t43")
+    parser = argparse.ArgumentParser(prog="salus-mathsim")
     subparsers = parser.add_subparsers(dest="command", required=True)
     validate = subparsers.add_parser("validate", help="validate all UC4 contracts and cross-references")
     validate.add_argument("--config", type=Path, required=True, help="configuration path relative to repository root")

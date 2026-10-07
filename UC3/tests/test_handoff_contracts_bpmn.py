@@ -1,8 +1,8 @@
-from copy import deepcopy
+﻿from copy import deepcopy
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 import yaml
-from salus_t43.handoff import build_manifest, verify_manifest
+from salus_mathsim.handoff import build_manifest, verify_manifest
 
 
 def test_contracts_have_all_boundaries(repo_root):

@@ -1,10 +1,10 @@
-import inspect
+﻿import inspect
 import json
 
 from jsonschema import Draft202012Validator
 
-from salus_t43.uc4.reconstruction import reconstruct
-from salus_t43.uc4.simulation import export_result, run_simulation
+from salus_mathsim.uc4.reconstruction import reconstruct
+from salus_mathsim.uc4.simulation import export_result, run_simulation
 
 
 def test_incident_run_is_reproducible_and_schema_valid(repo_root):

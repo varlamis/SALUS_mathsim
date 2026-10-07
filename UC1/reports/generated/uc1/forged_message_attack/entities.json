@@ -1,4 +1,4 @@
-{
+﻿{
   "entities": [
     {
       "assumption_ids": [
@@ -63,7 +63,7 @@
       "record_status": "assumed",
       "role": "Separates the OBU/gateway from in-vehicle controllers",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -218,7 +218,7 @@
       "record_status": "assumed",
       "role": "Abstract boundary to in-vehicle systems",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "offline",
@@ -383,7 +383,7 @@
       "record_status": "engineering_decision",
       "role": "Produces bounded message and flow observations",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "monitoring",
@@ -542,7 +542,7 @@
       "record_status": "engineering_decision",
       "role": "Minimizes, hashes, and registers authorized evidence",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -568,7 +568,7 @@
       "record_status": "engineering_decision",
       "role": "Builds evidence-linked uncertainty-aware claims",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "idle",
@@ -665,7 +665,7 @@
       "record_status": "proposal",
       "role": "Reviews minimized evidence and reconstruction",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "authenticated",

@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://salus-project.eu/schemas/t43/simulation_config.schema.json",
+  "$id": "https://salus-project.eu/schemas/mathsim/simulation_config.schema.json",
   "title": "SALUS UC4 Simulation Configuration",
   "type": "object",
   "additionalProperties": false,

@@ -1,8 +1,8 @@
-{
+﻿{
   "metadata": {
     "schema_version": "1.0.0",
     "use_case": "UC4",
-    "generator": "salus-t43 0.1.0",
+    "generator": "salus-mathsim 0.1.0",
     "generated_at": "2026-09-10T09:57:29.789226+00:00",
     "source_sha256": "5f9f6466ee734452f00f0f754315f1764570baa2c90ccafd4652ab1450eb977d",
     "directed": true,
@@ -17,7 +17,7 @@
       "entity_class": "UseCase",
       "parent_class": "SALUS_Entity",
       "designation": "logical",
-      "owner_operator": "SALUS T4.3",
+      "owner_operator": "SALUS mathematical simulation",
       "location": "Model scope",
       "network_zones": [],
       "role": "Bounds the agreed unauthorized-entry and sensor-tampering vertical slice",

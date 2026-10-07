@@ -1,7 +1,7 @@
-import pytest
+﻿import pytest
 
-from salus_t43.uc4.event_queue import EventQueue
-from salus_t43.uc4.identifiers import IdentifierFactory
+from salus_mathsim.uc4.event_queue import EventQueue
+from salus_mathsim.uc4.identifiers import IdentifierFactory
 
 
 def test_queue_orders_by_time_then_insertion_sequence():

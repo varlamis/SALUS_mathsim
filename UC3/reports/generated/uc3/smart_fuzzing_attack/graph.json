@@ -1,4 +1,4 @@
-{
+﻿{
   "edges": [
     {
       "assumption_id": "ASSUMPTION-UC3-005",
@@ -7,7 +7,7 @@
       "relationship_id": "UC3-R001",
       "relationship_type": "senses",
       "source_id": "UC3-D02",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D01"
     },
     {
@@ -17,7 +17,7 @@
       "relationship_id": "UC3-R002",
       "relationship_type": "controls",
       "source_id": "UC3-D05",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D03"
     },
     {
@@ -27,7 +27,7 @@
       "relationship_id": "UC3-R003",
       "relationship_type": "controls",
       "source_id": "UC3-D05",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D04"
     },
     {
@@ -37,7 +37,7 @@
       "relationship_id": "UC3-R004",
       "relationship_type": "actuates",
       "source_id": "UC3-D03",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D01"
     },
     {
@@ -47,7 +47,7 @@
       "relationship_id": "UC3-R005",
       "relationship_type": "actuates",
       "source_id": "UC3-D04",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D01"
     },
     {
@@ -87,7 +87,7 @@
       "relationship_id": "UC3-R009",
       "relationship_type": "communicates_with",
       "source_id": "UC3-D06",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D05"
     },
     {
@@ -97,7 +97,7 @@
       "relationship_id": "UC3-R010",
       "relationship_type": "communicates_with",
       "source_id": "UC3-D07",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D05"
     },
     {
@@ -287,7 +287,7 @@
       "relationship_id": "UC3-R029",
       "relationship_type": "feeds",
       "source_id": "UC3-S03",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-S04"
     },
     {
@@ -417,7 +417,7 @@
       "relationship_id": "UC3-R042",
       "relationship_type": "deployed_in",
       "source_id": "UC3-D01",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-NZ01"
     },
     {
@@ -427,7 +427,7 @@
       "relationship_id": "UC3-R043",
       "relationship_type": "deployed_in",
       "source_id": "UC3-D05",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-NZ02"
     },
     {
@@ -437,7 +437,7 @@
       "relationship_id": "UC3-R044",
       "relationship_type": "deployed_in",
       "source_id": "UC3-D06",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-NZ03"
     },
     {
@@ -447,7 +447,7 @@
       "relationship_id": "UC3-R045",
       "relationship_type": "deployed_in",
       "source_id": "UC3-S01",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-NZ04"
     },
     {
@@ -527,7 +527,7 @@
       "relationship_id": "UC3-R053",
       "relationship_type": "operated_by",
       "source_id": "UC3-D06",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-A01"
     },
     {
@@ -557,7 +557,7 @@
       "relationship_id": "UC3-R056",
       "relationship_type": "depends_on",
       "source_id": "UC3-S04",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC3-S03"
     },
     {
@@ -587,7 +587,7 @@
       "relationship_id": "UC3-R059",
       "relationship_type": "depends_on",
       "source_id": "UC3-D05",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D02"
     },
     {
@@ -597,7 +597,7 @@
       "relationship_id": "UC3-R060",
       "relationship_type": "protected_by",
       "source_id": "UC3-D01",
-      "source_reference": "WORKING-TEMPLATE-T43",
+      "source_reference": "WORKING-TEMPLATE",
       "target_id": "UC3-D05"
     },
     {
@@ -951,7 +951,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic sensor and actuator boundary",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -999,7 +999,7 @@
       "record_status": "assumed",
       "role": "HMI historian and engineering services",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -1074,7 +1074,7 @@
       "record_status": "synthetic_default",
       "role": "Measures surrogate vessel level",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "healthy",
@@ -1102,7 +1102,7 @@
       "record_status": "synthetic_default",
       "role": "Controls surrogate inflow",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "off",
@@ -1129,7 +1129,7 @@
       "record_status": "synthetic_default",
       "role": "Controls surrogate outflow",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "closed",
@@ -1158,7 +1158,7 @@
       "role": "Runs deterministic scan and interlocks",
       "source_references": [
         "PROPOSAL-UC3-PP16-17",
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "initializing",
@@ -1186,7 +1186,7 @@
       "record_status": "assumed",
       "role": "Displays state and accepts authorized abstract commands",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -1212,7 +1212,7 @@
       "record_status": "assumed",
       "role": "Authorized configuration endpoint and symbolic attack target/source context",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -1642,7 +1642,7 @@
       "record_status": "engineering_decision",
       "role": "Builds qualified claims from evidence",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -1666,7 +1666,7 @@
       "record_status": "assumed",
       "role": "Supervises the synthetic process",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",

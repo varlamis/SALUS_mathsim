@@ -1,7 +1,7 @@
-from salus_t43.uc4.dynamics import ObservationModel
-from salus_t43.uc4.entities import DigitalTwin, PhysicalDevice
-from salus_t43.uc4.models import SimulationConfig
-from salus_t43.uc4.traffic import CPEQueue
+﻿from salus_mathsim.uc4.dynamics import ObservationModel
+from salus_mathsim.uc4.entities import DigitalTwin, PhysicalDevice
+from salus_mathsim.uc4.models import SimulationConfig
+from salus_mathsim.uc4.traffic import CPEQueue
 
 import pytest
 import yaml

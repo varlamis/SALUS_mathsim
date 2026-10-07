@@ -1,4 +1,4 @@
-# UC4 — Lawful forensic investigation in a smart home for IoT-enabled crime
+﻿# UC4 â€” Lawful forensic investigation in a smart home for IoT-enabled crime
 
 ## 0. Document status and authority
 
@@ -11,7 +11,7 @@ The selected scenario and source precedence were approved as project implementat
 | Status | Meaning |
 |---|---|
 | `proposal` | Stated or directly supported by the SALUS proposal. |
-| `roadmap` | Required or recommended by the T4.3 roadmap. |
+| `roadmap` | Required or recommended by the mathematical simulation roadmap. |
 | `agreed_decision` | Agreed for this end-to-end implementation but not claimed to be proposal text. |
 | `assumed` | Needed for a complete model and considered plausible, but not source-confirmed. |
 | `proposed` | A technical design choice to be implemented and kept replaceable. |
@@ -22,7 +22,7 @@ The selected scenario and source precedence were approved as project implementat
 When sources disagree, use this order:
 
 1. `docs/Proposal-SEP-211108743.pdf`.
-2. `docs/SALUS_HUA_T4.3_Roadmap.docx`.
+2. `docs/SALUS_HUA_mathematical simulation_Roadmap.docx`.
 3. Existing repository content, after quality and provenance checks.
 4. Explicit assumptions and engineering decisions in this document and the UC4 assumption register.
 5. Later confirmed technical input, incorporated as a versioned configuration or adapter update rather than as a prerequisite.
@@ -34,7 +34,7 @@ When sources disagree, use this order:
 | `PROPOSAL-PDF-p162-p164` | SDN/Digital Twin architecture; physical and digital entities, relations, intelligent services, simulation, evidence collection, and chain-of-custody context. |
 | `PROPOSAL-PDF-p169-p170` | UC4 motivation, threats, lawful access through CPEs, DD-WRT/Home Assistant validation setting, representative devices, expected outcomes, and legal/privacy constraints. |
 | `PROPOSAL-PDF-p171` | Candidate UC4 research datasets: IDSH smart-thermostat data and a smart-home intrusion-detection dataset. |
-| `PROPOSAL-PDF-p190` | T4.3 obligation to formally and mathematically model physical entities, properties, processes, information exchange, digital replicas, and relations. |
+| `PROPOSAL-PDF-p190` | mathematical simulation obligation to formally and mathematically model physical entities, properties, processes, information exchange, digital replicas, and relations. |
 | `ROADMAP-Phase-1` | Use-case decomposition template and minimum questions. |
 | `ROADMAP-Phase-3-to-7` | Entity, relationship, process, graph, simulation, and validation requirements. |
 | `LEGACY-UC4-CPE-INVENTORY` | Preliminary CPE fields in `data/inventory/device_and_system_inventory.csv`, `models/schemas/entities/devices/cpe_smart_home_gateway.json`, and the matching aggregate JSON entry; treated as hypotheses pending canonical mapping. |
@@ -64,7 +64,7 @@ The unauthorized-entry narrative and the precise tampering action are an `agreed
 
 ### 1.2 Why UC4 is suitable for the first vertical slice
 
-UC4 has a concrete operational boundary, an explicit CPE acquisition point, a named open-source implementation direction, representative sensors and actuators, candidate research datasets, a forensic objective, and strong privacy/authorization constraints. It exercises all T4.3 dimensions in one scenario:
+UC4 has a concrete operational boundary, an explicit CPE acquisition point, a named open-source implementation direction, representative sensors and actuators, candidate research datasets, a forensic objective, and strong privacy/authorization constraints. It exercises all mathematical simulation dimensions in one scenario:
 
 - physical entities and digital replicas;
 - device state and behavior;
@@ -255,7 +255,7 @@ These outcomes are valid experiment results. They must not be converted into fab
 
 | ID | Data source | Produced by | Data type | Frequency/trigger | Sensitivity | Used by | Status/notes |
 |---|---|---|---|---|---|---|---|
-| `UC4-DS01` | Door state/tamper/connectivity events | `UC4-D03` | Device event | State change/heartbeat | Medium–High contextual | Home Assistant, twin, collector | Tamper capability configurable. |
+| `UC4-DS01` | Door state/tamper/connectivity events | `UC4-D03` | Device event | State change/heartbeat | Mediumâ€“High contextual | Home Assistant, twin, collector | Tamper capability configurable. |
 | `UC4-DS02` | Presence/motion events | `UC4-D04` | Device event | Detection/heartbeat | High contextual | Home Assistant, twin, reconstruction | Includes false-positive/false-negative model. |
 | `UC4-DS03` | Smart-light command/state events | `UC4-D06` | Command and device event | Automation/manual state change | Medium contextual | Home Assistant, twin, reconstruction | Brightness optional; on/off mandatory. |
 | `UC4-DS04` | Smart-plug command/state/consumption | `UC4-D05` | Command, telemetry | Configured interval/state change | Medium contextual | Home Assistant, twin, reconstruction | Consumption optional. |
@@ -349,37 +349,37 @@ The same scenario model must support test branches for:
 | 11 | Preservation | Canonicalize, hash, store, and register custody. | `UC4-S03`, `UC4-S04` | Collected artefacts | Evidence items and custody actions. |
 | 12 | Normalization | Map source-specific records to canonical events without erasing raw provenance. | `UC4-S05` | Evidence items | Normalized event set. |
 | 13 | Reconstruction | Normalize clocks, correlate traces, and form qualified claims. | `UC4-S05` | Visible evidence only | Timeline, confidence, alternatives, gaps. |
-| 14 | Closure | Stop collection and verify outputs/custody/policy results. | `UC4-S02`–`UC4-S05` | Completion/expiry/revocation | Metrics, validation report, investigation summary. |
+| 14 | Closure | Stop collection and verify outputs/custody/policy results. | `UC4-S02`â€“`UC4-S05` | Completion/expiry/revocation | Metrics, validation report, investigation summary. |
 
 ## 12. Required process families
 
 The process-model document expands these into step tables, failure paths, and editable BPMN 2.0 XML diagrams. Pools, lanes, message events, gateways, boundary events, data objects, and data stores are used according to BPMN semantics. The detailed catalogue is `docs/processes/UC4_processes.md`; the five authoritative diagrams are listed below.
 
-### `UC4-PR01` — Normal operation
+### `UC4-PR01` â€” Normal operation
 
 Device interaction -> device state event -> Home Assistant ingestion -> automation evaluation -> optional actuator command -> CPE observation -> digital-twin synchronization.
 
 Authoritative model: `diagrams/process_flows/UC4_normal_operation.bpmn`.
 
-### `UC4-PR02` — Incident/abnormal behavior
+### `UC4-PR02` â€” Incident/abnormal behavior
 
 Unauthorized door opening -> possible motion corroboration -> automation/light response -> sensor disconnect/tamper -> incomplete observations and state divergence.
 
 Authoritative model: `diagrams/process_flows/UC4_incident.bpmn`.
 
-### `UC4-PR03` — Detection and case trigger
+### `UC4-PR03` â€” Detection and case trigger
 
 Observed rule/anomaly or external report -> explainable alert context -> human/system case trigger -> investigation request. The trigger must not activate collection.
 
 Authoritative model: `diagrams/process_flows/UC4_detection_case_trigger.bpmn`.
 
-### `UC4-PR04` — Lawful policy enforcement and acquisition
+### `UC4-PR04` â€” Lawful policy enforcement and acquisition
 
 Request -> authentication -> authorization validation -> scope/time/purpose/minimization decision -> acquisition activation -> eligible collection -> termination on completion/expiry/revocation. Default decision is deny.
 
 Authoritative model: `diagrams/process_flows/UC4_lawful_acquisition.bpmn`.
 
-### `UC4-PR05` — Evidence collection and investigation
+### `UC4-PR05` â€” Evidence collection and investigation
 
 Source acquisition -> canonicalization -> content hash -> evidence registration -> custody action -> normalization -> temporal/relational correlation -> qualified reconstruction -> controlled access/closure.
 
@@ -536,7 +536,7 @@ Canonical serialization must be defined before calculating hashes. Generation ti
 | Formal entity/process/information-exchange model | `models/formal/uc4_mathematical_model.md` |
 | Relations/digital world | `models/relationships/uc4_relationships.csv`, `models/graph/uc4_graph.json` |
 | Process families | `docs/processes/UC4_processes.md`, `diagrams/process_flows/UC4_*.bpmn` |
-| Physical/digital state behavior | `src/salus_t43/uc4/entities.py`, `dynamics.py`, `diagrams/state_machines/UC4_entity_lifecycles.bpmn` |
+| Physical/digital state behavior | `src/salus_mathsim/uc4/entities.py`, `dynamics.py`, `diagrams/state_machines/UC4_entity_lifecycles.bpmn` |
 | Lawful access control | `authorization.py`, `collection.py`, policy tests |
 | Evidence integrity/custody | `collection.py`, `custody.py`, integrity tests |
 | Reconstruction | `reconstruction.py`, generated timeline and summary |

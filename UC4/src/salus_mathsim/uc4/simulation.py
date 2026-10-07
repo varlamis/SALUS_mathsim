@@ -1,4 +1,4 @@
-"""Deterministic end-to-end UC4 discrete-event simulator."""
+﻿"""Deterministic end-to-end UC4 discrete-event simulator."""
 
 from __future__ import annotations
 
@@ -12,8 +12,8 @@ from typing import Any
 import yaml
 from jsonschema import Draft202012Validator
 
-from salus_t43.graph_builder import build_graph, graph_document, load_relationships
-from salus_t43.validation import validate_repository
+from salus_mathsim.graph_builder import build_graph, graph_document, load_relationships
+from salus_mathsim.validation import validate_repository
 
 from .authorization import PolicyDecision, SourceRecord, denial_for_request, evaluate_record
 from .collection import CollectedEvidence, canonical_json_bytes, collect_evidence

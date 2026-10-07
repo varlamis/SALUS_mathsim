@@ -1,14 +1,14 @@
-relationship_id,source_id,relationship_type,target_id,record_status,source_reference,assumption_id,notes
-UC3-R001,UC3-D02,senses,UC3-D01,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-005,Level observation
-UC3-R002,UC3-D05,controls,UC3-D03,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-007,Inlet command
-UC3-R003,UC3-D05,controls,UC3-D04,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-007,Outlet command
-UC3-R004,UC3-D03,actuates,UC3-D01,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-006,Inflow
-UC3-R005,UC3-D04,actuates,UC3-D01,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-006,Outflow
+﻿relationship_id,source_id,relationship_type,target_id,record_status,source_reference,assumption_id,notes
+UC3-R001,UC3-D02,senses,UC3-D01,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-005,Level observation
+UC3-R002,UC3-D05,controls,UC3-D03,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-007,Inlet command
+UC3-R003,UC3-D05,controls,UC3-D04,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-007,Outlet command
+UC3-R004,UC3-D03,actuates,UC3-D01,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-006,Inflow
+UC3-R005,UC3-D04,actuates,UC3-D01,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-006,Outflow
 UC3-R006,UC3-D02,communicates_with,UC3-D05,synthetic_default,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-007,Abstract telemetry
 UC3-R007,UC3-D05,communicates_with,UC3-D03,synthetic_default,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-007,Abstract command
 UC3-R008,UC3-D05,communicates_with,UC3-D04,synthetic_default,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-007,Abstract command
-UC3-R009,UC3-D06,communicates_with,UC3-D05,assumed,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-008,Supervisory flow
-UC3-R010,UC3-D07,communicates_with,UC3-D05,assumed,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-009,Engineering flow
+UC3-R009,UC3-D06,communicates_with,UC3-D05,assumed,WORKING-TEMPLATE,ASSUMPTION-UC3-008,Supervisory flow
+UC3-R010,UC3-D07,communicates_with,UC3-D05,assumed,WORKING-TEMPLATE,ASSUMPTION-UC3-009,Engineering flow
 UC3-R011,UC3-D05,feeds,UC3-D08,assumed,PROPOSAL-DS4-DS5-P19,ASSUMPTION-UC3-010,Controller history
 UC3-R012,UC3-D02,feeds,UC3-D08,assumed,PROPOSAL-DS4-DS5-P19,ASSUMPTION-UC3-010,Process history
 UC3-R013,UC3-D09,connected_to,UC3-D05,engineering_decision,PROPOSAL-T41-T45-PP37-39,ASSUMPTION-UC3-011,Abstract enforcement path
@@ -27,7 +27,7 @@ UC3-R025,UC3-D11,mitigated_by,UC3-S02,engineering_decision,PROPOSAL-UC3-PP16-17,
 UC3-R026,UC3-D10,generates,UC3-S03,engineering_decision,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-016,Observable evidence
 UC3-R027,UC3-S01,generates,UC3-S03,engineering_decision,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-016,Alert evidence
 UC3-R028,UC3-S02,generates,UC3-S03,engineering_decision,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-016,Policy evidence
-UC3-R029,UC3-S03,feeds,UC3-S04,engineering_decision,ROADMAP-T43,,Evidence to reconstruction
+UC3-R029,UC3-S03,feeds,UC3-S04,engineering_decision,FRAMEWORK-ROADMAP,,Evidence to reconstruction
 UC3-R030,UC3-A03,operated_by,UC3-O02,proposal,PROPOSAL-UC3-PP16-17,,End user role
 UC3-R031,UC3-D01,owned_by,UC3-O01,assumed,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-017,Synthetic stakeholder mapping
 UC3-R032,UC3-D05,owned_by,UC3-O01,assumed,PROPOSAL-UC3-PP16-17,ASSUMPTION-UC3-017,Synthetic stakeholder mapping
@@ -40,10 +40,10 @@ UC3-R038,UC3-D06,mirrored_by,UC3-DT06,engineering_decision,PROPOSAL-T41-T45-PP37
 UC3-R039,UC3-D07,mirrored_by,UC3-DT07,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Twin mapping
 UC3-R040,UC3-D08,mirrored_by,UC3-DT08,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Twin mapping
 UC3-R041,UC3-D09,mirrored_by,UC3-DT09,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Twin mapping
-UC3-R042,UC3-D01,deployed_in,UC3-NZ01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC3-001,Synthetic location
-UC3-R043,UC3-D05,deployed_in,UC3-NZ02,engineering_decision,ROADMAP-T43,ASSUMPTION-UC3-002,Synthetic location
-UC3-R044,UC3-D06,deployed_in,UC3-NZ03,assumed,ROADMAP-T43,ASSUMPTION-UC3-003,Synthetic location
-UC3-R045,UC3-S01,deployed_in,UC3-NZ04,engineering_decision,ROADMAP-T43,,Logical location
+UC3-R042,UC3-D01,deployed_in,UC3-NZ01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC3-001,Synthetic location
+UC3-R043,UC3-D05,deployed_in,UC3-NZ02,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC3-002,Synthetic location
+UC3-R044,UC3-D06,deployed_in,UC3-NZ03,assumed,FRAMEWORK-ROADMAP,ASSUMPTION-UC3-003,Synthetic location
+UC3-R045,UC3-S01,deployed_in,UC3-NZ04,engineering_decision,FRAMEWORK-ROADMAP,,Logical location
 UC3-R046,UC3-D08,stores,UC3-DS01,synthetic_default,PROPOSAL-DS4-DS5-P19,,Synthetic stream
 UC3-R047,UC3-DS02,derived_from,UC3-D01,proposal,PROPOSAL-DS4-DS5-P19,ASSUMPTION-UC3-018,Conceptual relevance only
 UC3-R048,UC3-DS03,derived_from,UC3-D08,proposal,PROPOSAL-DS4-DS5-P19,ASSUMPTION-UC3-019,Conceptual relevance only
@@ -51,11 +51,11 @@ UC3-R049,UC3-D05,protected_by,UC3-S01,engineering_decision,PROPOSAL-UC3-PP16-17,
 UC3-R050,UC3-D09,governed_by,UC3-S02,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Policy boundary
 UC3-R051,UC3-S03,operated_by,UC3-A03,engineering_decision,PROPOSAL-UC3-PP16-17,,Investigator access
 UC3-R052,UC3-S01,operated_by,UC3-A02,engineering_decision,PROPOSAL-UC3-PP16-17,,Analyst review
-UC3-R053,UC3-D06,operated_by,UC3-A01,assumed,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-017,Process supervision
+UC3-R053,UC3-D06,operated_by,UC3-A01,assumed,WORKING-TEMPLATE,ASSUMPTION-UC3-017,Process supervision
 UC3-R054,UC3-DT01,depends_on,UC3-D02,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Observed update
 UC3-R055,UC3-DT05,depends_on,UC3-D05,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Controller update
-UC3-R056,UC3-S04,depends_on,UC3-S03,engineering_decision,ROADMAP-T43,,Evidence dependency
+UC3-R056,UC3-S04,depends_on,UC3-S03,engineering_decision,FRAMEWORK-ROADMAP,,Evidence dependency
 UC3-R057,UC3-S02,depends_on,UC3-S01,engineering_decision,PROPOSAL-T41-T45-PP37-39,,Alert dependency
 UC3-R058,UC3-S01,depends_on,UC3-D10,engineering_decision,PROPOSAL-UC3-PP16-17,,Observation dependency
-UC3-R059,UC3-D05,depends_on,UC3-D02,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-007,Control dependency
-UC3-R060,UC3-D01,protected_by,UC3-D05,synthetic_default,WORKING-TEMPLATE-T43,ASSUMPTION-UC3-007,Interlock protection
+UC3-R059,UC3-D05,depends_on,UC3-D02,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-007,Control dependency
+UC3-R060,UC3-D01,protected_by,UC3-D05,synthetic_default,WORKING-TEMPLATE,ASSUMPTION-UC3-007,Interlock protection

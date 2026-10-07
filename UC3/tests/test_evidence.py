@@ -1,6 +1,6 @@
-from copy import deepcopy
-from salus_t43.uc3.evidence import verify
-from salus_t43.uc3.simulation import run_simulation
+﻿from copy import deepcopy
+from salus_mathsim.uc3.evidence import verify
+from salus_mathsim.uc3.simulation import run_simulation
 
 
 def test_evidence_and_custody_verify(repo_root, nominal_config):

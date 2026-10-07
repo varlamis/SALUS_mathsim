@@ -1,4 +1,4 @@
-{
+﻿{
   "edges": [
     {
       "assumption_id": "",
@@ -217,7 +217,7 @@
       "relationship_id": "UC2-R022",
       "relationship_type": "deployed_in",
       "source_id": "UC2-D01",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC2-NZ01"
     },
     {
@@ -227,7 +227,7 @@
       "relationship_id": "UC2-R023",
       "relationship_type": "deployed_in",
       "source_id": "UC2-S01",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC2-NZ02"
     },
     {
@@ -237,7 +237,7 @@
       "relationship_id": "UC2-R024",
       "relationship_type": "deployed_in",
       "source_id": "UC2-S05",
-      "source_reference": "ROADMAP-T43",
+      "source_reference": "FRAMEWORK-ROADMAP",
       "target_id": "UC2-NZ03"
     },
     {
@@ -646,7 +646,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic approved emitter",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "present",

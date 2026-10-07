@@ -1,11 +1,11 @@
-{
+﻿{
   "$schema": "../schemas/entity_collection.schema.json",
   "schema_version": "1.0.0",
   "use_case": "UC4",
   "source_inventory": "data/inventory/uc4_entity_inventory.csv",
   "entities": [
     {
-      "schema_version": "1.0.0", "entity_id": "UC4", "use_case": "UC4", "name": "Lawful forensic investigation in a smart home for IoT-enabled crime", "entity_class": "UseCase", "parent_class": "SALUS_Entity", "designation": "logical", "owner_operator": "SALUS T4.3", "location": "Model scope", "network_zones": [], "role": "Bounds the agreed unauthorized-entry and sensor-tampering vertical slice",
+      "schema_version": "1.0.0", "entity_id": "UC4", "use_case": "UC4", "name": "Lawful forensic investigation in a smart home for IoT-enabled crime", "entity_class": "UseCase", "parent_class": "SALUS_Entity", "designation": "logical", "owner_operator": "SALUS mathematical simulation", "location": "Model scope", "network_zones": [], "role": "Bounds the agreed unauthorized-entry and sensor-tampering vertical slice",
       "lifecycle": { "initial_state": "defined", "allowed_states": ["defined", "configured", "running", "completed", "failed"] }, "capabilities": ["entity_scope", "scenario_scope"], "interfaces": [], "data": { "generates": [], "consumes": [] },
       "provenance": { "source_references": ["PROPOSAL-PDF-p169-p170", "AGREED-UC4-001", "AGREED-UC4-002"], "record_status": "agreed_decision", "confidence": "high", "assumption_ids": ["ASSUMPTION-UC4-001", "ASSUMPTION-UC4-002"] }, "sensitivity": "High", "retention_class": "configuration", "observability": "observable", "notes": "Canonical graph root for UC4"
     },

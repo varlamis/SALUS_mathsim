@@ -1,15 +1,15 @@
-from copy import deepcopy
+﻿from copy import deepcopy
 import json
 from pathlib import Path
 
 import yaml
 
-from salus_t43.handoff import build_manifest, verify_manifest
-from salus_t43.uc2.evidence import verify
-from salus_t43.uc2.experiments import run_matrix
-from salus_t43.uc2.models import SimulationConfig
-from salus_t43.uc2.simulation import simulate
-from salus_t43.validation import validate_repository
+from salus_mathsim.handoff import build_manifest, verify_manifest
+from salus_mathsim.uc2.evidence import verify
+from salus_mathsim.uc2.experiments import run_matrix
+from salus_mathsim.uc2.models import SimulationConfig
+from salus_mathsim.uc2.simulation import simulate
+from salus_mathsim.validation import validate_repository
 
 ROOT = Path(__file__).resolve().parents[1]
 

@@ -1,12 +1,12 @@
-import json
+﻿import json
 
 import pytest
 import yaml
 from jsonschema import Draft202012Validator
 from pydantic import ValidationError
 
-from salus_t43.uc4.models import EvidenceItem, SimulationConfig, UC4Event
-from salus_t43.validation import validate_repository
+from salus_mathsim.uc4.models import EvidenceItem, SimulationConfig, UC4Event
+from salus_mathsim.validation import validate_repository
 
 
 @pytest.mark.parametrize("config_name", ["baseline.yaml", "incident_lawful_access.yaml"])

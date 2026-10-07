@@ -1,7 +1,7 @@
-import networkx as nx
+﻿import networkx as nx
 
-from salus_t43.uc1.graph import competency_queries, runtime_graph, static_graph
-from salus_t43.uc1.simulation import run_simulation
+from salus_mathsim.uc1.graph import competency_queries, runtime_graph, static_graph
+from salus_mathsim.uc1.simulation import run_simulation
 
 
 def test_graph_is_connected_and_preserves_parallel_ids(repo_root):

@@ -1,4 +1,4 @@
-"""Generation and verification of the final UC4 artifact inventory."""
+﻿"""Generation and verification of the final UC4 artifact inventory."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from . import __version__
 
 TOP_LEVEL_FILES = (".gitignore", "README.md", "CHANGELOG.md", "pyproject.toml", "requirements.lock")
 ARTIFACT_ROOTS = ("configs", "contracts", "data", "diagrams", "docs", "models", "reports", "src", "tests")
-EXCLUDED_PARTS = {".git", ".pytest_cache", ".pytest_tmp", ".venv", "venv", "__pycache__", "salus_t43.egg-info"}
+EXCLUDED_PARTS = {".git", ".pytest_cache", ".pytest_tmp", ".venv", "venv", "__pycache__", "salus_mathsim.egg-info"}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
 
 
@@ -51,7 +51,7 @@ def build_artifact_manifest(root: Path, output_path: Path, generated_at: datetim
     moment = generated_at or datetime.now(timezone.utc)
     return {
         "schema_version": "1.0.0", "use_case": "UC4",
-        "generator": f"salus-t43/{__version__}",
+        "generator": f"salus-mathsim/{__version__}",
         "generated_at_utc": moment.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
         "hash_algorithm": "SHA-256", "self_excluded": True,
         "artifact_count": len(rows), "artifacts": rows,

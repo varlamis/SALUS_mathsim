@@ -1,15 +1,15 @@
-relationship_id,source_id,relationship_type,target_id,record_status,source_reference,assumption_id,notes
-UC5-R001,UC5-D01,deployed_in,UC5-NZ01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-013,Logical placement
-UC5-R002,UC5-D02,deployed_in,UC5-NZ01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-013,Logical placement
-UC5-R003,UC5-D03,deployed_in,UC5-NZ01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-013,Logical placement
-UC5-R004,UC5-D04,deployed_in,UC5-NZ03,engineering_decision,ROADMAP-T43,,Logical placement
-UC5-R005,UC5-D05,deployed_in,UC5-NZ02,engineering_decision,ROADMAP-T43,,Logical placement
-UC5-R006,UC5-D01,communicates_with,UC5-D02,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-002,Abstract flow
-UC5-R007,UC5-D02,communicates_with,UC5-D03,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-003,Abstract flow
-UC5-R008,UC5-D03,communicates_with,UC5-D05,engineering_decision,ROADMAP-T43,,No clinical payload
+﻿relationship_id,source_id,relationship_type,target_id,record_status,source_reference,assumption_id,notes
+UC5-R001,UC5-D01,deployed_in,UC5-NZ01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-013,Logical placement
+UC5-R002,UC5-D02,deployed_in,UC5-NZ01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-013,Logical placement
+UC5-R003,UC5-D03,deployed_in,UC5-NZ01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-013,Logical placement
+UC5-R004,UC5-D04,deployed_in,UC5-NZ03,engineering_decision,FRAMEWORK-ROADMAP,,Logical placement
+UC5-R005,UC5-D05,deployed_in,UC5-NZ02,engineering_decision,FRAMEWORK-ROADMAP,,Logical placement
+UC5-R006,UC5-D01,communicates_with,UC5-D02,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-002,Abstract flow
+UC5-R007,UC5-D02,communicates_with,UC5-D03,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-003,Abstract flow
+UC5-R008,UC5-D03,communicates_with,UC5-D05,engineering_decision,FRAMEWORK-ROADMAP,,No clinical payload
 UC5-R009,UC5-D04,observes,UC5-D03,engineering_decision,PROPOSAL-DS8-P19,ASSUMPTION-UC5-004,Flow metadata
 UC5-R010,UC5-D04,feeds,UC5-S02,engineering_decision,PROPOSAL-T33,,Observation input
-UC5-R011,UC5-D01,feeds,UC5-S02,engineering_decision,ROADMAP-T43,,Health metadata
+UC5-R011,UC5-D01,feeds,UC5-S02,engineering_decision,FRAMEWORK-ROADMAP,,Health metadata
 UC5-R012,UC5-D01,protected_by,UC5-S03,engineering_decision,PROPOSAL-T42,ASSUMPTION-UC5-008,Safety policy
 UC5-R013,UC5-D01,mirrored_by,UC5-DT01,engineering_decision,PROPOSAL-T44,,One-to-one mapping
 UC5-R014,UC5-D02,mirrored_by,UC5-DT02,engineering_decision,PROPOSAL-T44,,One-to-one mapping
@@ -18,19 +18,19 @@ UC5-R016,UC5-D04,mirrored_by,UC5-DT04,engineering_decision,PROPOSAL-T44,,One-to-
 UC5-R017,UC5-D05,mirrored_by,UC5-DT05,engineering_decision,PROPOSAL-T44,,One-to-one mapping
 UC5-R018,UC5-D06,mirrored_by,UC5-DT06,proposal,PROPOSAL-T44,,Inactive mapping
 UC5-R019,UC5-D07,mirrored_by,UC5-DT07,proposal,PROPOSAL-T44,,Inactive mapping
-UC5-R020,UC5-S01,observes,UC5-D01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-006,Registry mapping
+UC5-R020,UC5-S01,observes,UC5-D01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-006,Registry mapping
 UC5-R021,UC5-S02,triggers,UC5-S03,engineering_decision,PROPOSAL-T33,,Alert to policy
 UC5-R022,UC5-S03,controls,UC5-D03,engineering_decision,PROPOSAL-T42,ASSUMPTION-UC5-008,Bounded response
-UC5-R023,UC5-S03,governed_by,UC5-A01,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-012,Clinical review
-UC5-R024,UC5-S02,operated_by,UC5-A02,engineering_decision,ROADMAP-T43,,Security review
+UC5-R023,UC5-S03,governed_by,UC5-A01,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-012,Clinical review
+UC5-R024,UC5-S02,operated_by,UC5-A02,engineering_decision,FRAMEWORK-ROADMAP,,Security review
 UC5-R025,UC5-S04,operated_by,UC5-A03,engineering_decision,PROPOSAL-UC5-P18,,Investigation
 UC5-R026,UC5-S02,generates,UC5-S04,engineering_decision,PROPOSAL-T31-T36,,Observable evidence input
 UC5-R027,UC5-S03,generates,UC5-S04,engineering_decision,PROPOSAL-T31-T36,,Decision evidence input
 UC5-R028,UC5-S04,feeds,UC5-S05,engineering_decision,PROPOSAL-UC5-P18,ASSUMPTION-UC5-010,Verified evidence
-UC5-R029,UC5-S05,feeds,UC5-S06,engineering_decision,ROADMAP-T43,,Redacted package
-UC5-R030,UC5-S06,supports_claim,UC5-A03,engineering_decision,ROADMAP-T43,ASSUMPTION-UC5-011,Qualified result
+UC5-R029,UC5-S05,feeds,UC5-S06,engineering_decision,FRAMEWORK-ROADMAP,,Redacted package
+UC5-R030,UC5-S06,supports_claim,UC5-A03,engineering_decision,FRAMEWORK-ROADMAP,ASSUMPTION-UC5-011,Qualified result
 UC5-R031,UC5-DS01,feeds,UC5-D04,synthetic_default,PROPOSAL-DS8-P19,,Synthetic flow source
-UC5-R032,UC5-DS02,feeds,UC5-S02,synthetic_default,ROADMAP-T43,,Synthetic health source
+UC5-R032,UC5-DS02,feeds,UC5-S02,synthetic_default,FRAMEWORK-ROADMAP,,Synthetic health source
 UC5-R033,UC5-DS03,feeds,UC5-D04,proposal,PROPOSAL-DS8-P19,,Future replay only
 UC5-R034,UC5-S07,feeds,UC5-S02,proposal,PROPOSAL-T34,,Future context
 UC5-R035,UC5-O01,owned_by,UC5-O02,TBD,PROPOSAL-UC5-P18,,Responsibility mapping TBD
@@ -39,8 +39,8 @@ UC5-R037,UC5-D06,deployed_in,UC5-NZ01,proposal,PROPOSAL-UC5-P18,,Inactive class
 UC5-R038,UC5-D07,deployed_in,UC5-NZ01,proposal,PROPOSAL-UC5-P18,,Inactive class
 UC5-R039,UC5-DT01,depends_on,UC5-D04,engineering_decision,PROPOSAL-T44,,Observation dependency
 UC5-R040,UC5-DT01,depends_on,UC5-D01,engineering_decision,PROPOSAL-T44,,Referent dependency
-UC5-R041,UC5-S03,depends_on,UC5-S01,engineering_decision,ROADMAP-T43,,Criticality lookup
+UC5-R041,UC5-S03,depends_on,UC5-S01,engineering_decision,FRAMEWORK-ROADMAP,,Criticality lookup
 UC5-R042,UC5-S05,governed_by,UC5-A03,engineering_decision,PROPOSAL-UC5-P18,,Sharing authority
 UC5-R043,UC5-S04,stores,UC5-NZ04,engineering_decision,PROPOSAL-T31-T36,,Restricted storage
 UC5-R044,UC5-D03,mitigated_by,UC5-S03,engineering_decision,PROPOSAL-T42,,Policy enforcement
-UC5-R045,UC5-S06,derived_from,UC5-S04,engineering_decision,ROADMAP-T43,,Evidence-only reconstruction
+UC5-R045,UC5-S06,derived_from,UC5-S04,engineering_decision,FRAMEWORK-ROADMAP,,Evidence-only reconstruction

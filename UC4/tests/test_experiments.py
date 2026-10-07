@@ -1,4 +1,4 @@
-from salus_t43.uc4.experiments import run_experiment_matrix
+﻿from salus_mathsim.uc4.experiments import run_experiment_matrix
 
 
 def test_stage8_experiment_matrix_passes_all_declared_expectations(repo_root):

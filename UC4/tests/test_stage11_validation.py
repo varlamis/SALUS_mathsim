@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import replace
 import json
@@ -6,12 +6,12 @@ import json
 import pytest
 import yaml
 
-from salus_t43.graph_builder import load_relationships
-from salus_t43.uc4.authorization import evaluate_record
-from salus_t43.uc4.migrations import migrate_simulation_config
-from salus_t43.uc4.models import SimulationConfig
-from salus_t43.uc4.simulation import UC4Simulation, export_result, run_simulation
-from salus_t43.validation import validate_repository
+from salus_mathsim.graph_builder import load_relationships
+from salus_mathsim.uc4.authorization import evaluate_record
+from salus_mathsim.uc4.migrations import migrate_simulation_config
+from salus_mathsim.uc4.models import SimulationConfig
+from salus_mathsim.uc4.simulation import UC4Simulation, export_result, run_simulation
+from salus_mathsim.validation import validate_repository
 
 from test_policy_evidence import _authorization, _record
 

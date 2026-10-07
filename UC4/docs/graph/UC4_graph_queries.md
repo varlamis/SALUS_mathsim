@@ -1,4 +1,4 @@
-# UC4 temporal graph and competency queries
+﻿# UC4 temporal graph and competency queries
 
 ## Graph layers
 
@@ -46,13 +46,13 @@ The implementation uses entity classes, designations, capabilities, provenance, 
 Run all queries already embedded in a result package:
 
 ```powershell
-salus-t43 graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json
+salus-mathsim graph-query --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json
 ```
 
 Run one query or write a separate response:
 
 ```powershell
-salus-t43 graph-query `
+salus-mathsim graph-query `
   --graph reports/generated/uc4/experiments/nominal_lawful_incident/graph.json `
   --query evidence_provenance `
   --output reports/generated/uc4/evidence_provenance.json

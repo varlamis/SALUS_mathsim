@@ -1,4 +1,4 @@
-{
+﻿{
   "entities": [
     {
       "assumption_ids": [
@@ -43,7 +43,7 @@
       "record_status": "engineering_decision",
       "role": "Forwards abstract device flows",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -121,7 +121,7 @@
       "record_status": "engineering_decision",
       "role": "Displays synthetic continuity status",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -193,7 +193,7 @@
       "record_status": "engineering_decision",
       "role": "Maps pseudonymous device classes and criticality",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -323,7 +323,7 @@
       "record_status": "engineering_decision",
       "role": "Builds evidence-only incident claims",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -370,7 +370,7 @@
       "record_status": "engineering_decision",
       "role": "Owns care-continuity review",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -391,7 +391,7 @@
       "record_status": "engineering_decision",
       "role": "Reviews alerts and requested response",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -498,7 +498,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic connected-device segment",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -519,7 +519,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic clinical display boundary",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -607,7 +607,7 @@
       "record_status": "synthetic_default",
       "role": "Deterministic health input",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",

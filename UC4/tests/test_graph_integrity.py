@@ -1,8 +1,8 @@
-import json
+﻿import json
 
 import networkx as nx
 
-from salus_t43.graph_builder import build_graph, load_relationships, source_digest
+from salus_mathsim.graph_builder import build_graph, load_relationships, source_digest
 
 
 def test_graph_is_connected_and_preserves_parallel_edge_ids(repo_root):

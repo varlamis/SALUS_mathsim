@@ -1,11 +1,11 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "salus-t43-uc3"
+name = "salus-mathsim-uc3"
 version = "0.1.0"
-description = "Deterministic SALUS T4.3 UC3 industrial cyber-physical model"
+description = "Deterministic SALUS mathematical simulation UC3 industrial cyber-physical model"
 requires-python = ">=3.11"
 dependencies = ["jsonschema==4.26.0", "networkx==3.6.1", "pydantic==2.13.5", "PyYAML==6.0.3"]
 
@@ -13,7 +13,7 @@ dependencies = ["jsonschema==4.26.0", "networkx==3.6.1", "pydantic==2.13.5", "Py
 test = ["pytest==8.4.2"]
 
 [project.scripts]
-salus-uc3 = "salus_t43.cli:main"
+salus-uc3 = "salus_mathsim.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

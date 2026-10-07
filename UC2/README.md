@@ -1,4 +1,4 @@
-# SALUS T4.3 UC2 passive IoT detection model
+﻿# SALUS mathematical simulation UC2 passive IoT detection model
 
 This self-contained package implements passive, synthetic multi-interface IoT
 observation, pseudonymous association and categorization, approval checking,

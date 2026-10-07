@@ -1,10 +1,10 @@
-from datetime import datetime, timezone
+﻿from datetime import datetime, timezone
 import hashlib
 from pathlib import Path
 from typing import Any
 
 
-EXCLUDED = {".git", ".venv", ".pytest_cache", ".pytest_tmp", "__pycache__", "salus_t43_uc5.egg-info"}
+EXCLUDED = {".git", ".venv", ".pytest_cache", ".pytest_tmp", "__pycache__", "salus_mathsim_uc5.egg-info"}
 
 
 def build_manifest(root: Path, output: Path, generated_at: datetime | None = None) -> dict[str, Any]:

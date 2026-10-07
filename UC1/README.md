@@ -1,4 +1,4 @@
-# SALUS T4.3 UC1 Car2X model
+﻿# SALUS mathematical simulation UC1 Car2X model
 
 This self-contained package models a controlled forged/replayed Car2X request involving a synthetic police test vehicle, OBU, RSU, traffic-signal controller, trust validation, explainable detection, policy mitigation, Digital Twins, and forensic reconstruction.
 

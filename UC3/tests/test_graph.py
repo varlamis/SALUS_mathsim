@@ -1,4 +1,4 @@
-from salus_t43.uc3.graph import competency_queries, static_document
+﻿from salus_mathsim.uc3.graph import competency_queries, static_document
 
 
 def test_graph_integrity_and_queries(repo_root):

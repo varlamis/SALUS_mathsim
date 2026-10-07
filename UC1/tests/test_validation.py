@@ -1,12 +1,12 @@
-from copy import deepcopy
+﻿from copy import deepcopy
 import json
 
 import pytest
 import yaml
 from jsonschema import Draft202012Validator
 
-from salus_t43.uc1.models import SimulationConfig
-from salus_t43.validation import validate_repository
+from salus_mathsim.uc1.models import SimulationConfig
+from salus_mathsim.validation import validate_repository
 
 
 def test_repository_and_both_primary_configs_validate(repo_root):

@@ -1,4 +1,4 @@
-# SALUS T4.3 UC3 industrial cyber-physical model
+﻿# SALUS mathematical simulation UC3 industrial cyber-physical model
 
 This self-contained package implements a deterministic, fully synthetic industrial level-control cell with symbolic protocol-aware fuzzing, unauthorized-write attempts, bounded application load, explainable detection, safety-constrained policy response, Digital Twins, evidence custody, graph queries, and reconstruction.
 

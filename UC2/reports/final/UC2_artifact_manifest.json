@@ -1,4 +1,4 @@
-{
+﻿{
   "artifact_count": 151,
   "artifacts": [
     {
@@ -663,67 +663,67 @@
     },
     {
       "bytes": 24,
-      "path": "src/salus_t43/__init__.py",
+      "path": "src/salus_mathsim/__init__.py",
       "sha256": "c09ec485463bec7cd445cc549e94ff9650cdce6bc70f50bfe719a6a1188522e3"
     },
     {
       "bytes": 4888,
-      "path": "src/salus_t43/cli.py",
+      "path": "src/salus_mathsim/cli.py",
       "sha256": "4b25f80152910ec73d7235b04e3e9c30f140c576a7516e3478cba4768e28cadc"
     },
     {
       "bytes": 1633,
-      "path": "src/salus_t43/handoff.py",
+      "path": "src/salus_mathsim/handoff.py",
       "sha256": "5fdd6875d4ee15522811968586f2af5d7c5333897163e7e003d980b890e3ba7c"
     },
     {
       "bytes": 0,
-      "path": "src/salus_t43/uc2/.gitkeep",
+      "path": "src/salus_mathsim/uc2/.gitkeep",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "bytes": 2711,
-      "path": "src/salus_t43/uc2/analysis.py",
+      "path": "src/salus_mathsim/uc2/analysis.py",
       "sha256": "adb3acf3e27e5761c714657daf00f15a714b0f53f4214f07d15850a0797a6ecd"
     },
     {
       "bytes": 794,
-      "path": "src/salus_t43/uc2/event_queue.py",
+      "path": "src/salus_mathsim/uc2/event_queue.py",
       "sha256": "c90fd3d5ca9e86d50b506ef00e8496cf57a23ba0f4c150e3eafadf38214b5d14"
     },
     {
       "bytes": 1924,
-      "path": "src/salus_t43/uc2/evidence.py",
+      "path": "src/salus_mathsim/uc2/evidence.py",
       "sha256": "c2433488dba4bfb85f79c919a20252a2b51b22b63901bfb1e8d8a79929c7daa4"
     },
     {
       "bytes": 1969,
-      "path": "src/salus_t43/uc2/experiments.py",
+      "path": "src/salus_mathsim/uc2/experiments.py",
       "sha256": "8a437822a6b312da388d96d6fc160c18c94196499344ad7a98412a93a204cb8d"
     },
     {
       "bytes": 2766,
-      "path": "src/salus_t43/uc2/graph.py",
+      "path": "src/salus_mathsim/uc2/graph.py",
       "sha256": "b7debdd92034cae1aeb30e9d219afb0180fc7828422565038ef62368f4115cf6"
     },
     {
       "bytes": 295,
-      "path": "src/salus_t43/uc2/identifiers.py",
+      "path": "src/salus_mathsim/uc2/identifiers.py",
       "sha256": "8100781e57094e20cb7f0718a5c3e3cddc88cdc8ff5211ededea9856160a54a0"
     },
     {
       "bytes": 1910,
-      "path": "src/salus_t43/uc2/models.py",
+      "path": "src/salus_mathsim/uc2/models.py",
       "sha256": "e649283552c3362dd8ae9284471abde8786895a913e30275a024e6343dffe465"
     },
     {
       "bytes": 7094,
-      "path": "src/salus_t43/uc2/simulation.py",
+      "path": "src/salus_mathsim/uc2/simulation.py",
       "sha256": "e5ae873317ddc1b69e5f83fc2b0b315411b5654ef905f1f966fc450204299185"
     },
     {
       "bytes": 2743,
-      "path": "src/salus_t43/validation.py",
+      "path": "src/salus_mathsim/validation.py",
       "sha256": "2c17574fb43857da4d742509652f74535f2e7eded5d21783a02313814327f513"
     },
     {

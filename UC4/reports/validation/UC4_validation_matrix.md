@@ -1,4 +1,4 @@
-# UC4 validation matrix
+﻿# UC4 validation matrix
 
 ## Decision
 
@@ -14,11 +14,11 @@ Allowed status values are `Complete`, `Partial`, `Missing`, `Not Applicable`, an
 | V-02 | Stable, unique canonical identifiers | Complete | `tests/test_event_queue.py::test_queue_rejects_negative_time_and_ids_are_stable`; `tests/test_stage11_validation.py::test_canonical_ids_vocabularies_and_twin_mapping_are_unique` | `models/instances/uc4_entities.json`; `models/relationships/uc4_relationships.csv` |
 | V-03 | Referential integrity and graph connectivity | Complete | `tests/test_graph_integrity.py` | `models/graph/uc4_graph.json`; `UC4_stage11_junit.xml` |
 | V-04 | Controlled vocabularies | Complete | `tests/test_stage11_validation.py::test_canonical_ids_vocabularies_and_twin_mapping_are_unique`; repository validator | `models/schemas/entity.schema.json`; `models/schemas/relationship.schema.json` |
-| V-05 | Versioned schema migration | Complete | `tests/test_stage11_validation.py::test_config_migration_is_explicit_non_mutating_and_idempotent` | `configs/uc4/schema_migrations.yaml`; `src/salus_t43/uc4/migrations.py` |
+| V-05 | Versioned schema migration | Complete | `tests/test_stage11_validation.py::test_config_migration_is_explicit_non_mutating_and_idempotent` | `configs/uc4/schema_migrations.yaml`; `src/salus_mathsim/uc4/migrations.py` |
 | V-06 | Legal state transitions and configured physical bounds | Complete | `tests/test_dynamics.py::test_device_transition_and_twin_monotonicity`; negative Pydantic tests in `test_schemas.py` | `models/formal/uc4_mathematical_model.md`; `UC4_stage11_junit.xml` |
-| V-07 | Monotonic simulation time and deterministic tie-breaking | Complete | `tests/test_event_queue.py` and runtime `_assert_invariants` | `src/salus_t43/uc4/event_queue.py`; nominal run package |
-| V-08 | Flow/queue conservation and bounded occupancy | Complete | `tests/test_dynamics.py::test_cpe_queue_conservation_and_overflow`; Stage 8 overflow branch | `src/salus_t43/uc4/traffic.py`; `reports/generated/uc4/experiments/cpe_queue_overflow/metrics.json` |
-| V-09 | Authorization default deny, verification, scope, time, purpose, action and revocation | Complete | `tests/test_policy_evidence.py`; parameterized `test_authorization_terms_fail_closed`; Stage 8 authorization branches | `src/salus_t43/uc4/authorization.py`; `reports/generated/uc4/experiments/experiment_comparison.json` |
+| V-07 | Monotonic simulation time and deterministic tie-breaking | Complete | `tests/test_event_queue.py` and runtime `_assert_invariants` | `src/salus_mathsim/uc4/event_queue.py`; nominal run package |
+| V-08 | Flow/queue conservation and bounded occupancy | Complete | `tests/test_dynamics.py::test_cpe_queue_conservation_and_overflow`; Stage 8 overflow branch | `src/salus_mathsim/uc4/traffic.py`; `reports/generated/uc4/experiments/cpe_queue_overflow/metrics.json` |
+| V-09 | Authorization default deny, verification, scope, time, purpose, action and revocation | Complete | `tests/test_policy_evidence.py`; parameterized `test_authorization_terms_fail_closed`; Stage 8 authorization branches | `src/salus_mathsim/uc4/authorization.py`; `reports/generated/uc4/experiments/experiment_comparison.json` |
 | V-10 | Field minimization before release | Complete | `tests/test_policy_evidence.py::test_policy_minimizes_to_permitted_fields` | nominal `policy_decisions.jsonl` and `evidence_manifest.json` |
 | V-11 | No evidence payload or bytes on denied collection | Complete | `test_policy_denies_out_of_scope_with_zero_disclosure`; `tests/test_experiments.py::test_stage8_negative_paths_have_expected_effects` | five authorization-negative run packages; Stage 8 report |
 | V-12 | Evidence content hashes and custody-chain verification, including deliberate corruption | Complete | `test_evidence_hash_and_custody_detect_corruption`; Stage 8 content/custody tamper branches | tampered experiment metrics and custody ledgers |

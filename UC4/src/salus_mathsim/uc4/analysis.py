@@ -1,4 +1,4 @@
-"""Seeded UC4 Monte Carlo analysis and dependency-free statistical reporting."""
+﻿"""Seeded UC4 Monte Carlo analysis and dependency-free statistical reporting."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from typing import Any
 
 import yaml
 
-from salus_t43.validation import validate_repository
+from salus_mathsim.validation import validate_repository
 
 from .collection import canonical_json_bytes
 from .models import SimulationConfig

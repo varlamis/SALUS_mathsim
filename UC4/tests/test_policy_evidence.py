@@ -1,12 +1,12 @@
-from dataclasses import replace
+﻿from dataclasses import replace
 
 import pytest
 import yaml
 
-from salus_t43.uc4.authorization import SourceRecord, evaluate_record
-from salus_t43.uc4.collection import canonical_json_bytes, collect_evidence
-from salus_t43.uc4.custody import CustodyChain
-from salus_t43.uc4.models import SimulationConfig
+from salus_mathsim.uc4.authorization import SourceRecord, evaluate_record
+from salus_mathsim.uc4.collection import canonical_json_bytes, collect_evidence
+from salus_mathsim.uc4.custody import CustodyChain
+from salus_mathsim.uc4.models import SimulationConfig
 
 
 def _authorization(repo_root):

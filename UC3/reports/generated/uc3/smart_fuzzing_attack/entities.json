@@ -1,4 +1,4 @@
-{
+﻿{
   "entities": [
     {
       "assumption_ids": [
@@ -14,7 +14,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic sensor and actuator boundary",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -62,7 +62,7 @@
       "record_status": "assumed",
       "role": "HMI historian and engineering services",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -137,7 +137,7 @@
       "record_status": "synthetic_default",
       "role": "Measures surrogate vessel level",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "healthy",
@@ -165,7 +165,7 @@
       "record_status": "synthetic_default",
       "role": "Controls surrogate inflow",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "off",
@@ -192,7 +192,7 @@
       "record_status": "synthetic_default",
       "role": "Controls surrogate outflow",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "closed",
@@ -221,7 +221,7 @@
       "role": "Runs deterministic scan and interlocks",
       "source_references": [
         "PROPOSAL-UC3-PP16-17",
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "initializing",
@@ -249,7 +249,7 @@
       "record_status": "assumed",
       "role": "Displays state and accepts authorized abstract commands",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -275,7 +275,7 @@
       "record_status": "assumed",
       "role": "Authorized configuration endpoint and symbolic attack target/source context",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",
@@ -705,7 +705,7 @@
       "record_status": "engineering_decision",
       "role": "Builds qualified claims from evidence",
       "source_references": [
-        "ROADMAP-T43"
+        "FRAMEWORK-ROADMAP"
       ],
       "states": [
         "available",
@@ -729,7 +729,7 @@
       "record_status": "assumed",
       "role": "Supervises the synthetic process",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "available",

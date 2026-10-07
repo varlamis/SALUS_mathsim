@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "assumption_id": "ASSUMPTION-UC5-013",
     "notes": "Logical placement",
@@ -6,7 +6,7 @@
     "relationship_id": "UC5-R001",
     "relationship_type": "deployed_in",
     "source_id": "UC5-D01",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-NZ01"
   },
   {
@@ -16,7 +16,7 @@
     "relationship_id": "UC5-R002",
     "relationship_type": "deployed_in",
     "source_id": "UC5-D02",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-NZ01"
   },
   {
@@ -26,7 +26,7 @@
     "relationship_id": "UC5-R003",
     "relationship_type": "deployed_in",
     "source_id": "UC5-D03",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-NZ01"
   },
   {
@@ -36,7 +36,7 @@
     "relationship_id": "UC5-R004",
     "relationship_type": "deployed_in",
     "source_id": "UC5-D04",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-NZ03"
   },
   {
@@ -46,7 +46,7 @@
     "relationship_id": "UC5-R005",
     "relationship_type": "deployed_in",
     "source_id": "UC5-D05",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-NZ02"
   },
   {
@@ -56,7 +56,7 @@
     "relationship_id": "UC5-R006",
     "relationship_type": "communicates_with",
     "source_id": "UC5-D01",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-D02"
   },
   {
@@ -66,7 +66,7 @@
     "relationship_id": "UC5-R007",
     "relationship_type": "communicates_with",
     "source_id": "UC5-D02",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-D03"
   },
   {
@@ -76,7 +76,7 @@
     "relationship_id": "UC5-R008",
     "relationship_type": "communicates_with",
     "source_id": "UC5-D03",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-D05"
   },
   {
@@ -106,7 +106,7 @@
     "relationship_id": "UC5-R011",
     "relationship_type": "feeds",
     "source_id": "UC5-D01",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-S02"
   },
   {
@@ -196,7 +196,7 @@
     "relationship_id": "UC5-R020",
     "relationship_type": "observes",
     "source_id": "UC5-S01",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-D01"
   },
   {
@@ -226,7 +226,7 @@
     "relationship_id": "UC5-R023",
     "relationship_type": "governed_by",
     "source_id": "UC5-S03",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-A01"
   },
   {
@@ -236,7 +236,7 @@
     "relationship_id": "UC5-R024",
     "relationship_type": "operated_by",
     "source_id": "UC5-S02",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-A02"
   },
   {
@@ -286,7 +286,7 @@
     "relationship_id": "UC5-R029",
     "relationship_type": "feeds",
     "source_id": "UC5-S05",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-S06"
   },
   {
@@ -296,7 +296,7 @@
     "relationship_id": "UC5-R030",
     "relationship_type": "supports_claim",
     "source_id": "UC5-S06",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-A03"
   },
   {
@@ -316,7 +316,7 @@
     "relationship_id": "UC5-R032",
     "relationship_type": "feeds",
     "source_id": "UC5-DS02",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-S02"
   },
   {
@@ -406,7 +406,7 @@
     "relationship_id": "UC5-R041",
     "relationship_type": "depends_on",
     "source_id": "UC5-S03",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-S01"
   },
   {
@@ -446,7 +446,7 @@
     "relationship_id": "UC5-R045",
     "relationship_type": "derived_from",
     "source_id": "UC5-S06",
-    "source_reference": "ROADMAP-T43",
+    "source_reference": "FRAMEWORK-ROADMAP",
     "target_id": "UC5-S04"
   }
 ]

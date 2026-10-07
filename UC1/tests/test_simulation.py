@@ -1,4 +1,4 @@
-from salus_t43.uc1.simulation import export_result, run_simulation
+﻿from salus_mathsim.uc1.simulation import export_result, run_simulation
 
 
 def test_nominal_attack_is_deterministic_safe_and_explained(repo_root):

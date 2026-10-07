@@ -1,7 +1,7 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://salus-project.eu/schemas/t43/runtime_graph.schema.json",
-  "title": "SALUS T4.3 UC4 Temporal Runtime Graph",
+  "$id": "https://salus-project.eu/schemas/mathsim/runtime_graph.schema.json",
+  "title": "SALUS mathematical simulation UC4 Temporal Runtime Graph",
   "type": "object",
   "additionalProperties": false,
   "required": ["metadata", "nodes", "edges"],

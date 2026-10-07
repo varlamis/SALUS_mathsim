@@ -1,7 +1,7 @@
-from copy import deepcopy
+﻿from copy import deepcopy
 from datetime import datetime, timezone
 
-from salus_t43.handoff import build_manifest, verify_manifest
+from salus_mathsim.handoff import build_manifest, verify_manifest
 
 
 def test_manifest_is_sorted_complete_and_verifiable(repo_root, tmp_path):

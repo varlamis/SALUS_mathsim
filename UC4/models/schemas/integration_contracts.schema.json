@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://salus-project.eu/schemas/t43/integration_contracts.schema.json",
+  "$id": "https://salus-project.eu/schemas/mathsim/integration_contracts.schema.json",
   "title": "SALUS UC4 Integration Contract Set",
   "type": "object",
   "additionalProperties": false,

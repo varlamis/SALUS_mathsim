@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_UC4_Detection" targetNamespace="https://salus-project.eu/t43/uc4/detection">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_UC4_Detection" targetNamespace="https://salus-project.eu/mathsim/uc4/detection">
   <bpmn:message id="Msg_Observations" name="Windowed observable events" /><bpmn:message id="Msg_Alert" name="Explainable alert/case candidate (UC4-DO06)" /><bpmn:message id="Msg_CaseTrigger" name="Investigation case trigger" />
   <bpmn:error id="Error_Detector" name="Detector evaluation failure" errorCode="UC4-DETECTOR-ERROR" />
   <bpmn:dataStore id="Store_Events" name="Observable event store" /><bpmn:dataStore id="Store_Cases" name="Case register" /><bpmn:dataStore id="Store_Audit" name="Audit log" />

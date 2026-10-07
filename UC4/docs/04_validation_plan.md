@@ -1,4 +1,4 @@
-# UC4 pre-simulation validation plan
+﻿# UC4 pre-simulation validation plan
 
 ## Purpose and boundary
 
@@ -48,8 +48,8 @@ Run the gate from the repository root:
 
 ```powershell
 python -m pip install -e ".[test]"
-salus-t43 validate --config configs/uc4/incident_lawful_access.yaml --write-graph
-salus-t43 validate --config configs/uc4/baseline.yaml
+salus-mathsim validate --config configs/uc4/incident_lawful_access.yaml --write-graph
+salus-mathsim validate --config configs/uc4/baseline.yaml
 python -m pytest -q
 ```
 
@@ -57,7 +57,7 @@ For source-tree execution without installation:
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m salus_t43.cli validate --config configs/uc4/incident_lawful_access.yaml --write-graph
+python -m salus_mathsim.cli validate --config configs/uc4/incident_lawful_access.yaml --write-graph
 python -m pytest -q
 ```
 

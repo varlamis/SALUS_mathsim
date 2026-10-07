@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "assumption_ids": [
       "ASSUMPTION-UC1-002"
@@ -429,7 +429,7 @@
     "relationship_type": "PRODUCES_EVIDENCE",
     "source_entity": "UC1-S03",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1-S06",
     "use_case": "UC1"
@@ -444,7 +444,7 @@
     "relationship_type": "PRODUCES_EVIDENCE",
     "source_entity": "UC1-S02",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1-S06",
     "use_case": "UC1"
@@ -459,7 +459,7 @@
     "relationship_type": "PRODUCES_EVIDENCE",
     "source_entity": "UC1-S04",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1-S06",
     "use_case": "UC1"
@@ -474,7 +474,7 @@
     "relationship_type": "FEEDS",
     "source_entity": "UC1-S06",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1-S07",
     "use_case": "UC1"
@@ -489,7 +489,7 @@
     "relationship_type": "FEEDS",
     "source_entity": "UC1-S07",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1-A04",
     "use_case": "UC1"
@@ -549,7 +549,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-NZ01",
     "source_references": [
-      "WORKING-TEMPLATE-T43"
+      "WORKING-TEMPLATE"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"
@@ -609,7 +609,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-D03",
     "source_references": [
-      "WORKING-TEMPLATE-T43"
+      "WORKING-TEMPLATE"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"
@@ -669,7 +669,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-D09",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"
@@ -759,7 +759,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-S06",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"
@@ -774,7 +774,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-S07",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"
@@ -834,7 +834,7 @@
     "relationship_type": "BELONGS_TO_USE_CASE",
     "source_entity": "UC1-A04",
     "source_references": [
-      "ROADMAP-T43"
+      "FRAMEWORK-ROADMAP"
     ],
     "target_entity": "UC1",
     "use_case": "UC1"

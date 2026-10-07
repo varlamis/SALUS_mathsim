@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from datetime import datetime, timezone
 import hashlib
@@ -6,7 +6,7 @@ import json
 
 from jsonschema import Draft202012Validator
 
-from salus_t43.handoff import build_artifact_manifest, verify_artifact_manifest
+from salus_mathsim.handoff import build_artifact_manifest, verify_artifact_manifest
 
 
 def test_final_manifest_is_sorted_complete_and_verifiable(repo_root, tmp_path) -> None:

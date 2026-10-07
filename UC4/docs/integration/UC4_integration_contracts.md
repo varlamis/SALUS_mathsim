@@ -1,4 +1,4 @@
-# UC4 integration contracts and handoff
+﻿# UC4 integration contracts and handoff
 
 ## Contract authority and compatibility
 
@@ -43,9 +43,9 @@ These are boundary contracts, not claims that external partner endpoints are dep
 ## Handoff checks
 
 ```powershell
-salus-t43 validate --config configs/uc4/incident_lawful_access.yaml
+salus-mathsim validate --config configs/uc4/incident_lawful_access.yaml
 python -m pytest -q
-salus-t43 manifest --output reports/final/UC4_artifact_manifest.json
+salus-mathsim manifest --output reports/final/UC4_artifact_manifest.json
 ```
 
 The manifest is self-excluded so it can list stable hashes of every final source, model, configuration, test, and generated report. Re-run it after any repository artefact changes.

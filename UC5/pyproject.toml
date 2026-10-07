@@ -1,9 +1,9 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "salus-t43-uc5"
+name = "salus-mathsim-uc5"
 version = "0.1.0"
 description = "Deterministic UC5 clinical-continuity-aware medical-IoT model"
 requires-python = ">=3.11"
@@ -13,7 +13,7 @@ dependencies = ["jsonschema==4.26.0", "networkx==3.6.1", "pydantic==2.13.5", "Py
 test = ["pytest==8.4.2"]
 
 [project.scripts]
-salus-uc5 = "salus_t43.cli:main"
+salus-uc5 = "salus_mathsim.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

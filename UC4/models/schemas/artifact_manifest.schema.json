@@ -1,6 +1,6 @@
-{
+﻿{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://salus-project.eu/schemas/t43/artifact_manifest.schema.json",
+  "$id": "https://salus-project.eu/schemas/mathsim/artifact_manifest.schema.json",
   "title": "SALUS UC4 Final Artifact Manifest",
   "type": "object",
   "additionalProperties": false,
@@ -8,7 +8,7 @@
   "properties": {
     "schema_version": {"const": "1.0.0"},
     "use_case": {"const": "UC4"},
-    "generator": {"type": "string", "pattern": "^salus-t43/[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "generator": {"type": "string", "pattern": "^salus-mathsim/[0-9]+\\.[0-9]+\\.[0-9]+$"},
     "generated_at_utc": {"type": "string", "format": "date-time"},
     "hash_algorithm": {"const": "SHA-256"},
     "self_excluded": {"const": true},

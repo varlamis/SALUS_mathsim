@@ -1,9 +1,9 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import xml.etree.ElementTree as ET
 
-from salus_t43.uc4.analysis import mean_confidence_interval, pearson, run_monte_carlo, wilson_interval
+from salus_mathsim.uc4.analysis import mean_confidence_interval, pearson, run_monte_carlo, wilson_interval
 
 
 def test_statistical_helpers_preserve_undefined_values() -> None:

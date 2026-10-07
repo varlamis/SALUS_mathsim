@@ -1,4 +1,4 @@
-from salus_t43.validation import validate_bpmn
+﻿from salus_mathsim.validation import validate_bpmn
 
 
 def test_all_bpmn_models_pass_structural_validation(repo_root):

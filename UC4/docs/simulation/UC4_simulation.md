@@ -1,4 +1,4 @@
-# UC4 deterministic simulation core
+﻿# UC4 deterministic simulation core
 
 ## Runtime contract
 
@@ -19,17 +19,17 @@ The runtime has four deliberately separate data partitions:
 
 | Implementation | Responsibility | Formal sections |
 |---|---|---|
-| `uc4/identifiers.py` | Stable run-local IDs | §§2, 4, 16.1 |
-| `uc4/event_queue.py` | Immutable scheduled events ordered by `(time, sequence)` | §§3–4 |
-| `uc4/entities.py` | Physical state/version guards, Home Assistant registry, monotonic twins | §§6–7, 9 |
-| `uc4/dynamics.py` | Source-isolated seeded random streams, loss, clocks, jitter, delays | §5 |
-| `uc4/traffic.py` | CPE queue conservation, service, capacity, and overflow | §8 |
-| `uc4/authorization.py` | Eligibility predicate, default deny, field projection | §11 |
-| `uc4/collection.py` | RFC 8785 serialization, SHA-256, immutable evidence metadata | §12.1–12.2 |
-| `uc4/custody.py` | Genesis and append-only custody hash chain | §12.3 |
-| `uc4/reconstruction.py` | Evidence-only ordering and explainable support scores | §13 |
-| `uc4/metrics.py` | Evidence, disclosure, latency, twin, network, and loss metrics | §14 |
-| `uc4/simulation.py` | Global transition orchestration, invariants, manifest, and exports | §§3, 10, 15–18 |
+| `uc4/identifiers.py` | Stable run-local IDs | Â§Â§2, 4, 16.1 |
+| `uc4/event_queue.py` | Immutable scheduled events ordered by `(time, sequence)` | Â§Â§3â€“4 |
+| `uc4/entities.py` | Physical state/version guards, Home Assistant registry, monotonic twins | Â§Â§6â€“7, 9 |
+| `uc4/dynamics.py` | Source-isolated seeded random streams, loss, clocks, jitter, delays | Â§5 |
+| `uc4/traffic.py` | CPE queue conservation, service, capacity, and overflow | Â§8 |
+| `uc4/authorization.py` | Eligibility predicate, default deny, field projection | Â§11 |
+| `uc4/collection.py` | RFC 8785 serialization, SHA-256, immutable evidence metadata | Â§12.1â€“12.2 |
+| `uc4/custody.py` | Genesis and append-only custody hash chain | Â§12.3 |
+| `uc4/reconstruction.py` | Evidence-only ordering and explainable support scores | Â§13 |
+| `uc4/metrics.py` | Evidence, disclosure, latency, twin, network, and loss metrics | Â§14 |
+| `uc4/simulation.py` | Global transition orchestration, invariants, manifest, and exports | Â§Â§3, 10, 15â€“18 |
 
 ## Determinism
 
@@ -52,8 +52,8 @@ Reconstruction emits entry, automation, and tampering claims with support scores
 ## Execution and outputs
 
 ```powershell
-salus-t43 run --config configs/uc4/incident_lawful_access.yaml
-salus-t43 run --config configs/uc4/baseline.yaml
+salus-mathsim run --config configs/uc4/incident_lawful_access.yaml
+salus-mathsim run --config configs/uc4/baseline.yaml
 ```
 
 The run writes `run_manifest.json`, `resolved_config.yaml`, entity and relationship snapshots, hidden and observed event streams, policy decisions, evidence and custody records, reconstruction, graph, metrics, validation report, and technical Markdown summary. `--output` can redirect the package without changing scenario semantics.

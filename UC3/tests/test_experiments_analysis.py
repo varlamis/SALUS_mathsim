@@ -1,5 +1,5 @@
-from salus_t43.uc3.analysis import run_analysis
-from salus_t43.uc3.experiments import run_matrix
+﻿from salus_mathsim.uc3.analysis import run_analysis
+from salus_mathsim.uc3.experiments import run_matrix
 
 
 def test_experiment_matrix_passes(repo_root):

@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_UC4_Normal" targetNamespace="https://salus-project.eu/t43/uc4/normal">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_UC4_Normal" targetNamespace="https://salus-project.eu/mathsim/uc4/normal">
   <bpmn:message id="Msg_DeviceEvent" name="Versioned device event" />
   <bpmn:message id="Msg_DeviceCommand" name="Automation command" />
   <bpmn:message id="Msg_Acknowledgement" name="Command acknowledgement" />
   <bpmn:message id="Msg_TwinUpdate" name="Twin state update" />
   <bpmn:error id="Error_HAIngestion" name="Home Assistant ingestion failure" errorCode="UC4-HA-INGESTION" />
   <bpmn:collaboration id="Collab_UC4_Normal">
-    <bpmn:participant id="Participant_Devices" name="Physical smart-home devices (UC4-D03–D06)" processRef="Process_Devices" />
+    <bpmn:participant id="Participant_Devices" name="Physical smart-home devices (UC4-D03â€“D06)" processRef="Process_Devices" />
     <bpmn:participant id="Participant_HA" name="Home Assistant (UC4-D02)" processRef="Process_HA" />
     <bpmn:participant id="Participant_CPE_Twin" name="CPE and Digital Twin services (UC4-D01/S06)" processRef="Process_CPE_Twin" />
     <bpmn:messageFlow id="MF_DeviceEvent" sourceRef="Send_DeviceEvent" targetRef="Catch_DeviceEvent" />

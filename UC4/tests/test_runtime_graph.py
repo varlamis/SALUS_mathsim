@@ -1,10 +1,10 @@
-import json
+﻿import json
 import xml.etree.ElementTree as ET
 
 from jsonschema import Draft202012Validator
 
-from salus_t43.uc4.queries import CompetencyQueryEngine
-from salus_t43.uc4.simulation import run_simulation
+from salus_mathsim.uc4.queries import CompetencyQueryEngine
+from salus_mathsim.uc4.simulation import run_simulation
 
 
 def _result(repo_root):

@@ -1,8 +1,8 @@
-import copy
+﻿import copy
 import yaml
 import pytest
-from salus_t43.uc3.models import SimulationConfig
-from salus_t43.validation import validate_repository
+from salus_mathsim.uc3.models import SimulationConfig
+from salus_mathsim.validation import validate_repository
 
 
 def test_repository_is_complete(repo_root, nominal_config):

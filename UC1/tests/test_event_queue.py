@@ -1,6 +1,6 @@
-import pytest
+﻿import pytest
 
-from salus_t43.uc1.event_queue import EventQueue
+from salus_mathsim.uc1.event_queue import EventQueue
 
 
 def test_queue_orders_by_time_then_sequence():

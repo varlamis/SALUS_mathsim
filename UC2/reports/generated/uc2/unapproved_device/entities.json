@@ -1,4 +1,4 @@
-{
+﻿{
   "entities": [
     {
       "assumption_ids": [
@@ -94,7 +94,7 @@
       "record_status": "engineering_decision",
       "role": "Synthetic approved emitter",
       "source_references": [
-        "WORKING-TEMPLATE-T43"
+        "WORKING-TEMPLATE"
       ],
       "states": [
         "present",
