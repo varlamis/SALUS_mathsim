@@ -1,0 +1,9 @@
+{
+  "evidence_id": "UC1-EV-000001",
+  "source_event_id": "UC1-EVT-000001",
+  "evidence_type": "message_observed",
+  "content_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "collected_at": 1.02,
+  "fields": {},
+  "custody_status": "verified"
+}

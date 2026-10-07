@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+base_config: configs/uc1/forged_message_attack.yaml
+sample_count: 100
+seed_start: 8100
+factors:
+  loss_probability: {minimum: 0.0, maximum: 0.20}
+  observation_probability: {minimum: 0.70, maximum: 1.0}
+  jitter_seconds: {minimum: 0.0, maximum: 0.20}
+  detection_threshold: {minimum: 0.30, maximum: 0.80}
+outcomes: [attack_detection_recall, controller_effect_count, safety_violation_count, evidence_capture_recall]
+

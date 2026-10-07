@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/integration_contracts.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "use_case", "contracts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "use_case": {"const": "UC1"},
+    "contracts": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["contract_id", "component", "producer", "consumer", "payloads", "failure_behavior", "sensitivity", "status"],
+        "properties": {
+          "contract_id": {"type": "string", "pattern": "^UC1-IC-[0-9]{2}$"},
+          "component": {"type": "string"},
+          "producer": {"type": "string"},
+          "consumer": {"type": "string"},
+          "payloads": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "failure_behavior": {"type": "string"},
+          "sensitivity": {"enum": ["Low", "Medium", "High", "Critical"]},
+          "status": {"enum": ["proposed", "synthetic", "TBD", "confirmed"]}
+        }
+      }
+    }
+  }
+}
+

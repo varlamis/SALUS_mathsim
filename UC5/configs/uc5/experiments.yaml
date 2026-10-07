@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+base_config: configs/uc5/compromised_monitor.yaml
+experiments:
+ - {id: baseline, overrides: {attack.enabled: false}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+ - {id: nominal, overrides: {}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+ - {id: flow_flood, overrides: {attack.kind: flow_flood, attack.multiplier: 10}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+ - {id: observation_loss, overrides: {channel.observation_probability: 0.0}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+ - {id: no_backup, overrides: {device.backup_monitoring: false}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+ - {id: backup_active, overrides: {device.backup_monitoring: true}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+ - {id: enforcement_failed, overrides: {policy.enforcement_available: false}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+ - {id: health_fault, overrides: {attack.kind: health_fault}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+ - {id: sharing_denied, overrides: {evidence.sharing_authorized: false}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}

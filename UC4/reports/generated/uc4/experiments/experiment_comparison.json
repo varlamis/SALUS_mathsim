@@ -1,0 +1,814 @@
+{
+  "schema_version": "1.0.0",
+  "status": "valid",
+  "failures": [],
+  "experiments": [
+    {
+      "experiment_id": "baseline",
+      "description": "Normal operation without the unauthorized-entry incident or acquisition.",
+      "canonical_result_sha256": "f8e6c5676ff309db35ae0575d1b27d68798d4b8b154aa028cc8679f4045ea254",
+      "ground_truth_event_types": [
+        "device.heartbeat"
+      ],
+      "observed_event_types": [
+        "device.heartbeat"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 0
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {},
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "nominal_lawful_incident",
+      "description": "Unauthorized entry, door-sensor tampering, and valid scoped acquisition.",
+      "canonical_result_sha256": "6ea88da6b478747082112c00a8a44876f1b4e4e5e64a4a3815ee5b3b9121712c",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 17,
+        "deny": 16
+      },
+      "evidence_items": 17,
+      "verified_evidence_items": 17,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 15,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "authorization_absent",
+      "description": "Incident and case exist, but no authorization is supplied.",
+      "canonical_result_sha256": "9aa295fe8d1b2ce30a92506cf5ce8e7ada4968572ef603f2c95ab7d29503aa6d",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "authorization_invalid",
+      "description": "Authorization verification fails.",
+      "canonical_result_sha256": "f6d361809ce66dcc484cc4fb3d66ead5ec69f644a6b211ca535188cebd00c1b9",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "authorization_expired",
+      "description": "Authorization validity ended before the request.",
+      "canonical_result_sha256": "685511a28b43a1984cbce272ea9181c2c8b1ee316dbf6e35871cee9aa1670802",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "authorization_revoked",
+      "description": "Authorization was revoked before source acquisition.",
+      "canonical_result_sha256": "bd69f09062d23b3fbb4bb2f12ed84522fd5b82e04f05fe3ea6a6b6a24c163546",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "out_of_scope_device",
+      "description": "The incident device is outside the authorization entity scope.",
+      "canonical_result_sha256": "deda6403d54d9e12e92ec24b12d6f04d9b551142534bb5b871f7f46012284b47",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "presence_event_missed",
+      "description": "True movement occurs but the presence observation is forced to miss.",
+      "canonical_result_sha256": "df8e31350e2e4e7880454b8a54e0987b177120c7101b6779942a9c8299e6e526",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 14,
+        "deny": 16
+      },
+      "evidence_items": 14,
+      "verified_evidence_items": 14,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 1,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 12,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "door_event_lost",
+      "description": "Door opening remains in ground truth but is lost before Home Assistant ingestion.",
+      "canonical_result_sha256": "a35f2f4be01130d75475973c8b335e4c4e71fd51dc8cfdf8589e355e46b884ff",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 9,
+        "deny": 16
+      },
+      "evidence_items": 9,
+      "verified_evidence_items": 9,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 1,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 7,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "unsupported",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "source_records_evicted",
+      "description": "Source retention expires before the acquisition request.",
+      "canonical_result_sha256": "3225d36db4efe80c928c4bd14179bbe5528eff35e7596fbd6b66c57c170fa1e2",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 0,
+        "deny": 1
+      },
+      "evidence_items": 0,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 16
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "cpe_queue_overflow",
+      "description": "A one-byte CPE queue with negligible service forces deterministic flow-record loss.",
+      "canonical_result_sha256": "7af5b7b80f08693b0583af6978004fae5488312c612950e97519a4b5080cb6fe",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 11,
+        "deny": 10
+      },
+      "evidence_items": 11,
+      "verified_evidence_items": 11,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 12,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.8687473282079018,
+      "ambiguous_ordering_links": 9,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "maximum_clock_skew",
+      "description": "Opposing bounded source offsets widen and overlap reconstructed event intervals.",
+      "canonical_result_sha256": "210a8aa53a42f76a23e674e3d5704be14cdd43ab096c2048c59bcec7298c5ee8",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 17,
+        "deny": 16
+      },
+      "evidence_items": 17,
+      "verified_evidence_items": 17,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 16,
+      "maximum_uncertainty_width_seconds": 60.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "evidence_content_tampered",
+      "description": "A collected evidence object is altered after hashing and must be quarantined.",
+      "canonical_result_sha256": "1de0a0e46bd3242adf5c0f4febe790048fedc121679e72bc34142616547fd536",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 17,
+        "deny": 16
+      },
+      "evidence_items": 17,
+      "verified_evidence_items": 16,
+      "quarantined_evidence_items": 1,
+      "integrity_valid": false,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 14,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "custody_link_tampered",
+      "description": "The first custody action is altered after append and invalidates the chain.",
+      "canonical_result_sha256": "aabe0707d303c84a79dbae215882d18f9e41fff935335b5e2f84921a4f5f9d92",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 17,
+        "deny": 16
+      },
+      "evidence_items": 17,
+      "verified_evidence_items": 0,
+      "quarantined_evidence_items": 17,
+      "integrity_valid": false,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 0,
+      "maximum_uncertainty_width_seconds": null,
+      "claim_qualifications": {
+        "entry": "unsupported",
+        "automation": "unsupported",
+        "tamper": "unsupported"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "home_assistant_unavailable",
+      "description": "Device/CPE evidence remains, but Home Assistant cannot ingest or trigger automation.",
+      "canonical_result_sha256": "37ea7b89b147cf54efcdba5518e5745f8dce94be1ca3d30ef885b53afe4e4f47",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 8,
+        "deny": 12
+      },
+      "evidence_items": 8,
+      "verified_evidence_items": 8,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": 0.0,
+      "ambiguous_ordering_links": 6,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "unsupported",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    },
+    {
+      "experiment_id": "cpe_unavailable",
+      "description": "CPE flow logging is unavailable while device and Home Assistant records remain.",
+      "canonical_result_sha256": "116e533ae438da8932a9897d421be20804d812b2c2e71ff184f32d2899eee612",
+      "ground_truth_event_types": [
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion",
+        "presence.true_movement"
+      ],
+      "observed_event_types": [
+        "automation.triggered",
+        "case.triggered",
+        "device.heartbeat",
+        "device.offline",
+        "device.tamper",
+        "door.open",
+        "light.on",
+        "presence.motion"
+      ],
+      "policy_counts": {
+        "allow": 0,
+        "minimize": 11,
+        "deny": 10
+      },
+      "evidence_items": 11,
+      "verified_evidence_items": 11,
+      "quarantined_evidence_items": 0,
+      "integrity_valid": true,
+      "unauthorized_disclosure_bytes": 0,
+      "losses": {
+        "cpe_unavailable": 12,
+        "observation": 0,
+        "presence_missed": 0,
+        "queue_overflow": 0,
+        "retention": 0
+      },
+      "queue_loss_rate": null,
+      "ambiguous_ordering_links": 9,
+      "maximum_uncertainty_width_seconds": 4.430000000000064,
+      "claim_qualifications": {
+        "entry": "strong",
+        "automation": "strong",
+        "tamper": "strong"
+      },
+      "assertions": {
+        "status": "pass",
+        "failures": []
+      }
+    }
+  ]
+}

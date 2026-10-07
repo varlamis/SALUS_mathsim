@@ -1,0 +1,124 @@
+{
+  "experiments": [
+    {
+      "alert_count": 0,
+      "canonical_hash": "146fb2fb684fe03b22780bddf27f4009f8d15720e9e0d8a54e4df81f885750a3",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "baseline",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "1735091bf2d9dcf2b1e04256b021e379f71ee35f79cdac1e3352c6ee315e7c96",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "nominal_smart_fuzzing",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "3e06d270861ef1ac6266c851ae4cb89c5cbf4622c4fae0479c26b172b810e220",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "unauthorized_write",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 4,
+      "canonical_hash": "2f7d805f4a34f7f2268c6b1262bbe17081dff70ed1dcbb3f8722cb710ffdce4f",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "application_flood",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "107315376947a4f48799d76e57daf57a4654b39e7c43c2a9e5af51a64f538a43",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "sensor_stuck_fault",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "d0cae4d398691068f7d39ecb3d4698197a526b03dc967ae2a03da2ff68e90150",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "observation_loss",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "20e79dbcb1bde7fa35c3b715e68f857b366fc3ddbb634b1cbc5ecd7e8f4eefd9",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "enforcement_failed",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "58019af99ff51bf3e67eddceecffae15d918488d829bf9e50645a5c6a276cb9e",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "unsafe_isolation_rejected",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 6,
+      "canonical_hash": "3cd0a113ddb9268fd3e9ed557789f1d68a8cd64a2bcf1ab1dae554b7e38feeaa",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true
+      },
+      "id": "maximum_clock_skew",
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "use_case": "UC3"
+}

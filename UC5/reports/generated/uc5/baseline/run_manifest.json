@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "568e0bd53207a02537370567b7f41acf56f0d9ee05247628cace16fb39d216a5",
+  "scenario_id": "UC5-BASELINE",
+  "schema_version": "1.0.0",
+  "seed": 5501,
+  "synthetic": true,
+  "use_case": "UC5"
+}

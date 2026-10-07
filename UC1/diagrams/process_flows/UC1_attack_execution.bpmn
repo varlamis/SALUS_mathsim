@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="https://salus.example/uc1">
+  <process id="UC1_AttackExecution" isExecutable="false"><startEvent id="Start"/><task id="Authorize" name="Authorize controlled run"/><task id="Inject" name="Inject symbolic request"/><task id="Record" name="Record bounded reach"/><endEvent id="End"/><sequenceFlow id="F1" sourceRef="Start" targetRef="Authorize"/><sequenceFlow id="F2" sourceRef="Authorize" targetRef="Inject"/><sequenceFlow id="F3" sourceRef="Inject" targetRef="Record"/><sequenceFlow id="F4" sourceRef="Record" targetRef="End"/></process>
+</definitions>
+

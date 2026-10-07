@@ -1,0 +1,1 @@
+{"attributes": {"action": "none", "clinical_actuation": false, "effective": false}, "event_id": "UC5-EV-000165", "event_time": 42.03, "event_type": "mitigation_action", "ingest_time": 42.03, "message_id": null, "observable": true, "payload_hash": "0e480200d7a7b112ffade10ac26b2c38a38b6fc5711ce858184de2bc94aa98bd", "source_entity": "UC5-D03", "target_entity": "UC5-D01"}

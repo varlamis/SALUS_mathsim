@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+contract: simulation_config
+current_version: 1.0.0
+migrations:
+  - source_version: 0.9.0
+    target_version: 1.0.0
+    deterministic: true
+    operations:
+      - add network.background_load_fraction with default 0.0
+      - add collection.start_delay_seconds with default 0.0
+unsupported_version_policy: reject

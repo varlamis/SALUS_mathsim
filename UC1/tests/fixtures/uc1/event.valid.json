@@ -1,0 +1,12 @@
+{
+  "event_id": "UC1-EVT-000001",
+  "event_type": "message_observed",
+  "event_time": 1.0,
+  "ingest_time": 1.01,
+  "source_entity": "UC1-D02",
+  "target_entity": "UC1-D05",
+  "message_id": "UC1-MSG-FIXTURE",
+  "payload_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "attributes": {"message_class": "authorized_request", "synthetic": true},
+  "observable": true
+}

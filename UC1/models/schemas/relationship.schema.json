@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/relationship.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["relationship_id", "use_case", "source_entity", "target_entity", "relationship_type", "description", "record_status", "source_references", "assumption_ids"],
+  "properties": {
+    "relationship_id": {"type": "string", "pattern": "^UC1-REL-[0-9]{3}$"},
+    "use_case": {"const": "UC1"},
+    "source_entity": {"type": "string", "pattern": "^UC1(?:-[A-Z]+[0-9]{2})?$"},
+    "target_entity": {"type": "string", "pattern": "^UC1(?:-[A-Z]+[0-9]{2})?$"},
+    "relationship_type": {"enum": ["BELONGS_TO_USE_CASE", "DEPLOYED_IN", "OWNED_BY", "OPERATED_BY", "COMMUNICATES_WITH", "ROUTES_TO", "USES_INTERFACE", "GENERATES", "OBSERVED_BY", "VALIDATED_BY", "TRUSTS", "CONTROLS", "PROTECTED_BY", "MIRRORED_BY", "SYNCHRONIZES_WITH", "TARGETS", "ATTEMPTS_TO_TRIGGER", "TRIGGERS", "FEEDS", "PRODUCES_EVIDENCE", "DERIVED_FROM", "SUPPORTS_CLAIM", "MITIGATED_BY"]},
+    "description": {"type": "string", "minLength": 1},
+    "record_status": {"enum": ["proposal", "engineering_decision", "synthetic_default", "assumed", "TBD", "partner_confirmed"]},
+    "source_references": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "assumption_ids": {"type": "array", "items": {"type": "string"}}
+  }
+}
+

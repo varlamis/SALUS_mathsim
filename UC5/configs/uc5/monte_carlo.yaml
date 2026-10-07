@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+base_config: configs/uc5/compromised_monitor.yaml
+seed: 55100
+samples: 100
+ranges: {attack.multiplier: [2, 8], channel.observation_probability: [0.7, 1.0], channel.loss_probability: [0, 0.15], detection.threshold: [0.3, 0.8]}

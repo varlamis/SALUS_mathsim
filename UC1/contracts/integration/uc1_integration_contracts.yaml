@@ -1,0 +1,68 @@
+schema_version: 1.0.0
+use_case: UC1
+contracts:
+  - contract_id: UC1-IC-01
+    component: T4.4 Digital Twin Engine
+    producer: UC1 simulation and observation layer
+    consumer: T4.4 DTE adapter
+    payloads: [entity state, source time, ingest time, version, quality, stale flag]
+    failure_behavior: Reject stale or malformed updates; never substitute hidden truth.
+    sensitivity: High
+    status: proposed
+  - contract_id: UC1-IC-02
+    component: T4.2 SDaaSS
+    producer: UC1 detection and policy layer
+    consumer: T4.2 capability and enforcement adapter
+    payloads: [zone, flow reference, alert, requested action, applied action, acknowledgement, expiry]
+    failure_behavior: Unsupported or unacknowledged action is recorded as failed; controller safety remains independent.
+    sensitivity: High
+    status: proposed
+  - contract_id: UC1-IC-03
+    component: T4.5 threat simulation
+    producer: UC1 scenario controller
+    consumer: T4.5 simulation environment
+    payloads: [scenario version, seed, attack type, target, timing, bounded reach stages, outcomes]
+    failure_behavior: Invalid or unsafe scenario parameters fail before execution.
+    sensitivity: High
+    status: proposed
+  - contract_id: UC1-IC-04
+    component: T3.3 AI and XAI
+    producer: UC1 observation and trust layer
+    consumer: T3.3 model adapter
+    payloads: [feature values, missingness, event reference, score, threshold, explanation]
+    failure_behavior: Missing model output produces a degraded alert state without fabricated confidence.
+    sensitivity: High
+    status: proposed
+  - contract_id: UC1-IC-05
+    component: T3.4 threat intelligence
+    producer: UC1 alert layer
+    consumer: T3.4 enrichment adapter
+    payloads: [entity reference, attack class, confidence, observed indicators, source status]
+    failure_behavior: Enrichment unavailability does not alter original alert evidence.
+    sensitivity: High
+    status: proposed
+  - contract_id: UC1-IC-06
+    component: T3.5 device identification
+    producer: T3.5 identification adapter
+    consumer: UC1 entity and observation layer
+    payloads: [pseudonymous endpoint, interface family, observation time, confidence, capability]
+    failure_behavior: Unknown identity remains unknown and cannot satisfy authorization.
+    sensitivity: Critical
+    status: TBD
+  - contract_id: UC1-IC-07
+    component: T3.1 and T3.6 evidence services
+    producer: UC1 evidence service
+    consumer: evidence storage and sharing adapter
+    payloads: [evidence ID, content hash, provenance, minimization, custody, access scope]
+    failure_behavior: Invalid authorization or integrity prevents release.
+    sensitivity: Critical
+    status: proposed
+  - contract_id: UC1-IC-08
+    component: WP6 NRW pilot
+    producer: NRW calibration input
+    consumer: UC1 configuration and model migration
+    payloads: [confirmed entities, interfaces, topology, timing ranges, data availability, permitted fields]
+    failure_behavior: Missing values retain explicit synthetic defaults and cannot be labelled pilot validated.
+    sensitivity: Critical
+    status: TBD
+

@@ -1,0 +1,30 @@
+{
+  "claims": [
+    {
+      "alternatives": [
+        "sensor fault",
+        "process disturbance",
+        "observation loss"
+      ],
+      "claim_id": "UC3-CLM-000001",
+      "confidence": "high",
+      "statement": "A synthetic anomalous request sequence targeted the abstract PLC service.",
+      "status": "supported",
+      "supporting_evidence_ids": [
+        "UC3-ED-000026",
+        "UC3-ED-000027",
+        "UC3-ED-000030",
+        "UC3-ED-000031",
+        "UC3-ED-000034",
+        "UC3-ED-000035",
+        "UC3-ED-000038",
+        "UC3-ED-000039",
+        "UC3-ED-000042",
+        "UC3-ED-000043",
+        "UC3-ED-000046",
+        "UC3-ED-000047"
+      ]
+    }
+  ],
+  "hidden_truth_used": false
+}

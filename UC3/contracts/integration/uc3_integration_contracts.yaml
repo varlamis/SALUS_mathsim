@@ -1,0 +1,59 @@
+schema_version: 1.0.0
+use_case: UC3
+contracts:
+  - contract_id: UC3-IC-T44
+    producer: UC3 model
+    consumer: T4.4 DTE
+    payload: [entity_id, twin_id, state, simulation_time, schema_version, source_status]
+    sensitivity: High
+    failure_behavior: Reject unknown versions and stale updates
+    status: proposed
+  - contract_id: UC3-IC-T42
+    producer: UC3 policy service
+    consumer: T4.2 SDaaSS
+    payload: [zone_id, flow_id, requested_action, safety_constraints, duration, rollback]
+    sensitivity: Critical
+    failure_behavior: Record not-applied and retain safe monitoring
+    status: proposed
+  - contract_id: UC3-IC-T45
+    producer: T4.5 threat simulation
+    consumer: UC3 simulation
+    payload: [scenario_id, symbolic_attack_kind, timing, rate, seed]
+    sensitivity: High
+    failure_behavior: Reject live endpoint or payload fields
+    status: synthetic
+  - contract_id: UC3-IC-T33
+    producer: UC3 observation pipeline
+    consumer: T3.3 AI/XAI
+    payload: [feature_id, value, unit, missingness, observed_at, evaluation_label_separate]
+    sensitivity: High
+    failure_behavior: Mark unavailable features; never impute hidden truth
+    status: proposed
+  - contract_id: UC3-IC-T34
+    producer: T3.4 threat intelligence
+    consumer: UC3 detection
+    payload: [indicator_id, entity_reference, context, confidence, provenance]
+    sensitivity: High
+    failure_behavior: Continue local detection with enrichment unavailable
+    status: TBD
+  - contract_id: UC3-IC-T35
+    producer: T3.5 device identification
+    consumer: UC3 graph
+    payload: [observation_id, candidate_entity_class, confidence, interface_limit]
+    sensitivity: High
+    failure_behavior: Preserve unknown identity; do not auto-bind
+    status: TBD
+  - contract_id: UC3-IC-T31-T36
+    producer: UC3 evidence service
+    consumer: T3.1/T3.6 forensics and sharing
+    payload: [evidence_id, content_sha256, custody, purpose, authorization, redaction]
+    sensitivity: Critical
+    failure_behavior: Deny export when authority integrity or minimization fails
+    status: proposed
+  - contract_id: UC3-IC-WP6
+    producer: WP6/UkrNS/FIMOI
+    consumer: UC3 calibration
+    payload: [approved_inventory, parameter_set, dataset_checksum, validation_protocol, acceptance_evidence]
+    sensitivity: Critical
+    failure_behavior: Retain explicit synthetic defaults and no pilot claim
+    status: proposed

@@ -1,0 +1,903 @@
+{
+  "entities": [
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC3-NZ01",
+      "name": "Field process zone",
+      "network_zones": [],
+      "notes": "No operational topology.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic sensor and actuator boundary",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-002"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC3-NZ02",
+      "name": "Industrial control zone",
+      "network_zones": [],
+      "notes": "Synthetic zone.",
+      "record_status": "engineering_decision",
+      "role": "PLC and control communications",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-003"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC3-NZ03",
+      "name": "Supervisory zone",
+      "network_zones": [],
+      "notes": "Synthetic zone.",
+      "record_status": "assumed",
+      "role": "HMI historian and engineering services",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC3-NZ04",
+      "name": "SALUS security zone",
+      "network_zones": [],
+      "notes": "Logical integration boundary.",
+      "record_status": "engineering_decision",
+      "role": "Detection policy twin and evidence services",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-004"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "ProcessAsset",
+      "entity_id": "UC3-D01",
+      "name": "Synthetic process vessel",
+      "network_zones": [
+        "UC3-NZ01"
+      ],
+      "notes": "Not a reactor or plant model.",
+      "record_status": "engineering_decision",
+      "role": "Bounded water-process surrogate",
+      "source_references": [
+        "PROPOSAL-DS4-DS5-P19"
+      ],
+      "states": [
+        "normal",
+        "warning_low",
+        "warning_high",
+        "bounded_fault"
+      ],
+      "twin_id": "UC3-DT01",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-005"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "IndustrialSensor",
+      "entity_id": "UC3-D02",
+      "name": "Level sensor",
+      "network_zones": [
+        "UC3-NZ01"
+      ],
+      "notes": "Generic sensor.",
+      "record_status": "synthetic_default",
+      "role": "Measures surrogate vessel level",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "healthy",
+        "noisy",
+        "biased",
+        "stuck",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT02",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-006"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "IndustrialActuator",
+      "entity_id": "UC3-D03",
+      "name": "Inlet pump",
+      "network_zones": [
+        "UC3-NZ01"
+      ],
+      "notes": "No real actuator.",
+      "record_status": "synthetic_default",
+      "role": "Controls surrogate inflow",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "off",
+        "on",
+        "failed",
+        "safe"
+      ],
+      "twin_id": "UC3-DT03",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-006"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "IndustrialActuator",
+      "entity_id": "UC3-D04",
+      "name": "Outlet valve",
+      "network_zones": [
+        "UC3-NZ01"
+      ],
+      "notes": "No real actuator.",
+      "record_status": "synthetic_default",
+      "role": "Controls surrogate outflow",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "failed",
+        "safe"
+      ],
+      "twin_id": "UC3-DT04",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-007"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "IndustrialController",
+      "entity_id": "UC3-D05",
+      "name": "Programmable logic controller",
+      "network_zones": [
+        "UC3-NZ01",
+        "UC3-NZ02"
+      ],
+      "notes": "Abstract controller; no vendor or register map.",
+      "record_status": "proposal",
+      "role": "Runs deterministic scan and interlocks",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17",
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "initializing",
+        "operational",
+        "degraded",
+        "safe",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT05",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-008"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SupervisorySystem",
+      "entity_id": "UC3-D06",
+      "name": "Human-machine interface",
+      "network_zones": [
+        "UC3-NZ03"
+      ],
+      "notes": "Generic HMI.",
+      "record_status": "assumed",
+      "role": "Displays state and accepts authorized abstract commands",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT06",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-009"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "EngineeringWorkstation",
+      "entity_id": "UC3-D07",
+      "name": "Engineering workstation",
+      "network_zones": [
+        "UC3-NZ03"
+      ],
+      "notes": "Synthetic identity.",
+      "record_status": "assumed",
+      "role": "Authorized configuration endpoint and symbolic attack target/source context",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "available",
+        "compromised",
+        "isolated",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT07",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-010"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "Historian",
+      "entity_id": "UC3-D08",
+      "name": "Historian and log server",
+      "network_zones": [
+        "UC3-NZ03"
+      ],
+      "notes": "Synthetic storage.",
+      "record_status": "proposal",
+      "role": "Stores process and controller history",
+      "source_references": [
+        "PROPOSAL-DS4-DS5-P19"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT08",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-011"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "IndustrialGateway",
+      "entity_id": "UC3-D09",
+      "name": "Industrial gateway and enforcement point",
+      "network_zones": [
+        "UC3-NZ02",
+        "UC3-NZ03",
+        "UC3-NZ04"
+      ],
+      "notes": "No live SDN interface.",
+      "record_status": "engineering_decision",
+      "role": "Routes and enforces abstract network policy",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "available",
+        "rate_limited",
+        "isolated",
+        "unavailable"
+      ],
+      "twin_id": "UC3-DT09",
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-012"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "NetworkMonitor",
+      "entity_id": "UC3-D10",
+      "name": "Passive network monitor",
+      "network_zones": [
+        "UC3-NZ02",
+        "UC3-NZ04"
+      ],
+      "notes": "Simulation observation boundary.",
+      "record_status": "engineering_decision",
+      "role": "Produces observable flow and protocol metadata",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-013"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "ThreatActorSystem",
+      "entity_id": "UC3-D11",
+      "name": "Synthetic adversary",
+      "network_zones": [
+        "UC3-NZ03"
+      ],
+      "notes": "Cannot create or send real packets.",
+      "record_status": "engineering_decision",
+      "role": "Emits symbolic attack events",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "inactive",
+        "discovering",
+        "fuzzing",
+        "writing",
+        "flooding",
+        "stopped"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT01",
+      "name": "Process vessel twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors bounded process state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT02",
+      "name": "Level sensor twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors sensor state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT03",
+      "name": "Pump twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors pump state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT04",
+      "name": "Valve twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors valve state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT05",
+      "name": "PLC twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors controller decisions",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT06",
+      "name": "HMI twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors HMI availability",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT07",
+      "name": "Workstation twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors workstation security state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT08",
+      "name": "Historian twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors historian state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC3-DT09",
+      "name": "Gateway twin",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic twin.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors enforcement state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "unknown"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-014"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC3-S01",
+      "name": "Detection and XAI service",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Rule-based baseline, not validated AI.",
+      "record_status": "proposal",
+      "role": "Correlates observed cyber and process features",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-015"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC3-S02",
+      "name": "Policy decision service",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Abstract policy service.",
+      "record_status": "engineering_decision",
+      "role": "Selects safety-constrained mitigation",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-39"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-016"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC3-S03",
+      "name": "Evidence and custody service",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Synthetic integrity model.",
+      "record_status": "proposal",
+      "role": "Minimizes hashes and preserves evidence",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC3-S04",
+      "name": "Reconstruction service",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "No hidden-truth access.",
+      "record_status": "engineering_decision",
+      "role": "Builds qualified claims from evidence",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-017"
+      ],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC3-A01",
+      "name": "Industrial process operator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "assumed",
+      "role": "Supervises the synthetic process",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "available",
+        "reviewing",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC3-A02",
+      "name": "Security analyst",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "engineering_decision",
+      "role": "Reviews alerts and mitigation",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "reviewing",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC3-A03",
+      "name": "Forensic investigator",
+      "network_zones": [],
+      "notes": "May represent FIMOI role after confirmation.",
+      "record_status": "proposal",
+      "role": "Reviews evidence and reconstruction",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "investigating",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC3-O01",
+      "name": "UkrNS pilot stakeholder",
+      "network_zones": [],
+      "notes": "No facility details encoded.",
+      "record_status": "proposal",
+      "role": "UC3 domain stakeholder",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC3-O02",
+      "name": "FIMOI end-user stakeholder",
+      "network_zones": [],
+      "notes": "No operational procedure encoded.",
+      "record_status": "proposal",
+      "role": "Investigation and validation stakeholder",
+      "source_references": [
+        "PROPOSAL-UC3-PP16-17"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Medium",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC3-DS01",
+      "name": "Synthetic process and network stream",
+      "network_zones": [
+        "UC3-NZ04"
+      ],
+      "notes": "Generated, not DS4 or DS5.",
+      "record_status": "synthetic_default",
+      "role": "Reproducible execution input",
+      "source_references": [
+        "PROPOSAL-DS4-DS5-P19"
+      ],
+      "states": [
+        "available",
+        "invalid",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-018"
+      ],
+      "data_sensitivity": "TBD",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC3-DS02",
+      "name": "SWaT dataset boundary",
+      "network_zones": [],
+      "notes": "Not committed or used in nominal results.",
+      "record_status": "proposal",
+      "role": "Optional future offline replay",
+      "source_references": [
+        "PROPOSAL-DS4-DS5-P19"
+      ],
+      "states": [
+        "unavailable",
+        "documented",
+        "validated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC3-019"
+      ],
+      "data_sensitivity": "TBD",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC3-DS03",
+      "name": "Network and system operations dataset boundary",
+      "network_zones": [],
+      "notes": "Not committed or used in nominal results.",
+      "record_status": "proposal",
+      "role": "Optional future offline replay",
+      "source_references": [
+        "PROPOSAL-DS4-DS5-P19"
+      ],
+      "states": [
+        "unavailable",
+        "documented",
+        "validated"
+      ],
+      "twin_id": null,
+      "use_case": "UC3"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "use_case": "UC3"
+}

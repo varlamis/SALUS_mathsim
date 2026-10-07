@@ -1,0 +1,9 @@
+{
+  "integrity_errors": [],
+  "invariants": {
+    "hidden_truth_isolated": true,
+    "live_control": false,
+    "process_bounded": true
+  },
+  "status": "valid"
+}

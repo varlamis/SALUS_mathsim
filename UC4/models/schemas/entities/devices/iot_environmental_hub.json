@@ -1,0 +1,83 @@
+{
+  "device_name": "IoT Environmental Hub",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "Telemetry_Interval_Sec",
+        "description": "Pre-configured baseline transmission frequency for routine sensory reporting (e.g., every 60 seconds)."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "SOS_Button_Press",
+        "description": "Manual physical emergency alarm triggered by on-site security personnel."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Acoustic_Noise_Db",
+        "description": "Continuous real-time measurement of surrounding sound levels in decibels."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "Indoor_Room_Floor_ID",
+        "description": "Indoor spatial indexing attributes specifying building sector, floor number, and room ID."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "Sensor_Serial_Number",
+        "description": "Manufacturer-assigned serial number and hardware revision string of the sensor motherboard."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Power_Source (Grid/Battery)",
+        "description": "Current energy routing state distinguishing between main facility grid power and emergency backup battery."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Admin_SSH_Connection_IP",
+        "description": "Network IP address of the system administrator authenticated via SSH for configuration."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Packet_Loss_Rate",
+        "description": "Percentage of dropped network transmission packets, acting as an infrastructure health index."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "Smoke_Detection_Algorithm_Output",
+        "description": "Calculated output of the local processing algorithm determining smoke presence (True/False)."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Asset_Tag_Inventory_Number",
+        "description": "Physical RFID asset tag value utilized for automated inventory tracking within critical infrastructure."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Max_Recorded_Gas_Value_Month",
+        "description": "The peak toxic gas PPM measurement recorded over a trailing 30-day historical window."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "LoRaWAN_Spreading_Factor",
+        "description": "Active radio spectrum spreading factor parameter configured for long-range low-power telemetry."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "CO2_PPM_Humidity_Percentage",
+        "description": "Direct environmental data captures indicating carbon dioxide parts-per-million and relative humidity."
+      }
+    ]
+  }
+}

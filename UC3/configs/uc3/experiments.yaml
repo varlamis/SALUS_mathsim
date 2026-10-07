@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+base_config: configs/uc3/smart_fuzzing_attack.yaml
+experiments:
+  - {id: baseline, overrides: {attack.enabled: false}, expect: {minimum_alerts: 0, maximum_process_effects: 0, maximum_safety_violations: 0}}
+  - {id: nominal_smart_fuzzing, overrides: {}, expect: {minimum_alerts: 1, maximum_process_effects: 0, maximum_safety_violations: 0}}
+  - {id: unauthorized_write, overrides: {attack.kind: unauthorized_write, attack.malformed_ratio: 0.0}, expect: {minimum_alerts: 1, maximum_process_effects: 0, maximum_safety_violations: 0}}
+  - {id: application_flood, overrides: {attack.kind: application_flood, attack.count: 50, attack.interval_seconds: 0.01, channel.buffer_messages: 4}, expect: {minimum_alerts: 1, maximum_process_effects: 0, maximum_safety_violations: 0}}
+  - {id: sensor_stuck_fault, overrides: {attack.kind: sensor_fault, attack.authorized: true, detection.threshold: 0.10}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+  - {id: observation_loss, overrides: {channel.observation_probability: 0.0}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: enforcement_failed, overrides: {policy.enforcement_available: false}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+  - {id: unsafe_isolation_rejected, overrides: {attack.kind: sensor_fault, attack.authorized: true, detection.threshold: 0.10, policy.safety_telemetry_required: true, policy.selected_action: isolate_source}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+  - {id: maximum_clock_skew, overrides: {clocks.monitor: 1.5}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}

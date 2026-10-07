@@ -1,0 +1,50 @@
+schema_version: 1.0.0
+scenario_id: UC3-SMART-FUZZING
+description: Synthetic protocol-aware fuzzing, unauthorized write, and bounded application load
+seed: 3103
+duration_seconds: 120
+process:
+  area_m2: 10.0
+  initial_level_m: 5.0
+  minimum_level_m: 2.0
+  maximum_level_m: 8.0
+  target_level_m: 5.0
+  pump_flow_m3_s: 0.20
+  outlet_flow_m3_s: 0.20
+  sensor_noise_std_m: 0.01
+  sensor_bias_m: 0.0
+  scan_period_seconds: 1.0
+attack:
+  enabled: true
+  kind: smart_fuzzing
+  start_seconds: 45
+  count: 6
+  interval_seconds: 0.2
+  request_rate_per_second: 5.0
+  authorized: false
+  malformed_ratio: 0.33
+channel:
+  capacity_messages_per_second: 20
+  buffer_messages: 30
+  base_delay_seconds: 0.02
+  jitter_seconds: 0.005
+  loss_probability: 0.0
+  observation_probability: 1.0
+detection:
+  enabled: true
+  threshold: 0.45
+  weights: {authorization: 0.30, protocol: 0.20, rate: 0.20, command_residual: 0.15, process_residual: 0.15}
+policy:
+  supported_actions: [drop, rate_limit, isolate_source, alert_only]
+  selected_action: isolate_source
+  enforcement_available: true
+  safety_telemetry_required: true
+  enforcement_delay_seconds: 0.05
+evidence:
+  enabled: true
+  allowed_types: [protocol_validation, alert, policy_decision, mitigation_action, process_observation]
+  allowed_fields: [event_id, event_type, event_time, source_entity, target_entity, message_id, attributes, payload_hash]
+  retention_seconds: 3600
+clocks: {sensor: 0.0, plc: 0.0, monitor: 0.0}
+outputs:
+  directory: reports/generated/uc3/smart_fuzzing_attack

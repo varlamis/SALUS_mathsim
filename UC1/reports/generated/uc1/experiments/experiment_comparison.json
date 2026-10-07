@@ -1,0 +1,188 @@
+{
+  "experiments": [
+    {
+      "alert_count": 0,
+      "attack_detection_recall": null,
+      "attack_messages_generated": 0,
+      "attack_messages_observed": 0,
+      "canonical_hash": "14145d4edef6fefdf50c1eb21a14964bcff55308684c7ea0b78fa1d68fccb03b",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "baseline",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 0,
+        "queue_overflow": 0,
+        "validation": 0
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "097d51d2bd375f39db9f839d743811e18ee5badb04797ee3c4cd3443053e585b",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "nominal_forged_request",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "0c2f6b0ebcf7a6165ccad810b69833f2307ff28f32dbd580bf7ab6fa129ea54c",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "expired_certificate",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "bd3ecbbae66fedf32a2d6da11dfb6493b4a5c0c84b10d896498ab38a9982f0a0",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "revoked_certificate",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "165dd7fe1a70662882303cb7fe28bc379a02a1b2cdb0c7d6520a1cb2928c0e3f",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "replay_outside_window",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 0.06,
+      "attack_messages_generated": 50,
+      "attack_messages_observed": 3,
+      "canonical_hash": "a5e15717abfff87fde0b74beadfbedffc2a30edfd36dc0f33269c139ef7ec34d",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "message_flood",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 47,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "d50d8d83877d6f283e8a3f850f62bba689499a28cdaf35ec16956bb2610abe84",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "trust_service_unavailable",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 3,
+        "queue_overflow": 0,
+        "validation": 6
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 3,
+      "attack_detection_recall": 1.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 3,
+      "canonical_hash": "1f7fcc919a6c2bdde965f94b56ce2c586437d5d2a6d2dc8950d58b671bdd26a0",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": 1.0,
+      "id": "policy_enforcement_failed",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 0,
+        "policy": 0,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    },
+    {
+      "alert_count": 0,
+      "attack_detection_recall": 0.0,
+      "attack_messages_generated": 3,
+      "attack_messages_observed": 0,
+      "canonical_hash": "e2f03b260f1e515b1db1577857178a2ccdca0185c06eca4b8a013a060f172393",
+      "controller_effect_count": 0,
+      "evidence_capture_recall": null,
+      "id": "observation_loss",
+      "integrity_failure_count": 0,
+      "losses": {
+        "channel": 0,
+        "observation": 6,
+        "policy": 0,
+        "queue_overflow": 0,
+        "validation": 3
+      },
+      "safety_violation_count": 0,
+      "unauthorized_disclosure_count": 0
+    }
+  ],
+  "failures": [],
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "use_case": "UC1"
+}

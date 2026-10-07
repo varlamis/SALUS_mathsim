@@ -1,0 +1,250 @@
+{
+  "experiments": [
+    {
+      "alert_count": 0,
+      "canonical_hash": "425f4992b463e79906e14d5e1ee4e5cbc0500e50cd299d64f7877614d5490e97",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "baseline",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 3,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 33,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "95374e67f978761ab5058850bd4f9057174d6c9bf4c79eb5072c1498e08b3cc2",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "nominal_unapproved",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 1,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 45,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "07b91b134b53827771c593ee218d962e4cee559f60f2a723af60050280098ddc",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "single_interface",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 1,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "observations": 16,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "cc612b7504d025cd87bda022b56b9d9fb637dce6ef3b5910e7bf6c57cbbabd4d",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "observation_loss",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 0,
+        "integrity_failure_count": 0,
+        "observation_loss": 48,
+        "observations": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "dd7a52505d569139f45dc11c3d707fd1d17aedee8ab3c6792ae9b52cf604fe87",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "queue_overflow",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 1,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "observations": 2,
+        "process_effect_count": 0,
+        "queue_overflow": 46,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "4628ff809736cd9fc3cb634acefbf11832a7a9f6ce76929e011e71480264f064",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "registry_unavailable",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 45,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "d76138b8c1a63edbd7bdf36426571c9464621d3b6692ca0514831da1f3055436",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "stale_registry",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 45,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "e7ec8e5ea2d792abd4453c400eb0ec5bcf8266a71189987c47b276a05f9587ee",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "low_confidence",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 0,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 45,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "233a143aa97de94281cea3fc4d067bd05bb7f2db962fa12365a7c56fb224164e",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_active_rf_actions": true,
+        "zero_unauthorized_disclosures": true
+      },
+      "id": "policy_unavailable",
+      "metrics": {
+        "active_rf_action_count": 0,
+        "alert_count": 1,
+        "classification_count": 4,
+        "integrity_failure_count": 0,
+        "observation_loss": 3,
+        "observations": 45,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_violation_count": 0,
+        "unauthorized_disclosure_count": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "use_case": "UC2"
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_UC4"
+  targetNamespace="https://salus-project.eu/t43/uc4">
+
+  <bpmn:message id="Message_SourceRecords" name="Observable smart-home records" />
+  <bpmn:message id="Message_AcquisitionRequest" name="Scoped acquisition request and authorization" />
+  <bpmn:message id="Message_AcquisitionResponse" name="Eligible records or denial result" />
+
+  <bpmn:collaboration id="Collaboration_UC4">
+    <bpmn:participant id="Participant_Home" name="Smart-home environment" processRef="Process_Home" />
+    <bpmn:participant id="Participant_CPE" name="CPE and lawful-interception boundary" processRef="Process_CPE" />
+    <bpmn:participant id="Participant_LEA" name="LEA secured environment" processRef="Process_LEA" />
+    <bpmn:messageFlow id="MessageFlow_SourceRecords" name="Observable source records" sourceRef="SendTask_SourceRecords" targetRef="Task_AcquireEligible" />
+    <bpmn:messageFlow id="MessageFlow_Request" name="Scoped request" sourceRef="SendTask_Request" targetRef="CatchEvent_Request" />
+    <bpmn:messageFlow id="MessageFlow_AllowedResponse" name="Eligible minimized records" sourceRef="SendTask_Result" targetRef="ReceiveTask_Response" />
+    <bpmn:messageFlow id="MessageFlow_DeniedResponse" name="Denial without protected payload" sourceRef="SendTask_Denial" targetRef="ReceiveTask_Response" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_Home" name="Generate and retain smart-home observations" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Incident" name="Unauthorized entry occurs" />
+    <bpmn:task id="Task_DoorEvent" name="Record door-open event" />
+    <bpmn:task id="Task_Corroborate" name="Record motion and light automation" />
+    <bpmn:task id="Task_Tamper" name="Record sensor tamper or offline state" />
+    <bpmn:task id="Task_RetainRecords" name="Retain Home Assistant and device records" />
+    <bpmn:sendTask id="SendTask_SourceRecords" name="Expose eligible source records" messageRef="Message_SourceRecords" />
+    <bpmn:endEvent id="EndEvent_Home" name="Source records available" />
+    <bpmn:sequenceFlow id="Flow_H1" sourceRef="StartEvent_Incident" targetRef="Task_DoorEvent" />
+    <bpmn:sequenceFlow id="Flow_H2" sourceRef="Task_DoorEvent" targetRef="Task_Corroborate" />
+    <bpmn:sequenceFlow id="Flow_H3" sourceRef="Task_Corroborate" targetRef="Task_Tamper" />
+    <bpmn:sequenceFlow id="Flow_H4" sourceRef="Task_Tamper" targetRef="Task_RetainRecords" />
+    <bpmn:sequenceFlow id="Flow_H5" sourceRef="Task_RetainRecords" targetRef="SendTask_SourceRecords" />
+    <bpmn:sequenceFlow id="Flow_H6" sourceRef="SendTask_SourceRecords" targetRef="EndEvent_Home" />
+  </bpmn:process>
+
+  <bpmn:process id="Process_CPE" name="Authorize and perform scoped acquisition" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_CPE" name="CPE monitoring active" />
+    <bpmn:task id="Task_RecordFlows" name="Record bounded CPE flow metadata" />
+    <bpmn:intermediateCatchEvent id="CatchEvent_Request" name="Receive acquisition request">
+      <bpmn:messageEventDefinition messageRef="Message_AcquisitionRequest" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:businessRuleTask id="Task_EvaluateAuthorization" name="Evaluate authorization, scope and purpose" />
+    <bpmn:exclusiveGateway id="Gateway_Authorized" name="Request eligible?" default="Flow_C5_Denied" />
+    <bpmn:task id="Task_AcquireEligible" name="Acquire eligible CPE and smart-home records" />
+    <bpmn:task id="Task_Minimize" name="Minimize and redact before release" />
+    <bpmn:sendTask id="SendTask_Result" name="Return eligible records" messageRef="Message_AcquisitionResponse" />
+    <bpmn:sendTask id="SendTask_Denial" name="Return denial without protected payload" messageRef="Message_AcquisitionResponse" />
+    <bpmn:endEvent id="EndEvent_CPEAllowed" name="Acquisition closed" />
+    <bpmn:endEvent id="EndEvent_CPEDenied" name="Request safely denied" />
+    <bpmn:dataObject id="DataObject_Authorization" name="Authorization object" />
+    <bpmn:dataObjectReference id="DataObjectRef_Authorization" name="Authorization and scope" dataObjectRef="DataObject_Authorization" />
+    <bpmn:dataObject id="DataObject_PolicyDecision" name="Policy decision" />
+    <bpmn:dataObjectReference id="DataObjectRef_PolicyDecision" name="Allow, deny or minimize decision" dataObjectRef="DataObject_PolicyDecision" />
+    <bpmn:association id="Association_AuthInput" sourceRef="DataObjectRef_Authorization" targetRef="Task_EvaluateAuthorization" associationDirection="One" />
+    <bpmn:association id="Association_DecisionOutput" sourceRef="Task_EvaluateAuthorization" targetRef="DataObjectRef_PolicyDecision" associationDirection="One" />
+    <bpmn:sequenceFlow id="Flow_C1" sourceRef="StartEvent_CPE" targetRef="Task_RecordFlows" />
+    <bpmn:sequenceFlow id="Flow_C2" sourceRef="Task_RecordFlows" targetRef="CatchEvent_Request" />
+    <bpmn:sequenceFlow id="Flow_C3" sourceRef="CatchEvent_Request" targetRef="Task_EvaluateAuthorization" />
+    <bpmn:sequenceFlow id="Flow_C4" sourceRef="Task_EvaluateAuthorization" targetRef="Gateway_Authorized" />
+    <bpmn:sequenceFlow id="Flow_C5_Allowed" name="yes" sourceRef="Gateway_Authorized" targetRef="Task_AcquireEligible">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">decision = 'allow' or decision = 'minimize'</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_C5_Denied" name="no/default" sourceRef="Gateway_Authorized" targetRef="SendTask_Denial" />
+    <bpmn:sequenceFlow id="Flow_C6" sourceRef="Task_AcquireEligible" targetRef="Task_Minimize" />
+    <bpmn:sequenceFlow id="Flow_C7" sourceRef="Task_Minimize" targetRef="SendTask_Result" />
+    <bpmn:sequenceFlow id="Flow_C8" sourceRef="SendTask_Result" targetRef="EndEvent_CPEAllowed" />
+    <bpmn:sequenceFlow id="Flow_C9" sourceRef="SendTask_Denial" targetRef="EndEvent_CPEDenied" />
+  </bpmn:process>
+
+  <bpmn:process id="Process_LEA" name="Acquire, preserve and reconstruct evidence" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Case" name="Case trigger received" />
+    <bpmn:task id="Task_PrepareRequest" name="Prepare scoped request and authorization" />
+    <bpmn:sendTask id="SendTask_Request" name="Submit acquisition request" messageRef="Message_AcquisitionRequest" />
+    <bpmn:receiveTask id="ReceiveTask_Response" name="Receive acquisition response" messageRef="Message_AcquisitionResponse" />
+    <bpmn:exclusiveGateway id="Gateway_RecordsReceived" name="Eligible records received?" default="Flow_L5_No" />
+    <bpmn:task id="Task_Preserve" name="Hash and preserve evidence" />
+    <bpmn:task id="Task_Custody" name="Append custody actions" />
+    <bpmn:task id="Task_Reconstruct" name="Correlate and reconstruct timeline" />
+    <bpmn:task id="Task_RecordDenial" name="Record safe denial outcome" />
+    <bpmn:endEvent id="EndEvent_Investigation" name="Qualified investigation output" />
+    <bpmn:endEvent id="EndEvent_NoEvidence" name="No evidence disclosed" />
+    <bpmn:dataObject id="DataObject_EvidenceManifest" name="Evidence manifest" />
+    <bpmn:dataObjectReference id="DataObjectRef_EvidenceManifest" name="Evidence manifest" dataObjectRef="DataObject_EvidenceManifest" />
+    <bpmn:dataStoreReference id="DataStoreRef_Evidence" name="Evidence repository" dataStoreRef="DataStore_Evidence" />
+    <bpmn:dataStoreReference id="DataStoreRef_Custody" name="Custody record" dataStoreRef="DataStore_Custody" />
+    <bpmn:association id="Association_PreserveEvidence" sourceRef="Task_Preserve" targetRef="DataStoreRef_Evidence" associationDirection="One" />
+    <bpmn:association id="Association_Manifest" sourceRef="Task_Preserve" targetRef="DataObjectRef_EvidenceManifest" associationDirection="One" />
+    <bpmn:association id="Association_Custody" sourceRef="Task_Custody" targetRef="DataStoreRef_Custody" associationDirection="One" />
+    <bpmn:sequenceFlow id="Flow_L1" sourceRef="StartEvent_Case" targetRef="Task_PrepareRequest" />
+    <bpmn:sequenceFlow id="Flow_L2" sourceRef="Task_PrepareRequest" targetRef="SendTask_Request" />
+    <bpmn:sequenceFlow id="Flow_L3" sourceRef="SendTask_Request" targetRef="ReceiveTask_Response" />
+    <bpmn:sequenceFlow id="Flow_L4" sourceRef="ReceiveTask_Response" targetRef="Gateway_RecordsReceived" />
+    <bpmn:sequenceFlow id="Flow_L5_Yes" name="yes" sourceRef="Gateway_RecordsReceived" targetRef="Task_Preserve">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">response contains eligible records</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_L5_No" name="no/default" sourceRef="Gateway_RecordsReceived" targetRef="Task_RecordDenial" />
+    <bpmn:sequenceFlow id="Flow_L6" sourceRef="Task_Preserve" targetRef="Task_Custody" />
+    <bpmn:sequenceFlow id="Flow_L7" sourceRef="Task_Custody" targetRef="Task_Reconstruct" />
+    <bpmn:sequenceFlow id="Flow_L8" sourceRef="Task_Reconstruct" targetRef="EndEvent_Investigation" />
+    <bpmn:sequenceFlow id="Flow_L9" sourceRef="Task_RecordDenial" targetRef="EndEvent_NoEvidence" />
+  </bpmn:process>
+
+  <bpmn:dataStore id="DataStore_Evidence" name="Evidence repository" capacity="0" isUnlimited="true" />
+  <bpmn:dataStore id="DataStore_Custody" name="Append-only custody record" capacity="0" isUnlimited="true" />
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC4">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC4" bpmnElement="Collaboration_UC4">
+      <bpmndi:BPMNShape id="Shape_Participant_Home" bpmnElement="Participant_Home" isHorizontal="true">
+        <dc:Bounds x="90" y="80" width="1380" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_Home" bpmnElement="StartEvent_Incident"><dc:Bounds x="140" y="137" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Door" bpmnElement="Task_DoorEvent"><dc:Bounds x="220" y="115" width="130" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Corroborate" bpmnElement="Task_Corroborate"><dc:Bounds x="400" y="115" width="160" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Tamper" bpmnElement="Task_Tamper"><dc:Bounds x="610" y="115" width="150" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Retain" bpmnElement="Task_RetainRecords"><dc:Bounds x="810" y="115" width="170" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SendRecords" bpmnElement="SendTask_SourceRecords"><dc:Bounds x="1030" y="115" width="170" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End_Home" bpmnElement="EndEvent_Home"><dc:Bounds x="1260" y="137" width="36" height="36" /></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Shape_Participant_CPE" bpmnElement="Participant_CPE" isHorizontal="true">
+        <dc:Bounds x="90" y="270" width="1380" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start_CPE" bpmnElement="StartEvent_CPE"><dc:Bounds x="140" y="342" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordFlows" bpmnElement="Task_RecordFlows"><dc:Bounds x="210" y="320" width="145" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CatchRequest" bpmnElement="CatchEvent_Request"><dc:Bounds x="400" y="342" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Evaluate" bpmnElement="Task_EvaluateAuthorization"><dc:Bounds x="480" y="320" width="170" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayAuth" bpmnElement="Gateway_Authorized" isMarkerVisible="true"><dc:Bounds x="700" y="335" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Acquire" bpmnElement="Task_AcquireEligible"><dc:Bounds x="800" y="300" width="170" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Minimize" bpmnElement="Task_Minimize"><dc:Bounds x="1020" y="300" width="150" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SendResult" bpmnElement="SendTask_Result"><dc:Bounds x="1210" y="300" width="140" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndAllowed" bpmnElement="EndEvent_CPEAllowed"><dc:Bounds x="1390" y="322" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SendDenial" bpmnElement="SendTask_Denial"><dc:Bounds x="800" y="410" width="180" height="70" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndDenied" bpmnElement="EndEvent_CPEDenied"><dc:Bounds x="1030" y="427" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AuthData" bpmnElement="DataObjectRef_Authorization"><dc:Bounds x="510" y="415" width="36" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DecisionData" bpmnElement="DataObjectRef_PolicyDecision"><dc:Bounds x="620" y="415" width="36" height="50" /></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Shape_Participant_LEA" bpmnElement="Participant_LEA" isHorizontal="true">
+        <dc:Bounds x="90" y="550" width="1380" height="230" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartCase" bpmnElement="StartEvent_Case"><dc:Bounds x="140" y="637" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Prepare" bpmnElement="Task_PrepareRequest"><dc:Bounds x="210" y="615" width="160" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SendRequest" bpmnElement="SendTask_Request"><dc:Bounds x="410" y="615" width="150" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReceiveResponse" bpmnElement="ReceiveTask_Response"><dc:Bounds x="600" y="615" width="160" height="80" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GatewayRecords" bpmnElement="Gateway_RecordsReceived" isMarkerVisible="true"><dc:Bounds x="800" y="630" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Preserve" bpmnElement="Task_Preserve"><dc:Bounds x="900" y="580" width="140" height="70" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Custody" bpmnElement="Task_Custody"><dc:Bounds x="1080" y="580" width="140" height="70" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Reconstruct" bpmnElement="Task_Reconstruct"><dc:Bounds x="1260" y="580" width="150" height="70" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndInvestigation" bpmnElement="EndEvent_Investigation"><dc:Bounds x="1420" y="597" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordDenial" bpmnElement="Task_RecordDenial"><dc:Bounds x="900" y="690" width="160" height="65" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndNoEvidence" bpmnElement="EndEvent_NoEvidence"><dc:Bounds x="1110" y="704" width="36" height="36" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EvidenceStore" bpmnElement="DataStoreRef_Evidence"><dc:Bounds x="950" y="660" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CustodyStore" bpmnElement="DataStoreRef_Custody"><dc:Bounds x="1130" y="660" width="50" height="50" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Manifest" bpmnElement="DataObjectRef_EvidenceManifest"><dc:Bounds x="1020" y="660" width="36" height="50" /></bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Edge_H1" bpmnElement="Flow_H1"><di:waypoint x="176" y="155" /><di:waypoint x="220" y="155" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_H2" bpmnElement="Flow_H2"><di:waypoint x="350" y="155" /><di:waypoint x="400" y="155" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_H3" bpmnElement="Flow_H3"><di:waypoint x="560" y="155" /><di:waypoint x="610" y="155" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_H4" bpmnElement="Flow_H4"><di:waypoint x="760" y="155" /><di:waypoint x="810" y="155" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_H5" bpmnElement="Flow_H5"><di:waypoint x="980" y="155" /><di:waypoint x="1030" y="155" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_H6" bpmnElement="Flow_H6"><di:waypoint x="1200" y="155" /><di:waypoint x="1260" y="155" /></bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Edge_C1" bpmnElement="Flow_C1"><di:waypoint x="176" y="360" /><di:waypoint x="210" y="360" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C2" bpmnElement="Flow_C2"><di:waypoint x="355" y="360" /><di:waypoint x="400" y="360" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C3" bpmnElement="Flow_C3"><di:waypoint x="436" y="360" /><di:waypoint x="480" y="360" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C4" bpmnElement="Flow_C4"><di:waypoint x="650" y="360" /><di:waypoint x="700" y="360" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C5Allowed" bpmnElement="Flow_C5_Allowed"><di:waypoint x="750" y="360" /><di:waypoint x="775" y="360" /><di:waypoint x="775" y="340" /><di:waypoint x="800" y="340" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C5Denied" bpmnElement="Flow_C5_Denied"><di:waypoint x="725" y="385" /><di:waypoint x="725" y="445" /><di:waypoint x="800" y="445" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C6" bpmnElement="Flow_C6"><di:waypoint x="970" y="340" /><di:waypoint x="1020" y="340" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C7" bpmnElement="Flow_C7"><di:waypoint x="1170" y="340" /><di:waypoint x="1210" y="340" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C8" bpmnElement="Flow_C8"><di:waypoint x="1350" y="340" /><di:waypoint x="1390" y="340" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_C9" bpmnElement="Flow_C9"><di:waypoint x="980" y="445" /><di:waypoint x="1030" y="445" /></bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Edge_L1" bpmnElement="Flow_L1"><di:waypoint x="176" y="655" /><di:waypoint x="210" y="655" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L2" bpmnElement="Flow_L2"><di:waypoint x="370" y="655" /><di:waypoint x="410" y="655" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L3" bpmnElement="Flow_L3"><di:waypoint x="560" y="655" /><di:waypoint x="600" y="655" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L4" bpmnElement="Flow_L4"><di:waypoint x="760" y="655" /><di:waypoint x="800" y="655" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L5Yes" bpmnElement="Flow_L5_Yes"><di:waypoint x="850" y="655" /><di:waypoint x="875" y="655" /><di:waypoint x="875" y="615" /><di:waypoint x="900" y="615" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L5No" bpmnElement="Flow_L5_No"><di:waypoint x="825" y="680" /><di:waypoint x="825" y="723" /><di:waypoint x="900" y="723" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L6" bpmnElement="Flow_L6"><di:waypoint x="1040" y="615" /><di:waypoint x="1080" y="615" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L7" bpmnElement="Flow_L7"><di:waypoint x="1220" y="615" /><di:waypoint x="1260" y="615" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L8" bpmnElement="Flow_L8"><di:waypoint x="1410" y="615" /><di:waypoint x="1420" y="615" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_L9" bpmnElement="Flow_L9"><di:waypoint x="1060" y="723" /><di:waypoint x="1110" y="723" /></bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Edge_MessageRecords" bpmnElement="MessageFlow_SourceRecords"><di:waypoint x="1115" y="195" /><di:waypoint x="885" y="300" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_MessageRequest" bpmnElement="MessageFlow_Request"><di:waypoint x="485" y="615" /><di:waypoint x="418" y="378" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_MessageAllowed" bpmnElement="MessageFlow_AllowedResponse"><di:waypoint x="1280" y="380" /><di:waypoint x="680" y="615" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_MessageDenied" bpmnElement="MessageFlow_DeniedResponse"><di:waypoint x="890" y="480" /><di:waypoint x="680" y="615" /></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

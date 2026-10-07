@@ -1,0 +1,9 @@
+{
+  "integrity_errors": [],
+  "invariants": {
+    "hidden_truth_isolated": true,
+    "passive_only": true,
+    "privacy_violations": 0
+  },
+  "status": "valid"
+}

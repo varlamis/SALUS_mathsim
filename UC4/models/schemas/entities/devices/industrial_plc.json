@@ -1,0 +1,83 @@
+{
+  "device_name": "Industrial PLC",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "Modbus_Polling_Interval",
+        "description": "Fixed period defining passive background industrial sensor register sampling loops."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Emergency_Shutoff_Command",
+        "description": "High-priority safety-interlock command triggered dynamically to isolate a reactor sector."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Valve_Actuator_Position_Deg",
+        "description": "Continuous precise angular feedback of the cooling valve position (Real-time Industrial Stream)."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "Reactor_Core_Zone_ID",
+        "description": "Absolute indoor spatial zone mapping the specific reactor room and physical control panel segment."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "CPU_Rack_Slot_Specification",
+        "description": "Hardware physical topology configuration parameters detailing the processor rack position and model code."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "PLC_Run_Stop_Switch_State",
+        "description": "Physical orientation state of the manual hardware toggle switch (RUN mode vs STOP mode)."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "SCADA_Engineer_Credentials",
+        "description": "Cryptographic signature or identity tag of the engineer uploading updated ladder logic control loops."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Cycle_Time_MilliSec",
+        "description": "Program execution cycle time, serving as a critical metric for detecting firmware fuzzing/tampering."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "Cooling_Control_Algorithm_State",
+        "description": "State parameters of the closed-loop PID control algorithm managing critical thermal fluidics."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Component_Batch_Number_RFID",
+        "description": "Cryptographic supply chain ledger entry tracked via on-board component RFID to verify against counterfeiting."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Last_Shielding_Maintenance_Date",
+        "description": "Database log tracking historical physical shielding inspections and software patch versions."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "Industrial_Ethernet_Port_Stats",
+        "description": "Error packet counters, framing errors, and transmission statistics on the Profinet interface."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Radiation_Sievert_Level",
+        "description": "Real-time surrounding radiation dose rate measured in Sieverts to detect system degradation."
+      }
+    ]
+  }
+}

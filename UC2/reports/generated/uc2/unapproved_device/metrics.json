@@ -1,0 +1,12 @@
+{
+  "active_rf_action_count": 0,
+  "alert_count": 1,
+  "classification_count": 4,
+  "integrity_failure_count": 0,
+  "observation_loss": 3,
+  "observations": 45,
+  "process_effect_count": 0,
+  "queue_overflow": 0,
+  "safety_violation_count": 0,
+  "unauthorized_disclosure_count": 0
+}

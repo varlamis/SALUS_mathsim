@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+base_config: configs/uc2/unapproved_device.yaml
+seed: 22100
+samples: 100
+ranges: {observation.coverage_probability: [0.6, 1.0], observation.loss_probability: [0.0, 0.2], observation.association_window_seconds: [0.5, 4.0], classification.accuracy: [0.55, 0.98], classification.threshold: [0.5, 0.9]}

@@ -1,0 +1,857 @@
+{
+  "edges": [
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R001",
+      "relationship_type": "observes",
+      "source_id": "UC2-D01",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R002",
+      "relationship_type": "observes",
+      "source_id": "UC2-D02",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R003",
+      "relationship_type": "observes",
+      "source_id": "UC2-D03",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R004",
+      "relationship_type": "observes",
+      "source_id": "UC2-D01",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R005",
+      "relationship_type": "observes",
+      "source_id": "UC2-D02",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Passive only",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R006",
+      "relationship_type": "observes",
+      "source_id": "UC2-D03",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-D05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Pseudonymous metadata",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R007",
+      "relationship_type": "feeds",
+      "source_id": "UC2-D01",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Pseudonymous metadata",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R008",
+      "relationship_type": "feeds",
+      "source_id": "UC2-D02",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Pseudonymous metadata",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R009",
+      "relationship_type": "feeds",
+      "source_id": "UC2-D03",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Hypothesis lookup",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R010",
+      "relationship_type": "feeds",
+      "source_id": "UC2-S01",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Approval decision",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R011",
+      "relationship_type": "triggers",
+      "source_id": "UC2-S02",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Alert",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R012",
+      "relationship_type": "triggers",
+      "source_id": "UC2-S03",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-S04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Human review",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R013",
+      "relationship_type": "operated_by",
+      "source_id": "UC2-S04",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-A01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Evidence",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R014",
+      "relationship_type": "generates",
+      "source_id": "UC2-S03",
+      "source_reference": "PROPOSAL-T33-T36",
+      "target_id": "UC2-S05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Consultation",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R015",
+      "relationship_type": "feeds",
+      "source_id": "UC2-S05",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-S06"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Investigation",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R016",
+      "relationship_type": "operated_by",
+      "source_id": "UC2-S06",
+      "source_reference": "PROPOSAL-UC2-PP15-16",
+      "target_id": "UC2-A02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Twin",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R017",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC2-D01",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-DT01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Twin",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R018",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC2-D02",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-DT02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Twin",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R019",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC2-D03",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-DT03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Twin",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R020",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC2-D04",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-DT04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Twin",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R021",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC2-D05",
+      "source_reference": "PROPOSAL-T41-T45",
+      "target_id": "UC2-DT05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Synthetic scene",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R022",
+      "relationship_type": "deployed_in",
+      "source_id": "UC2-D01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC2-NZ01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Logical",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R023",
+      "relationship_type": "deployed_in",
+      "source_id": "UC2-S01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC2-NZ02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Restricted",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC2-R024",
+      "relationship_type": "deployed_in",
+      "source_id": "UC2-S05",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC2-NZ03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Synthetic",
+      "record_status": "synthetic_default",
+      "relationship_id": "UC2-R025",
+      "relationship_type": "stores",
+      "source_id": "UC2-S01",
+      "source_reference": "PROPOSAL-DS2-DS3-P19",
+      "target_id": "UC2-DS01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Future mapping",
+      "record_status": "proposal",
+      "relationship_id": "UC2-R026",
+      "relationship_type": "derived_from",
+      "source_id": "UC2-DS02",
+      "source_reference": "PROPOSAL-DS2-DS3-P19",
+      "target_id": "UC2-DS01"
+    }
+  ],
+  "nodes": [
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "PassiveObserver",
+      "entity_id": "UC2-D01",
+      "name": "Passive 3GPP observer",
+      "network_zones": [
+        "UC2-NZ01"
+      ],
+      "notes": "No interception or live RF.",
+      "record_status": "proposal",
+      "role": "Produces synthetic cellular observations",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC2-DT01",
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "PassiveObserver",
+      "entity_id": "UC2-D02",
+      "name": "Passive Wi-Fi observer",
+      "network_zones": [
+        "UC2-NZ01"
+      ],
+      "notes": "No deauthentication or live RF.",
+      "record_status": "proposal",
+      "role": "Produces synthetic Wi-Fi observations",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC2-DT02",
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "PassiveObserver",
+      "entity_id": "UC2-D03",
+      "name": "Passive BLE observer",
+      "network_zones": [
+        "UC2-NZ01"
+      ],
+      "notes": "No live RF.",
+      "record_status": "proposal",
+      "role": "Produces synthetic BLE observations",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC2-DT03",
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-002"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "IoTDevice",
+      "entity_id": "UC2-D04",
+      "name": "Approved IoT device class",
+      "network_zones": [
+        "UC2-NZ01"
+      ],
+      "notes": "Synthetic rotating identifiers.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic approved emitter",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "present",
+        "absent",
+        "unknown"
+      ],
+      "twin_id": "UC2-DT04",
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-003"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "IoTDevice",
+      "entity_id": "UC2-D05",
+      "name": "Unapproved IoT device class",
+      "network_zones": [
+        "UC2-NZ01"
+      ],
+      "notes": "Not linked to a person.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic device hypothesis target",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "present",
+        "absent",
+        "unknown"
+      ],
+      "twin_id": "UC2-DT05",
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-004"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "AnalyticsService",
+      "entity_id": "UC2-S01",
+      "name": "Association and classification service",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Rule/probability baseline.",
+      "record_status": "engineering_decision",
+      "role": "Builds pseudonymous hypotheses and class distributions",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC2-005"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "RegistryService",
+      "entity_id": "UC2-S02",
+      "name": "Approved-device registry",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Synthetic entries.",
+      "record_status": "engineering_decision",
+      "role": "Returns approved unapproved unknown or stale",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "stale",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC2-S03",
+      "name": "Detection and XAI service",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Not validated AI.",
+      "record_status": "proposal",
+      "role": "Combines classification and approval state",
+      "source_references": [
+        "PROPOSAL-T33-T36"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC2-S04",
+      "name": "Policy and review service",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "No operational action.",
+      "record_status": "engineering_decision",
+      "role": "Requests bounded non-RF response",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC2-S05",
+      "name": "Evidence and custody service",
+      "network_zones": [
+        "UC2-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "proposal",
+      "role": "Minimizes and hashes evidence",
+      "source_references": [
+        "PROPOSAL-T33-T36"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "ConsultationService",
+      "entity_id": "UC2-S06",
+      "name": "Expert consultation portal",
+      "network_zones": [
+        "UC2-NZ03"
+      ],
+      "notes": "No production portal.",
+      "record_status": "proposal",
+      "role": "Abstract investigator consultation",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC2-A01",
+      "name": "Field operator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "proposal",
+      "role": "Reviews alerts",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "reviewing",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC2-A02",
+      "name": "Forensic investigator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "proposal",
+      "role": "Reviews evidence and consultation",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "investigating",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC2-O01",
+      "name": "FMI and CIVIPOL stakeholder role",
+      "network_zones": [],
+      "notes": "No authority implied.",
+      "record_status": "proposal",
+      "role": "UC2 end-user role",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC2-O02",
+      "name": "SUNERIS technical role",
+      "network_zones": [],
+      "notes": "Exact architecture TBD.",
+      "record_status": "proposal",
+      "role": "Detection equipment stakeholder",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC2-NZ01",
+      "name": "Synthetic scene",
+      "network_zones": [],
+      "notes": "No real location.",
+      "record_status": "engineering_decision",
+      "role": "Abstract observation area",
+      "source_references": [
+        "PROPOSAL-UC2-PP15-16"
+      ],
+      "states": [
+        "open",
+        "paused",
+        "closed"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC2-NZ02",
+      "name": "SALUS analytics zone",
+      "network_zones": [],
+      "notes": "Logical.",
+      "record_status": "engineering_decision",
+      "role": "Association detection and policy",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC2-NZ03",
+      "name": "Forensic zone",
+      "network_zones": [],
+      "notes": "Logical.",
+      "record_status": "engineering_decision",
+      "role": "Evidence and consultation",
+      "source_references": [
+        "PROPOSAL-T33-T36"
+      ],
+      "states": [
+        "available",
+        "restricted"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC2-DT01",
+      "name": "3GPP observer twin",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors availability",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC2-DT02",
+      "name": "Wi-Fi observer twin",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors availability",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC2-DT03",
+      "name": "BLE observer twin",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors availability",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC2-DT04",
+      "name": "Approved hypothesis twin",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Pseudonymous.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors approved class state",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC2-DT05",
+      "name": "Unapproved hypothesis twin",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Pseudonymous.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors unapproved class state",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Medium",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC2-DS01",
+      "name": "Synthetic observation stream",
+      "network_zones": [
+        "UC2-NZ02"
+      ],
+      "notes": "Not DS2/DS3.",
+      "record_status": "synthetic_default",
+      "role": "Deterministic input",
+      "source_references": [
+        "PROPOSAL-DS2-DS3-P19"
+      ],
+      "states": [
+        "available",
+        "invalid"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "TBD",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC2-DS02",
+      "name": "DS2/DS3 import boundary",
+      "network_zones": [],
+      "notes": "Not committed.",
+      "record_status": "proposal",
+      "role": "Optional future offline replay",
+      "source_references": [
+        "PROPOSAL-DS2-DS3-P19"
+      ],
+      "states": [
+        "unavailable",
+        "validated"
+      ],
+      "twin_id": null,
+      "use_case": "UC2"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_digests": {
+    "entities_sha256": "70650abe548ab6f5b4d4359b3b9bb5e7c0be3bdb4e2865368a97cee9dd22c26c",
+    "relationships_sha256": "a89fd5fcc7b58a2770e8a4ad1bdf29d409e53a32c810edd9b4f663ad49dfeab9"
+  },
+  "use_case": "UC2"
+}

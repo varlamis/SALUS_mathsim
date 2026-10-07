@@ -1,0 +1,12 @@
+{
+  "event_id": "UC5-EV-000001",
+  "event_type": "flow_observation",
+  "event_time": 1.0,
+  "ingest_time": 1.01,
+  "source_entity": "UC5-D04",
+  "target_entity": "UC5-S02",
+  "message_id": null,
+  "attributes": {"device_class": "patient_monitor", "destination_class": "approved_internal", "clinical_payload": false},
+  "payload_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "observable": true
+}

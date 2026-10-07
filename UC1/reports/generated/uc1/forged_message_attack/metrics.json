@@ -1,0 +1,17 @@
+{
+  "attack_detection_recall": 1.0,
+  "attack_messages_generated": 3,
+  "attack_messages_observed": 3,
+  "controller_effect_count": 0,
+  "evidence_capture_recall": 1.0,
+  "integrity_failure_count": 0,
+  "losses": {
+    "channel": 0,
+    "observation": 0,
+    "policy": 3,
+    "queue_overflow": 0,
+    "validation": 3
+  },
+  "safety_violation_count": 0,
+  "unauthorized_disclosure_count": 0
+}

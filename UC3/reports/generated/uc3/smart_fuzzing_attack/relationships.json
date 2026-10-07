@@ -1,0 +1,602 @@
+[
+  {
+    "assumption_id": "ASSUMPTION-UC3-005",
+    "notes": "Level observation",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R001",
+    "relationship_type": "senses",
+    "source_id": "UC3-D02",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Inlet command",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R002",
+    "relationship_type": "controls",
+    "source_id": "UC3-D05",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Outlet command",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R003",
+    "relationship_type": "controls",
+    "source_id": "UC3-D05",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D04"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-006",
+    "notes": "Inflow",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R004",
+    "relationship_type": "actuates",
+    "source_id": "UC3-D03",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-006",
+    "notes": "Outflow",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R005",
+    "relationship_type": "actuates",
+    "source_id": "UC3-D04",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Abstract telemetry",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R006",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D02",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Abstract command",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R007",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Abstract command",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R008",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D04"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-008",
+    "notes": "Supervisory flow",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R009",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D06",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-009",
+    "notes": "Engineering flow",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R010",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D07",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-010",
+    "notes": "Controller history",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R011",
+    "relationship_type": "feeds",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-DS4-DS5-P19",
+    "target_id": "UC3-D08"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-010",
+    "notes": "Process history",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R012",
+    "relationship_type": "feeds",
+    "source_id": "UC3-D02",
+    "source_reference": "PROPOSAL-DS4-DS5-P19",
+    "target_id": "UC3-D08"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-011",
+    "notes": "Abstract enforcement path",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R013",
+    "relationship_type": "connected_to",
+    "source_id": "UC3-D09",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-011",
+    "notes": "Abstract enforcement path",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R014",
+    "relationship_type": "connected_to",
+    "source_id": "UC3-D09",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D06"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-011",
+    "notes": "Abstract enforcement path",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R015",
+    "relationship_type": "connected_to",
+    "source_id": "UC3-D09",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D07"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-012",
+    "notes": "Flow metadata",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R016",
+    "relationship_type": "observes",
+    "source_id": "UC3-D10",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D09"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-012",
+    "notes": "Protocol metadata",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R017",
+    "relationship_type": "observes",
+    "source_id": "UC3-D10",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-013",
+    "notes": "Symbolic target",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R018",
+    "relationship_type": "targets",
+    "source_id": "UC3-D11",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-013",
+    "notes": "Synthetic only",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R019",
+    "relationship_type": "communicates_with",
+    "source_id": "UC3-D11",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D09"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-014",
+    "notes": "Observed features",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R020",
+    "relationship_type": "feeds",
+    "source_id": "UC3-D10",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-014",
+    "notes": "Process observation",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R021",
+    "relationship_type": "feeds",
+    "source_id": "UC3-D02",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-014",
+    "notes": "Controller observation",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R022",
+    "relationship_type": "feeds",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-015",
+    "notes": "Alert to policy",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R023",
+    "relationship_type": "triggers",
+    "source_id": "UC3-S01",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-S02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-015",
+    "notes": "Abstract policy request",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R024",
+    "relationship_type": "controls",
+    "source_id": "UC3-S02",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D09"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-015",
+    "notes": "Safety constrained",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R025",
+    "relationship_type": "mitigated_by",
+    "source_id": "UC3-D11",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-016",
+    "notes": "Observable evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R026",
+    "relationship_type": "generates",
+    "source_id": "UC3-D10",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-016",
+    "notes": "Alert evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R027",
+    "relationship_type": "generates",
+    "source_id": "UC3-S01",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-016",
+    "notes": "Policy evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R028",
+    "relationship_type": "generates",
+    "source_id": "UC3-S02",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Evidence to reconstruction",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R029",
+    "relationship_type": "feeds",
+    "source_id": "UC3-S03",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-S04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "End user role",
+    "record_status": "proposal",
+    "relationship_id": "UC3-R030",
+    "relationship_type": "operated_by",
+    "source_id": "UC3-A03",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-O02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-017",
+    "notes": "Synthetic stakeholder mapping",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R031",
+    "relationship_type": "owned_by",
+    "source_id": "UC3-D01",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-O01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-017",
+    "notes": "Synthetic stakeholder mapping",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R032",
+    "relationship_type": "owned_by",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-O01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R033",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D01",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R034",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D02",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R035",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D03",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R036",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D04",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R037",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT05"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R038",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D06",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT06"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R039",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D07",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT07"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R040",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D08",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT08"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Twin mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R041",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC3-D09",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-DT09"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-001",
+    "notes": "Synthetic location",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R042",
+    "relationship_type": "deployed_in",
+    "source_id": "UC3-D01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-NZ01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-002",
+    "notes": "Synthetic location",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R043",
+    "relationship_type": "deployed_in",
+    "source_id": "UC3-D05",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-NZ02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-003",
+    "notes": "Synthetic location",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R044",
+    "relationship_type": "deployed_in",
+    "source_id": "UC3-D06",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-NZ03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Logical location",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R045",
+    "relationship_type": "deployed_in",
+    "source_id": "UC3-S01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-NZ04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Synthetic stream",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R046",
+    "relationship_type": "stores",
+    "source_id": "UC3-D08",
+    "source_reference": "PROPOSAL-DS4-DS5-P19",
+    "target_id": "UC3-DS01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-018",
+    "notes": "Conceptual relevance only",
+    "record_status": "proposal",
+    "relationship_id": "UC3-R047",
+    "relationship_type": "derived_from",
+    "source_id": "UC3-DS02",
+    "source_reference": "PROPOSAL-DS4-DS5-P19",
+    "target_id": "UC3-D01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-019",
+    "notes": "Conceptual relevance only",
+    "record_status": "proposal",
+    "relationship_id": "UC3-R048",
+    "relationship_type": "derived_from",
+    "source_id": "UC3-DS03",
+    "source_reference": "PROPOSAL-DS4-DS5-P19",
+    "target_id": "UC3-D08"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Detection boundary",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R049",
+    "relationship_type": "protected_by",
+    "source_id": "UC3-D05",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-S01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Policy boundary",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R050",
+    "relationship_type": "governed_by",
+    "source_id": "UC3-D09",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-S02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Investigator access",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R051",
+    "relationship_type": "operated_by",
+    "source_id": "UC3-S03",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-A03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Analyst review",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R052",
+    "relationship_type": "operated_by",
+    "source_id": "UC3-S01",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-A02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-017",
+    "notes": "Process supervision",
+    "record_status": "assumed",
+    "relationship_id": "UC3-R053",
+    "relationship_type": "operated_by",
+    "source_id": "UC3-D06",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-A01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Observed update",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R054",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-DT01",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Controller update",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R055",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-DT05",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-D05"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Evidence dependency",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R056",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-S04",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC3-S03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Alert dependency",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R057",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-S02",
+    "source_reference": "PROPOSAL-T41-T45-PP37-39",
+    "target_id": "UC3-S01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Observation dependency",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC3-R058",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-S01",
+    "source_reference": "PROPOSAL-UC3-PP16-17",
+    "target_id": "UC3-D10"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Control dependency",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R059",
+    "relationship_type": "depends_on",
+    "source_id": "UC3-D05",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC3-007",
+    "notes": "Interlock protection",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC3-R060",
+    "relationship_type": "protected_by",
+    "source_id": "UC3-D01",
+    "source_reference": "WORKING-TEMPLATE-T43",
+    "target_id": "UC3-D05"
+  }
+]

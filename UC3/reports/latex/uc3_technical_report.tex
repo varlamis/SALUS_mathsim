@@ -1,0 +1,16 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}\usepackage{amsmath,booktabs,tabularx,geometry,hyperref}
+\geometry{margin=25mm}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\title{UC3 Technical Report\\\large Safety-Constrained Industrial-Control Surrogate}
+\author{Entity and Process Modelling Package}\date{11 September 2026}
+\begin{document}\maketitle
+\begin{abstract}This report summarizes an isolated, non-sensitive one-vessel control surrogate with symbolic protocol-aware attack events, explainable detection, safety-constrained mitigation and evidence-only reconstruction. It has no PLC, SCADA, plant-network or physical-actuator interface.\end{abstract}
+\section{Scope and model}
+Thirty-six entities and sixty relationships represent the vessel, sensor, PLC, pump, valve, HMI, engineering workstation, historian, gateway, observers, nine twins, zones, actors and services. Seven process BPMN artefacts plus one lifecycle model describe operation, symbolic fuzzing, detection, mitigation, evidence, supply-chain assessment and failure states.
+
+For vessel area $A$, level follows $\dot h=(q_{in}u_p-q_{out}u_v)/A$ inside configured bounds. A noisy/biasable sensor drives a scan-boundary hysteretic controller. Abstract requests traverse a bounded queue, protocol and authorization guards, a weighted detector and a hard safety policy. Hidden truth is evaluation-only.
+\section{Execution and results}
+The nominal run generated six symbolic attack messages and six alerts while process level remained 5.0~m. Process effects, safety violations, integrity failures and unauthorized disclosures were zero. All nine branches passed; complete observation loss produced no alert. Across 100 samples, mean alert count was 3.88 with zero mean process effects and safety violations. The fixture-extended suite contains 21 tests.
+\section{Reproducibility and limitations}
+Versioned configuration, strict schemas, canonical graph/run hashes, JUnit and a verified manifest support reproduction. Physical parameters, safe envelopes, protocol abstraction, topology, detection/policy calibration, evidence rules and DS4/DS5 mappings require experts and licensed data. No result describes a nuclear facility, operational safety or protocol conformance.
+\end{document}

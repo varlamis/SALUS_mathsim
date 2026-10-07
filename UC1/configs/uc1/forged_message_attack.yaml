@@ -1,0 +1,48 @@
+schema_version: 1.0.0
+scenario_id: UC1-forged-control-affecting-request
+description: Synthetic forged Car2X request rejected through trust validation and policy enforcement.
+seed: 1101
+duration_seconds: 120.0
+attack:
+  enabled: true
+  kind: forged_request
+  start_seconds: 45.0
+  count: 3
+  interval_seconds: 0.1
+  credential_state: untrusted
+  replay_age_seconds: 0.0
+channel:
+  capacity_messages_per_second: 20.0
+  buffer_messages: 20
+  base_delay_seconds: 0.02
+  jitter_seconds: 0.005
+  loss_probability: 0.0
+  observation_probability: 1.0
+trust:
+  service_available: true
+  freshness_window_seconds: 2.0
+  valid_sender: UC1-D02
+detection:
+  threshold: 0.4
+  weights: {auth: 0.45, freshness: 0.25, sequence: 0.10, rate: 0.10, plausibility: 0.10}
+policy:
+  supported_actions: [drop, rate_limit, isolate, alert_only]
+  selected_action: drop
+  enforcement_available: true
+  enforcement_delay_seconds: 0.05
+controller:
+  initial_phase: safe_all_red
+  minimum_phase_seconds: 3.0
+  allow_control_requests: true
+evidence:
+  enabled: true
+  allowed_types: [message_observation, trust_decision, alert, policy_decision, controller_decision]
+  allowed_fields: [event_id, event_type, event_time, ingest_time, source_entity, target_entity, message_id, validation, action, reason, payload_hash]
+  retention_seconds: 3600.0
+clocks:
+  UC1-D02: 0.01
+  UC1-D05: -0.01
+  UC1-S03: 0.0
+outputs:
+  directory: reports/generated/uc1/forged_message_attack
+

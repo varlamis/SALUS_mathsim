@@ -1,0 +1,12 @@
+{
+  "event_id": "UC2-EV-000001",
+  "event_type": "passive_observation",
+  "event_time": 1.0,
+  "ingest_time": 1.02,
+  "source_entity": "UC2-D02",
+  "target_entity": "UC2-S01",
+  "message_id": null,
+  "attributes": {"interface": "wifi", "pseudonym": "fixture-rotating", "payload_captured": false},
+  "payload_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "observable": true
+}

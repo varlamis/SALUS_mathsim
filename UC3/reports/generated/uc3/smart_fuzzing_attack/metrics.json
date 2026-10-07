@@ -1,0 +1,17 @@
+{
+  "alert_count": 6,
+  "attack_detection_recall": 1.0,
+  "attack_messages_generated": 6,
+  "attack_messages_validated": 6,
+  "integrity_failure_count": 0,
+  "losses": {
+    "channel": 0,
+    "observation": 0,
+    "queue_overflow": 0
+  },
+  "process_effect_count": 0,
+  "process_level_max_m": 5.0,
+  "process_level_min_m": 5.0,
+  "safety_violation_count": 0,
+  "unauthorized_disclosure_count": 0
+}

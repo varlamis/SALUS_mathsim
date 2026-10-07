@@ -1,0 +1,16 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}\usepackage{amsmath,booktabs,tabularx,geometry,hyperref}
+\geometry{margin=25mm}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\title{UC1 Technical Report\\\large Trust-Gated Car2X Digital-Twin Simulation}
+\author{Entity and Process Modelling Package}\date{11 September 2026}
+\begin{document}\maketitle
+\begin{abstract}This report summarizes a source-traceable, deterministic and fully synthetic Car2X vertical slice. It combines canonical entities and relationships, hybrid message/channel/controller mathematics, BPMN, explainable detection, safety-gated response, evidence/custody, graph queries, experiments and automated verification. It is not an operational traffic or vehicle system.\end{abstract}
+\section{Scope and model}
+A synthetic test vehicle and on-board unit exchange abstract messages with a roadside unit and bounded traffic-signal controller. Forged, replayed or excessive requests traverse validation, observation, detection and policy gates. Thirty entities and sixty typed relationships describe physical/cyber assets, four twins, zones, actors, services and data boundaries. Seven BPMN artefacts describe normal, attack, detection, mitigation, evidence and lifecycle processes.
+
+Message acceptance is the conjunction of parsing, service availability, credential, sender, freshness, sequence, plausibility and policy predicates. The finite queue satisfies generated equals delivered plus lost plus overflow. Controller transitions preserve conflict freedom and minimum phase duration. Hidden attack truth is isolated from detector and investigator inputs.
+\section{Execution and results}
+The nominal synthetic run rejects three untrusted forged requests, raises three explainable alerts and applies no unauthorized controller effect. Nine experiment branches test baseline, replay/forgery, loss, flooding, trust/policy failures and safety gates. A predeclared 100-sample analysis varies channel, attack and detector parameters. All safety violations and unauthorized disclosures remain zero. The fixture-extended automated suite contains 22 tests.
+\section{Reproducibility and limitations}
+Versioned YAML, strict JSON Schemas, stable IDs, canonical hashing, JUnit evidence and the SHA-256 package manifest support reproduction. Open expert parameters include Car2X profile, PKI semantics, topology, radio/channel calibration, controller timing, mitigation authority, evidence policy and DS1 mapping. Synthetic success is not standards conformance, safety certification, pilot validation or KPI attainment.
+\end{document}

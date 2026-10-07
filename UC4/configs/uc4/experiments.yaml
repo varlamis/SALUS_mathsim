@@ -1,0 +1,104 @@
+schema_version: 1.0.0
+base_config: configs/uc4/incident_lawful_access.yaml
+experiments:
+  - id: baseline
+    description: Normal operation without the unauthorized-entry incident or acquisition.
+    overrides:
+      incident: {enabled: false}
+      authorization: {decision_path: absent, verification_result: unknown}
+    expect: {incident: absent, evidence: zero, policy: none, integrity: pass}
+
+  - id: nominal_lawful_incident
+    description: Unauthorized entry, door-sensor tampering, and valid scoped acquisition.
+    overrides: {}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass}
+
+  - id: authorization_absent
+    description: Incident and case exist, but no authorization is supplied.
+    overrides:
+      authorization: {decision_path: absent, verification_result: unknown}
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass}
+
+  - id: authorization_invalid
+    description: Authorization verification fails.
+    overrides:
+      authorization: {decision_path: invalid, verification_result: invalid}
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass}
+
+  - id: authorization_expired
+    description: Authorization validity ended before the request.
+    overrides:
+      authorization: {decision_path: expired, verification_result: valid, valid_from: 100.0, valid_to: 800.0}
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass}
+
+  - id: authorization_revoked
+    description: Authorization was revoked before source acquisition.
+    overrides:
+      authorization: {decision_path: revoked, verification_result: valid}
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass}
+
+  - id: out_of_scope_device
+    description: The incident device is outside the authorization entity scope.
+    overrides:
+      authorization:
+        decision_path: out_of_scope
+        verification_result: valid
+        allowed_entities: [UC4-D01, UC4-D02, UC4-D04, UC4-D05, UC4-D06]
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass}
+
+  - id: presence_event_missed
+    description: True movement occurs but the presence observation is forced to miss.
+    overrides:
+      faults: {force_presence_miss: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, loss_key: presence_missed, absent_observed_event: presence.motion}
+
+  - id: door_event_lost
+    description: Door opening remains in ground truth but is lost before Home Assistant ingestion.
+    overrides:
+      faults: {force_door_observation_loss: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, loss_key: observation, absent_observed_event: door.open}
+
+  - id: source_records_evicted
+    description: Source retention expires before the acquisition request.
+    overrides:
+      retention: {nominal_seconds: 100.0}
+    expect: {incident: present, evidence: zero, policy: deny, integrity: pass, loss_key: retention}
+
+  - id: cpe_queue_overflow
+    description: A one-byte CPE queue with negligible service forces deterministic flow-record loss.
+    overrides:
+      network: {service_capacity_bits_per_second: 8.0, buffer_bytes: 1}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, loss_key: queue_overflow, queue_loss: positive}
+
+  - id: maximum_clock_skew
+    description: Opposing bounded source offsets widen and overlap reconstructed event intervals.
+    overrides:
+      devices:
+        UC4-D03: {clock_offset_seconds: 25.0}
+        UC4-D04: {clock_offset_seconds: -25.0}
+      observation: {clock_offset_bound_seconds: 30.0, timestamp_jitter_std_seconds: 0.20}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, ambiguous_ordering: positive, minimum_uncertainty_width_seconds: 60.0}
+
+  - id: evidence_content_tampered
+    description: A collected evidence object is altered after hashing and must be quarantined.
+    overrides:
+      faults: {evidence_tamper_after_collection: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: fail}
+
+  - id: custody_link_tampered
+    description: The first custody action is altered after append and invalidates the chain.
+    overrides:
+      faults: {custody_tamper_after_append: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: fail}
+
+  - id: home_assistant_unavailable
+    description: Device/CPE evidence remains, but Home Assistant cannot ingest or trigger automation.
+    overrides:
+      faults: {home_assistant_unavailable: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, absent_observed_event: automation.triggered}
+
+  - id: cpe_unavailable
+    description: CPE flow logging is unavailable while device and Home Assistant records remain.
+    overrides:
+      faults: {cpe_unavailable: true}
+    expect: {incident: present, evidence: positive, policy: allow, integrity: pass, loss_key: cpe_unavailable}

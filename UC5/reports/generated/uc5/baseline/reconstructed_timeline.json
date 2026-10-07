@@ -1,0 +1,38 @@
+{
+  "claims": [
+    {
+      "alternatives": [
+        "benign traffic change",
+        "device-health fault",
+        "observation loss"
+      ],
+      "claim_id": "UC5-CLM-000001",
+      "statement": "A pseudonymous patient-monitor flow anomaly was observed.",
+      "status": "inconclusive",
+      "supporting_evidence_ids": [
+        "UC5-ED-000001",
+        "UC5-ED-000002",
+        "UC5-ED-000003",
+        "UC5-ED-000004",
+        "UC5-ED-000005",
+        "UC5-ED-000006",
+        "UC5-ED-000007",
+        "UC5-ED-000008",
+        "UC5-ED-000009",
+        "UC5-ED-000010",
+        "UC5-ED-000011",
+        "UC5-ED-000012",
+        "UC5-ED-000013",
+        "UC5-ED-000014",
+        "UC5-ED-000015",
+        "UC5-ED-000016",
+        "UC5-ED-000017",
+        "UC5-ED-000018",
+        "UC5-ED-000019",
+        "UC5-ED-000020",
+        "UC5-ED-000021"
+      ]
+    }
+  ],
+  "hidden_truth_used": false
+}

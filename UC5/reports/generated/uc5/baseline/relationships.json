@@ -1,0 +1,452 @@
+[
+  {
+    "assumption_id": "ASSUMPTION-UC5-013",
+    "notes": "Logical placement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R001",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-NZ01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-013",
+    "notes": "Logical placement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R002",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D02",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-NZ01"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-013",
+    "notes": "Logical placement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R003",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D03",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-NZ01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Logical placement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R004",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D04",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-NZ03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Logical placement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R005",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D05",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-NZ02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-002",
+    "notes": "Abstract flow",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R006",
+    "relationship_type": "communicates_with",
+    "source_id": "UC5-D01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-D02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-003",
+    "notes": "Abstract flow",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R007",
+    "relationship_type": "communicates_with",
+    "source_id": "UC5-D02",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-D03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "No clinical payload",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R008",
+    "relationship_type": "communicates_with",
+    "source_id": "UC5-D03",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-D05"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-004",
+    "notes": "Flow metadata",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R009",
+    "relationship_type": "observes",
+    "source_id": "UC5-D04",
+    "source_reference": "PROPOSAL-DS8-P19",
+    "target_id": "UC5-D03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Observation input",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R010",
+    "relationship_type": "feeds",
+    "source_id": "UC5-D04",
+    "source_reference": "PROPOSAL-T33",
+    "target_id": "UC5-S02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Health metadata",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R011",
+    "relationship_type": "feeds",
+    "source_id": "UC5-D01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-S02"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-008",
+    "notes": "Safety policy",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R012",
+    "relationship_type": "protected_by",
+    "source_id": "UC5-D01",
+    "source_reference": "PROPOSAL-T42",
+    "target_id": "UC5-S03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "One-to-one mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R013",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D01",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "One-to-one mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R014",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D02",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "One-to-one mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R015",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D03",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "One-to-one mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R016",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D04",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "One-to-one mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R017",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D05",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT05"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Inactive mapping",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R018",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D06",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT06"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Inactive mapping",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R019",
+    "relationship_type": "mirrored_by",
+    "source_id": "UC5-D07",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-DT07"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-006",
+    "notes": "Registry mapping",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R020",
+    "relationship_type": "observes",
+    "source_id": "UC5-S01",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-D01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Alert to policy",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R021",
+    "relationship_type": "triggers",
+    "source_id": "UC5-S02",
+    "source_reference": "PROPOSAL-T33",
+    "target_id": "UC5-S03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-008",
+    "notes": "Bounded response",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R022",
+    "relationship_type": "controls",
+    "source_id": "UC5-S03",
+    "source_reference": "PROPOSAL-T42",
+    "target_id": "UC5-D03"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-012",
+    "notes": "Clinical review",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R023",
+    "relationship_type": "governed_by",
+    "source_id": "UC5-S03",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-A01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Security review",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R024",
+    "relationship_type": "operated_by",
+    "source_id": "UC5-S02",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-A02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Investigation",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R025",
+    "relationship_type": "operated_by",
+    "source_id": "UC5-S04",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-A03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Observable evidence input",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R026",
+    "relationship_type": "generates",
+    "source_id": "UC5-S02",
+    "source_reference": "PROPOSAL-T31-T36",
+    "target_id": "UC5-S04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Decision evidence input",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R027",
+    "relationship_type": "generates",
+    "source_id": "UC5-S03",
+    "source_reference": "PROPOSAL-T31-T36",
+    "target_id": "UC5-S04"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-010",
+    "notes": "Verified evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R028",
+    "relationship_type": "feeds",
+    "source_id": "UC5-S04",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-S05"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Redacted package",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R029",
+    "relationship_type": "feeds",
+    "source_id": "UC5-S05",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-S06"
+  },
+  {
+    "assumption_id": "ASSUMPTION-UC5-011",
+    "notes": "Qualified result",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R030",
+    "relationship_type": "supports_claim",
+    "source_id": "UC5-S06",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-A03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Synthetic flow source",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC5-R031",
+    "relationship_type": "feeds",
+    "source_id": "UC5-DS01",
+    "source_reference": "PROPOSAL-DS8-P19",
+    "target_id": "UC5-D04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Synthetic health source",
+    "record_status": "synthetic_default",
+    "relationship_id": "UC5-R032",
+    "relationship_type": "feeds",
+    "source_id": "UC5-DS02",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-S02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Future replay only",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R033",
+    "relationship_type": "feeds",
+    "source_id": "UC5-DS03",
+    "source_reference": "PROPOSAL-DS8-P19",
+    "target_id": "UC5-D04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Future context",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R034",
+    "relationship_type": "feeds",
+    "source_id": "UC5-S07",
+    "source_reference": "PROPOSAL-T34",
+    "target_id": "UC5-S02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Responsibility mapping TBD",
+    "record_status": "TBD",
+    "relationship_id": "UC5-R035",
+    "relationship_type": "owned_by",
+    "source_id": "UC5-O01",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-O02"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Deployment ownership TBD",
+    "record_status": "TBD",
+    "relationship_id": "UC5-R036",
+    "relationship_type": "owned_by",
+    "source_id": "UC5-D01",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-O01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Inactive class",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R037",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D06",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-NZ01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Inactive class",
+    "record_status": "proposal",
+    "relationship_id": "UC5-R038",
+    "relationship_type": "deployed_in",
+    "source_id": "UC5-D07",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-NZ01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Observation dependency",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R039",
+    "relationship_type": "depends_on",
+    "source_id": "UC5-DT01",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-D04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Referent dependency",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R040",
+    "relationship_type": "depends_on",
+    "source_id": "UC5-DT01",
+    "source_reference": "PROPOSAL-T44",
+    "target_id": "UC5-D01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Criticality lookup",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R041",
+    "relationship_type": "depends_on",
+    "source_id": "UC5-S03",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-S01"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Sharing authority",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R042",
+    "relationship_type": "governed_by",
+    "source_id": "UC5-S05",
+    "source_reference": "PROPOSAL-UC5-P18",
+    "target_id": "UC5-A03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Restricted storage",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R043",
+    "relationship_type": "stores",
+    "source_id": "UC5-S04",
+    "source_reference": "PROPOSAL-T31-T36",
+    "target_id": "UC5-NZ04"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Policy enforcement",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R044",
+    "relationship_type": "mitigated_by",
+    "source_id": "UC5-D03",
+    "source_reference": "PROPOSAL-T42",
+    "target_id": "UC5-S03"
+  },
+  {
+    "assumption_id": "",
+    "notes": "Evidence-only reconstruction",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC5-R045",
+    "relationship_type": "derived_from",
+    "source_id": "UC5-S06",
+    "source_reference": "ROADMAP-T43",
+    "target_id": "UC5-S04"
+  }
+]

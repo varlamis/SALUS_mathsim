@@ -1,0 +1,83 @@
+{
+  "device_name": "Smart CCTV Camera",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "Video_Stream_Bitrate",
+        "description": "Constant information flow during regular operational monitoring."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Tamper_Alert_Signal",
+        "description": "Triggered instantly when the camera lens is covered, obstructed, or forcefully moved."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "FPS_Rate_Current",
+        "description": "Fluctuates in real-time based on scene motion complexity (e.g., 15fps baseline, 30fps high motion)."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "GPS_Coordinates (Lat, Long, Alt)",
+        "description": "The exact physical coordinates where the camera hardware is mounted."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "Camera_Model_MacAddress_Firmware",
+        "description": "Static hardware specifications including MAC address, SoC model, and current OS version."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Lens_Heating_State",
+        "description": "Binary indicator showing whether the internal lens defroster/heater is active."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Operator_Login_Session",
+        "description": "Identifies the law enforcement personnel or operator currently authenticated to control the feed."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "CPU_Temperature_Uptime",
+        "description": "Tracks the hardware processor thermal readings and total hours of continuous uptime."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "AI_Object_Bounding_Boxes",
+        "description": "Outputs from edge video analytics detailing bounding box pixel coordinates around detected anomalies or suspects."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "NFC_Maintenance_Tag_ID",
+        "description": "RFID identifier scanned by physical field technicians during on-site hardware inspections."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Past_24h_Downtime_Logs",
+        "description": "Historical summary of connection drops and network recovery instances over the past day."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "Wi-Fi_RSSI_Channel_5GHz",
+        "description": "Wireless signal strength (RSSI) metrics and specific radio channel utilized for secure transmission."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Lux_Level_Ambient",
+        "description": "Ambient light intensity measurement, used to automatically trigger infra-red night-vision mode."
+      }
+    ]
+  }
+}

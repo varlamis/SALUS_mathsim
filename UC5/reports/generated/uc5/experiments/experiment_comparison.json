@@ -1,0 +1,295 @@
+{
+  "experiments": [
+    {
+      "alert_count": 0,
+      "canonical_hash": "4d16b86abe46a34676b126d97a764fd6ab754ccb1467a3126301f776ec4ed9b6",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "baseline",
+      "metrics": {
+        "alert_count": 0,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 21,
+        "flow_observation_count": 20,
+        "flow_truth_count": 20,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 0,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 21
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "daed6859b03f45f0ced9766481863ebc5d3c0a06d17dedc1f37e46b7f020813b",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "nominal",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 84,
+        "flow_observation_count": 80,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 1,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 84
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "62d73811f905f931ecf1d0450b06dd0301d917addd078b4e698129b0bb28765c",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "flow_flood",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 104,
+        "flow_observation_count": 100,
+        "flow_truth_count": 200,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 100,
+        "safety_rejection_count": 1,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 104
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "ca8cf4cbcc6b5b3084ec5c25b8894ce5c2e6a51df2ed63dc25199b9adc02bb4d",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "observation_loss",
+      "metrics": {
+        "alert_count": 0,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 0,
+        "flow_observation_count": 0,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 80,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 0,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "2668edcffcea52cac8574ae0e58b16ea796da150e1d43174b90dafb666cb2519",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "no_backup",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 84,
+        "flow_observation_count": 80,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 1,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 84
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "4237808904b90ee313e939b4db3123108ae1fde57e707fe37eb1f722db030559",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "backup_active",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 84,
+        "flow_observation_count": 80,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 1,
+        "queue_overflow": 0,
+        "safety_rejection_count": 0,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 84
+      },
+      "passed": true,
+      "process_effect_count": 1,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "ce879bfe9d0278d8c38e1d4670170073b57ac3690cec724e69f56fc738f662e3",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "enforcement_failed",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 84,
+        "flow_observation_count": 80,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 1,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 84
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 0,
+      "canonical_hash": "17df8efe4dad1214bcdff17cb8bfa2ae8a36df2338c2259158f33a13132e72db",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "health_fault",
+      "metrics": {
+        "alert_count": 0,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 21,
+        "flow_observation_count": 20,
+        "flow_truth_count": 20,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 0,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 21
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    },
+    {
+      "alert_count": 1,
+      "canonical_hash": "31954516a3f715656919c8ccab46058785ae273e8c453c5ba6869d91ce25c005",
+      "checks": {
+        "maximum_process_effects": true,
+        "maximum_safety_violations": true,
+        "minimum_alerts": true,
+        "zero_essential_monitoring_interruptions": true,
+        "zero_patient_data_disclosures": true,
+        "zero_privacy_violations": true
+      },
+      "id": "sharing_denied",
+      "metrics": {
+        "alert_count": 1,
+        "essential_monitoring_interruption_count": 0,
+        "evidence_items": 84,
+        "flow_observation_count": 80,
+        "flow_truth_count": 80,
+        "integrity_failure_count": 0,
+        "observation_loss": 0,
+        "patient_data_disclosure_count": 0,
+        "privacy_violation_count": 0,
+        "process_effect_count": 0,
+        "queue_overflow": 0,
+        "safety_rejection_count": 1,
+        "safety_violation_count": 0,
+        "shared_evidence_items": 0
+      },
+      "passed": true,
+      "process_effect_count": 0,
+      "safety_violation_count": 0
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "pass",
+  "use_case": "UC5"
+}

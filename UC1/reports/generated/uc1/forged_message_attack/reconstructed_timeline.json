@@ -1,0 +1,26 @@
+{
+  "claims": [
+    {
+      "alternatives": [
+        "observation loss",
+        "trust-service degradation"
+      ],
+      "claim_id": "UC1-CLAIM-000001",
+      "confidence": "high",
+      "statement": "A synthetic anomalous request targeted the roadside endpoint.",
+      "status": "supported",
+      "supporting_evidence_ids": [
+        "UC1-EV-000002",
+        "UC1-EV-000005",
+        "UC1-EV-000008",
+        "UC1-EV-000011",
+        "UC1-EV-000012",
+        "UC1-EV-000016",
+        "UC1-EV-000017",
+        "UC1-EV-000021",
+        "UC1-EV-000022"
+      ]
+    }
+  ],
+  "hidden_truth_used": false
+}

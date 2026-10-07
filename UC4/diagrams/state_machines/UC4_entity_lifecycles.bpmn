@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_UC4_Lifecycles" targetNamespace="https://salus-project.eu/t43/uc4/lifecycles">
+  <bpmn:message id="Msg_Alert" name="Explainable alert" />
+  <bpmn:message id="Msg_Acknowledge" name="Investigator acknowledgement" />
+  <bpmn:message id="Msg_AuthRequest" name="Authorization submission" />
+  <bpmn:message id="Msg_CasePreparation" name="Case request preparation" />
+  <bpmn:message id="Msg_AuthDecision" name="Active or denied authorization" />
+  <bpmn:message id="Msg_AuthTerminal" name="Expired or revoked authorization" />
+  <bpmn:message id="Msg_Candidates" name="Authorized evidence candidates" />
+  <bpmn:message id="Msg_Denial" name="Acquisition denial" />
+  <bpmn:message id="Msg_EvidenceReady" name="Verified evidence manifest" />
+  <bpmn:message id="Msg_Reconstruction" name="Reconstruction outcome" />
+  <bpmn:signal id="Signal_RevokeAuthorization" name="Authorization revoked by issuer" />
+  <bpmn:signal id="Signal_DeviceTamper" name="Configured device tamper action" />
+  <bpmn:signal id="Signal_DeviceDisconnect" name="Device connectivity lost" />
+  <bpmn:collaboration id="Collab_UC4_Lifecycles">
+    <bpmn:participant id="Participant_External" name="External detection, authority and reconstruction triggers" />
+    <bpmn:participant id="Participant_Case" name="Investigation case trigger lifecycle (UC4-DO06)" processRef="Process_Case" />
+    <bpmn:participant id="Participant_Authorization" name="Authorization lifecycle (UC4-DO01)" processRef="Process_Authorization" />
+    <bpmn:participant id="Participant_Acquisition" name="CPE lawful-acquisition lifecycle (UC4-S02 on UC4-D01)" processRef="Process_Acquisition" />
+    <bpmn:participant id="Participant_Door" name="Door sensor lifecycle (UC4-D03)" processRef="Process_Door" />
+    <bpmn:participant id="Participant_HA" name="Home Assistant connectivity lifecycle (UC4-D02)" processRef="Process_HA" />
+    <bpmn:participant id="Participant_Evidence" name="Evidence item lifecycle (UC4-DO05)" processRef="Process_Evidence" />
+    <bpmn:messageFlow id="MF_Alert" sourceRef="Participant_External" targetRef="Start_Case" />
+    <bpmn:messageFlow id="MF_Acknowledge" sourceRef="Participant_External" targetRef="Catch_Acknowledge" />
+    <bpmn:messageFlow id="MF_AuthRequest" sourceRef="Send_AuthRequest" targetRef="Start_Authorization" />
+    <bpmn:messageFlow id="MF_CasePreparation" sourceRef="Send_CasePreparation" targetRef="Start_Acquisition" />
+    <bpmn:messageFlow id="MF_AuthDecision" sourceRef="Send_AuthDecision" targetRef="Catch_AuthDecision" />
+    <bpmn:messageFlow id="MF_AuthTerminal" sourceRef="Send_AuthTerminal" targetRef="Catch_AuthTerminal" />
+    <bpmn:messageFlow id="MF_Candidates" sourceRef="Send_Candidates" targetRef="Start_Evidence" />
+    <bpmn:messageFlow id="MF_Denial" sourceRef="Send_Denial" targetRef="Catch_CaseDenial" />
+    <bpmn:messageFlow id="MF_EvidenceReady" sourceRef="Send_EvidenceReady" targetRef="Catch_EvidenceReady" />
+    <bpmn:messageFlow id="MF_Reconstruction" sourceRef="Participant_External" targetRef="Catch_Reconstruction" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Case" isExecutable="false">
+    <bpmn:startEvent id="Start_Case" name="Alert received">
+      <bpmn:messageEventDefinition messageRef="Msg_Alert" />
+    </bpmn:startEvent>
+    <bpmn:task id="State_CaseCreated" name="[STATE] created - alert and supporting IDs fixed" />
+    <bpmn:intermediateCatchEvent id="Catch_Acknowledge" name="Investigator acknowledges and assigns case ID">
+      <bpmn:messageEventDefinition messageRef="Msg_Acknowledge" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_CaseAcknowledged" name="[STATE] acknowledged - collection still inactive" />
+    <bpmn:parallelGateway id="GW_CaseSplit" name="Prepare authorization and acquisition request" />
+    <bpmn:sendTask id="Send_AuthRequest" name="Submit authorization request" messageRef="Msg_AuthRequest" />
+    <bpmn:sendTask id="Send_CasePreparation" name="Register request-preparation state" messageRef="Msg_CasePreparation" />
+    <bpmn:parallelGateway id="GW_CaseJoin" />
+    <bpmn:eventBasedGateway id="GW_CaseOutcome" name="Wait for acquisition outcome" />
+    <bpmn:intermediateCatchEvent id="Catch_CaseDenial" name="Acquisition denied">
+      <bpmn:messageEventDefinition messageRef="Msg_Denial" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_EvidenceReady" name="Verified evidence ready">
+      <bpmn:messageEventDefinition messageRef="Msg_EvidenceReady" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_RecordEvidenceReady" name="Record evidence manifest; await reconstruction" />
+    <bpmn:intermediateCatchEvent id="Catch_Reconstruction" name="Reconstruction received">
+      <bpmn:messageEventDefinition messageRef="Msg_Reconstruction" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_CaseClosed" name="[STATE] closed - reason and outcome retained" />
+    <bpmn:endEvent id="End_Case" name="Case-trigger lifecycle complete" />
+    <bpmn:sequenceFlow id="F_Case1" sourceRef="Start_Case" targetRef="State_CaseCreated" />
+    <bpmn:sequenceFlow id="F_Case2" sourceRef="State_CaseCreated" targetRef="Catch_Acknowledge" />
+    <bpmn:sequenceFlow id="F_Case3" sourceRef="Catch_Acknowledge" targetRef="State_CaseAcknowledged" />
+    <bpmn:sequenceFlow id="F_Case4" sourceRef="State_CaseAcknowledged" targetRef="GW_CaseSplit" />
+    <bpmn:sequenceFlow id="F_Case5A" sourceRef="GW_CaseSplit" targetRef="Send_AuthRequest" />
+    <bpmn:sequenceFlow id="F_Case5B" sourceRef="GW_CaseSplit" targetRef="Send_CasePreparation" />
+    <bpmn:sequenceFlow id="F_Case6A" sourceRef="Send_AuthRequest" targetRef="GW_CaseJoin" />
+    <bpmn:sequenceFlow id="F_Case6B" sourceRef="Send_CasePreparation" targetRef="GW_CaseJoin" />
+    <bpmn:sequenceFlow id="F_Case7" sourceRef="GW_CaseJoin" targetRef="GW_CaseOutcome" />
+    <bpmn:sequenceFlow id="F_Case8D" sourceRef="GW_CaseOutcome" targetRef="Catch_CaseDenial" />
+    <bpmn:sequenceFlow id="F_Case8E" sourceRef="GW_CaseOutcome" targetRef="Catch_EvidenceReady" />
+    <bpmn:sequenceFlow id="F_Case9D" sourceRef="Catch_CaseDenial" targetRef="State_CaseClosed" />
+    <bpmn:sequenceFlow id="F_Case9E" sourceRef="Catch_EvidenceReady" targetRef="Task_RecordEvidenceReady" />
+    <bpmn:sequenceFlow id="F_Case10" sourceRef="Task_RecordEvidenceReady" targetRef="Catch_Reconstruction" />
+    <bpmn:sequenceFlow id="F_Case11" sourceRef="Catch_Reconstruction" targetRef="State_CaseClosed" />
+    <bpmn:sequenceFlow id="F_Case12" sourceRef="State_CaseClosed" targetRef="End_Case" />
+  </bpmn:process>
+  <bpmn:process id="Process_Authorization" isExecutable="false">
+    <bpmn:startEvent id="Start_Authorization" name="Authorization submitted">
+      <bpmn:messageEventDefinition messageRef="Msg_AuthRequest" />
+    </bpmn:startEvent>
+    <bpmn:task id="State_AuthSubmitted" name="[STATE] submitted" />
+    <bpmn:businessRuleTask id="Task_VerifyAuthorization" name="Verify issuer, signature, case, scope and completeness" />
+    <bpmn:exclusiveGateway id="GW_AuthVerified" name="Authorization verifiable?" default="F_Auth4Denied" />
+    <bpmn:task id="State_AuthVerified" name="[STATE] verified" />
+    <bpmn:task id="Task_ActivateAuthorization" name="Activate within validity interval" />
+    <bpmn:task id="State_AuthActive" name="[STATE] active" />
+    <bpmn:task id="State_AuthDenied" name="[STATE] denied - terminal for this version" />
+    <bpmn:sendTask id="Send_AuthDecision" name="Send active or denied decision" messageRef="Msg_AuthDecision" />
+    <bpmn:exclusiveGateway id="GW_AuthDecisionSent" name="Decision status?" default="F_Auth8Denied" />
+    <bpmn:eventBasedGateway id="GW_AuthTerminal" name="Wait for expiry or revocation" />
+    <bpmn:intermediateCatchEvent id="Catch_AuthExpiry" name="Validity interval ends">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">authorization.valid_to</bpmn:timeDate>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_AuthRevocation" name="Issuer revokes authorization">
+      <bpmn:signalEventDefinition signalRef="Signal_RevokeAuthorization" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_AuthExpired" name="[STATE] expired - terminal for this version" />
+    <bpmn:task id="State_AuthRevoked" name="[STATE] revoked - terminal for this version" />
+    <bpmn:sendTask id="Send_AuthTerminal" name="Notify acquisition of terminal status" messageRef="Msg_AuthTerminal" />
+    <bpmn:endEvent id="End_Authorization" name="Authorization version terminal" />
+    <bpmn:sequenceFlow id="F_Auth1" sourceRef="Start_Authorization" targetRef="State_AuthSubmitted" />
+    <bpmn:sequenceFlow id="F_Auth2" sourceRef="State_AuthSubmitted" targetRef="Task_VerifyAuthorization" />
+    <bpmn:sequenceFlow id="F_Auth3" sourceRef="Task_VerifyAuthorization" targetRef="GW_AuthVerified" />
+    <bpmn:sequenceFlow id="F_Auth4Verified" name="valid" sourceRef="GW_AuthVerified" targetRef="State_AuthVerified">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">verify=valid and required_fields_complete</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Auth4Denied" name="invalid/default" sourceRef="GW_AuthVerified" targetRef="State_AuthDenied" />
+    <bpmn:sequenceFlow id="F_Auth5" sourceRef="State_AuthVerified" targetRef="Task_ActivateAuthorization" />
+    <bpmn:sequenceFlow id="F_Auth6" sourceRef="Task_ActivateAuthorization" targetRef="State_AuthActive" />
+    <bpmn:sequenceFlow id="F_Auth7A" sourceRef="State_AuthActive" targetRef="Send_AuthDecision" />
+    <bpmn:sequenceFlow id="F_Auth7D" sourceRef="State_AuthDenied" targetRef="Send_AuthDecision" />
+    <bpmn:sequenceFlow id="F_Auth7Decision" sourceRef="Send_AuthDecision" targetRef="GW_AuthDecisionSent" />
+    <bpmn:sequenceFlow id="F_Auth8Active" name="active decision" sourceRef="GW_AuthDecisionSent" targetRef="GW_AuthTerminal">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">status=active</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Auth8Denied" name="denied/default" sourceRef="GW_AuthDecisionSent" targetRef="End_Authorization" />
+    <bpmn:sequenceFlow id="F_Auth9E" sourceRef="GW_AuthTerminal" targetRef="Catch_AuthExpiry" />
+    <bpmn:sequenceFlow id="F_Auth9R" sourceRef="GW_AuthTerminal" targetRef="Catch_AuthRevocation" />
+    <bpmn:sequenceFlow id="F_Auth10E" sourceRef="Catch_AuthExpiry" targetRef="State_AuthExpired" />
+    <bpmn:sequenceFlow id="F_Auth10R" sourceRef="Catch_AuthRevocation" targetRef="State_AuthRevoked" />
+    <bpmn:sequenceFlow id="F_Auth11E" sourceRef="State_AuthExpired" targetRef="Send_AuthTerminal" />
+    <bpmn:sequenceFlow id="F_Auth11R" sourceRef="State_AuthRevoked" targetRef="Send_AuthTerminal" />
+    <bpmn:sequenceFlow id="F_Auth12" sourceRef="Send_AuthTerminal" targetRef="End_Authorization" />
+  </bpmn:process>
+  <bpmn:process id="Process_Acquisition" isExecutable="false">
+    <bpmn:startEvent id="Start_Acquisition" name="Case request registered">
+      <bpmn:messageEventDefinition messageRef="Msg_CasePreparation" />
+    </bpmn:startEvent>
+    <bpmn:task id="State_AcqRequestReceived" name="[STATE] request_received - no collection" />
+    <bpmn:intermediateCatchEvent id="Catch_AuthDecision" name="Authorization decision received">
+      <bpmn:messageEventDefinition messageRef="Msg_AuthDecision" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="GW_AcqAuthorized" name="Active authorization and ScopeOK?" default="F_Acq4Denied" />
+    <bpmn:task id="State_AcqAuthorized" name="[STATE] authorized" />
+    <bpmn:exclusiveGateway id="GW_AcqStart" name="Sources available and authorization still active?" default="F_Acq6Failed" />
+    <bpmn:task id="State_AcqCollecting" name="[STATE] collecting - minimized eligible records only" />
+    <bpmn:task id="State_AcqDenied" name="[STATE] denied - zero payload" />
+    <bpmn:task id="State_AcqFailed" name="[STATE] failed - zero uncommitted payload" />
+    <bpmn:eventBasedGateway id="GW_AcqTerminal" name="Wait for completion, authorization end, or failure" />
+    <bpmn:intermediateCatchEvent id="Catch_AcqComplete" name="Eligible source reads complete">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">source_reads_complete=true</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_AuthTerminal" name="Authorization expired or revoked">
+      <bpmn:messageEventDefinition messageRef="Msg_AuthTerminal" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_AcqFailure" name="Source/audit failure">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT5S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="GW_AuthTerminalKind" name="Expired or revoked?" default="F_Acq11Revoked" />
+    <bpmn:task id="State_AcqCompleted" name="[STATE] completed" />
+    <bpmn:task id="State_AcqExpired" name="[STATE] expired - collection stopped" />
+    <bpmn:task id="State_AcqRevoked" name="[STATE] revoked - collection stopped" />
+    <bpmn:sendTask id="Send_Candidates" name="Send authorized evidence candidates" messageRef="Msg_Candidates" />
+    <bpmn:sendTask id="Send_Denial" name="Send denial/failure metadata only" messageRef="Msg_Denial" />
+    <bpmn:endEvent id="End_Acquisition" name="Acquisition lifecycle terminal" />
+    <bpmn:sequenceFlow id="F_Acq1" sourceRef="Start_Acquisition" targetRef="State_AcqRequestReceived" />
+    <bpmn:sequenceFlow id="F_Acq2" sourceRef="State_AcqRequestReceived" targetRef="Catch_AuthDecision" />
+    <bpmn:sequenceFlow id="F_Acq3" sourceRef="Catch_AuthDecision" targetRef="GW_AcqAuthorized" />
+    <bpmn:sequenceFlow id="F_Acq4Authorized" name="active and in scope" sourceRef="GW_AcqAuthorized" targetRef="State_AcqAuthorized">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">authorization.status=active and ScopeOK(request,authorization)</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Acq4Denied" name="deny/default" sourceRef="GW_AcqAuthorized" targetRef="State_AcqDenied" />
+    <bpmn:sequenceFlow id="F_Acq5" sourceRef="State_AcqAuthorized" targetRef="GW_AcqStart" />
+    <bpmn:sequenceFlow id="F_Acq6Collect" name="ready" sourceRef="GW_AcqStart" targetRef="State_AcqCollecting">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">sources_available and authorization.status=active</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Acq6Failed" name="unavailable/default" sourceRef="GW_AcqStart" targetRef="State_AcqFailed" />
+    <bpmn:sequenceFlow id="F_Acq7" sourceRef="State_AcqCollecting" targetRef="GW_AcqTerminal" />
+    <bpmn:sequenceFlow id="F_Acq8C" sourceRef="GW_AcqTerminal" targetRef="Catch_AcqComplete" />
+    <bpmn:sequenceFlow id="F_Acq8A" sourceRef="GW_AcqTerminal" targetRef="Catch_AuthTerminal" />
+    <bpmn:sequenceFlow id="F_Acq8F" sourceRef="GW_AcqTerminal" targetRef="Catch_AcqFailure" />
+    <bpmn:sequenceFlow id="F_Acq9C" sourceRef="Catch_AcqComplete" targetRef="State_AcqCompleted" />
+    <bpmn:sequenceFlow id="F_Acq9A" sourceRef="Catch_AuthTerminal" targetRef="GW_AuthTerminalKind" />
+    <bpmn:sequenceFlow id="F_Acq9F" sourceRef="Catch_AcqFailure" targetRef="State_AcqFailed" />
+    <bpmn:sequenceFlow id="F_Acq10Expired" name="expired" sourceRef="GW_AuthTerminalKind" targetRef="State_AcqExpired">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">authorization.status=expired</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Acq11Revoked" name="revoked/default" sourceRef="GW_AuthTerminalKind" targetRef="State_AcqRevoked" />
+    <bpmn:sequenceFlow id="F_Acq12C" sourceRef="State_AcqCompleted" targetRef="Send_Candidates" />
+    <bpmn:sequenceFlow id="F_Acq12D" sourceRef="State_AcqDenied" targetRef="Send_Denial" />
+    <bpmn:sequenceFlow id="F_Acq12F" sourceRef="State_AcqFailed" targetRef="Send_Denial" />
+    <bpmn:sequenceFlow id="F_Acq12E" sourceRef="State_AcqExpired" targetRef="Send_Denial" />
+    <bpmn:sequenceFlow id="F_Acq12R" sourceRef="State_AcqRevoked" targetRef="Send_Denial" />
+    <bpmn:sequenceFlow id="F_Acq13C" sourceRef="Send_Candidates" targetRef="End_Acquisition" />
+    <bpmn:sequenceFlow id="F_Acq13D" sourceRef="Send_Denial" targetRef="End_Acquisition" />
+  </bpmn:process>
+  <bpmn:process id="Process_Door" isExecutable="false">
+    <bpmn:startEvent id="Start_Door" name="Sensor initialized" />
+    <bpmn:task id="State_DoorClosed" name="[STATE] closed_online; vD=0" />
+    <bpmn:eventBasedGateway id="GW_DoorClosed" name="Wait while closed/online" />
+    <bpmn:intermediateCatchEvent id="Catch_DoorOpen" name="door.open - physical entry">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">physical_contact=open</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorTamperClosed" name="device.tamper; gammaD=1">
+      <bpmn:signalEventDefinition signalRef="Signal_DeviceTamper" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorDisconnectClosed" name="device.disconnect">
+      <bpmn:signalEventDefinition signalRef="Signal_DeviceDisconnect" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_DoorOpen" name="[STATE] open_online; increment vD" />
+    <bpmn:eventBasedGateway id="GW_DoorOpen" name="Wait while open/online" />
+    <bpmn:intermediateCatchEvent id="Catch_DoorClose" name="door.close - physical close">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">physical_contact=closed</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorTamperOpen" name="device.tamper; gammaD=1">
+      <bpmn:signalEventDefinition signalRef="Signal_DeviceTamper" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorDisconnectOpen" name="device.disconnect">
+      <bpmn:signalEventDefinition signalRef="Signal_DeviceDisconnect" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_DoorTampered" name="[STATE] tampered; increment vD" />
+    <bpmn:task id="State_DoorOffline" name="[STATE] offline; preserve last logical state; increment vD" />
+    <bpmn:eventBasedGateway id="GW_DoorOffline" name="Wait for authorized restoration or scenario horizon" />
+    <bpmn:intermediateCatchEvent id="Catch_DoorDisconnectTampered" name="device.disconnect">
+      <bpmn:signalEventDefinition signalRef="Signal_DeviceDisconnect" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorRestore" name="device.restore - authorized maintenance">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">maintenance.authorized=true</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_DoorHorizon" name="Simulation horizon reached">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">simulation.horizon</bpmn:timeDate>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="GW_DoorRecovered" name="Configured recovered logical state?" default="F_Door14Closed" />
+    <bpmn:endEvent id="End_Door" name="Scenario ends with current state retained" />
+    <bpmn:sequenceFlow id="F_Door1" sourceRef="Start_Door" targetRef="State_DoorClosed" />
+    <bpmn:sequenceFlow id="F_Door2" sourceRef="State_DoorClosed" targetRef="GW_DoorClosed" />
+    <bpmn:sequenceFlow id="F_Door3O" sourceRef="GW_DoorClosed" targetRef="Catch_DoorOpen" />
+    <bpmn:sequenceFlow id="F_Door3T" sourceRef="GW_DoorClosed" targetRef="Catch_DoorTamperClosed" />
+    <bpmn:sequenceFlow id="F_Door3D" sourceRef="GW_DoorClosed" targetRef="Catch_DoorDisconnectClosed" />
+    <bpmn:sequenceFlow id="F_Door4O" sourceRef="Catch_DoorOpen" targetRef="State_DoorOpen" />
+    <bpmn:sequenceFlow id="F_Door4T" sourceRef="Catch_DoorTamperClosed" targetRef="State_DoorTampered" />
+    <bpmn:sequenceFlow id="F_Door4D" sourceRef="Catch_DoorDisconnectClosed" targetRef="State_DoorOffline" />
+    <bpmn:sequenceFlow id="F_Door5" sourceRef="State_DoorOpen" targetRef="GW_DoorOpen" />
+    <bpmn:sequenceFlow id="F_Door6C" sourceRef="GW_DoorOpen" targetRef="Catch_DoorClose" />
+    <bpmn:sequenceFlow id="F_Door6T" sourceRef="GW_DoorOpen" targetRef="Catch_DoorTamperOpen" />
+    <bpmn:sequenceFlow id="F_Door6D" sourceRef="GW_DoorOpen" targetRef="Catch_DoorDisconnectOpen" />
+    <bpmn:sequenceFlow id="F_Door7C" sourceRef="Catch_DoorClose" targetRef="State_DoorClosed" />
+    <bpmn:sequenceFlow id="F_Door7T" sourceRef="Catch_DoorTamperOpen" targetRef="State_DoorTampered" />
+    <bpmn:sequenceFlow id="F_Door7D" sourceRef="Catch_DoorDisconnectOpen" targetRef="State_DoorOffline" />
+    <bpmn:sequenceFlow id="F_Door8" sourceRef="State_DoorTampered" targetRef="Catch_DoorDisconnectTampered" />
+    <bpmn:sequenceFlow id="F_Door9" sourceRef="Catch_DoorDisconnectTampered" targetRef="State_DoorOffline" />
+    <bpmn:sequenceFlow id="F_Door10" sourceRef="State_DoorOffline" targetRef="GW_DoorOffline" />
+    <bpmn:sequenceFlow id="F_Door10Restore" sourceRef="GW_DoorOffline" targetRef="Catch_DoorRestore" />
+    <bpmn:sequenceFlow id="F_Door10Horizon" sourceRef="GW_DoorOffline" targetRef="Catch_DoorHorizon" />
+    <bpmn:sequenceFlow id="F_Door11" sourceRef="Catch_DoorRestore" targetRef="GW_DoorRecovered" />
+    <bpmn:sequenceFlow id="F_Door12Open" name="configured open" sourceRef="GW_DoorRecovered" targetRef="State_DoorOpen">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">recovered_logical_state=open</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Door14Closed" name="closed/default" sourceRef="GW_DoorRecovered" targetRef="State_DoorClosed" />
+    <bpmn:sequenceFlow id="F_DoorEnd" sourceRef="Catch_DoorHorizon" targetRef="End_Door" />
+  </bpmn:process>
+  <bpmn:process id="Process_HA" isExecutable="false">
+    <bpmn:startEvent id="Start_HA_Lifecycle" name="Home Assistant initialized" />
+    <bpmn:task id="State_HAOnline" name="[STATE] online - ingest and automate" />
+    <bpmn:eventBasedGateway id="GW_HAOnline" name="Wait for health transition" />
+    <bpmn:intermediateCatchEvent id="Catch_HADegrade" name="Error/overload threshold crossed">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">health=degraded</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_HAOutage" name="Host/service unavailable">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">health=offline</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_HADegraded" name="[STATE] degraded - retain quality flags" />
+    <bpmn:eventBasedGateway id="GW_HADegraded" name="Wait for recovery or failure" />
+    <bpmn:intermediateCatchEvent id="Catch_HARecover" name="Health checks pass">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">health=online</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_HAFail" name="Service fails">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">health=offline</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_HAOffline" name="[STATE] offline - reject ingestion; emit no ordinary events" />
+    <bpmn:eventBasedGateway id="GW_HAOffline" name="Wait for restoration or scenario horizon" />
+    <bpmn:intermediateCatchEvent id="Catch_HARestore" name="Authorized service restoration">
+      <bpmn:conditionalEventDefinition>
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">service_restored=true</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Catch_HAHorizon" name="Simulation horizon reached">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">simulation.horizon</bpmn:timeDate>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="End_HA_Lifecycle" name="Scenario horizon; state retained" />
+    <bpmn:sequenceFlow id="F_HA1" sourceRef="Start_HA_Lifecycle" targetRef="State_HAOnline" />
+    <bpmn:sequenceFlow id="F_HA2" sourceRef="State_HAOnline" targetRef="GW_HAOnline" />
+    <bpmn:sequenceFlow id="F_HA3D" sourceRef="GW_HAOnline" targetRef="Catch_HADegrade" />
+    <bpmn:sequenceFlow id="F_HA3O" sourceRef="GW_HAOnline" targetRef="Catch_HAOutage" />
+    <bpmn:sequenceFlow id="F_HA4D" sourceRef="Catch_HADegrade" targetRef="State_HADegraded" />
+    <bpmn:sequenceFlow id="F_HA4O" sourceRef="Catch_HAOutage" targetRef="State_HAOffline" />
+    <bpmn:sequenceFlow id="F_HA5" sourceRef="State_HADegraded" targetRef="GW_HADegraded" />
+    <bpmn:sequenceFlow id="F_HA6R" sourceRef="GW_HADegraded" targetRef="Catch_HARecover" />
+    <bpmn:sequenceFlow id="F_HA6F" sourceRef="GW_HADegraded" targetRef="Catch_HAFail" />
+    <bpmn:sequenceFlow id="F_HA7R" sourceRef="Catch_HARecover" targetRef="State_HAOnline" />
+    <bpmn:sequenceFlow id="F_HA7F" sourceRef="Catch_HAFail" targetRef="State_HAOffline" />
+    <bpmn:sequenceFlow id="F_HA8" sourceRef="State_HAOffline" targetRef="GW_HAOffline" />
+    <bpmn:sequenceFlow id="F_HA8Restore" sourceRef="GW_HAOffline" targetRef="Catch_HARestore" />
+    <bpmn:sequenceFlow id="F_HA8Horizon" sourceRef="GW_HAOffline" targetRef="Catch_HAHorizon" />
+    <bpmn:sequenceFlow id="F_HA9" sourceRef="Catch_HARestore" targetRef="State_HAOnline" />
+    <bpmn:sequenceFlow id="F_HAEnd" sourceRef="Catch_HAHorizon" targetRef="End_HA_Lifecycle" />
+  </bpmn:process>
+  <bpmn:process id="Process_Evidence" isExecutable="false">
+    <bpmn:startEvent id="Start_Evidence" name="Authorized candidate received">
+      <bpmn:messageEventDefinition messageRef="Msg_Candidates" />
+    </bpmn:startEvent>
+    <bpmn:task id="State_EvidenceCollected" name="[STATE] collected - source/provenance fixed" />
+    <bpmn:serviceTask id="Task_RegisterEvidence" name="Canonicalize, hash, store and append custody" />
+    <bpmn:task id="State_EvidenceRegistered" name="[STATE] registered" />
+    <bpmn:serviceTask id="Task_VerifyEvidence" name="Recompute content hash and custody chain" />
+    <bpmn:exclusiveGateway id="GW_EvidenceVerified" name="Content and custody valid?" default="F_Evidence6Failed" />
+    <bpmn:task id="State_EvidenceVerified" name="[STATE] verified" />
+    <bpmn:task id="State_EvidenceFailed" name="[STATE] verification_failed - quarantined" />
+    <bpmn:sendTask id="Send_EvidenceReady" name="Send verified manifest" messageRef="Msg_EvidenceReady" />
+    <bpmn:intermediateCatchEvent id="Catch_EvidenceDispose" name="Retention expiry or authorized disposal">
+      <bpmn:timerEventDefinition>
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">evidence.retention_end</bpmn:timeDate>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="State_EvidenceDisposed" name="[STATE] disposed - disposal custody action retained" />
+    <bpmn:endEvent id="End_Evidence" name="Evidence lifecycle complete" />
+    <bpmn:endEvent id="End_EvidenceFailed" name="Quarantined item retained" />
+    <bpmn:sequenceFlow id="F_Evidence1" sourceRef="Start_Evidence" targetRef="State_EvidenceCollected" />
+    <bpmn:sequenceFlow id="F_Evidence2" sourceRef="State_EvidenceCollected" targetRef="Task_RegisterEvidence" />
+    <bpmn:sequenceFlow id="F_Evidence3" sourceRef="Task_RegisterEvidence" targetRef="State_EvidenceRegistered" />
+    <bpmn:sequenceFlow id="F_Evidence4" sourceRef="State_EvidenceRegistered" targetRef="Task_VerifyEvidence" />
+    <bpmn:sequenceFlow id="F_Evidence5" sourceRef="Task_VerifyEvidence" targetRef="GW_EvidenceVerified" />
+    <bpmn:sequenceFlow id="F_Evidence6Verified" name="valid" sourceRef="GW_EvidenceVerified" targetRef="State_EvidenceVerified">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">content_hash_valid and CustodyValid(chain)</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="F_Evidence6Failed" name="invalid/default" sourceRef="GW_EvidenceVerified" targetRef="State_EvidenceFailed" />
+    <bpmn:sequenceFlow id="F_Evidence7" sourceRef="State_EvidenceVerified" targetRef="Send_EvidenceReady" />
+    <bpmn:sequenceFlow id="F_Evidence8" sourceRef="Send_EvidenceReady" targetRef="Catch_EvidenceDispose" />
+    <bpmn:sequenceFlow id="F_Evidence9" sourceRef="Catch_EvidenceDispose" targetRef="State_EvidenceDisposed" />
+    <bpmn:sequenceFlow id="F_Evidence10" sourceRef="State_EvidenceDisposed" targetRef="End_Evidence" />
+    <bpmn:sequenceFlow id="F_Evidence11" sourceRef="State_EvidenceFailed" targetRef="End_EvidenceFailed" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_UC4_Lifecycles">
+    <bpmndi:BPMNPlane id="Plane_UC4_Lifecycles" bpmnElement="Collab_UC4_Lifecycles">
+      <bpmndi:BPMNShape id="Sh_PExternal" bpmnElement="Participant_External" isHorizontal="true">
+        <dc:Bounds x="30" y="20" width="2300" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PCase" bpmnElement="Participant_Case" isHorizontal="true">
+        <dc:Bounds x="30" y="100" width="2300" height="190" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartCase" bpmnElement="Start_Case">
+        <dc:Bounds x="70" y="177" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseCreated" bpmnElement="State_CaseCreated">
+        <dc:Bounds x="135" y="155" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_Ack" bpmnElement="Catch_Acknowledge">
+        <dc:Bounds x="330" y="177" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseAcked" bpmnElement="State_CaseAcknowledged">
+        <dc:Bounds x="400" y="155" width="175" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseSplit" bpmnElement="GW_CaseSplit" isMarkerVisible="true">
+        <dc:Bounds x="615" y="170" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendAuthReq" bpmnElement="Send_AuthRequest">
+        <dc:Bounds x="710" y="115" width="160" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendCasePrep" bpmnElement="Send_CasePreparation">
+        <dc:Bounds x="710" y="210" width="160" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseJoin" bpmnElement="GW_CaseJoin" isMarkerVisible="true">
+        <dc:Bounds x="915" y="170" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseOutcome" bpmnElement="GW_CaseOutcome">
+        <dc:Bounds x="1010" y="170" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseDenial" bpmnElement="Catch_CaseDenial">
+        <dc:Bounds x="1110" y="130" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceReadyCatch" bpmnElement="Catch_EvidenceReady">
+        <dc:Bounds x="1110" y="225" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_RecordReady" bpmnElement="Task_RecordEvidenceReady">
+        <dc:Bounds x="1200" y="210" width="170" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_ReconCatch" bpmnElement="Catch_Reconstruction">
+        <dc:Bounds x="1420" y="225" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CaseClosed" bpmnElement="State_CaseClosed">
+        <dc:Bounds x="1510" y="155" width="175" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndCase" bpmnElement="End_Case">
+        <dc:Bounds x="1730" y="177" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PAuth" bpmnElement="Participant_Authorization" isHorizontal="true">
+        <dc:Bounds x="30" y="310" width="2300" height="210" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartAuth" bpmnElement="Start_Authorization">
+        <dc:Bounds x="70" y="397" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthSubmitted" bpmnElement="State_AuthSubmitted">
+        <dc:Bounds x="135" y="375" width="135" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_VerifyAuth" bpmnElement="Task_VerifyAuthorization">
+        <dc:Bounds x="310" y="375" width="170" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAuthVerified" bpmnElement="GW_AuthVerified" isMarkerVisible="true">
+        <dc:Bounds x="520" y="390" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthVerified" bpmnElement="State_AuthVerified">
+        <dc:Bounds x="610" y="330" width="135" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_ActivateAuth" bpmnElement="Task_ActivateAuthorization">
+        <dc:Bounds x="785" y="330" width="155" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthActive" bpmnElement="State_AuthActive">
+        <dc:Bounds x="980" y="330" width="135" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthDenied" bpmnElement="State_AuthDenied">
+        <dc:Bounds x="610" y="445" width="155" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendAuthDecision" bpmnElement="Send_AuthDecision">
+        <dc:Bounds x="1170" y="375" width="165" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAuthDecisionSent" bpmnElement="GW_AuthDecisionSent" isMarkerVisible="true">
+        <dc:Bounds x="1360" y="430" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAuthTerminal" bpmnElement="GW_AuthTerminal">
+        <dc:Bounds x="1380" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthExpiry" bpmnElement="Catch_AuthExpiry">
+        <dc:Bounds x="1480" y="330" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthRevoke" bpmnElement="Catch_AuthRevocation">
+        <dc:Bounds x="1480" y="420" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthExpired" bpmnElement="State_AuthExpired">
+        <dc:Bounds x="1560" y="320" width="150" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthRevoked" bpmnElement="State_AuthRevoked">
+        <dc:Bounds x="1560" y="410" width="150" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendAuthTerminal" bpmnElement="Send_AuthTerminal">
+        <dc:Bounds x="1760" y="365" width="170" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndAuth" bpmnElement="End_Authorization">
+        <dc:Bounds x="1980" y="382" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PAcq" bpmnElement="Participant_Acquisition" isHorizontal="true">
+        <dc:Bounds x="30" y="540" width="2300" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartAcq" bpmnElement="Start_Acquisition">
+        <dc:Bounds x="70" y="647" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqReceived" bpmnElement="State_AcqRequestReceived">
+        <dc:Bounds x="135" y="625" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_CatchDecision" bpmnElement="Catch_AuthDecision">
+        <dc:Bounds x="335" y="647" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAcqAuth" bpmnElement="GW_AcqAuthorized" isMarkerVisible="true">
+        <dc:Bounds x="410" y="640" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqAuthorized" bpmnElement="State_AcqAuthorized">
+        <dc:Bounds x="500" y="570" width="145" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAcqStart" bpmnElement="GW_AcqStart" isMarkerVisible="true">
+        <dc:Bounds x="685" y="577" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqCollecting" bpmnElement="State_AcqCollecting">
+        <dc:Bounds x="775" y="560" width="165" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqDenied" bpmnElement="State_AcqDenied">
+        <dc:Bounds x="500" y="710" width="145" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqFailed" bpmnElement="State_AcqFailed">
+        <dc:Bounds x="775" y="710" width="145" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWAcqTerminal" bpmnElement="GW_AcqTerminal">
+        <dc:Bounds x="980" y="575" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqCompleteCatch" bpmnElement="Catch_AcqComplete">
+        <dc:Bounds x="1080" y="555" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AuthTerminalCatch" bpmnElement="Catch_AuthTerminal">
+        <dc:Bounds x="1080" y="635" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqFailureCatch" bpmnElement="Catch_AcqFailure">
+        <dc:Bounds x="1080" y="715" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWTerminalKind" bpmnElement="GW_AuthTerminalKind" isMarkerVisible="true">
+        <dc:Bounds x="1170" y="630" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqCompleted" bpmnElement="State_AcqCompleted">
+        <dc:Bounds x="1260" y="545" width="145" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqExpired" bpmnElement="State_AcqExpired">
+        <dc:Bounds x="1260" y="625" width="145" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_AcqRevoked" bpmnElement="State_AcqRevoked">
+        <dc:Bounds x="1260" y="705" width="145" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendCandidates" bpmnElement="Send_Candidates">
+        <dc:Bounds x="1460" y="545" width="170" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendDenial" bpmnElement="Send_Denial">
+        <dc:Bounds x="1460" y="680" width="170" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndAcq" bpmnElement="End_Acquisition">
+        <dc:Bounds x="1680" y="647" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PDoor" bpmnElement="Participant_Door" isHorizontal="true">
+        <dc:Bounds x="30" y="810" width="2300" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartDoor" bpmnElement="Start_Door">
+        <dc:Bounds x="70" y="917" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorClosed" bpmnElement="State_DoorClosed">
+        <dc:Bounds x="135" y="895" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWDoorClosed" bpmnElement="GW_DoorClosed">
+        <dc:Bounds x="320" y="910" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorOpenCatch" bpmnElement="Catch_DoorOpen">
+        <dc:Bounds x="415" y="835" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_TamperClosed" bpmnElement="Catch_DoorTamperClosed">
+        <dc:Bounds x="415" y="917" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DisconnectClosed" bpmnElement="Catch_DoorDisconnectClosed">
+        <dc:Bounds x="415" y="995" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorOpen" bpmnElement="State_DoorOpen">
+        <dc:Bounds x="500" y="820" width="145" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWDoorOpen" bpmnElement="GW_DoorOpen">
+        <dc:Bounds x="685" y="827" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorCloseCatch" bpmnElement="Catch_DoorClose">
+        <dc:Bounds x="780" y="817" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_TamperOpen" bpmnElement="Catch_DoorTamperOpen">
+        <dc:Bounds x="780" y="900" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DisconnectOpen" bpmnElement="Catch_DoorDisconnectOpen">
+        <dc:Bounds x="780" y="985" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorTampered" bpmnElement="State_DoorTampered">
+        <dc:Bounds x="870" y="890" width="155" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DisconnectTampered" bpmnElement="Catch_DoorDisconnectTampered">
+        <dc:Bounds x="1065" y="905" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorOffline" bpmnElement="State_DoorOffline">
+        <dc:Bounds x="1150" y="930" width="165" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWDoorOffline" bpmnElement="GW_DoorOffline">
+        <dc:Bounds x="1320" y="940" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorRestore" bpmnElement="Catch_DoorRestore">
+        <dc:Bounds x="1360" y="947" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_DoorHorizon" bpmnElement="Catch_DoorHorizon">
+        <dc:Bounds x="1440" y="1010" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWRecovered" bpmnElement="GW_DoorRecovered" isMarkerVisible="true">
+        <dc:Bounds x="1440" y="940" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndDoor" bpmnElement="End_Door">
+        <dc:Bounds x="1540" y="1010" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PHA" bpmnElement="Participant_HA" isHorizontal="true">
+        <dc:Bounds x="30" y="1080" width="2300" height="210" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartHAL" bpmnElement="Start_HA_Lifecycle">
+        <dc:Bounds x="70" y="1167" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HAOnline" bpmnElement="State_HAOnline">
+        <dc:Bounds x="135" y="1145" width="155" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWHAOnline" bpmnElement="GW_HAOnline">
+        <dc:Bounds x="330" y="1160" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HADegradeCatch" bpmnElement="Catch_HADegrade">
+        <dc:Bounds x="425" y="1115" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HAOutageCatch" bpmnElement="Catch_HAOutage">
+        <dc:Bounds x="425" y="1215" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HADegraded" bpmnElement="State_HADegraded">
+        <dc:Bounds x="510" y="1100" width="165" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWHADegraded" bpmnElement="GW_HADegraded">
+        <dc:Bounds x="715" y="1110" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HARecoverCatch" bpmnElement="Catch_HARecover">
+        <dc:Bounds x="810" y="1095" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HAFailCatch" bpmnElement="Catch_HAFail">
+        <dc:Bounds x="810" y="1185" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HAOffline" bpmnElement="State_HAOffline">
+        <dc:Bounds x="900" y="1195" width="185" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWHAOffline" bpmnElement="GW_HAOffline">
+        <dc:Bounds x="1100" y="1205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HARestoreCatch" bpmnElement="Catch_HARestore">
+        <dc:Bounds x="1130" y="1212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_HAHorizon" bpmnElement="Catch_HAHorizon">
+        <dc:Bounds x="1190" y="1250" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndHAL" bpmnElement="End_HA_Lifecycle">
+        <dc:Bounds x="1230" y="1230" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_PEvidence" bpmnElement="Participant_Evidence" isHorizontal="true">
+        <dc:Bounds x="30" y="1310" width="2300" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_StartEvidence" bpmnElement="Start_Evidence">
+        <dc:Bounds x="70" y="1392" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceCollected" bpmnElement="State_EvidenceCollected">
+        <dc:Bounds x="135" y="1370" width="155" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_RegisterEvidence" bpmnElement="Task_RegisterEvidence">
+        <dc:Bounds x="330" y="1370" width="170" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceRegistered" bpmnElement="State_EvidenceRegistered">
+        <dc:Bounds x="540" y="1370" width="150" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_VerifyEvidence" bpmnElement="Task_VerifyEvidence">
+        <dc:Bounds x="730" y="1370" width="160" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_GWEvidence" bpmnElement="GW_EvidenceVerified" isMarkerVisible="true">
+        <dc:Bounds x="930" y="1385" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceVerified" bpmnElement="State_EvidenceVerified">
+        <dc:Bounds x="1020" y="1325" width="150" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceFailed" bpmnElement="State_EvidenceFailed">
+        <dc:Bounds x="1020" y="1430" width="175" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_SendEvidenceReady" bpmnElement="Send_EvidenceReady">
+        <dc:Bounds x="1210" y="1325" width="165" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceDisposeCatch" bpmnElement="Catch_EvidenceDispose">
+        <dc:Bounds x="1420" y="1340" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EvidenceDisposed" bpmnElement="State_EvidenceDisposed">
+        <dc:Bounds x="1500" y="1325" width="160" height="65" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvidence" bpmnElement="End_Evidence">
+        <dc:Bounds x="1710" y="1340" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Sh_EndEvidenceFailed" bpmnElement="End_EvidenceFailed">
+        <dc:Bounds x="1240" y="1445" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="E_Case1" bpmnElement="F_Case1">
+        <di:waypoint x="106" y="195" />
+        <di:waypoint x="135" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case2" bpmnElement="F_Case2">
+        <di:waypoint x="295" y="195" />
+        <di:waypoint x="330" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case3" bpmnElement="F_Case3">
+        <di:waypoint x="366" y="195" />
+        <di:waypoint x="400" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case4" bpmnElement="F_Case4">
+        <di:waypoint x="575" y="195" />
+        <di:waypoint x="615" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case5A" bpmnElement="F_Case5A">
+        <di:waypoint x="640" y="170" />
+        <di:waypoint x="710" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case5B" bpmnElement="F_Case5B">
+        <di:waypoint x="640" y="220" />
+        <di:waypoint x="710" y="242" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case6A" bpmnElement="F_Case6A">
+        <di:waypoint x="870" y="147" />
+        <di:waypoint x="940" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case6B" bpmnElement="F_Case6B">
+        <di:waypoint x="870" y="242" />
+        <di:waypoint x="940" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case7" bpmnElement="F_Case7">
+        <di:waypoint x="965" y="195" />
+        <di:waypoint x="1010" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case8D" bpmnElement="F_Case8D">
+        <di:waypoint x="1035" y="170" />
+        <di:waypoint x="1110" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case8E" bpmnElement="F_Case8E">
+        <di:waypoint x="1035" y="220" />
+        <di:waypoint x="1110" y="243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case9D" bpmnElement="F_Case9D">
+        <di:waypoint x="1146" y="148" />
+        <di:waypoint x="1510" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case9E" bpmnElement="F_Case9E">
+        <di:waypoint x="1146" y="243" />
+        <di:waypoint x="1200" y="243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case10" bpmnElement="F_Case10">
+        <di:waypoint x="1370" y="243" />
+        <di:waypoint x="1420" y="243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case11" bpmnElement="F_Case11">
+        <di:waypoint x="1456" y="243" />
+        <di:waypoint x="1510" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Case12" bpmnElement="F_Case12">
+        <di:waypoint x="1685" y="195" />
+        <di:waypoint x="1730" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth1" bpmnElement="F_Auth1">
+        <di:waypoint x="106" y="415" />
+        <di:waypoint x="135" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth2" bpmnElement="F_Auth2">
+        <di:waypoint x="270" y="415" />
+        <di:waypoint x="310" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth3" bpmnElement="F_Auth3">
+        <di:waypoint x="480" y="415" />
+        <di:waypoint x="520" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth4V" bpmnElement="F_Auth4Verified">
+        <di:waypoint x="545" y="390" />
+        <di:waypoint x="610" y="362" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth4D" bpmnElement="F_Auth4Denied">
+        <di:waypoint x="545" y="440" />
+        <di:waypoint x="610" y="475" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth5" bpmnElement="F_Auth5">
+        <di:waypoint x="745" y="362" />
+        <di:waypoint x="785" y="362" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth6" bpmnElement="F_Auth6">
+        <di:waypoint x="940" y="362" />
+        <di:waypoint x="980" y="362" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth7A" bpmnElement="F_Auth7A">
+        <di:waypoint x="1115" y="362" />
+        <di:waypoint x="1170" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth7D" bpmnElement="F_Auth7D">
+        <di:waypoint x="765" y="475" />
+        <di:waypoint x="1170" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth7Decision" bpmnElement="F_Auth7Decision">
+        <di:waypoint x="1335" y="415" />
+        <di:waypoint x="1385" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth8A" bpmnElement="F_Auth8Active">
+        <di:waypoint x="1335" y="400" />
+        <di:waypoint x="1380" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth8D" bpmnElement="F_Auth8Denied">
+        <di:waypoint x="1335" y="430" />
+        <di:waypoint x="1998" y="418" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth9E" bpmnElement="F_Auth9E">
+        <di:waypoint x="1430" y="370" />
+        <di:waypoint x="1480" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth9R" bpmnElement="F_Auth9R">
+        <di:waypoint x="1405" y="395" />
+        <di:waypoint x="1480" y="438" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth10E" bpmnElement="F_Auth10E">
+        <di:waypoint x="1516" y="348" />
+        <di:waypoint x="1560" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth10R" bpmnElement="F_Auth10R">
+        <di:waypoint x="1516" y="438" />
+        <di:waypoint x="1560" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth11E" bpmnElement="F_Auth11E">
+        <di:waypoint x="1710" y="350" />
+        <di:waypoint x="1760" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth11R" bpmnElement="F_Auth11R">
+        <di:waypoint x="1710" y="440" />
+        <di:waypoint x="1760" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Auth12" bpmnElement="F_Auth12">
+        <di:waypoint x="1930" y="400" />
+        <di:waypoint x="1980" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq1" bpmnElement="F_Acq1">
+        <di:waypoint x="106" y="665" />
+        <di:waypoint x="135" y="665" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq2" bpmnElement="F_Acq2">
+        <di:waypoint x="295" y="665" />
+        <di:waypoint x="335" y="665" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq3" bpmnElement="F_Acq3">
+        <di:waypoint x="371" y="665" />
+        <di:waypoint x="410" y="665" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq4A" bpmnElement="F_Acq4Authorized">
+        <di:waypoint x="435" y="640" />
+        <di:waypoint x="500" y="602" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq4D" bpmnElement="F_Acq4Denied">
+        <di:waypoint x="435" y="690" />
+        <di:waypoint x="500" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq5" bpmnElement="F_Acq5">
+        <di:waypoint x="645" y="602" />
+        <di:waypoint x="685" y="602" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq6C" bpmnElement="F_Acq6Collect">
+        <di:waypoint x="735" y="602" />
+        <di:waypoint x="775" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq6F" bpmnElement="F_Acq6Failed">
+        <di:waypoint x="710" y="627" />
+        <di:waypoint x="847" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq7" bpmnElement="F_Acq7">
+        <di:waypoint x="940" y="600" />
+        <di:waypoint x="980" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq8C" bpmnElement="F_Acq8C">
+        <di:waypoint x="1030" y="600" />
+        <di:waypoint x="1080" y="573" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq8A" bpmnElement="F_Acq8A">
+        <di:waypoint x="1005" y="625" />
+        <di:waypoint x="1080" y="653" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq8F" bpmnElement="F_Acq8F">
+        <di:waypoint x="1005" y="625" />
+        <di:waypoint x="1080" y="733" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq9C" bpmnElement="F_Acq9C">
+        <di:waypoint x="1116" y="573" />
+        <di:waypoint x="1260" y="575" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq9A" bpmnElement="F_Acq9A">
+        <di:waypoint x="1116" y="653" />
+        <di:waypoint x="1170" y="655" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq9F" bpmnElement="F_Acq9F">
+        <di:waypoint x="1116" y="733" />
+        <di:waypoint x="920" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq10E" bpmnElement="F_Acq10Expired">
+        <di:waypoint x="1220" y="655" />
+        <di:waypoint x="1260" y="655" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq11R" bpmnElement="F_Acq11Revoked">
+        <di:waypoint x="1195" y="680" />
+        <di:waypoint x="1260" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq12C" bpmnElement="F_Acq12C">
+        <di:waypoint x="1405" y="575" />
+        <di:waypoint x="1460" y="577" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq12D" bpmnElement="F_Acq12D">
+        <di:waypoint x="645" y="740" />
+        <di:waypoint x="1460" y="712" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq12F" bpmnElement="F_Acq12F">
+        <di:waypoint x="920" y="740" />
+        <di:waypoint x="1460" y="712" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq12E" bpmnElement="F_Acq12E">
+        <di:waypoint x="1405" y="655" />
+        <di:waypoint x="1460" y="712" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq12R" bpmnElement="F_Acq12R">
+        <di:waypoint x="1405" y="735" />
+        <di:waypoint x="1460" y="712" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq13C" bpmnElement="F_Acq13C">
+        <di:waypoint x="1630" y="577" />
+        <di:waypoint x="1698" y="647" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Acq13D" bpmnElement="F_Acq13D">
+        <di:waypoint x="1630" y="712" />
+        <di:waypoint x="1698" y="683" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door1" bpmnElement="F_Door1">
+        <di:waypoint x="106" y="935" />
+        <di:waypoint x="135" y="935" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door2" bpmnElement="F_Door2">
+        <di:waypoint x="280" y="935" />
+        <di:waypoint x="320" y="935" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door3O" bpmnElement="F_Door3O">
+        <di:waypoint x="345" y="910" />
+        <di:waypoint x="415" y="853" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door3T" bpmnElement="F_Door3T">
+        <di:waypoint x="370" y="935" />
+        <di:waypoint x="415" y="935" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door3D" bpmnElement="F_Door3D">
+        <di:waypoint x="345" y="960" />
+        <di:waypoint x="415" y="1013" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door4O" bpmnElement="F_Door4O">
+        <di:waypoint x="451" y="853" />
+        <di:waypoint x="500" y="852" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door4T" bpmnElement="F_Door4T">
+        <di:waypoint x="451" y="935" />
+        <di:waypoint x="870" y="922" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door4D" bpmnElement="F_Door4D">
+        <di:waypoint x="451" y="1013" />
+        <di:waypoint x="1150" y="965" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door5" bpmnElement="F_Door5">
+        <di:waypoint x="645" y="852" />
+        <di:waypoint x="685" y="852" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door6C" bpmnElement="F_Door6C">
+        <di:waypoint x="735" y="852" />
+        <di:waypoint x="780" y="835" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door6T" bpmnElement="F_Door6T">
+        <di:waypoint x="710" y="877" />
+        <di:waypoint x="780" y="918" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door6D" bpmnElement="F_Door6D">
+        <di:waypoint x="710" y="877" />
+        <di:waypoint x="780" y="1003" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door7C" bpmnElement="F_Door7C">
+        <di:waypoint x="798" y="817" />
+        <di:waypoint x="207" y="895" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door7T" bpmnElement="F_Door7T">
+        <di:waypoint x="816" y="918" />
+        <di:waypoint x="870" y="922" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door7D" bpmnElement="F_Door7D">
+        <di:waypoint x="816" y="1003" />
+        <di:waypoint x="1150" y="965" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door8" bpmnElement="F_Door8">
+        <di:waypoint x="1025" y="922" />
+        <di:waypoint x="1065" y="923" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door9" bpmnElement="F_Door9">
+        <di:waypoint x="1101" y="923" />
+        <di:waypoint x="1150" y="965" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door10" bpmnElement="F_Door10">
+        <di:waypoint x="1315" y="965" />
+        <di:waypoint x="1320" y="965" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door10Restore" bpmnElement="F_Door10Restore"><di:waypoint x="1370" y="965" /><di:waypoint x="1360" y="965" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door10Horizon" bpmnElement="F_Door10Horizon"><di:waypoint x="1345" y="990" /><di:waypoint x="1458" y="1010" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door11" bpmnElement="F_Door11">
+        <di:waypoint x="1396" y="965" />
+        <di:waypoint x="1440" y="965" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door12O" bpmnElement="F_Door12Open">
+        <di:waypoint x="1465" y="940" />
+        <di:waypoint x="1465" y="820" />
+        <di:waypoint x="572" y="820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Door14C" bpmnElement="F_Door14Closed">
+        <di:waypoint x="1440" y="965" />
+        <di:waypoint x="207" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_DoorEnd" bpmnElement="F_DoorEnd">
+        <di:waypoint x="1476" y="1028" />
+        <di:waypoint x="1540" y="1028" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA1" bpmnElement="F_HA1">
+        <di:waypoint x="106" y="1185" />
+        <di:waypoint x="135" y="1185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA2" bpmnElement="F_HA2">
+        <di:waypoint x="290" y="1185" />
+        <di:waypoint x="330" y="1185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA3D" bpmnElement="F_HA3D">
+        <di:waypoint x="355" y="1160" />
+        <di:waypoint x="425" y="1133" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA3O" bpmnElement="F_HA3O">
+        <di:waypoint x="355" y="1210" />
+        <di:waypoint x="425" y="1233" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA4D" bpmnElement="F_HA4D">
+        <di:waypoint x="461" y="1133" />
+        <di:waypoint x="510" y="1135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA4O" bpmnElement="F_HA4O">
+        <di:waypoint x="461" y="1233" />
+        <di:waypoint x="900" y="1230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA5" bpmnElement="F_HA5">
+        <di:waypoint x="675" y="1135" />
+        <di:waypoint x="715" y="1135" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA6R" bpmnElement="F_HA6R">
+        <di:waypoint x="765" y="1135" />
+        <di:waypoint x="810" y="1113" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA6F" bpmnElement="F_HA6F">
+        <di:waypoint x="740" y="1160" />
+        <di:waypoint x="810" y="1203" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA7R" bpmnElement="F_HA7R">
+        <di:waypoint x="828" y="1095" />
+        <di:waypoint x="212" y="1145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA7F" bpmnElement="F_HA7F">
+        <di:waypoint x="846" y="1203" />
+        <di:waypoint x="900" y="1230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA8" bpmnElement="F_HA8">
+        <di:waypoint x="1085" y="1230" />
+        <di:waypoint x="1100" y="1230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA8Restore" bpmnElement="F_HA8Restore"><di:waypoint x="1150" y="1230" /><di:waypoint x="1130" y="1230" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA8Horizon" bpmnElement="F_HA8Horizon"><di:waypoint x="1125" y="1255" /><di:waypoint x="1208" y="1250" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HA9" bpmnElement="F_HA9">
+        <di:waypoint x="1148" y="1212" />
+        <di:waypoint x="212" y="1145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_HAEnd" bpmnElement="F_HAEnd">
+        <di:waypoint x="1226" y="1268" />
+        <di:waypoint x="1230" y="1248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence1" bpmnElement="F_Evidence1">
+        <di:waypoint x="106" y="1410" />
+        <di:waypoint x="135" y="1410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence2" bpmnElement="F_Evidence2">
+        <di:waypoint x="290" y="1410" />
+        <di:waypoint x="330" y="1410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence3" bpmnElement="F_Evidence3">
+        <di:waypoint x="500" y="1410" />
+        <di:waypoint x="540" y="1410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence4" bpmnElement="F_Evidence4">
+        <di:waypoint x="690" y="1410" />
+        <di:waypoint x="730" y="1410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence5" bpmnElement="F_Evidence5">
+        <di:waypoint x="890" y="1410" />
+        <di:waypoint x="930" y="1410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence6V" bpmnElement="F_Evidence6Verified">
+        <di:waypoint x="955" y="1385" />
+        <di:waypoint x="1020" y="1357" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence6F" bpmnElement="F_Evidence6Failed">
+        <di:waypoint x="955" y="1435" />
+        <di:waypoint x="1020" y="1462" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence7" bpmnElement="F_Evidence7">
+        <di:waypoint x="1170" y="1357" />
+        <di:waypoint x="1210" y="1357" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence8" bpmnElement="F_Evidence8">
+        <di:waypoint x="1375" y="1357" />
+        <di:waypoint x="1420" y="1358" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence9" bpmnElement="F_Evidence9">
+        <di:waypoint x="1456" y="1358" />
+        <di:waypoint x="1500" y="1357" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence10" bpmnElement="F_Evidence10">
+        <di:waypoint x="1660" y="1357" />
+        <di:waypoint x="1710" y="1358" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_Evidence11" bpmnElement="F_Evidence11">
+        <di:waypoint x="1195" y="1462" />
+        <di:waypoint x="1240" y="1463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFAlert" bpmnElement="MF_Alert">
+        <di:waypoint x="200" y="80" />
+        <di:waypoint x="88" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFAck" bpmnElement="MF_Acknowledge">
+        <di:waypoint x="350" y="80" />
+        <di:waypoint x="348" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFAuthReq" bpmnElement="MF_AuthRequest">
+        <di:waypoint x="790" y="180" />
+        <di:waypoint x="88" y="397" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFCasePrep" bpmnElement="MF_CasePreparation">
+        <di:waypoint x="790" y="275" />
+        <di:waypoint x="88" y="647" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFAuthDecision" bpmnElement="MF_AuthDecision">
+        <di:waypoint x="1252" y="455" />
+        <di:waypoint x="353" y="647" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFAuthTerminal" bpmnElement="MF_AuthTerminal">
+        <di:waypoint x="1845" y="435" />
+        <di:waypoint x="1098" y="635" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFCandidates" bpmnElement="MF_Candidates">
+        <di:waypoint x="1545" y="610" />
+        <di:waypoint x="88" y="1392" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFDenial" bpmnElement="MF_Denial">
+        <di:waypoint x="1545" y="745" />
+        <di:waypoint x="1128" y="166" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFEvidenceReady" bpmnElement="MF_EvidenceReady">
+        <di:waypoint x="1292" y="1325" />
+        <di:waypoint x="1128" y="261" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="E_MFRecon" bpmnElement="MF_Reconstruction">
+        <di:waypoint x="1500" y="80" />
+        <di:waypoint x="1438" y="225" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

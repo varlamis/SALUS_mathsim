@@ -1,0 +1,53 @@
+attack:
+  enabled: false
+  kind: anomalous_egress
+  multiplier: 4.0
+  new_destination: true
+channel:
+  loss_probability: 0.0
+  observation_probability: 1.0
+  queue_capacity: 100
+clock_skew_seconds: 0.0
+description: Synthetic normal patient-monitor flows
+detection:
+  threshold: 0.5
+  weights:
+    bytes: 0.25
+    destination: 0.3
+    health: 0.2
+    rate: 0.25
+device:
+  backup_monitoring: false
+  essential: true
+  normal_bytes: 1000
+  normal_flows: 20
+duration_seconds: 60.0
+evidence:
+  allowed_fields:
+  - event_id
+  - event_type
+  - event_time
+  - source_entity
+  - target_entity
+  - message_id
+  - attributes
+  - payload_hash
+  allowed_types:
+  - flow_observation
+  - health_observation
+  - alert
+  - safety_decision
+  - policy_decision
+  enabled: true
+  redaction_enabled: true
+  retention_seconds: 3600.0
+  sharing_authorized: true
+outputs:
+  directory: reports/generated/uc5/baseline
+policy:
+  authorized: true
+  enforcement_available: true
+  selected_action: isolate
+scenario_id: UC5-BASELINE
+schema_version: 1.0.0
+seed: 5501

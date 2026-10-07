@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/evidence.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "source_event_id", "evidence_type", "content_hash", "collected_at", "fields", "custody_status"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^UC1-EV-[0-9]{6}$"},
+    "source_event_id": {"type": "string", "pattern": "^UC1-EVT-[0-9]{6}$"},
+    "evidence_type": {"type": "string"},
+    "content_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "collected_at": {"type": "number", "minimum": 0},
+    "fields": {"type": "object"},
+    "custody_status": {"enum": ["verified", "quarantined"]}
+  }
+}
+

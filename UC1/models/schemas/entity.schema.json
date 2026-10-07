@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/entity.schema.json",
+  "title": "SALUS UC1 Entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entity_id", "use_case", "name", "entity_class", "designation", "role", "states", "record_status", "source_references", "assumption_ids"],
+  "properties": {
+    "entity_id": {"type": "string", "pattern": "^UC1(?:-(?:ENV|NZ|D|DT|S|A|DO)[0-9]{2})?$"},
+    "use_case": {"const": "UC1"},
+    "name": {"type": "string", "minLength": 1},
+    "entity_class": {"enum": ["UseCase", "PhysicalEnvironment", "NetworkZone", "ConnectedVehicle", "VehicleCommunicationUnit", "Gateway", "Controller", "RoadsideUnit", "Actuator", "TestAsset", "MonitoringAsset", "Service", "SecurityService", "DigitalTwinService", "ForensicsService", "HumanActor", "OrganisationActor", "LEAUser", "SystemActor", "DataObject", "Alert", "PolicyDecision", "EvidenceItem", "CustodyAction", "InvestigationObject", "TwinEntity"]},
+    "designation": {"enum": ["physical", "digital", "logical", "data"]},
+    "role": {"type": "string", "minLength": 1},
+    "states": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "network_zones": {"type": "array", "items": {"type": "string", "pattern": "^UC1-NZ[0-9]{2}$"}, "uniqueItems": true, "default": []},
+    "twin_id": {"type": ["string", "null"], "pattern": "^UC1-DT[0-9]{2}$"},
+    "data_sensitivity": {"enum": ["Low", "Medium", "High", "Critical", "TBD"]},
+    "record_status": {"enum": ["proposal", "engineering_decision", "synthetic_default", "assumed", "TBD", "partner_confirmed"]},
+    "source_references": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "assumption_ids": {"type": "array", "items": {"type": "string", "pattern": "^ASSUMPTION-UC1-[0-9]{3}$"}, "uniqueItems": true},
+    "notes": {"type": "string"}
+  }
+}
+

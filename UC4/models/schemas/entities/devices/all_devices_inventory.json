@@ -1,0 +1,666 @@
+{
+  "C-ITS Roadside Unit (RSU)": {
+    "device_name": "C-ITS Roadside Unit (RSU)",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "CAM_Broadcast_Rate",
+          "description": "Scheduled frequency of broadcast Cooperative Awareness Messages containing baseline telemetry."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Priority_Request_Signal",
+          "description": "Active prioritization message handled when an approaching police vehicle requests a green signal corridor."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Signal_Phase_Current_Sec",
+          "description": "Real-time volatile tracking of remaining seconds before the active traffic signal changes phase."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Intersection_ID_Coordinates",
+          "description": "Geometric intersection identifier mapped alongside absolute geographic coordinates."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "PKI_Certificate_Serial",
+          "description": "Cryptographic public key infrastructure serial number validating authorized infrastructure communication."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Light_Bulb_Failure_State",
+          "description": "Hardware diagnostic state highlighting if an active traffic light element is burned out."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Traffic_Control_Center_User",
+          "description": "Identifier of the centralized municipal traffic management operator overriding the system."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Interface_Error_Logs",
+          "description": "Internal operational logs logging exceptions across C-V2X or ITS-G5 radio interfaces."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "MAP_Topology_Data",
+          "description": "On-demand intersection topology data detailing lanes, crosswalks, and geometric restrictions."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Cabinet_Door_Sensor_ID",
+          "description": "RFID switch logging unauthorized physical opening of the roadside equipment cabinet."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Weekly_Traffic_Volume_Counts",
+          "description": "Aggregated historical vehicle throughput metrics used for anomaly baseline generation."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "DSRC_5.9GHz_Channel_Load",
+          "description": "Channel load ratio measurement indicating congestion levels within the 5.9 GHz automotive band."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Road_Surface_Temperature",
+          "description": "Physical infrared roadway surface temperature reading used to predict ice formation."
+        }
+      ]
+    }
+  },
+  "CPE Smart Home Gateway": {
+    "device_name": "CPE Smart Home Gateway",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "DHCP_Lease_Time",
+          "description": "Default time allocation defining the passive validity of assigned internal network IP addresses."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Forensic_Mirroring_Stream",
+          "description": "Network packet capture stream activated remotely under judicial authorization for target traffic analysis."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "WAN_Bandwidth_Usage_Live",
+          "description": "Real-time bit-rate consumption tracking data throughput across the wide area network uplink."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Public_IP_Geolocation",
+          "description": "Estimated geographic location attributes tied to the active ISP public WAN address lease."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "WAN_MAC_SoC_Manufacturer",
+          "description": "Static manufacturer metadata encoding MAC OUI identifiers and internal router system-on-chip models."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Firewall_Security_Level_State",
+          "description": "The active policy state-machine flag of the boundary firewall ruleset (Low, Medium, High)."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Connected_IoT_Device_List",
+          "description": "Dynamic internal device registry tracking MAC, hostnames, and local IP allocations of connected suspect devices."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Memory_Available_Bytes",
+          "description": "Available volatile RAM metrics, monitored to prevent buffer exhaustion vulnerabilities during logging."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "UPnP_Port_Forwarding_Rules",
+          "description": "Active Universal Plug and Play registry mappings tracking external port mapping requests made by internal nodes."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Smart_Lock_Proximity_Token",
+          "description": "RFID token authentication transaction logs handled via proximity interaction passing through the gateway."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "DNS_Request_History_Logs",
+          "description": "Historical audit database logs recording domain name resolution lookups generated by internal smart home nodes."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Wi-Fi_Beacon_Interval_Channel",
+          "description": "Configured Wi-Fi beacon transmission parameters and targeted 2.4GHz/5GHz channel allocations."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "CPE_Internal_Thermal_Sensor",
+          "description": "On-board temperature tracking of the gateway mainboard processor under high logging loads."
+        }
+      ]
+    }
+  },
+  "Connected Vehicle (OBD-II)": {
+    "device_name": "Connected Vehicle (OBD-II)",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "Odometer_Reading",
+          "description": "Cumulative distance traveled by the vehicle, captured continuously without active polling."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Airbag_Deployment_Trigger",
+          "description": "Emergency event signal broadcast immediately upon crash sensor activation."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Engine_RPM_Speed_Kmh",
+          "description": "Highly volatile real-time telemetry representing engine revs and current vehicle speed."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "GNSS_Heading_Speed",
+          "description": "Global navigation satellite data indicating accurate direction heading and speed vectors."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "VIN (Vehicle Identification Number)",
+          "description": "Unique alpha-numeric vehicle identification number hardcoded into the engine control unit."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Gear_Position_PRND",
+          "description": "The active transmission gear selection state (Park, Reverse, Neutral, Drive)."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Driver_Seat_Profile_ID",
+          "description": "Biometric or custom seat configuration profile indicating which suspect/user was driving."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Fuel_Level_Battery_SoC",
+          "description": "Remaining physical fuel levels or high-voltage electric vehicle State of Charge (SoC)."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "Navigation_Route_Destination",
+          "description": "Active GPS application service telemetry mapping out the programmed route and final destination."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Immobilizer_Key_Fob_ID",
+          "description": "Cryptographic RFID identifier transmitted by the physical key fob to authorize engine ignition."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "DTC_Trouble_Codes_History",
+          "description": "Historical diagnostic trouble codes stored in memory indicating past mechanical/electronic sensor faults."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Cellular_4G_5G_LTE_Band",
+          "description": "Active telecommunication frequency band and provider metrics used for emergency eCall connectivity."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Outside_Air_Temperature",
+          "description": "External atmospheric temperature reading taken by the front bumper sensor array."
+        }
+      ]
+    }
+  },
+  "Industrial PLC": {
+    "device_name": "Industrial PLC",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "Modbus_Polling_Interval",
+          "description": "Fixed period defining passive background industrial sensor register sampling loops."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Emergency_Shutoff_Command",
+          "description": "High-priority safety-interlock command triggered dynamically to isolate a reactor sector."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Valve_Actuator_Position_Deg",
+          "description": "Continuous precise angular feedback of the cooling valve position (Real-time Industrial Stream)."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Reactor_Core_Zone_ID",
+          "description": "Absolute indoor spatial zone mapping the specific reactor room and physical control panel segment."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "CPU_Rack_Slot_Specification",
+          "description": "Hardware physical topology configuration parameters detailing the processor rack position and model code."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "PLC_Run_Stop_Switch_State",
+          "description": "Physical orientation state of the manual hardware toggle switch (RUN mode vs STOP mode)."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "SCADA_Engineer_Credentials",
+          "description": "Cryptographic signature or identity tag of the engineer uploading updated ladder logic control loops."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Cycle_Time_MilliSec",
+          "description": "Program execution cycle time, serving as a critical metric for detecting firmware fuzzing/tampering."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "Cooling_Control_Algorithm_State",
+          "description": "State parameters of the closed-loop PID control algorithm managing critical thermal fluidics."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Component_Batch_Number_RFID",
+          "description": "Cryptographic supply chain ledger entry tracked via on-board component RFID to verify against counterfeiting."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Last_Shielding_Maintenance_Date",
+          "description": "Database log tracking historical physical shielding inspections and software patch versions."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Industrial_Ethernet_Port_Stats",
+          "description": "Error packet counters, framing errors, and transmission statistics on the Profinet interface."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Radiation_Sievert_Level",
+          "description": "Real-time surrounding radiation dose rate measured in Sieverts to detect system degradation."
+        }
+      ]
+    }
+  },
+  "IoT Environmental Hub": {
+    "device_name": "IoT Environmental Hub",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "Telemetry_Interval_Sec",
+          "description": "Pre-configured baseline transmission frequency for routine sensory reporting (e.g., every 60 seconds)."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "SOS_Button_Press",
+          "description": "Manual physical emergency alarm triggered by on-site security personnel."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Acoustic_Noise_Db",
+          "description": "Continuous real-time measurement of surrounding sound levels in decibels."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Indoor_Room_Floor_ID",
+          "description": "Indoor spatial indexing attributes specifying building sector, floor number, and room ID."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "Sensor_Serial_Number",
+          "description": "Manufacturer-assigned serial number and hardware revision string of the sensor motherboard."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Power_Source (Grid/Battery)",
+          "description": "Current energy routing state distinguishing between main facility grid power and emergency backup battery."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Admin_SSH_Connection_IP",
+          "description": "Network IP address of the system administrator authenticated via SSH for configuration."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Packet_Loss_Rate",
+          "description": "Percentage of dropped network transmission packets, acting as an infrastructure health index."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "Smoke_Detection_Algorithm_Output",
+          "description": "Calculated output of the local processing algorithm determining smoke presence (True/False)."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Asset_Tag_Inventory_Number",
+          "description": "Physical RFID asset tag value utilized for automated inventory tracking within critical infrastructure."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Max_Recorded_Gas_Value_Month",
+          "description": "The peak toxic gas PPM measurement recorded over a trailing 30-day historical window."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "LoRaWAN_Spreading_Factor",
+          "description": "Active radio spectrum spreading factor parameter configured for long-range low-power telemetry."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "CO2_PPM_Humidity_Percentage",
+          "description": "Direct environmental data captures indicating carbon dioxide parts-per-million and relative humidity."
+        }
+      ]
+    }
+  },
+  "Smart CCTV Camera": {
+    "device_name": "Smart CCTV Camera",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "Video_Stream_Bitrate",
+          "description": "Constant information flow during regular operational monitoring."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Tamper_Alert_Signal",
+          "description": "Triggered instantly when the camera lens is covered, obstructed, or forcefully moved."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "FPS_Rate_Current",
+          "description": "Fluctuates in real-time based on scene motion complexity (e.g., 15fps baseline, 30fps high motion)."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "GPS_Coordinates (Lat, Long, Alt)",
+          "description": "The exact physical coordinates where the camera hardware is mounted."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "Camera_Model_MacAddress_Firmware",
+          "description": "Static hardware specifications including MAC address, SoC model, and current OS version."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Lens_Heating_State",
+          "description": "Binary indicator showing whether the internal lens defroster/heater is active."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Operator_Login_Session",
+          "description": "Identifies the law enforcement personnel or operator currently authenticated to control the feed."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "CPU_Temperature_Uptime",
+          "description": "Tracks the hardware processor thermal readings and total hours of continuous uptime."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "AI_Object_Bounding_Boxes",
+          "description": "Outputs from edge video analytics detailing bounding box pixel coordinates around detected anomalies or suspects."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "NFC_Maintenance_Tag_ID",
+          "description": "RFID identifier scanned by physical field technicians during on-site hardware inspections."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Past_24h_Downtime_Logs",
+          "description": "Historical summary of connection drops and network recovery instances over the past day."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Wi-Fi_RSSI_Channel_5GHz",
+          "description": "Wireless signal strength (RSSI) metrics and specific radio channel utilized for secure transmission."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Lux_Level_Ambient",
+          "description": "Ambient light intensity measurement, used to automatically trigger infra-red night-vision mode."
+        }
+      ]
+    }
+  },
+  "Smart Infusion Pump": {
+    "device_name": "Smart Infusion Pump",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "Infusion_Basal_Rate_Mlh",
+          "description": "The pre-set, continuous baseline delivery rate of intravenous medication measured in mL/h."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Occlusion_Alarm_Trigger",
+          "description": "Instant mechanical safety alarm triggered upon detection of a blockage or fluid pathway obstruction."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Total_Volume_Infused_Ml",
+          "description": "Continuously aggregating metric representing the precise total volume of medication dispensed to the patient."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Hospital_Ward_Bed_ID",
+          "description": "Localized tracking attributes assigning the medical asset to a specific hospital floor, ward, and bed index."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "Pump_Model_Hardware_UUID",
+          "description": "Globally unique hardware identifier hardcoded into the regulatory-compliant clinical asset."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Pumping_State (Infusing/KVO/Stop)",
+          "description": "The active mode flag of the pumping core state machine (Infusing, Keep Vein Open, or Paused)."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Nurse_Badge_Login_ID",
+          "description": "Authentication signature log of the verified clinical staff member programming or altering dosage limits."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Battery_State_Charge_SoC",
+          "description": "Remaining internal battery capacity monitoring percentage used during mobile patient transport."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "Drug_Library_Limits_Enforced",
+          "description": "System checks verifying that the programmed dose falls within safety boundaries defined by the hospital's central library."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Medicine_Vial_Barcode_RFID",
+          "description": "RFID verification scan capturing the unique drug vial serialization payload to confirm patient mapping match."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Patient_Dosage_History_24h",
+          "description": "Rolling historical audit log tracking exact medication timestamps and administered volumes over the preceding 24 hours."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Medical_Band_WMTS_Signal_Db",
+          "description": "Wireless link quality and RSSI measurements on the dedicated protected Wireless Medical Telemetry Service band."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Room_Humidity_Setting",
+          "description": "Clinical room relative humidity monitoring, cross-referenced against fluid sensor calibration tables."
+        }
+      ]
+    }
+  },
+  "Tactical Signal Catcher": {
+    "device_name": "Tactical Signal Catcher",
+    "salus_data_types": {
+      "Passive": [
+        {
+          "field_name": "RF_Background_Noise_Floor",
+          "description": "Continuous background radio-frequency noise floor sweeping within target areas."
+        }
+      ],
+      "Active": [
+        {
+          "field_name": "Deauth_Trigger_Signal",
+          "description": "Intentional wireless de-authentication injection packet targeted at an adversarial or unverified IoT device."
+        }
+      ],
+      "Dynamic": [
+        {
+          "field_name": "Signal_RSSI_Live",
+          "description": "Real-time fluctuation of target signal strength used by tactical teams for proximity triangulation."
+        }
+      ],
+      "Location": [
+        {
+          "field_name": "Catcher_Compass_Heading",
+          "description": "Direction-finding compass telemetry tracking the relative angle of the incoming radio source."
+        }
+      ],
+      "Equipment": [
+        {
+          "field_name": "SDR_Board_Firmware_Version",
+          "description": "Firmware version and technical identifier of the Software Defined Radio board assembly."
+        }
+      ],
+      "Status": [
+        {
+          "field_name": "Base_Station_Emulation_State",
+          "description": "Current state machine flag defining device mode (Scanning, Rogue Cell Emulation, Idle)."
+        }
+      ],
+      "User": [
+        {
+          "field_name": "Field_Officer_ID",
+          "description": "Tactical badge identifier of the tactical team officer deploying the mobile equipment."
+        }
+      ],
+      "Operational": [
+        {
+          "field_name": "Internal_Battery_Runtime_Min",
+          "description": "Telemetry monitoring remaining run-time in minutes for the mobile field deployment battery unit."
+        }
+      ],
+      "Service": [
+        {
+          "field_name": "Target_Device_Categorization",
+          "description": "Local AI inference classification tagging the intercepted device architecture (e.g., Hidden Camera)."
+        }
+      ],
+      "RFID": [
+        {
+          "field_name": "Catcher_Chassis_RFID",
+          "description": "Inventory tracking RFID chip scanned during tactical armory checkout procedures."
+        }
+      ],
+      "Historical": [
+        {
+          "field_name": "Target_IMSI_IMEI_History_Log",
+          "description": "Historical database of previously captured IMSI/IMEI/MAC identities detected within this specific sector."
+        }
+      ],
+      "Spectrum": [
+        {
+          "field_name": "Scanned_Bands (LTE/5G-SA/BLE)",
+          "description": "Comprehensive matrix of radio bands being concurrently monitored by the receiver path."
+        }
+      ],
+      "Environmental": [
+        {
+          "field_name": "Catcher_Internal_Fan_Speed",
+          "description": "Active cooling fan RPM tracking thermal dissipation based on environmental field exposure."
+        }
+      ]
+    }
+  }
+}

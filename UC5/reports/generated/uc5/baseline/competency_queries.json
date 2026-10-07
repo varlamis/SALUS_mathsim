@@ -1,0 +1,49 @@
+{
+  "assumed_entities": [
+    "UC5-DS01",
+    "UC5-DS02"
+  ],
+  "clinical_safety_services": [
+    "UC5-S03"
+  ],
+  "digital_twins": [
+    "UC5-DT01",
+    "UC5-DT02",
+    "UC5-DT03",
+    "UC5-DT04",
+    "UC5-DT05",
+    "UC5-DT06",
+    "UC5-DT07"
+  ],
+  "evidence_sources": [
+    "UC5-EV-000002",
+    "UC5-EV-000004",
+    "UC5-EV-000006",
+    "UC5-EV-000008",
+    "UC5-EV-000010",
+    "UC5-EV-000012",
+    "UC5-EV-000014",
+    "UC5-EV-000016",
+    "UC5-EV-000018",
+    "UC5-EV-000020",
+    "UC5-EV-000022",
+    "UC5-EV-000024",
+    "UC5-EV-000026",
+    "UC5-EV-000028",
+    "UC5-EV-000030",
+    "UC5-EV-000032",
+    "UC5-EV-000034",
+    "UC5-EV-000036",
+    "UC5-EV-000038",
+    "UC5-EV-000040",
+    "UC5-EV-000041"
+  ],
+  "patient_monitor_observers": [
+    "UC5-S01"
+  ],
+  "physical_entities": [
+    "UC5-D01",
+    "UC5-D06",
+    "UC5-D07"
+  ]
+}

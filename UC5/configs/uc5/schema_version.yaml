@@ -1,0 +1,3 @@
+schema_version: 1.0.0
+use_case: UC5
+compatibility: strict

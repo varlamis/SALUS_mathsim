@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+use_case: UC5
+contracts:
+  - {contract_id: UC5-C01, producer: hospital_flow_adapter, consumer: flow_collector, payload: [event_id, pseudonymous_device_id, destination_class, connection_count, bytes, event_time], sensitivity: High, failure_behavior: mark observation missing, status: proposed}
+  - {contract_id: UC5-C02, producer: device_health_adapter, consumer: digital_twin_service, payload: [event_id, pseudonymous_device_id, abstract_health, event_time], sensitivity: High, failure_behavior: mark health unknown, status: proposed}
+  - {contract_id: UC5-C03, producer: asset_registry, consumer: detection_xai, payload: [device_class, zone_id, essentiality, profile_version, freshness], sensitivity: Critical, failure_behavior: reduce confidence and require review, status: proposed}
+  - {contract_id: UC5-C04, producer: detection_xai, consumer: clinical_safety_policy, payload: [alert_id, device_id, score, threshold, contributions], sensitivity: High, failure_behavior: continue monitoring without isolation, status: synthetic}
+  - {contract_id: UC5-C05, producer: clinical_safety_policy, consumer: T4.4, payload: [decision_id, requested_action, eligible, backup_approved, rationale], sensitivity: Critical, failure_behavior: reject isolation and escalate review, status: proposed}
+  - {contract_id: UC5-C06, producer: evidence_service, consumer: T4.2_T4.5, payload: [evidence_id, source_event_id, content_sha256, custody_id], sensitivity: Critical, failure_behavior: quarantine invalid evidence, status: proposed}
+  - {contract_id: UC5-C07, producer: redaction_sharing_service, consumer: T3.3_T3.4, payload: [package_id, evidence_hashes, time_window, pseudonymous_device_class, authorization], sensitivity: High, failure_behavior: deny sharing, status: proposed}
+  - {contract_id: UC5-C08, producer: simulation, consumer: WP6_5YPE_HMU_K3Y, payload: [run_manifest, metrics, competency_queries, validation_report], sensitivity: Medium, failure_behavior: reject incomplete run, status: synthetic}

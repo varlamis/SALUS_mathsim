@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "a68d437a709b1df8af086849bc1f6996e3f2addb59edc56de52f2028cd2862b3",
+  "scenario_id": "UC5-COMPROMISED-MONITOR",
+  "schema_version": "1.0.0",
+  "seed": 5505,
+  "synthetic": true,
+  "use_case": "UC5"
+}

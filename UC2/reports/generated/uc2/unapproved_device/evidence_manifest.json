@@ -1,0 +1,1208 @@
+[
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5012aa8bd19043e0",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000001",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000001",
+      "payload_hash": "f0da3994120af3cbf8b2d9e87944be0c270673a1a4412aadeb471fb88256c79a",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "c5dace489ee2325eb0bfc6fde36c111f057155b7c046234c9bc8b8f54db06402",
+    "evidence_id": "UC2-ED-000001",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000001"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "26986cbf6c67d48f",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000002",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000002",
+      "payload_hash": "d2c6da1b8617868740fa132a75531aaf95cacbbfa8ec86b69b8f3f81c15f4552",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "1403a2736a87790ef2a13439061c0a31e259edba03561d166747e29e63aa69db",
+    "evidence_id": "UC2-ED-000002",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000002"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b4e6212e32d62c37",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000003",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000003",
+      "payload_hash": "9ab903e0cb71d0a20ad68a401397daf8d309ea4d6f5087b5eebf23e36ab03738",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "0456d93b1681f1cc3e858fad5cad30161495b1a03a9818a4b570a5d3a8224902",
+    "evidence_id": "UC2-ED-000003",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000003"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5012aa8bd19043e0",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000004",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000004",
+      "payload_hash": "07f1dc0d437d24860d4f5c5a6f2c41ebe2091c5c6ab7dc6acc5c18401403cbc8",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "97b38df09be425baaf5f64c3b50bca7ca2a50d667c68c8303816bdb734702c26",
+    "evidence_id": "UC2-ED-000004",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000004"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "26986cbf6c67d48f",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000005",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000005",
+      "payload_hash": "12da9454ed6f27db3ea7df680a3d1818bff85fae159972eaa700d29aca854569",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "24c44a092ec381a74190027e5e65ef06e320a19d8ec3e4afa78fd65b0742e133",
+    "evidence_id": "UC2-ED-000005",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000005"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b4e6212e32d62c37",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000006",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000006",
+      "payload_hash": "a799dfe8b71c6784b632b65cf569c74da7efa7b33519e339867eb38a34deedee",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "48dd137e4d2aacd4bb2d2a86e7be4f9d280bbcb234f8ab6d567c645cad17b1f5",
+    "evidence_id": "UC2-ED-000006",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000006"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5012aa8bd19043e0",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000007",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000007",
+      "payload_hash": "a35dc6661423f96e7d81a7b8485bf2b26e816d1f9890d6368c5c779b69a0fa78",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "6fc5d5b6d28bff412f9b116ed7cf6fedc6e2ab7ec15dcd50ba0cdbc2317bf948",
+    "evidence_id": "UC2-ED-000007",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000007"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "26986cbf6c67d48f",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000008",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000008",
+      "payload_hash": "bb8aa51ce2b609fd4d591df1a635a2ede8ebe1295cc072d97b473bf099cc79ee",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ec2550aec846bcc9099c9c5f1b69904d35816cb5cfcbf8ec2a4ffcee4a69a7c7",
+    "evidence_id": "UC2-ED-000008",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000008"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b4e6212e32d62c37",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000009",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000009",
+      "payload_hash": "91ecba5322758f8265333e7976253b661168a5ebecc3d5a756268403e6ab7799",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "51c0ad43897640c5a7477ee81488965b2fed6040391b33167e199c2e032f7f17",
+    "evidence_id": "UC2-ED-000009",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000009"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5012aa8bd19043e0",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000010",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000010",
+      "payload_hash": "b49a7e2a7150fd92960f0882eaac09ed176065c52b374b5cf51b8886c33655e9",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "01495e94ce666b2c5ccc35260d521a16a479797516d84fb5a8dd3b84f3e9070d",
+    "evidence_id": "UC2-ED-000010",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000010"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "26986cbf6c67d48f",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000011",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000011",
+      "payload_hash": "aa2594fa082f340829cca8e661e90399cf5b65f2f953b221855fe01c9c37bc58",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "72f7c8740c59c2f1e88bee78f70555626d8773c6fbaf593e45e55c9fb4ea7f1b",
+    "evidence_id": "UC2-ED-000011",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000011"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b4e6212e32d62c37",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000012",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000012",
+      "payload_hash": "f42c6f25b4b390d74ae72ca26073837fdbe753d1c4d5d5e4d90700d9f03274ea",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "886a61bf66dd5bc19aa09f70d6d824c90c9d805342539cd38ae5a86fae06d493",
+    "evidence_id": "UC2-ED-000012",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000012"
+  },
+  {
+    "content": {
+      "attributes": {
+        "alternatives": [
+          "unknown_iot"
+        ],
+        "confidence": 0.9,
+        "hidden_class_used": false,
+        "hypothesis_id": "UC2-HYP-000001",
+        "predicted_class": "environmental_sensor"
+      },
+      "event_id": "UC2-EV-000013",
+      "event_time": 3.0,
+      "event_type": "classification",
+      "message_id": null,
+      "payload_hash": "61a7a5d00730cb1bca1f24621a6eae84b3ddb62c6f673cec48342cded6698c2e",
+      "source_entity": "UC2-S01",
+      "target_entity": "UC2-S02"
+    },
+    "content_sha256": "ab86eb1dd57a61ed8e63e960b629afe874a448545bfeb165ee6079c3e61da4ea",
+    "evidence_id": "UC2-ED-000013",
+    "evidence_type": "classification",
+    "source_event_id": "UC2-EV-000013"
+  },
+  {
+    "content": {
+      "attributes": {
+        "hypothesis_id": "UC2-HYP-000001",
+        "status": "approved"
+      },
+      "event_id": "UC2-EV-000014",
+      "event_time": 3.0,
+      "event_type": "registry_decision",
+      "message_id": null,
+      "payload_hash": "82f46da66b0aff26eb32e8029a34d5b129739965f681d95562ab69a84b5c9893",
+      "source_entity": "UC2-S02",
+      "target_entity": "UC2-S03"
+    },
+    "content_sha256": "173bf8bafccf27e12835b1f6c571e452463bf27a34ec1270590159c8ed327b48",
+    "evidence_id": "UC2-ED-000014",
+    "evidence_type": "registry_decision",
+    "source_event_id": "UC2-EV-000014"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "9757a4472220127a",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000015",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000013",
+      "payload_hash": "61f42ff1dfea33135d88dcff891bcc68105cff143d7ce338b0543b77838c7da6",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "095272e1036ae46fd21d1024bb7c6f8e1466b7abbd0a7d02458d0558ac2eb7d3",
+    "evidence_id": "UC2-ED-000015",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000015"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "39b407d99c2333b6",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000016",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000014",
+      "payload_hash": "12595d86834ecf417fd088d19963614bac1a54e1ea2551ff972be6e60dc028b7",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "42df1f11be6d0afaabdbdbdec8b95b47ecac45e5b997076eb3dbf04b73ec7259",
+    "evidence_id": "UC2-ED-000016",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000016"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "1ece5f2728757c36",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000017",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000015",
+      "payload_hash": "ba84666670725479e8cdd76ce0bc19cbadcfe137b94f065992ee87bd48c547a9",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "2865c20dcb32f177986c84e6af991e7da9e8987c2a9d8dd76e3ac6487436200c",
+    "evidence_id": "UC2-ED-000017",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000017"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "9757a4472220127a",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000018",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000016",
+      "payload_hash": "4525b46fce6400d12370c3740dda34ac890a7c06d026b4ce09e62a0966750e4b",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ff681c96be74cbf19f27ac492810a9e89c05b73e63582e0c11c96aafdd4356bc",
+    "evidence_id": "UC2-ED-000018",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000018"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "39b407d99c2333b6",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000019",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000017",
+      "payload_hash": "ebd6ccc92343322cc386dda9bd2efd3b64bb0859a79f009f10a99fd077c1e6a0",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "24af0e5be5caa3ee151c0910fa1fde1d38eb72c773da608f1d5caab713a8417a",
+    "evidence_id": "UC2-ED-000019",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000019"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "9757a4472220127a",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000020",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000019",
+      "payload_hash": "eec2924365c8109cba7745e41ab95eb32f458a285a388dd92901d9ae6b27d43b",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "6f1408a536a3e89f1bb738cbb31510102b8f2ebae81702afefdb3c705fcbd001",
+    "evidence_id": "UC2-ED-000020",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000020"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "1ece5f2728757c36",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000021",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000021",
+      "payload_hash": "c80131579f6f8d23edfa4ce9de69f6f23e103af231be942b27159207bbc1ede6",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "10e47a6e2bdbadd244ceb3e81d6ab20f26812f1ae0f5cc598b1b4b3a5a52b0fc",
+    "evidence_id": "UC2-ED-000021",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000021"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "9757a4472220127a",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000022",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000022",
+      "payload_hash": "c7a1b9e239058a91847d93074ff33b5f2021933bd6cc0238b26df30fdf73d4dc",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "3adfda4567c733276c5b5327600f6a9c249573f52f9a28f87d66c54622d3cda1",
+    "evidence_id": "UC2-ED-000022",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000022"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "39b407d99c2333b6",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000023",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000023",
+      "payload_hash": "4808fdb42fc87b6f97f36cc5bc7b9ec3de480cdfc7463d91ea7e6a020378b31d",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "1b84bb22d0a61de50128f0709e1323f27dacebca933e15dd5ea706622dd3a57d",
+    "evidence_id": "UC2-ED-000023",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000023"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "1ece5f2728757c36",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000024",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000024",
+      "payload_hash": "0b775eed8b5f433229bfbecd59e007e002b7b87b51ea34f4b4ce07c4771e9aeb",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "116f0b2a3cb93c5f1ff28a2a66be700479a43a4d0d9635b46614764f0c646342",
+    "evidence_id": "UC2-ED-000024",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000024"
+  },
+  {
+    "content": {
+      "attributes": {
+        "alternatives": [
+          "unknown_iot"
+        ],
+        "confidence": 0.9,
+        "hidden_class_used": false,
+        "hypothesis_id": "UC2-HYP-000002",
+        "predicted_class": "unknown_iot"
+      },
+      "event_id": "UC2-EV-000025",
+      "event_time": 3.0,
+      "event_type": "classification",
+      "message_id": null,
+      "payload_hash": "f78d60d395c85fe29673b782fa61e6cdde5614ad50c62c638d8336e9f03b7ae2",
+      "source_entity": "UC2-S01",
+      "target_entity": "UC2-S02"
+    },
+    "content_sha256": "23743fa30b24beea0f46079622069d4079b84d1b00ceca04ad9b6f79f538ca03",
+    "evidence_id": "UC2-ED-000025",
+    "evidence_type": "classification",
+    "source_event_id": "UC2-EV-000025"
+  },
+  {
+    "content": {
+      "attributes": {
+        "hypothesis_id": "UC2-HYP-000002",
+        "status": "approved"
+      },
+      "event_id": "UC2-EV-000026",
+      "event_time": 3.0,
+      "event_type": "registry_decision",
+      "message_id": null,
+      "payload_hash": "6212bc5d7606a53619f5a8c227f7ce18a7bf9444377260ab1dbea0b8b83a0c51",
+      "source_entity": "UC2-S02",
+      "target_entity": "UC2-S03"
+    },
+    "content_sha256": "e1d071af6eb975d4c497e6c35d67b3c4383df688be0053ddebc8fc1b4f6623ab",
+    "evidence_id": "UC2-ED-000026",
+    "evidence_type": "registry_decision",
+    "source_event_id": "UC2-EV-000026"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "7bcdb4f2c2d14b18",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000027",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000025",
+      "payload_hash": "e624674a4363484ef42415ecf69f28ce1d75ec7ac4868d43d835f077bbd79dcf",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "658d0c78a02c4d56757eeec1e0cca5582accd0b922a8f889631d396a53844f3d",
+    "evidence_id": "UC2-ED-000027",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000027"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5d28f7a948ccd546",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000028",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000026",
+      "payload_hash": "dee4c902dbb7cfbc42cab656e369e6583960a667cd4918ca640c34a2ef00604d",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "5c63843288f68ee54ce2cc6b498ff41e4bba0afc409e958a8966538797b55ba2",
+    "evidence_id": "UC2-ED-000028",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000028"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "96e82764ca11b8cf",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000029",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000027",
+      "payload_hash": "6aebc6c86f119f9cf1ccebe70877799a70bbe16f482ff930814fdc142417a0fd",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "58fca621d79b6cd5e045719a66ef39c74d2cab84f1cb0578608abb0060f51611",
+    "evidence_id": "UC2-ED-000029",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000029"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "7bcdb4f2c2d14b18",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000030",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000028",
+      "payload_hash": "227e438bea901cd87433a061294b752cb59ffdad272346bca19333f46ed6b77e",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "297e72675b31109d2308dcaf3d4ab70a6715ba2e4376fb9ea85baec188a01814",
+    "evidence_id": "UC2-ED-000030",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000030"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5d28f7a948ccd546",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000031",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000029",
+      "payload_hash": "1fa03be03118c4bbadef9bb86bde5f4ed2361ea24a46933f6b9dda46c91df483",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ec0b02bde5f136da8902aa6024f29f28b3a6cec9fb65dbd7a03326e82fd298dd",
+    "evidence_id": "UC2-ED-000031",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000031"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "96e82764ca11b8cf",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000032",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000030",
+      "payload_hash": "5efbab39a87bbaa375b2790e0ea8b6a5a4e07dfc981aa84ab8097b77530edc47",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "33bec5f43dd5e99c61f9b9ef2bf51ebbd2ba224cc5de806bb426861fd203e7c4",
+    "evidence_id": "UC2-ED-000032",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000032"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "7bcdb4f2c2d14b18",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000033",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000031",
+      "payload_hash": "00e3469602450440c62d2d0bbfa7e5bc869088bf13230d806d3105181145b13d",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "0205c4a5534cbb45c0c413c51aab606d3a7bca0ef36a882b0e1d76df1e8dd694",
+    "evidence_id": "UC2-ED-000033",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000033"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5d28f7a948ccd546",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000034",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000032",
+      "payload_hash": "50f562089de00935f29066ff4da38d6c03c4477ec286c356408edba9d9cca756",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "7edd5100fff1fbabf8ef7a2fb903a1c7b77200ecc513e07dceabe9a70ab9b737",
+    "evidence_id": "UC2-ED-000034",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000034"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "96e82764ca11b8cf",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000035",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000033",
+      "payload_hash": "7d41ac482b4c324a2f4c8f558d5a02a9dc609a52629a044384f8b2d46e679399",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "f01ba16fba4d346691364e79dc3b427c8d92d45137ddd76d84fb9e81cbecacc9",
+    "evidence_id": "UC2-ED-000035",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000035"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "5d28f7a948ccd546",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000036",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000035",
+      "payload_hash": "d57b3e408d63c4278cc3f13b0bdc15f1801fd086c3b84e4fb9181274763097e1",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "d048731732a63aaaf7f34bd619dd2994eb06a525776d804e99356adb2a4765f8",
+    "evidence_id": "UC2-ED-000036",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000036"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "96e82764ca11b8cf",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000037",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000036",
+      "payload_hash": "0ec51d0e4cc49d4e3e4a957a6b7cb05d55f4c8cca38bae6cb3aa14bd7a678c71",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ba2bba7b89855b46e3f71f89d6970d26e711fc1ab57caea0a2eabd8cfaf419c0",
+    "evidence_id": "UC2-ED-000037",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000037"
+  },
+  {
+    "content": {
+      "attributes": {
+        "alternatives": [
+          "unknown_iot"
+        ],
+        "confidence": 0.9,
+        "hidden_class_used": false,
+        "hypothesis_id": "UC2-HYP-000003",
+        "predicted_class": "environmental_sensor"
+      },
+      "event_id": "UC2-EV-000038",
+      "event_time": 3.0,
+      "event_type": "classification",
+      "message_id": null,
+      "payload_hash": "d133f21ae055257e67e4bd11fc42f5cdb057772d5fa27a9cc086488370cdbe71",
+      "source_entity": "UC2-S01",
+      "target_entity": "UC2-S02"
+    },
+    "content_sha256": "426ca9e351b4b94411af6bd87d7a3edeb2a726d36b7e58bccac955816a38e3a5",
+    "evidence_id": "UC2-ED-000038",
+    "evidence_type": "classification",
+    "source_event_id": "UC2-EV-000038"
+  },
+  {
+    "content": {
+      "attributes": {
+        "hypothesis_id": "UC2-HYP-000003",
+        "status": "approved"
+      },
+      "event_id": "UC2-EV-000039",
+      "event_time": 3.0,
+      "event_type": "registry_decision",
+      "message_id": null,
+      "payload_hash": "b44dd031fd9f87bd3b3d465cadf31b8d50a448dc772bb09ddc493caf781a72f6",
+      "source_entity": "UC2-S02",
+      "target_entity": "UC2-S03"
+    },
+    "content_sha256": "a4ef17bd5c2b0c33e6bda33b990fc6798612fbc366c1b585f7e84b1c0132be25",
+    "evidence_id": "UC2-ED-000039",
+    "evidence_type": "registry_decision",
+    "source_event_id": "UC2-EV-000039"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b367840e29721bcc",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000040",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000037",
+      "payload_hash": "ea0016f0b1a1e08d157329cb1c681247833c467e554990d789d27eba1133a1f5",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "3b3dd14e0edd80b47b86a6e1aa492c8f5845fe65e8fa1bbbac5d70b11722d91b",
+    "evidence_id": "UC2-ED-000040",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000040"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "e2cae1dcf66f8074",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000041",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000038",
+      "payload_hash": "e3733db57167a22ac6386dfeea277d3b9791f341cadb31dcb5581464cec6ede9",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "cb65b157193dfc09c88866b1f24fe399391aa6b41a60d67594284107f7901183",
+    "evidence_id": "UC2-ED-000041",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000041"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "ecf84992142dad2d",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000042",
+      "event_time": 0.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000039",
+      "payload_hash": "8e0669728d800b41f8b53f58582d935902813665c2a4ed22727404ebb7828673",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "023848c02ac8f3f9d56a37ecc3e5cb2d26373a9789e9e87d193aa3d4528719ac",
+    "evidence_id": "UC2-ED-000042",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000042"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b367840e29721bcc",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000043",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000040",
+      "payload_hash": "8f8e9138851d384207afac6e6ca5d47f37ab9e838cff31e2ebb884ea77278b52",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "0a3867514357dee9f4a786de8ba3a0a5ac02cd67dc6678c11d0e12669395b670",
+    "evidence_id": "UC2-ED-000043",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000043"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "e2cae1dcf66f8074",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000044",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000041",
+      "payload_hash": "5e6c893d6fb99633024ae94673cf8f783ab1f2c409b62933208ad71922cbc4e6",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ea080ade34173cfda187e17e5bd7e81cf83cd9dc41500a1e0b80b42429062a69",
+    "evidence_id": "UC2-ED-000044",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000044"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "ecf84992142dad2d",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000045",
+      "event_time": 1.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000042",
+      "payload_hash": "c9eb1df37760a519f1747acef805b9987c7deecea824737b09bf92149c1bbe93",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "5b37b67ddb560eea52b7bd0deb3495cbe5c302f49e3b0f353b27a4d744766e3a",
+    "evidence_id": "UC2-ED-000045",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000045"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b367840e29721bcc",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000046",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000043",
+      "payload_hash": "d85a67861092651d2868a776df5c1d7879718e26d28b036698668ec2484786cc",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "c656dfcd2a6075a5cdbe9182250fc4f46dfe207c7cfee2d3d3fb02c7cc25f070",
+    "evidence_id": "UC2-ED-000046",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000046"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "e2cae1dcf66f8074",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000047",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000044",
+      "payload_hash": "a1657b9039ced5b4068e1f40bb9e0b10e84ec6481f558b22829202ac97cc15ce",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "98b3354822c2c756a1d40552f5d8f9534b4ddbb70feb7ca807f26f3930d17ca6",
+    "evidence_id": "UC2-ED-000047",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000047"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "ecf84992142dad2d",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000048",
+      "event_time": 2.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000045",
+      "payload_hash": "31971cbe603a49fc4156fce6d0b146a984a93f2d3a76a1cae1ca26acd103c234",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "bf86c103237709f8b04c9ba672f525501bf832d15805532489eece732cf7eca8",
+    "evidence_id": "UC2-ED-000048",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000048"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "3gpp",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "b367840e29721bcc",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000049",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000046",
+      "payload_hash": "0b0d309053cacf7a049dc1d08b63f8e24752b3ca5e74cffaf8ebf2c066b5cc21",
+      "source_entity": "UC2-D01",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "16f6c34e9e8d2131656617123a26bfcdf02c6211d03f3902b7bd473d31bb1867",
+    "evidence_id": "UC2-ED-000049",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000049"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "wifi",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "e2cae1dcf66f8074",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000050",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000047",
+      "payload_hash": "554c29e859a7c3d3db358f05aa0baffb3985b5bdc42a0b9d1d8bbd4947c62389",
+      "source_entity": "UC2-D02",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "ad983fd1a69d91ebe36669b0825dd0c647095f422ed6fa636f4ae6be6cf838e4",
+    "evidence_id": "UC2-ED-000050",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000050"
+  },
+  {
+    "content": {
+      "attributes": {
+        "interface": "ble",
+        "payload_captured": false,
+        "precise_location": false,
+        "pseudonym": "ecf84992142dad2d",
+        "signal_bucket": "medium"
+      },
+      "event_id": "UC2-EV-000051",
+      "event_time": 3.0,
+      "event_type": "observation",
+      "message_id": "UC2-OBS-000048",
+      "payload_hash": "1f97518b98b6e35e97d9776ed78f3a112889ef60b861e1a0167e87d9819739c7",
+      "source_entity": "UC2-D03",
+      "target_entity": "UC2-S01"
+    },
+    "content_sha256": "1a09a7ec50262314b0ecf16dceb8fa595f8595a4bd0b5677149d2e04dd26e4c1",
+    "evidence_id": "UC2-ED-000051",
+    "evidence_type": "observation",
+    "source_event_id": "UC2-EV-000051"
+  },
+  {
+    "content": {
+      "attributes": {
+        "alternatives": [
+          "unknown_iot"
+        ],
+        "confidence": 0.9,
+        "hidden_class_used": false,
+        "hypothesis_id": "UC2-HYP-000004",
+        "predicted_class": "unapproved_camera"
+      },
+      "event_id": "UC2-EV-000052",
+      "event_time": 3.0,
+      "event_type": "classification",
+      "message_id": null,
+      "payload_hash": "056341261074c2d6cbeba11c5beb8fafe95c375f66dc3cbb282bf9d1366cb03a",
+      "source_entity": "UC2-S01",
+      "target_entity": "UC2-S02"
+    },
+    "content_sha256": "807efd8259b61f0e6db6783430a70f338465d75adc7acce0d59cb3611fbb2001",
+    "evidence_id": "UC2-ED-000052",
+    "evidence_type": "classification",
+    "source_event_id": "UC2-EV-000052"
+  },
+  {
+    "content": {
+      "attributes": {
+        "hypothesis_id": "UC2-HYP-000004",
+        "status": "unapproved"
+      },
+      "event_id": "UC2-EV-000053",
+      "event_time": 3.0,
+      "event_type": "registry_decision",
+      "message_id": null,
+      "payload_hash": "c49636f77139953ec0a231a8a3b1dc376cd9ec8d5eb18af5e4090bd908a1c383",
+      "source_entity": "UC2-S02",
+      "target_entity": "UC2-S03"
+    },
+    "content_sha256": "8bf4cd3e28170090209a8712297dc09d00fb7281757cadda01b35e9e3cc9a758",
+    "evidence_id": "UC2-ED-000053",
+    "evidence_type": "registry_decision",
+    "source_event_id": "UC2-EV-000053"
+  },
+  {
+    "content": {
+      "attributes": {
+        "explanation": [
+          "unapproved_registry_status",
+          "classification_confidence"
+        ],
+        "hypothesis_id": "UC2-HYP-000004",
+        "missing": [],
+        "score": 0.9
+      },
+      "event_id": "UC2-EV-000054",
+      "event_time": 3.0,
+      "event_type": "alert",
+      "message_id": null,
+      "payload_hash": "81321c7536c6b7e61fe2aeda958161e789efc8d5eeeb973f0c4954ea849bb2e9",
+      "source_entity": "UC2-S03",
+      "target_entity": "UC2-S04"
+    },
+    "content_sha256": "99f3d72d321d7da086bfd395b799a47f87c454f57e493ebcae340f574335c410",
+    "evidence_id": "UC2-ED-000054",
+    "evidence_type": "alert",
+    "source_event_id": "UC2-EV-000054"
+  },
+  {
+    "content": {
+      "attributes": {
+        "active_rf_action": false,
+        "applied_action": "request_review",
+        "requested_action": "request_review"
+      },
+      "event_id": "UC2-EV-000055",
+      "event_time": 3.0,
+      "event_type": "policy_decision",
+      "message_id": null,
+      "payload_hash": "150d1513b15e102cc7966f5dd35ebf0f4e7f019e9d3f17d339cb7130927b08d2",
+      "source_entity": "UC2-S04",
+      "target_entity": "UC2-A01"
+    },
+    "content_sha256": "c02860ea51802d99bf3d6488ba004d58b4ec710d0dfa5812132aea2da9351005",
+    "evidence_id": "UC2-ED-000055",
+    "evidence_type": "policy_decision",
+    "source_event_id": "UC2-EV-000055"
+  }
+]

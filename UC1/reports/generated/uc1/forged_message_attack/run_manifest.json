@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "9d02019218522c9e7c3dcdbd5fa4378b98735a2b0d6829dd035aad2099b8ed28",
+  "scenario_id": "UC1-forged-control-affecting-request",
+  "schema_version": "1.0.0",
+  "seed": 1101,
+  "synthetic": true,
+  "use_case": "UC1"
+}

@@ -1,0 +1,180 @@
+schema_version: 1.0.0
+contract_set_id: UC4-INTEGRATION-CONTRACTS-001
+use_case: UC4
+compatibility_policy: Major versions may break fields or semantics; minor versions may add optional fields; consumers must reject unsupported major versions and unknown required semantics.
+contracts:
+  - contract_id: UC4-IC-01
+    partner_task: T4.4
+    name: Digital Twin Engine state and simulation control
+    applicability: implemented_internal
+    boundary: Canonical physical entities and observations enter the Digital Twin service; accepted versioned twin state and lag leave it.
+    transport: In-process adapter now; versioned event API or message bus adapter at integration.
+    endpoint_status: implemented
+    messages:
+      - message_id: UC4-ICM-001
+        direction: inbound
+        schema_ref: models/schemas/event.schema.json
+        required_fields: [schema_version, event_id, event_time, ingest_time, source_entity, event_type, payload, provenance]
+        semantics: Only observable events enter; versions must increase per physical entity and event/ingest time remain separate seconds on the simulation clock.
+      - message_id: UC4-ICM-002
+        direction: outbound
+        schema_ref: models/schemas/runtime_graph.schema.json
+        required_fields: [schema_version, metadata, nodes, edges]
+        semantics: Twin nodes identify exactly one physical entity; stale updates are rejected and lag is non-negative.
+      - message_id: UC4-ICM-003
+        direction: bidirectional
+        schema_ref: models/schemas/simulation_config.schema.json
+        required_fields: [schema_version, random_seed, time, topology, digital_twin]
+        semantics: Start and replay use validated configuration and injected seed; unsupported schema versions fail before scheduling.
+    authorization: Simulation control is an administrative boundary; evidence visibility is unchanged and hidden truth is never a twin input.
+    failure_semantics: [Reject unknown entity or stale version, Preserve last accepted state, Expose degraded or unavailable status without inventing updates]
+    assumption_ids: [ASSUMPTION-UC4-020, ASSUMPTION-UC4-021, ASSUMPTION-UC4-022]
+    replacement_procedure: Implement the same messages at the T4.4 boundary, map canonical IDs one-to-one, replay golden events, and pass twin mapping, stale rejection, lag, and graph tests.
+
+  - contract_id: UC4-IC-02
+    partner_task: T4.2
+    name: SDaaSS zones, flows and policy context
+    applicability: disabled_by_default
+    boundary: UC4 exports network zones, CPE flow metadata and abstract policy context; no SDN controller behavior is inferred.
+    transport: Abstract NBI/SBI adapter; protocol and controller endpoint remain TBD.
+    endpoint_status: disabled
+    messages:
+      - message_id: UC4-ICM-004
+        direction: outbound
+        schema_ref: models/schemas/entity_collection.schema.json
+        required_fields: [schema_version, entities]
+        semantics: NetworkZone and gateway entities define the topology view; UC4-NZ01 through UC4-NZ03 are stable IDs.
+      - message_id: UC4-ICM-005
+        direction: outbound
+        schema_ref: models/schemas/event.schema.json
+        required_fields: [schema_version, source_entity, event_type, event_time, ingest_time, payload]
+        semantics: cpe.flow carries metadata only; payload capture remains prohibited.
+    authorization: SDN context cannot authorize forensic acquisition or widen evidence scope.
+    failure_semantics: [Remain disabled when endpoint or protocol is absent, Continue non-SDN UC4 execution, Record unavailable context rather than fabricate policy state]
+    assumption_ids: [ASSUMPTION-UC4-003, ASSUMPTION-UC4-004, ASSUMPTION-UC4-006]
+    replacement_procedure: Configure a lab-specific NBI/SBI adapter, declare units and controller semantics, validate zone/flow mappings, then add fault and conservation tests before enabling sdn_enabled.
+
+  - contract_id: UC4-IC-03
+    partner_task: T3.3
+    name: AI/XAI event features and alert output
+    applicability: abstract_adapter
+    boundary: Canonical observed events may be transformed into declared features; an external detector may return an alert and explanation without access to hidden truth.
+    transport: Versioned offline or service adapter; no embedded ML model in this repository.
+    endpoint_status: abstract
+    messages:
+      - message_id: UC4-ICM-006
+        direction: outbound
+        schema_ref: models/schemas/event.schema.json
+        required_fields: [schema_version, event_id, event_time, ingest_time, source_entity, event_type, payload, provenance]
+        semantics: Features derive only from observable events and preserve source event IDs, missingness, units and timing uncertainty.
+      - message_id: UC4-ICM-007
+        direction: inbound
+        schema_ref: null
+        required_fields: [schema_version, alert_id, model_id, model_version, score, threshold, event_ids, explanation, created_time]
+        semantics: Alert identity, model/version, threshold and supporting observed event IDs are mandatory; an alert triggers a case but never grants authorization.
+    authorization: Feature access and alert consumption follow deployment RBAC; the case trigger is separate from acquisition authorization.
+    failure_semantics: [Reject unversioned or untraceable alerts, Treat unavailable detector as no external alert rather than a negative classification, Never synthesize confidence or explanation]
+    assumption_ids: [ASSUMPTION-UC4-012, ASSUMPTION-UC4-013, ASSUMPTION-UC4-028]
+    replacement_procedure: Freeze feature definitions and model metadata with T3.3, implement an adapter, validate against recorded observed events, and add calibrated accuracy and explanation tests.
+
+  - contract_id: UC4-IC-04
+    partner_task: T3.4
+    name: Threat-intelligence contextual mapping
+    applicability: abstract_adapter
+    boundary: External indicators and threat context may annotate canonical entities, observations or alerts; they do not alter source evidence.
+    transport: Versioned STIX-like or SALUS threat-context adapter; exact profile TBD.
+    endpoint_status: TBD
+    messages:
+      - message_id: UC4-ICM-008
+        direction: inbound
+        schema_ref: null
+        required_fields: [schema_version, context_id, producer, produced_time, object_type, object_value, confidence, valid_from, valid_to, markings]
+        semantics: Context remains a separately provenance-linked assertion with producer, interval, confidence and markings.
+      - message_id: UC4-ICM-009
+        direction: outbound
+        schema_ref: models/schemas/runtime_graph.schema.json
+        required_fields: [schema_version, metadata, nodes, edges]
+        semantics: Context edges may correlate with canonical entity/event/alert IDs but cannot overwrite their properties or custody.
+    authorization: Markings and RBAC must be enforced by the external adapter; threat context cannot authorize acquisition.
+    failure_semantics: [Quarantine malformed or expired context, Preserve evidence when context is absent, Label ambiguous mappings instead of selecting an identity]
+    assumption_ids: [ASSUMPTION-UC4-025, ASSUMPTION-UC4-026]
+    replacement_procedure: Agree the T3.4 profile and markings, create a schema, map identifiers with confidence, and test expiration, ambiguity, provenance and access denial.
+
+  - contract_id: UC4-IC-05
+    partner_task: T3.5
+    name: Device identification and lawful-interception acquisition
+    applicability: implemented_internal
+    boundary: Canonical device identity and a case-scoped request enter UC4-S02; minimized records or a zero-byte denial leave it.
+    transport: In-process policy and source adapters now; mutually authenticated service interface at integration.
+    endpoint_status: implemented
+    messages:
+      - message_id: UC4-ICM-010
+        direction: inbound
+        schema_ref: models/schemas/entity.schema.json
+        required_fields: [schema_version, entity_id, entity_class, interfaces, provenance]
+        semantics: Device identity is pseudonymous and maps to exactly one canonical entity; uncertain identification remains confidence-qualified.
+      - message_id: UC4-ICM-011
+        direction: inbound
+        schema_ref: models/schemas/simulation_config.schema.json
+        required_fields: [schema_version, authorization, collection]
+        semantics: Request evaluation requires active verified authorization, exact purpose, evidence window, entity/data/action scope and permitted fields.
+      - message_id: UC4-ICM-012
+        direction: outbound
+        schema_ref: models/schemas/evidence.schema.json
+        required_fields: [schema_version, evidence_id, source_entity, authorization_id, policy_decision_id, acquisition_time, content_hash, transformations]
+        semantics: Evidence is emitted only after policy projection; every denial releases zero bytes and no payload.
+    authorization: Default deny; authentication is insufficient; decision, verification, purpose, time, entity, data type, action and minimization are all enforced.
+    failure_semantics: [Fail closed on missing or invalid terms, Emit auditable zero-byte denial, Do not retry outside the authorization interval]
+    assumption_ids: [ASSUMPTION-UC4-013, ASSUMPTION-UC4-014, ASSUMPTION-UC4-015]
+    replacement_procedure: Bind device discovery and acquisition endpoints to canonical IDs, use synthetic golden requests first, and pass all policy, zero-disclosure and negative-path tests before lab data is admitted.
+
+  - contract_id: UC4-IC-06
+    partner_task: T3.1/T3.6
+    name: Evidence collection, custody and controlled sharing
+    applicability: implemented_internal
+    boundary: Minimized evidence and policy decisions enter repository/custody services; verified metadata, custody actions and authorized shares leave them.
+    transport: Content-addressed internal store and hash-chain abstraction now; encrypted authenticated service/storage adapters at integration.
+    endpoint_status: implemented
+    messages:
+      - message_id: UC4-ICM-013
+        direction: inbound
+        schema_ref: models/schemas/evidence.schema.json
+        required_fields: [schema_version, evidence_id, source_record_ids, authorization_id, policy_decision_id, content_hash, sensitivity, custody_status]
+        semantics: RFC8785 canonical bytes are hashed with SHA-256; raw content remains separate from its manifest.
+      - message_id: UC4-ICM-014
+        direction: bidirectional
+        schema_ref: null
+        required_fields: [custody_id, sequence, evidence_id, evidence_hash, action, action_time, actor_id, previous_hash, chain_hash]
+        semantics: Custody is append-only and ordered; any content or link mismatch changes evidence status to verification_failed.
+      - message_id: UC4-ICM-015
+        direction: outbound
+        schema_ref: null
+        required_fields: [share_id, evidence_ids, recipient_id, authorization_id, purpose, redactions, encryption_profile, created_time]
+        semantics: Sharing requires a separately evaluated recipient, purpose, authorization, redaction and encryption profile; no sharing endpoint is enabled in the synthetic run.
+    authorization: Case-scoped least privilege and explicit recipient/purpose checks; encryption in transit/at rest and deployment RBAC are required integration controls, not simulated guarantees.
+    failure_semantics: [Quarantine hash or custody failures, Deny unknown recipient or missing encryption profile, Preserve immutable audit metadata, Never silently repair custody]
+    assumption_ids: [ASSUMPTION-UC4-015, ASSUMPTION-UC4-023, ASSUMPTION-UC4-026]
+    replacement_procedure: Select storage, KMS, identity/RBAC and sharing profiles; retain canonical evidence IDs/hashes; execute corruption, denial, redaction, encryption and audit tests.
+
+  - contract_id: UC4-IC-07
+    partner_task: WP6-UC4
+    name: Pilot configuration and adapter replacement
+    applicability: pilot_replacement
+    boundary: Validated synthetic configuration and adapter ports are replaced by measured lab values and authorized pilot endpoints without changing canonical output contracts.
+    transport: File configuration for synthetic execution; deployment-specific secrets and endpoints supplied outside version control.
+    endpoint_status: abstract
+    messages:
+      - message_id: UC4-ICM-016
+        direction: inbound
+        schema_ref: models/schemas/simulation_config.schema.json
+        required_fields: [schema_version, scenario_id, random_seed, time, topology, devices, observation, network, retention, outputs]
+        semantics: Every calibrated numeric value retains its unit, source, sample period, uncertainty and applicable device/firmware context.
+      - message_id: UC4-ICM-017
+        direction: outbound
+        schema_ref: null
+        required_fields: [adapter_id, adapter_version, environment, calibration_source, parameter_mapping, validation_status]
+        semantics: Adapter provenance and calibration mapping accompany the pilot configuration; secrets and personal data are excluded from repository artefacts.
+    authorization: Pilot data collection requires separately approved governance; synthetic authorization objects are not reused as real authority.
+    failure_semantics: [Retain synthetic adapter when calibration is absent, Mark uncalibrated fields assumed or TBD, Abort on schema or unit mismatch, Never downgrade privacy controls]
+    assumption_ids: [ASSUMPTION-UC4-003, ASSUMPTION-UC4-006, ASSUMPTION-UC4-009, ASSUMPTION-UC4-018, ASSUMPTION-UC4-019]
+    replacement_procedure: Inventory lab versions, capture approved measurements, map and validate units, create a new versioned config, implement adapters behind canonical ports, run all tests/experiments, compare against synthetic reference, and record approval outside this implementation gate.

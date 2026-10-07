@@ -1,0 +1,16 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}\usepackage{amsmath,booktabs,tabularx,geometry,hyperref}
+\geometry{margin=25mm}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\title{UC5 Technical Report\\\large Clinical-Continuity-Aware Medical-IoT Digital Twin}
+\author{Entity and Process Modelling Package}\date{11 September 2026}
+\begin{document}\maketitle
+\begin{abstract}This report summarizes a deterministic synthetic patient-monitor flow model with explainable anomaly detection, clinical-continuity-constrained response, minimized evidence, default-deny redacted sharing and evidence-only reconstruction. It contains no patient data, clinical payload, diagnosis, treatment, actuation or live interface.\end{abstract}
+\section{Scope and model}
+Thirty-four entities and forty-five relations describe the active patient monitor, future device classes, gateway/switch/collector/console, seven twins, four zones, analytic/safety/forensic services, roles and data boundaries. Seven process BPMN files plus one lifecycle file specify monitoring, detection, safety review, evidence, sharing, reconstruction and recovery.
+
+Abstract flow rate/bytes and destination class are observed through loss and a bounded queue. A weighted score exports feature contributions and alternatives. For isolation $u_i$, authorization $q$, enforcement $e$, essentiality $r_i$ and approved backup $b_i$, the hard guard is $u_i\le qe[1-r_i(1-b_i)]$. Evidence is canonicalized, hashed and custody-linked; sharing additionally requires integrity, redaction and authority.
+\section{Execution and results}
+The nominal run generated and observed 80 flows and raised one alert. Isolation was rejected because an essential monitor lacked approved backup; process effects and essential-monitoring interruptions were zero. Eighty-four minimized evidence items were verified/shared with zero patient disclosures, privacy, safety or integrity violations. The backup branch permitted bounded isolation without interruption; all nine branches passed. The 100-sample analysis retained every zero-harm invariant. The fixture-extended suite contains 13 tests.
+\section{Reproducibility and limitations}
+Strict schemas, stable IDs, resolved configuration, separated truth, canonical hashes, JUnit and the manifest support reproduction. Topology, flow baselines, criticality/backup rules, calibration, response/sharing authority, retention, DS8 mapping and WP6 baselines remain expert-owned. Results do not establish clinical safety, hospital fidelity, regulatory compliance or KPI attainment.
+\end{document}

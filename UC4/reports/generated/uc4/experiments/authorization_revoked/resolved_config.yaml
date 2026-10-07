@@ -1,0 +1,207 @@
+schema_version: 1.0.0
+scenario_id: UC4-unauthorized-entry-sensor-tampering
+deterministic: true
+random_seed: 43004
+time:
+  unit: seconds
+  horizon: 1800.0
+  warmup: 300.0
+  entry: 600.0
+  tamper: 610.0
+  case_trigger: 900.0
+  request: 920.0
+topology:
+  enabled_entities:
+  - UC4
+  - UC4-ENV01
+  - UC4-NZ01
+  - UC4-NZ02
+  - UC4-NZ03
+  - UC4-D01
+  - UC4-D02
+  - UC4-D03
+  - UC4-D04
+  - UC4-D05
+  - UC4-D06
+  - UC4-DT01
+  - UC4-DT02
+  - UC4-DT03
+  - UC4-DT04
+  - UC4-DT05
+  - UC4-DT06
+  - UC4-S02
+  - UC4-S03
+  - UC4-S04
+  - UC4-S05
+  - UC4-S06
+  - UC4-A01
+  - UC4-A02
+  - UC4-A03
+  - UC4-A04
+  - UC4-A05
+  - UC4-A06
+  - UC4-DO01
+  - UC4-DO02
+  - UC4-DO03
+  - UC4-DO04
+  - UC4-DO05
+  - UC4-DO06
+  - UC4-DO07
+  - UC4-DO08
+  - UC4-DO09
+  cloud_enabled: false
+  sdn_enabled: false
+devices:
+  UC4-D01:
+    enabled: true
+    processing_delay_seconds: 0.01
+    error_probability: 0.0
+    clock_offset_seconds: 0.3
+    transition_parameters:
+      initial_state: online
+  UC4-D02:
+    enabled: true
+    processing_delay_seconds: 0.1
+    error_probability: 0.0
+    clock_offset_seconds: -0.4
+    transition_parameters:
+      initial_state: online
+      automation_enabled: true
+  UC4-D03:
+    enabled: true
+    processing_delay_seconds: 0.05
+    error_probability: 0.0
+    clock_offset_seconds: 1.1
+    transition_parameters:
+      initial_state: closed_online
+      tamper_capable: true
+      debounce_seconds: 0.05
+  UC4-D04:
+    enabled: true
+    processing_delay_seconds: 0.2
+    error_probability: 0.05
+    clock_offset_seconds: -1.2
+    transition_parameters:
+      initial_state: clear_online
+      refractory_seconds: 2.0
+  UC4-D05:
+    enabled: true
+    processing_delay_seconds: 0.15
+    error_probability: 0.0
+    clock_offset_seconds: 0.7
+    transition_parameters:
+      initial_state: off_online
+      power_measurement_enabled: false
+  UC4-D06:
+    enabled: true
+    processing_delay_seconds: 0.15
+    error_probability: 0.0
+    clock_offset_seconds: -0.8
+    transition_parameters:
+      initial_state: off_online
+      brightness_enabled: false
+incident:
+  enabled: true
+  entry_entity: UC4-D03
+  tamper_target: UC4-D03
+  tamper_strategy: tampered_then_offline
+  light_automation_enabled: true
+  home_assistant_automation_delay_seconds: 0.1
+  light_acknowledgement_delay_seconds: 0.15
+authorization:
+  decision_path: revoked
+  authorization_id: UC4-AUTH-0001
+  case_id: UC4-CASE-0001
+  purpose: investigate_smart_home_incident
+  valid_from: 900.0
+  valid_to: 1500.0
+  evidence_window_start: 540.0
+  evidence_window_end: 780.0
+  allowed_entities:
+  - UC4-D01
+  - UC4-D02
+  - UC4-D03
+  - UC4-D04
+  - UC4-D05
+  - UC4-D06
+  allowed_data_types:
+  - cpe_flow_metadata
+  - home_assistant_event
+  - device_state_event
+  allowed_actions:
+  - read_historical
+  - export_metadata
+  - export_state
+  permitted_fields:
+  - record_id
+  - entity_id
+  - event_type
+  - event_time
+  - ingest_time
+  - state
+  - source
+  - correlation_ids
+  - quality
+  verification_result: valid
+observation:
+  base_loss_probability: 0.0
+  presence_detection_probability: 0.95
+  presence_false_positive_probability: 0.01
+  presence_evaluation_window_seconds: 1.0
+  presence_reporting_delay_seconds: 0.2
+  presence_refractory_seconds: 2.0
+  clock_offset_bound_seconds: 2.0
+  timestamp_jitter_std_seconds: 0.05
+  timestamp_jitter_bound_seconds: 0.2
+network:
+  service_capacity_bits_per_second: 10000000.0
+  buffer_bytes: 1048576
+  base_delay_seconds: 0.01
+  jitter_bound_seconds: 0.005
+  loss_probability: 0.0
+  logging_enabled: true
+  payload_capture_enabled: false
+  background_load_fraction: 0.0
+collection:
+  minimization_enabled: true
+  pseudonymization_enabled: true
+  acquisition_timeout_seconds: 5.0
+  allowed_sources_only: true
+  deny_empty_projection: true
+  retention_policy: bounded_case_retention
+  start_delay_seconds: 0.0
+retention:
+  home_assistant_max_events: 10000
+  cpe_max_bytes: 52428800
+  nominal_seconds: 1200.0
+digital_twin:
+  stale_threshold_seconds: 5.0
+reconstruction:
+  missing_evidence_penalty: 0.25
+  support_weights:
+    door_open: 1.0
+    presence: 0.6
+    light_command: 0.5
+    light_state: 0.5
+    cpe_flow: 0.4
+    tamper: 0.9
+    offline: 0.8
+    heartbeat_cessation: 0.5
+  source_reliability:
+    UC4-D01: 0.8
+    UC4-D02: 0.9
+    UC4-D03: 0.95
+    UC4-D04: 0.8
+    UC4-D06: 0.9
+    UC4-S03: 1.0
+outputs:
+  directory: reports/generated/uc4/experiments/authorization_revoked
+  canonicalization: RFC8785-JCS
+  include_ground_truth: true
+faults:
+  force_presence_miss: false
+  force_door_observation_loss: false
+  evidence_tamper_after_collection: false
+  custody_tamper_after_append: false
+  home_assistant_unavailable: false
+  cpe_unavailable: false

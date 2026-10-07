@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+base_config: configs/uc2/unapproved_device.yaml
+experiments:
+  - {id: baseline, overrides: {scene.unapproved_devices: 0}, expect: {minimum_alerts: 0, maximum_process_effects: 0, maximum_safety_violations: 0}}
+  - {id: nominal_unapproved, overrides: {}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+  - {id: single_interface, overrides: {observation.interfaces: [wifi]}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}
+  - {id: observation_loss, overrides: {observation.coverage_probability: 0.0}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: queue_overflow, overrides: {observation.queue_capacity: 2}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: registry_unavailable, overrides: {registry.available: false}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: stale_registry, overrides: {registry.stale: true}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: low_confidence, overrides: {classification.accuracy: 0.40, classification.threshold: 0.80}, expect: {minimum_alerts: 0, maximum_safety_violations: 0}}
+  - {id: policy_unavailable, overrides: {policy.available: false}, expect: {minimum_alerts: 1, maximum_safety_violations: 0}}

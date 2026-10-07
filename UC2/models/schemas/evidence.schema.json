@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://salus.example/schemas/uc2/evidence.schema.json","type":"object","additionalProperties":false,"required":["evidence_id","evidence_type","source_event_id","content","content_sha256"],"properties":{"evidence_id":{"type":"string","pattern":"^UC2-ED-[0-9]{6}$"},"evidence_type":{"type":"string"},"source_event_id":{"type":"string"},"content":{"type":"object"},"content_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}}}
+

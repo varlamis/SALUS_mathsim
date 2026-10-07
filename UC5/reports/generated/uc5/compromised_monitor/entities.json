@@ -1,0 +1,805 @@
+{
+  "entities": [
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D01",
+      "name": "Synthetic patient monitor",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "No patient data or clinical actuation.",
+      "record_status": "proposal",
+      "role": "Emits abstract monitoring flows and health state",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated",
+        "offline"
+      ],
+      "twin_id": "UC5-DT01",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-002"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "MedicalGateway",
+      "entity_id": "UC5-D02",
+      "name": "Bedside gateway",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Synthetic interface only.",
+      "record_status": "engineering_decision",
+      "role": "Forwards abstract device flows",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT02",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-003"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "NetworkDevice",
+      "entity_id": "UC5-D03",
+      "name": "Medical-zone switch and enforcement point",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "No production SDN interface.",
+      "record_status": "engineering_decision",
+      "role": "Applies bounded abstract policy actions",
+      "source_references": [
+        "PROPOSAL-T42"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT03",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-004"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "MonitoringAsset",
+      "entity_id": "UC5-D04",
+      "name": "Flow collector",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No packet payload.",
+      "record_status": "proposal",
+      "role": "Produces minimized flow observations",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT04",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-005"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ClinicalSystem",
+      "entity_id": "UC5-D05",
+      "name": "Clinical operator console",
+      "network_zones": [
+        "UC5-NZ02"
+      ],
+      "notes": "No EHR integration.",
+      "record_status": "engineering_decision",
+      "role": "Displays synthetic continuity status",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT05",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D06",
+      "name": "Wearable device class",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Inactive in first slice.",
+      "record_status": "proposal",
+      "role": "Proposal-scoped future device class",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unmodelled",
+        "available"
+      ],
+      "twin_id": "UC5-DT06",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D07",
+      "name": "Smart infusion pump class",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Inactive; no therapy model.",
+      "record_status": "proposal",
+      "role": "Proposal-scoped future device class",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unmodelled",
+        "available"
+      ],
+      "twin_id": "UC5-DT07",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-006"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "RegistryService",
+      "entity_id": "UC5-S01",
+      "name": "Medical asset registry",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic registry.",
+      "record_status": "engineering_decision",
+      "role": "Maps pseudonymous device classes and criticality",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "stale",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-007"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC5-S02",
+      "name": "Detection and XAI service",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Weighted baseline, not clinical AI.",
+      "record_status": "proposal",
+      "role": "Scores observable flow and health features",
+      "source_references": [
+        "PROPOSAL-T33"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-008"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "PolicyService",
+      "entity_id": "UC5-S03",
+      "name": "Clinical-safety policy service",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Essential care overrides isolation.",
+      "record_status": "engineering_decision",
+      "role": "Constrains response by authorization and continuity",
+      "source_references": [
+        "PROPOSAL-T42"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-009"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC5-S04",
+      "name": "Evidence and custody service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "Local integrity model.",
+      "record_status": "proposal",
+      "role": "Minimizes, hashes and custody-links evidence",
+      "source_references": [
+        "PROPOSAL-T31-T36"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-010"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "SharingService",
+      "entity_id": "UC5-S05",
+      "name": "Redaction and sharing service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "Default deny.",
+      "record_status": "proposal",
+      "role": "Produces authorized redacted packages",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "available",
+        "denied",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-011"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC5-S06",
+      "name": "Reconstruction service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "No hidden-truth input.",
+      "record_status": "engineering_decision",
+      "role": "Builds evidence-only incident claims",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "IntelligenceService",
+      "entity_id": "UC5-S07",
+      "name": "Threat-intelligence boundary",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No external connection in simulator.",
+      "record_status": "proposal",
+      "role": "Future versioned threat-context interface",
+      "source_references": [
+        "PROPOSAL-T34"
+      ],
+      "states": [
+        "unavailable",
+        "available"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-012"
+      ],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A01",
+      "name": "Clinical operator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "engineering_decision",
+      "role": "Owns care-continuity review",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A02",
+      "name": "Security analyst",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "engineering_decision",
+      "role": "Reviews alerts and requested response",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A03",
+      "name": "Forensic investigator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "proposal",
+      "role": "Receives authorized evidence and qualified claims",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "authorized",
+        "unauthorized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O01",
+      "name": "Hospital stakeholder role",
+      "network_zones": [],
+      "notes": "Exact ownership TBD.",
+      "record_status": "proposal",
+      "role": "Owns clinical and deployment parameters",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O02",
+      "name": "5YPE stakeholder role",
+      "network_zones": [],
+      "notes": "Interface ownership TBD.",
+      "record_status": "proposal",
+      "role": "Pilot and technical stakeholder",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O03",
+      "name": "K3Y stakeholder role",
+      "network_zones": [],
+      "notes": "Interface ownership TBD.",
+      "record_status": "proposal",
+      "role": "Technical stakeholder",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-013"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ01",
+      "name": "Medical-device zone",
+      "network_zones": [],
+      "notes": "No real VLAN.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic connected-device segment",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ02",
+      "name": "Clinical-services zone",
+      "network_zones": [],
+      "notes": "No EHR or PACS.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic clinical display boundary",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ03",
+      "name": "Security analytics zone",
+      "network_zones": [],
+      "notes": "Logical boundary.",
+      "record_status": "engineering_decision",
+      "role": "Monitoring, detection and policy",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ04",
+      "name": "Restricted evidence zone",
+      "network_zones": [],
+      "notes": "Logical boundary.",
+      "record_status": "engineering_decision",
+      "role": "Evidence, custody, redaction and reconstruction",
+      "source_references": [
+        "PROPOSAL-T31-T36"
+      ],
+      "states": [
+        "available",
+        "restricted"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Medium",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS01",
+      "name": "Synthetic flow stream",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Not DS8.",
+      "record_status": "synthetic_default",
+      "role": "Deterministic flow input",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "available",
+        "invalid"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS02",
+      "name": "Synthetic device-health stream",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No clinical values.",
+      "record_status": "synthetic_default",
+      "role": "Deterministic health input",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "missing"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "TBD",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS03",
+      "name": "DS8 import boundary",
+      "network_zones": [],
+      "notes": "Not committed or imported.",
+      "record_status": "proposal",
+      "role": "Future anonymized NetFlow or sFlow replay",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "unavailable",
+        "validated"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT01",
+      "name": "Patient-monitor twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors observable device and flow state",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT02",
+      "name": "Gateway twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors gateway availability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT03",
+      "name": "Switch twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors policy capability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT04",
+      "name": "Collector twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors observation availability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT05",
+      "name": "Clinical-console twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors continuity status",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT06",
+      "name": "Wearable-class twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Inactive.",
+      "record_status": "proposal",
+      "role": "Future class representation",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "inactive",
+        "synchronized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT07",
+      "name": "Infusion-pump-class twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Inactive; no therapy state.",
+      "record_status": "proposal",
+      "role": "Future class representation",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "inactive",
+        "synchronized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "use_case": "UC5"
+}

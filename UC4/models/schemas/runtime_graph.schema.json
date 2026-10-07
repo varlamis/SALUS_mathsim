@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus-project.eu/schemas/t43/runtime_graph.schema.json",
+  "title": "SALUS T4.3 UC4 Temporal Runtime Graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "nodes", "edges"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "use_case", "run_id", "directed", "multigraph", "ground_truth_included", "static_node_count", "runtime_node_count"],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "use_case": {"const": "UC4"},
+        "run_id": {"type": "string", "pattern": "^UC4-RUN-[0-9]{10}$"},
+        "directed": {"const": true},
+        "multigraph": {"const": true},
+        "ground_truth_included": {"const": false},
+        "static_node_count": {"type": "integer", "minimum": 1},
+        "runtime_node_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "node_type", "valid_from", "valid_to", "attributes"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "node_type": {"enum": ["static_entity", "event", "source_record", "authorization", "policy_decision", "evidence", "custody_action", "claim"]},
+          "valid_from": {"type": ["number", "null"], "minimum": 0},
+          "valid_to": {"type": ["number", "null"], "exclusiveMinimum": 0},
+          "attributes": {"type": "object"}
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["edge_id", "source", "target", "relationship_type", "valid_from", "valid_to", "attributes"],
+        "properties": {
+          "edge_id": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "relationship_type": {
+            "enum": ["BELONGS_TO_USE_CASE", "PART_OF", "DEPLOYED_IN", "MEMBER_OF_ZONE", "OWNED_BY", "COMMUNICATES_WITH", "ROUTES_THROUGH", "USES_INTERFACE", "GENERATES", "CONSUMES", "OBSERVED_BY", "COLLECTED_BY", "PRODUCES_EVIDENCE", "DERIVED_FROM", "AUTHORIZED_BY", "REQUESTED_BY", "ACCESSED_BY", "CUSTODIED_BY", "MIRRORED_BY", "SYNCHRONIZES_WITH", "TRIGGERS", "AFFECTS", "CORRELATES_WITH", "PROTECTED_BY", "VIOLATES_POLICY", "CONTROLLED_BY"]
+          },
+          "valid_from": {"type": ["number", "null"], "minimum": 0},
+          "valid_to": {"type": ["number", "null"], "exclusiveMinimum": 0},
+          "attributes": {"type": "object"}
+        }
+      }
+    }
+  }
+}

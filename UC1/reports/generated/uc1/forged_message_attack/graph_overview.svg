@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="100"><title>UC1 runtime overview</title><text x="20" y="35">Vehicle/OBU → Car2X → RSU → safe controller</text><text x="20" y="70">Observation → trust → detection → policy → evidence</text></svg>

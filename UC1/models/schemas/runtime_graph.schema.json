@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/runtime_graph.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "nodes", "edges"],
+  "properties": {
+    "metadata": {"type": "object", "required": ["schema_version", "use_case", "hidden_truth_excluded"], "properties": {"schema_version": {"const": "1.0.0"}, "use_case": {"const": "UC1"}, "hidden_truth_excluded": {"const": true}}, "additionalProperties": true},
+    "nodes": {"type": "array", "items": {"type": "object"}},
+    "edges": {"type": "array", "items": {"type": "object"}}
+  }
+}
+

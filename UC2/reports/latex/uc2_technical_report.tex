@@ -1,0 +1,16 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}\usepackage{amsmath,booktabs,tabularx,geometry,hyperref}
+\geometry{margin=25mm}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\title{UC2 Technical Report\\\large Passive IoT-Device Hypothesis Modelling}
+\author{Entity and Process Modelling Package}\date{11 September 2026}
+\begin{document}\maketitle
+\begin{abstract}This report summarizes a deterministic synthetic model for passive multi-interface observation, pseudonymous association, probabilistic categorization and approval checking. The package makes missingness and uncertainty explicit and prohibits live RF, payload capture, subscriber identity, person attribution and active interference.\end{abstract}
+\section{Scope and model}
+Three passive observer classes receive abstract 3GPP, Wi-Fi and BLE emissions from approved and unapproved synthetic device classes. Twenty-five entities and twenty-six relations represent observers, device hypotheses, twins, services, roles, zones and data boundaries. Six process BPMN models plus one lifecycle model cover observation, association/classification, alert/review, evidence and consultation.
+
+For device $i$, interface $j$ and time $t$, observation presence is modelled by $O_{ijt}\sim\mathrm{Bernoulli}(c_{ij}(1-p_{loss}))$. Association is time/interface bounded; classification exports a class distribution, confidence and alternatives. Registry status is approved, unapproved, unknown or stale. Policy actions apply only to simulated hypotheses and cannot perform RF action. Reconstruction consumes verified evidence rather than hidden emitter truth.
+\section{Execution and results}
+The nominal run delivered 45 observations, recorded three losses, formed four classifications and raised one explainable alert. Queue overflow, process effects, safety violations, active RF actions and unauthorized disclosures were zero. All nine experiment branches passed. The 100-sample design produced mean alert count 0.60 and retained zero active RF actions, unauthorized disclosures and safety violations. The fixture-extended suite contains 11 tests.
+\section{Reproducibility and limitations}
+Inputs, schemas, source/status metadata, canonical hashes, JUnit and a verified manifest support reproduction. Permitted fields, collection authority, taxonomy, registry governance, calibration, retention and DS2/DS3 mapping require expert agreement. Results do not establish identification accuracy, surveillance authority, localization, legal compliance or KPI attainment.
+\end{document}

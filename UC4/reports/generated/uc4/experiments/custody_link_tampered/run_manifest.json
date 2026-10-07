@@ -1,0 +1,1 @@
+{"canonical_result_sha256":"aabe0707d303c84a79dbae215882d18f9e41fff935335b5e2f84921a4f5f9d92","deterministic":true,"generation_time_excluded_from_canonical_hash":true,"generation_time_utc":"2026-09-08T19:33:41.196865+00:00","random_seed":43004,"run_id":"UC4-RUN-0000043004","scenario_id":"UC4-unauthorized-entry-sensor-tampering","schema_version":"1.0.0"}

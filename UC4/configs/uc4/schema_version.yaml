@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+use_case: UC4
+config_schema: models/schemas/simulation_config.schema.json
+entity_schema: models/schemas/entity.schema.json
+event_schema: models/schemas/event.schema.json
+evidence_schema: models/schemas/evidence.schema.json
+relationship_schema: models/schemas/relationship.schema.json
+runtime_graph_schema: models/schemas/runtime_graph.schema.json
+integration_contract_schema: models/schemas/integration_contracts.schema.json
+artifact_manifest_schema: models/schemas/artifact_manifest.schema.json
+migration_manifest: configs/uc4/schema_migrations.yaml
+canonicalization: RFC8785-JCS

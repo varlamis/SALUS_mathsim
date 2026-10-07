@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="https://salus.example/uc1">
+  <process id="UC1_EvidenceInvestigation" isExecutable="false"><startEvent id="Start"/><task id="Minimize" name="Select and minimize"/><task id="Preserve" name="Hash and register custody"/><task id="Reconstruct" name="Reconstruct evidence-linked claim"/><endEvent id="End"/><sequenceFlow id="F1" sourceRef="Start" targetRef="Minimize"/><sequenceFlow id="F2" sourceRef="Minimize" targetRef="Preserve"/><sequenceFlow id="F3" sourceRef="Preserve" targetRef="Reconstruct"/><sequenceFlow id="F4" sourceRef="Reconstruct" targetRef="End"/></process>
+</definitions>
+

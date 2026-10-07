@@ -1,0 +1,2141 @@
+{
+  "edges": [
+    {
+      "assumption_id": "ASSUMPTION-UC5-013",
+      "notes": "Logical placement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R001",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-NZ01"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-013",
+      "notes": "Logical placement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R002",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D02",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-NZ01"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-013",
+      "notes": "Logical placement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R003",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D03",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-NZ01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Logical placement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R004",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D04",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-NZ03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Logical placement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R005",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D05",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-NZ02"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-002",
+      "notes": "Abstract flow",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R006",
+      "relationship_type": "communicates_with",
+      "source_id": "UC5-D01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-D02"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-003",
+      "notes": "Abstract flow",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R007",
+      "relationship_type": "communicates_with",
+      "source_id": "UC5-D02",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-D03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "No clinical payload",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R008",
+      "relationship_type": "communicates_with",
+      "source_id": "UC5-D03",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-D05"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-004",
+      "notes": "Flow metadata",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R009",
+      "relationship_type": "observes",
+      "source_id": "UC5-D04",
+      "source_reference": "PROPOSAL-DS8-P19",
+      "target_id": "UC5-D03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Observation input",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R010",
+      "relationship_type": "feeds",
+      "source_id": "UC5-D04",
+      "source_reference": "PROPOSAL-T33",
+      "target_id": "UC5-S02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Health metadata",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R011",
+      "relationship_type": "feeds",
+      "source_id": "UC5-D01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-S02"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-008",
+      "notes": "Safety policy",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R012",
+      "relationship_type": "protected_by",
+      "source_id": "UC5-D01",
+      "source_reference": "PROPOSAL-T42",
+      "target_id": "UC5-S03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "One-to-one mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R013",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D01",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "One-to-one mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R014",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D02",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "One-to-one mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R015",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D03",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "One-to-one mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R016",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D04",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "One-to-one mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R017",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D05",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Inactive mapping",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R018",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D06",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT06"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Inactive mapping",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R019",
+      "relationship_type": "mirrored_by",
+      "source_id": "UC5-D07",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-DT07"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-006",
+      "notes": "Registry mapping",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R020",
+      "relationship_type": "observes",
+      "source_id": "UC5-S01",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-D01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Alert to policy",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R021",
+      "relationship_type": "triggers",
+      "source_id": "UC5-S02",
+      "source_reference": "PROPOSAL-T33",
+      "target_id": "UC5-S03"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-008",
+      "notes": "Bounded response",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R022",
+      "relationship_type": "controls",
+      "source_id": "UC5-S03",
+      "source_reference": "PROPOSAL-T42",
+      "target_id": "UC5-D03"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-012",
+      "notes": "Clinical review",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R023",
+      "relationship_type": "governed_by",
+      "source_id": "UC5-S03",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-A01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Security review",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R024",
+      "relationship_type": "operated_by",
+      "source_id": "UC5-S02",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-A02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Investigation",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R025",
+      "relationship_type": "operated_by",
+      "source_id": "UC5-S04",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-A03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Observable evidence input",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R026",
+      "relationship_type": "generates",
+      "source_id": "UC5-S02",
+      "source_reference": "PROPOSAL-T31-T36",
+      "target_id": "UC5-S04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Decision evidence input",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R027",
+      "relationship_type": "generates",
+      "source_id": "UC5-S03",
+      "source_reference": "PROPOSAL-T31-T36",
+      "target_id": "UC5-S04"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-010",
+      "notes": "Verified evidence",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R028",
+      "relationship_type": "feeds",
+      "source_id": "UC5-S04",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-S05"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Redacted package",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R029",
+      "relationship_type": "feeds",
+      "source_id": "UC5-S05",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-S06"
+    },
+    {
+      "assumption_id": "ASSUMPTION-UC5-011",
+      "notes": "Qualified result",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R030",
+      "relationship_type": "supports_claim",
+      "source_id": "UC5-S06",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-A03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Synthetic flow source",
+      "record_status": "synthetic_default",
+      "relationship_id": "UC5-R031",
+      "relationship_type": "feeds",
+      "source_id": "UC5-DS01",
+      "source_reference": "PROPOSAL-DS8-P19",
+      "target_id": "UC5-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Synthetic health source",
+      "record_status": "synthetic_default",
+      "relationship_id": "UC5-R032",
+      "relationship_type": "feeds",
+      "source_id": "UC5-DS02",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-S02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Future replay only",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R033",
+      "relationship_type": "feeds",
+      "source_id": "UC5-DS03",
+      "source_reference": "PROPOSAL-DS8-P19",
+      "target_id": "UC5-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Future context",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R034",
+      "relationship_type": "feeds",
+      "source_id": "UC5-S07",
+      "source_reference": "PROPOSAL-T34",
+      "target_id": "UC5-S02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Responsibility mapping TBD",
+      "record_status": "TBD",
+      "relationship_id": "UC5-R035",
+      "relationship_type": "owned_by",
+      "source_id": "UC5-O01",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-O02"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Deployment ownership TBD",
+      "record_status": "TBD",
+      "relationship_id": "UC5-R036",
+      "relationship_type": "owned_by",
+      "source_id": "UC5-D01",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-O01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Inactive class",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R037",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D06",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-NZ01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Inactive class",
+      "record_status": "proposal",
+      "relationship_id": "UC5-R038",
+      "relationship_type": "deployed_in",
+      "source_id": "UC5-D07",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-NZ01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Observation dependency",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R039",
+      "relationship_type": "depends_on",
+      "source_id": "UC5-DT01",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-D04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Referent dependency",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R040",
+      "relationship_type": "depends_on",
+      "source_id": "UC5-DT01",
+      "source_reference": "PROPOSAL-T44",
+      "target_id": "UC5-D01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Criticality lookup",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R041",
+      "relationship_type": "depends_on",
+      "source_id": "UC5-S03",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-S01"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Sharing authority",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R042",
+      "relationship_type": "governed_by",
+      "source_id": "UC5-S05",
+      "source_reference": "PROPOSAL-UC5-P18",
+      "target_id": "UC5-A03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Restricted storage",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R043",
+      "relationship_type": "stores",
+      "source_id": "UC5-S04",
+      "source_reference": "PROPOSAL-T31-T36",
+      "target_id": "UC5-NZ04"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Policy enforcement",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R044",
+      "relationship_type": "mitigated_by",
+      "source_id": "UC5-D03",
+      "source_reference": "PROPOSAL-T42",
+      "target_id": "UC5-S03"
+    },
+    {
+      "assumption_id": "",
+      "notes": "Evidence-only reconstruction",
+      "record_status": "engineering_decision",
+      "relationship_id": "UC5-R045",
+      "relationship_type": "derived_from",
+      "source_id": "UC5-S06",
+      "source_reference": "ROADMAP-T43",
+      "target_id": "UC5-S04"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-S02",
+      "target_id": "UC5-EV-000162"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-S03",
+      "target_id": "UC5-EV-000163"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-S03",
+      "target_id": "UC5-EV-000164"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-D03",
+      "target_id": "UC5-EV-000165"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000002",
+      "target_id": "UC5-ED-000001"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000004",
+      "target_id": "UC5-ED-000002"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000006",
+      "target_id": "UC5-ED-000003"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000008",
+      "target_id": "UC5-ED-000004"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000010",
+      "target_id": "UC5-ED-000005"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000012",
+      "target_id": "UC5-ED-000006"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000014",
+      "target_id": "UC5-ED-000007"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000016",
+      "target_id": "UC5-ED-000008"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000018",
+      "target_id": "UC5-ED-000009"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000020",
+      "target_id": "UC5-ED-000010"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000022",
+      "target_id": "UC5-ED-000011"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000024",
+      "target_id": "UC5-ED-000012"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000026",
+      "target_id": "UC5-ED-000013"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000028",
+      "target_id": "UC5-ED-000014"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000030",
+      "target_id": "UC5-ED-000015"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000032",
+      "target_id": "UC5-ED-000016"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000034",
+      "target_id": "UC5-ED-000017"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000036",
+      "target_id": "UC5-ED-000018"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000038",
+      "target_id": "UC5-ED-000019"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000040",
+      "target_id": "UC5-ED-000020"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000042",
+      "target_id": "UC5-ED-000021"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000044",
+      "target_id": "UC5-ED-000022"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000046",
+      "target_id": "UC5-ED-000023"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000048",
+      "target_id": "UC5-ED-000024"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000050",
+      "target_id": "UC5-ED-000025"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000052",
+      "target_id": "UC5-ED-000026"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000054",
+      "target_id": "UC5-ED-000027"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000056",
+      "target_id": "UC5-ED-000028"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000058",
+      "target_id": "UC5-ED-000029"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000060",
+      "target_id": "UC5-ED-000030"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000062",
+      "target_id": "UC5-ED-000031"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000064",
+      "target_id": "UC5-ED-000032"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000066",
+      "target_id": "UC5-ED-000033"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000068",
+      "target_id": "UC5-ED-000034"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000070",
+      "target_id": "UC5-ED-000035"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000072",
+      "target_id": "UC5-ED-000036"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000074",
+      "target_id": "UC5-ED-000037"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000076",
+      "target_id": "UC5-ED-000038"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000078",
+      "target_id": "UC5-ED-000039"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000080",
+      "target_id": "UC5-ED-000040"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000082",
+      "target_id": "UC5-ED-000041"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000084",
+      "target_id": "UC5-ED-000042"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000086",
+      "target_id": "UC5-ED-000043"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000088",
+      "target_id": "UC5-ED-000044"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000090",
+      "target_id": "UC5-ED-000045"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000092",
+      "target_id": "UC5-ED-000046"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000094",
+      "target_id": "UC5-ED-000047"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000096",
+      "target_id": "UC5-ED-000048"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000098",
+      "target_id": "UC5-ED-000049"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000100",
+      "target_id": "UC5-ED-000050"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000102",
+      "target_id": "UC5-ED-000051"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000104",
+      "target_id": "UC5-ED-000052"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000106",
+      "target_id": "UC5-ED-000053"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000108",
+      "target_id": "UC5-ED-000054"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000110",
+      "target_id": "UC5-ED-000055"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000112",
+      "target_id": "UC5-ED-000056"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000114",
+      "target_id": "UC5-ED-000057"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000116",
+      "target_id": "UC5-ED-000058"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000118",
+      "target_id": "UC5-ED-000059"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000120",
+      "target_id": "UC5-ED-000060"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000122",
+      "target_id": "UC5-ED-000061"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000124",
+      "target_id": "UC5-ED-000062"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000126",
+      "target_id": "UC5-ED-000063"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000128",
+      "target_id": "UC5-ED-000064"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000130",
+      "target_id": "UC5-ED-000065"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000132",
+      "target_id": "UC5-ED-000066"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000134",
+      "target_id": "UC5-ED-000067"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000136",
+      "target_id": "UC5-ED-000068"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000138",
+      "target_id": "UC5-ED-000069"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000140",
+      "target_id": "UC5-ED-000070"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000142",
+      "target_id": "UC5-ED-000071"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000144",
+      "target_id": "UC5-ED-000072"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000146",
+      "target_id": "UC5-ED-000073"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000148",
+      "target_id": "UC5-ED-000074"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000150",
+      "target_id": "UC5-ED-000075"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000152",
+      "target_id": "UC5-ED-000076"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000154",
+      "target_id": "UC5-ED-000077"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000156",
+      "target_id": "UC5-ED-000078"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000158",
+      "target_id": "UC5-ED-000079"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000160",
+      "target_id": "UC5-ED-000080"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000161",
+      "target_id": "UC5-ED-000081"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000162",
+      "target_id": "UC5-ED-000082"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000163",
+      "target_id": "UC5-ED-000083"
+    },
+    {
+      "relationship_type": "generates",
+      "source_id": "UC5-EV-000164",
+      "target_id": "UC5-ED-000084"
+    }
+  ],
+  "nodes": [
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-001"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D01",
+      "name": "Synthetic patient monitor",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "No patient data or clinical actuation.",
+      "record_status": "proposal",
+      "role": "Emits abstract monitoring flows and health state",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated",
+        "offline"
+      ],
+      "twin_id": "UC5-DT01",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-002"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "MedicalGateway",
+      "entity_id": "UC5-D02",
+      "name": "Bedside gateway",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Synthetic interface only.",
+      "record_status": "engineering_decision",
+      "role": "Forwards abstract device flows",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT02",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-003"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "NetworkDevice",
+      "entity_id": "UC5-D03",
+      "name": "Medical-zone switch and enforcement point",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "No production SDN interface.",
+      "record_status": "engineering_decision",
+      "role": "Applies bounded abstract policy actions",
+      "source_references": [
+        "PROPOSAL-T42"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT03",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-004"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "MonitoringAsset",
+      "entity_id": "UC5-D04",
+      "name": "Flow collector",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No packet payload.",
+      "record_status": "proposal",
+      "role": "Produces minimized flow observations",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT04",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-005"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ClinicalSystem",
+      "entity_id": "UC5-D05",
+      "name": "Clinical operator console",
+      "network_zones": [
+        "UC5-NZ02"
+      ],
+      "notes": "No EHR integration.",
+      "record_status": "engineering_decision",
+      "role": "Displays synthetic continuity status",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": "UC5-DT05",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D06",
+      "name": "Wearable device class",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Inactive in first slice.",
+      "record_status": "proposal",
+      "role": "Proposal-scoped future device class",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unmodelled",
+        "available"
+      ],
+      "twin_id": "UC5-DT06",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "MedicalDevice",
+      "entity_id": "UC5-D07",
+      "name": "Smart infusion pump class",
+      "network_zones": [
+        "UC5-NZ01"
+      ],
+      "notes": "Inactive; no therapy model.",
+      "record_status": "proposal",
+      "role": "Proposal-scoped future device class",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unmodelled",
+        "available"
+      ],
+      "twin_id": "UC5-DT07",
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-006"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "RegistryService",
+      "entity_id": "UC5-S01",
+      "name": "Medical asset registry",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic registry.",
+      "record_status": "engineering_decision",
+      "role": "Maps pseudonymous device classes and criticality",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "stale",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-007"
+      ],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "SecurityService",
+      "entity_id": "UC5-S02",
+      "name": "Detection and XAI service",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Weighted baseline, not clinical AI.",
+      "record_status": "proposal",
+      "role": "Scores observable flow and health features",
+      "source_references": [
+        "PROPOSAL-T33"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-008"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "PolicyService",
+      "entity_id": "UC5-S03",
+      "name": "Clinical-safety policy service",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Essential care overrides isolation.",
+      "record_status": "engineering_decision",
+      "role": "Constrains response by authorization and continuity",
+      "source_references": [
+        "PROPOSAL-T42"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-009"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC5-S04",
+      "name": "Evidence and custody service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "Local integrity model.",
+      "record_status": "proposal",
+      "role": "Minimizes, hashes and custody-links evidence",
+      "source_references": [
+        "PROPOSAL-T31-T36"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-010"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "SharingService",
+      "entity_id": "UC5-S05",
+      "name": "Redaction and sharing service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "Default deny.",
+      "record_status": "proposal",
+      "role": "Produces authorized redacted packages",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "available",
+        "denied",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-011"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "cyber",
+      "entity_class": "ForensicService",
+      "entity_id": "UC5-S06",
+      "name": "Reconstruction service",
+      "network_zones": [
+        "UC5-NZ04"
+      ],
+      "notes": "No hidden-truth input.",
+      "record_status": "engineering_decision",
+      "role": "Builds evidence-only incident claims",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "cyber",
+      "entity_class": "IntelligenceService",
+      "entity_id": "UC5-S07",
+      "name": "Threat-intelligence boundary",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No external connection in simulator.",
+      "record_status": "proposal",
+      "role": "Future versioned threat-context interface",
+      "source_references": [
+        "PROPOSAL-T34"
+      ],
+      "states": [
+        "unavailable",
+        "available"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-012"
+      ],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A01",
+      "name": "Clinical operator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "engineering_decision",
+      "role": "Owns care-continuity review",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A02",
+      "name": "Security analyst",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "engineering_decision",
+      "role": "Reviews alerts and requested response",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "human",
+      "entity_class": "HumanActor",
+      "entity_id": "UC5-A03",
+      "name": "Forensic investigator",
+      "network_zones": [],
+      "notes": "Synthetic role.",
+      "record_status": "proposal",
+      "role": "Receives authorized evidence and qualified claims",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "authorized",
+        "unauthorized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O01",
+      "name": "Hospital stakeholder role",
+      "network_zones": [],
+      "notes": "Exact ownership TBD.",
+      "record_status": "proposal",
+      "role": "Owns clinical and deployment parameters",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O02",
+      "name": "5YPE stakeholder role",
+      "network_zones": [],
+      "notes": "Interface ownership TBD.",
+      "record_status": "proposal",
+      "role": "Pilot and technical stakeholder",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "organisation",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC5-O03",
+      "name": "K3Y stakeholder role",
+      "network_zones": [],
+      "notes": "Interface ownership TBD.",
+      "record_status": "proposal",
+      "role": "Technical stakeholder",
+      "source_references": [
+        "PROPOSAL-UC5-P18"
+      ],
+      "states": [
+        "unconfirmed",
+        "confirmed"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC5-013"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ01",
+      "name": "Medical-device zone",
+      "network_zones": [],
+      "notes": "No real VLAN.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic connected-device segment",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ02",
+      "name": "Clinical-services zone",
+      "network_zones": [],
+      "notes": "No EHR or PACS.",
+      "record_status": "engineering_decision",
+      "role": "Synthetic clinical display boundary",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ03",
+      "name": "Security analytics zone",
+      "network_zones": [],
+      "notes": "Logical boundary.",
+      "record_status": "engineering_decision",
+      "role": "Monitoring, detection and policy",
+      "source_references": [
+        "PROPOSAL-T41-T45"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC5-NZ04",
+      "name": "Restricted evidence zone",
+      "network_zones": [],
+      "notes": "Logical boundary.",
+      "record_status": "engineering_decision",
+      "role": "Evidence, custody, redaction and reconstruction",
+      "source_references": [
+        "PROPOSAL-T31-T36"
+      ],
+      "states": [
+        "available",
+        "restricted"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Medium",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS01",
+      "name": "Synthetic flow stream",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Not DS8.",
+      "record_status": "synthetic_default",
+      "role": "Deterministic flow input",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "available",
+        "invalid"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS02",
+      "name": "Synthetic device-health stream",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "No clinical values.",
+      "record_status": "synthetic_default",
+      "role": "Deterministic health input",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "missing"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "TBD",
+      "designation": "data",
+      "entity_class": "DataSource",
+      "entity_id": "UC5-DS03",
+      "name": "DS8 import boundary",
+      "network_zones": [],
+      "notes": "Not committed or imported.",
+      "record_status": "proposal",
+      "role": "Future anonymized NetFlow or sFlow replay",
+      "source_references": [
+        "PROPOSAL-DS8-P19"
+      ],
+      "states": [
+        "unavailable",
+        "validated"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT01",
+      "name": "Patient-monitor twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors observable device and flow state",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT02",
+      "name": "Gateway twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors gateway availability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT03",
+      "name": "Switch twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors policy capability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT04",
+      "name": "Collector twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors observation availability",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT05",
+      "name": "Clinical-console twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Synthetic.",
+      "record_status": "engineering_decision",
+      "role": "Mirrors continuity status",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "synchronized",
+        "stale"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT06",
+      "name": "Wearable-class twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Inactive.",
+      "record_status": "proposal",
+      "role": "Future class representation",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "inactive",
+        "synchronized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "assumption_ids": [],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "DigitalTwin",
+      "entity_id": "UC5-DT07",
+      "name": "Infusion-pump-class twin",
+      "network_zones": [
+        "UC5-NZ03"
+      ],
+      "notes": "Inactive; no therapy state.",
+      "record_status": "proposal",
+      "role": "Future class representation",
+      "source_references": [
+        "PROPOSAL-T44"
+      ],
+      "states": [
+        "inactive",
+        "synchronized"
+      ],
+      "twin_id": null,
+      "use_case": "UC5"
+    },
+    {
+      "entity_class": "alert",
+      "entity_id": "UC5-EV-000162",
+      "runtime": true
+    },
+    {
+      "entity_class": "safety",
+      "entity_id": "UC5-EV-000163",
+      "runtime": true
+    },
+    {
+      "entity_class": "policy",
+      "entity_id": "UC5-EV-000164",
+      "runtime": true
+    },
+    {
+      "entity_class": "mitigation",
+      "entity_id": "UC5-EV-000165",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000001",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000002",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000003",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000004",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000005",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000006",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000007",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000008",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000009",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000010",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000011",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000012",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000013",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000014",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000015",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000016",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000017",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000018",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000019",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000020",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000021",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000022",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000023",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000024",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000025",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000026",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000027",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000028",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000029",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000030",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000031",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000032",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000033",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000034",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000035",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000036",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000037",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000038",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000039",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000040",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000041",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000042",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000043",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000044",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000045",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000046",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000047",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000048",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000049",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000050",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000051",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000052",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000053",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000054",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000055",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000056",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000057",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000058",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000059",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000060",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000061",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000062",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000063",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000064",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000065",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000066",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000067",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000068",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000069",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000070",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000071",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000072",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000073",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000074",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000075",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000076",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000077",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000078",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000079",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000080",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000081",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000082",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000083",
+      "runtime": true
+    },
+    {
+      "entity_class": "evidence",
+      "entity_id": "UC5-ED-000084",
+      "runtime": true
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_digests": {
+    "entities_sha256": "030c052286e2a68ff7290c8bbdac8646cf03ae30c82370eabde75a925063db1e",
+    "relationships_sha256": "25d5ec786dce4f9b0775f928c54d9487b87effc7639400ccfb0d5ece37e86591"
+  },
+  "use_case": "UC5"
+}

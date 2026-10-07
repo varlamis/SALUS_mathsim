@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/artifact_manifest.schema.json",
+  "type": "object",
+  "required": ["schema_version", "use_case", "artifact_count", "artifacts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "use_case": {"const": "UC1"},
+    "artifact_count": {"type": "integer", "minimum": 0},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "bytes", "sha256"],
+        "properties": {
+          "path": {"type": "string"},
+          "bytes": {"type": "integer"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    }
+  }
+}

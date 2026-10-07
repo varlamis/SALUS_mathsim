@@ -1,0 +1,701 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{graphicx,float}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage[expansion=false]{microtype}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{margin=24mm,headheight=14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\setlist{nosep,leftmargin=*}
+\renewcommand{\arraystretch}{1.15}
+
+\definecolor{salusblue}{HTML}{174A7E}
+\definecolor{saluslight}{HTML}{EAF2F8}
+\definecolor{salusgreen}{HTML}{1E7A5C}
+\definecolor{codegray}{HTML}{F4F6F7}
+\hypersetup{colorlinks=true,linkcolor=salusblue,citecolor=salusgreen,urlcolor=salusblue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SALUS T4.3 --- UC4 Technical Report}
+\fancyhead[R]{Version 1.0}
+\fancyfoot[C]{\thepage}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codegray},
+  frame=single,
+  rulecolor=\color{gray!35},
+  breaklines=true,
+  columns=fullflexible,
+  showstringspaces=false,
+  xleftmargin=3mm,
+  xrightmargin=3mm
+}
+
+\newcommand{\UC}{\textsc{UC4}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\status}[1]{\textcolor{salusgreen}{\textbf{#1}}}
+
+\title{\vspace{-12mm}\textbf{An End-to-End, Evidence-Centric Hybrid Model for SALUS Use Case 4}\\[2mm]
+\large Canonical Entity Modelling, BPMN Processes, Deterministic Simulation,\\
+Policy-Controlled Acquisition, Runtime Graphs, and Reproducible Evaluation}
+\author{SALUS T4.3 UC4 Technical Implementation Report}
+\date{8 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report presents an end-to-end technical implementation of SALUS Use Case 4 (UC4), focused on the lawful forensic investigation of an unauthorized smart-home entry followed by suspected tampering with a door sensor. The work converts proposal-level intent and a modelling roadmap into a source-traceable, machine-readable and executable system. It combines a canonical entity and relationship graph, explicit assumptions and provenance, a formal hybrid mathematical model, seven BPMN~2.0 models, a deterministic discrete-event simulator, fail-closed authorization and minimization, content-addressed evidence, an append-only custody abstraction, evidence-bounded reconstruction, temporal runtime graphs, negative-path experiments, and seeded uncertainty analysis.
+
+The resulting repository contains 38 canonical entities, 123 typed relationships, nine JSON Schemas, seven versioned integration contracts, 16 experiment branches, 100 Monte Carlo runs, and 47 passing automated tests. In the deterministic nominal case, 17 evidence items were preserved, no denied decision released protected bytes, all modelled custody checks passed, reconstruction recall against isolated synthetic truth was 1.0, and three strong evidence-supported claims were generated. Across the declared Monte Carlo design, mean evidence-capture recall was 0.8990 and mean reconstruction recall was 0.6647; uncertainty results retain undefined denominators rather than coercing them to zero.
+
+The main contribution is not a claim of pilot performance. It is a reusable modelling and validation method that keeps physical truth, observations, Digital Twin state, evidence, custody and analytical claims separate while connecting them through stable identifiers, explicit policy decisions and reproducible experiments. The implementation therefore supplies a defensible engineering baseline for later replacement of synthetic adapters with authorized laboratory or pilot integrations.
+\end{abstract}
+
+\textbf{Keywords:} digital twins; cyber-physical systems; smart home; digital forensics; lawful acquisition; evidence provenance; BPMN; discrete-event simulation; knowledge graph; reproducibility.
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+SALUS Task T4.3 requires formal and mathematical modelling of physical entities, their digital counterparts, properties, processes, information exchanges and relationships. UC4 places this requirement in a particularly demanding setting: smart-home observations may be incomplete or delayed, forensic collection must be controlled by lawful scope, and an analytical reconstruction must not silently become more certain than its evidence permits. The proposal also situates UC4 at the intersection of customer-premises equipment (CPE), Home Assistant, IoT devices, Digital Twin services and law-enforcement investigation~\cite{proposal}.
+
+The initial repository contained preliminary device and process material but not a complete executable chain from scenario definition to validated results. The implementation described here followed the ordered T4.3 roadmap~\cite{roadmap}. Partner feedback was explicitly removed from the completion gate at the user's direction; missing real-world facts were therefore represented as documented engineering decisions, replaceable synthetic defaults, abstract interfaces or first-class \code{TBD} values. This avoids both implementation deadlock and fabricated precision.
+
+The selected vertical slice is deliberately specific: an unauthorized actor opens a smart-home entrance, a configured Home Assistant rule activates a light, and the actor tampers with and disconnects the door sensor. A separate case trigger precedes a remotely requested, purpose-limited and time-bounded acquisition. CPE metadata, Home Assistant events and device-state events are minimized, preserved, hashed, placed under modelled custody and used to produce qualified claims.
+
+\subsection{Research and engineering question}
+
+The project asks whether one can formulate and execute this UC4 slice so that:
+
+\begin{enumerate}
+  \item every model element is source-traceable and machine-readable;
+  \item cyber-physical state, uncertainty, queues, authorization, evidence and reconstruction have explicit mathematical semantics;
+  \item denial, missing observations and corruption remain meaningful outcomes rather than runtime failures;
+  \item hidden synthetic truth can evaluate reconstruction without leaking into investigator-visible results; and
+  \item the complete result is reproducible, testable and replaceable at partner integration boundaries.
+\end{enumerate}
+
+\subsection{Principal contributions}
+
+The project contributes the following integrated approach.
+
+\begin{description}[style=nextline]
+  \item[C1 --- Source-governed scenario freeze.] Proposal statements, roadmap obligations, agreed implementation decisions, assumptions and TBDs are separated through an explicit precedence and provenance vocabulary.
+  \item[C2 --- Canonical multi-layer model.] Physical devices, actors, services, network zones, data objects, Digital Twins and the use case itself share stable identifiers across JSON, CSV, BPMN, code, graphs and reports.
+  \item[C3 --- Hybrid executable semantics.] Discrete events, finite-state transitions, stochastic observation, bounded timing uncertainty, queue dynamics, policy predicates, evidence hashing, custody chaining and reconstruction are combined in one deterministic engine.
+  \item[C4 --- Evidence-before-inference discipline.] Ground truth, raw observations, retained source records, collected evidence and investigator claims are different objects. Reconstruction consumes only verified evidence.
+  \item[C5 --- Privacy and integrity as executable paths.] Authorization is fail-closed and checks verification, purpose, time, entity, data type and action before field minimization. Denials release no evidence payload; deliberate hash and custody corruption is detected.
+  \item[C6 --- Graph-ready provenance.] Static entity relations and runtime events, decisions, evidence, custody and claims form a temporal multigraph supporting nine competency queries.
+  \item[C7 --- Reproducible uncertainty evaluation.] A fixed-seed nominal case, 16 negative/edge experiments and a declared 100-sample Monte Carlo design quantify behavior without describing synthetic results as pilot measurements.
+  \item[C8 --- Integration-safe handoff.] Seven versioned task boundaries specify required messages, semantics, failure behavior and replacement procedures; a final manifest hashes every deliverable.
+\end{description}
+
+\section{Methodology and Source Governance}
+
+\subsection{Source precedence}
+
+The implementation used four evidence classes. Proposal statements have the highest authority for SALUS intent; roadmap statements determine modelling completeness and order; user-agreed decisions specialize the runnable scenario; engineering assumptions fill only those values required to execute. When sources disagree, the lower-authority item cannot silently override the higher one. Each entity and relationship therefore carries source references, record status, confidence and assumption identifiers.
+
+The key proposal references were pages 162--164 for the Digital Twin and evidence architecture, pages 169--170 for UC4 and lawful access through CPE/Home Assistant, page 171 for candidate research datasets, and page 190 for the T4.3 modelling obligation~\cite{proposal}. The roadmap supplied the phased decomposition, entity, process, mathematical, simulation, graph and validation requirements~\cite{roadmap}.
+
+\subsection{Assumption register}
+
+The assumption register makes uncertainty operational. Each assumption records its category, statement, reason, synthetic default, affected artefacts, replacement owner/path and impact. Examples include clock-offset bounds, observation-loss probabilities, retention, CPE capacity, Digital Twin staleness, evidence-window semantics and whether optional cloud or SDN services are enabled. This structure prevents an absent partner value from becoming an undocumented constant.
+
+The implementation uses the statuses \code{proposal}, \code{roadmap}, \code{agreed\_decision}, \code{assumed}, \code{proposed} and \code{TBD}. At runtime, assumption coverage is measured over enabled entity and relationship records. In the nominal model, 159 such records are evaluated, with an assumed-or-TBD fraction of approximately 0.0252.
+
+\subsection{Ordered delivery process}
+
+The project advanced through twelve gated stages:
+
+\begin{enumerate}
+  \item freeze scenario and evidence boundary;
+  \item define source precedence and provenance;
+  \item prepare the canonical repository structure;
+  \item register assumptions and inventories;
+  \item define canonical entities and relationships;
+  \item validate schemas and cross-file integrity;
+  \item implement the deterministic hybrid simulator;
+  \item execute nominal and negative experiment branches;
+  \item build the temporal runtime graph and competency queries;
+  \item define metrics and uncertainty analysis;
+  \item consolidate testing and requirements traceability;
+  \item define integration contracts, locking and final handoff.
+\end{enumerate}
+
+Each stage produced a durable artefact and a gate. Later stages reuse earlier contracts rather than introducing parallel names or data models.
+
+\section{UC4 Scenario and System Boundary}
+
+\subsection{Narrative}
+
+The environment is a synthetic smart home with an open-source CPE router, a Home Assistant host, a contact sensor, presence sensor, smart plug and smart light. At simulation time $t=600$~s, the unauthorized actor opens the entrance. A presence observation may corroborate movement. The door event reaches Home Assistant and may trigger the light. At $t=610$~s, the contact sensor is tampered with and then becomes offline. A case is triggered at $t=900$~s; the investigator requests collection at $t=920$~s. These incident times lie inside a configured evidence window of $[540,780)$~s, while acquisition authorization is valid over $[900,1500)$~s.
+
+No collection is active during ordinary monitoring. Authentication and case creation do not imply authorization. The investigator requests a declared purpose, set of entities, data types, actions and permitted fields. Source records outside those terms are denied individually even when the authorization object is otherwise valid.
+
+\subsection{Zones and trust boundaries}
+
+Three canonical network zones separate responsibilities:
+
+\begin{itemize}
+  \item \code{UC4-NZ01}: home IoT LAN, containing Home Assistant and smart devices;
+  \item \code{UC4-NZ02}: CPE/WAN boundary, containing the controlled acquisition point; and
+  \item \code{UC4-NZ03}: secured LEA environment, containing investigation, evidence, custody and reconstruction services.
+\end{itemize}
+
+The optional vendor-cloud service is disabled by default. SDN/SDaaSS is also disabled because no validated NBI/SBI or controller semantics were available. These omissions are represented explicitly and do not prevent the non-cloud, non-SDN UC4 slice from executing.
+
+\subsection{Outcome classes}
+
+The model treats the following as legitimate outcomes: strongly or partially supported entry/tamper claims, inconclusive reconstruction, denied acquisition, empty source window, incomplete evidence due to observation or retention loss, CPE congestion, ambiguous temporal ordering, detected content corruption and detected custody-chain corruption. It never converts those states into invented observations, identities or legal conclusions.
+
+\section{Canonical Entity and Relationship Model}
+
+\subsection{Entity inventory}
+
+The canonical collection contains 38 entities. Table~\ref{tab:entities} summarizes the main groups.
+
+\begin{table}[H]
+\centering
+\caption{Canonical UC4 entity inventory by functional group.}
+\label{tab:entities}
+\begin{tabularx}{\textwidth}{@{}l r X@{}}
+\toprule
+Group & Count & Representative contents \\
+\midrule
+Use case and environment & 2 & UC4 root and physical smart-home environment \\
+Network zones & 3 & Home LAN, WAN/CPE boundary and secured LEA zone \\
+Physical/device entities & 6 & CPE, Home Assistant, contact sensor, presence sensor, plug and light \\
+Digital Twin entities & 6 & One stable twin for each physical/device entity \\
+Services & 6 & Cloud, Digital Twin, lawful interception, evidence, custody and reconstruction \\
+Actors and roles & 6 & Resident, investigator, authority, operator, unauthorized actor and auditor \\
+Data/policy/analysis objects & 9 & Authorization, flows, events, evidence, alert, decision, custody and claims \\
+\midrule
+Total & 38 & Machine-readable canonical instances \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Every entity defines its stable ID, class, designation, owner/operator, location, zones, role, lifecycle, capabilities, interfaces, produced/consumed data, provenance, sensitivity, retention and observability. Device/twin pairs also carry reciprocal \code{twin\_id} and \code{physical\_entity\_id} fields.
+
+\subsection{Relationship inventory}
+
+The 123 relationships form a directed NetworkX multigraph. There are 37 \code{BELONGS\_TO\_USE\_CASE} edges, 13 zone memberships, ten generation edges, six deployment edges, six ownership edges, six physical-to-twin mirror edges, six synchronization edges and additional communication, routing, observation, evidence, custody, authorization, trigger and protection relations. Parallel edges retain separate stable IDs and semantics.
+
+Validation requires all endpoints to resolve, all IDs to be unique, valid-time intervals to be ordered, controlled vocabularies to match the schema, the undirected projection to be connected, and every physical device to have exactly one reciprocal twin representation. The canonical graph is generated from entity JSON and relationship CSV; it is not an alternative source of truth.
+
+\section{Formal Hybrid Mathematical Model}
+
+\subsection{System state}
+
+The model combines discrete and continuous components. At simulation time $t$, define
+
+\begin{equation}
+\mathcal{H}(t)=\bigl(Q(t),X(t),O(t),R(t),E(t),C(t),G(t)\bigr),
+\end{equation}
+
+where $Q$ is the time-ordered event queue, $X$ contains physical, Home Assistant and twin states, $O$ contains observable events, $R$ contains retained source records, $E$ contains collected evidence, $C$ is the custody ledger and $G$ is the static-plus-runtime graph. Hidden ground truth $T$ is maintained separately for evaluation and is not a reconstruction input.
+
+Events are ordered lexicographically by simulation time and insertion sequence:
+
+\begin{equation}
+e_i \prec e_j \iff (t_i<t_j)\lor(t_i=t_j\land s_i<s_j).
+\end{equation}
+
+This gives deterministic tie breaking without relying on dictionary or platform ordering.
+
+\subsection{Physical and observation dynamics}
+
+Each physical entity $i$ has a finite state $x_i(t)\in\mathcal{S}_i$ and monotonic version $v_i$. A legal transition applies only if its target belongs to the declared lifecycle and its guard holds. Accepted changes increment $v_i$; duplicate transitions do not.
+
+An observable event is a stochastic projection of a true event. For source $i$,
+
+\begin{align}
+d_i &\sim \operatorname{Bernoulli}\bigl(1-p_{\mathrm{loss}}-p_{\mathrm{error},i}\bigr),\\
+\hat{t}_i &= t_i+b_i+\epsilon_i,\qquad |b_i|\leq B,\quad |\epsilon_i|\leq J,\\
+t_i^{\mathrm{ingest}} &= t_i+\delta_i^{\mathrm{proc}}+\delta_i^{\mathrm{net}}.
+\end{align}
+
+All random streams derive from the injected run seed. Local event time and ingest time remain distinct so reconstruction can express timing uncertainty.
+
+\subsection{CPE queue}
+
+For initial occupancy $q$, arrival $a$, effective service $s$ and buffer capacity $K$, the update is
+
+\begin{align}
+y &= q+a,\\
+u &= \min(y,s),\\
+\ell &= \max(0,y-u-K),\\
+q' &= y-u-\ell.
+\end{align}
+
+Thus the conservation identity is
+
+\begin{equation}
+q+a=u+\ell+q',\qquad 0\leq q'\leq K.
+\end{equation}
+
+The executable queue asserts this identity after every update. Background load scales available service capacity but never enables payload capture.
+
+\subsection{Authorization and minimization}
+
+For record $r$ and request time $t$, release eligibility is the conjunction
+
+\begin{equation}
+A(r,t)=D\land V\land P\land W_a(t)\land W_e(r)\land S_e(r)\land S_d(r)\land S_x(r),
+\end{equation}
+
+where $D$ is the allow decision path, $V$ is valid verification, $P$ is exact purpose agreement, $W_a$ is authorization activity, $W_e$ is evidence-window membership, and $S_e,S_d,S_x$ are entity, data-type and action scope. Any absent or false term yields \code{deny}, an empty field list and zero released bytes.
+
+If eligible, content $z_r$ is projected onto permitted fields $F$:
+
+\begin{equation}
+\pi_F(z_r)=\{(k,z_r[k])\mid k\in F\cap\operatorname{keys}(z_r)\}.
+\end{equation}
+
+The projection occurs before evidence creation and hashing. An empty projection is denied.
+
+\subsection{Evidence and custody}
+
+Canonical JSON bytes $J(z)$ are content-addressed:
+
+\begin{equation}
+h_e=\operatorname{SHA256}(J(z_e)).
+\end{equation}
+
+Custody actions form an append-only hash chain. With genesis $c_0$ and action $k$,
+
+\begin{equation}
+c_k=\operatorname{SHA256}(c_{k-1}\Vert h_e\Vert a_k\Vert t_k\Vert u_k).
+\end{equation}
+
+Verification checks sequence, previous hash and recomputed hash. The implementation calls this a hash-chain abstraction, not a production blockchain. Content or link alteration changes custody status to \code{verification\_failed} and excludes the item from strong reconstruction support.
+
+\subsection{Digital Twin synchronization}
+
+A twin accepts update $(v,x,t_e,t_i)$ only when $v>v_i^{\mathrm{accepted}}$. Otherwise it increments a rejection count and preserves the previous state. Accepted lag is
+
+\begin{equation}
+L_i=\max(0,t_i-t_e),
+\end{equation}
+
+and the state is considered stale after a configurable threshold $L_{\max}$. The entity, instance and graph representations jointly enforce one-to-one physical/twin identity.
+
+\subsection{Reconstruction under uncertainty}
+
+Verified evidence is normalized into observations with time intervals rather than false point certainty. Source offsets are corrected while uncertainty includes clock, jitter and network bounds. Claims aggregate declared source reliability and support weights, subtract missing-evidence penalties, list supporting evidence IDs and alternative explanations, and receive a qualification such as strong, partial or unsupported.
+
+Evaluation occurs only after reconstruction. Relevant truth and reconstructed events are greedily type-matched one-to-one by minimum absolute time difference. This yields recall, precision and mean absolute timestamp error while preserving the truth/analyst boundary.
+
+\section{BPMN 2.0 Process Architecture}
+
+Seven editable BPMN files were produced: five detailed process families, one system collaboration and one lifecycle model. The validator parses BPMN~2.0 XML, enforces unique and resolved IDs, keeps sequence flows inside process boundaries, keeps message flows across pools, requires default and conditioned exclusive branches, and requires BPMNDI shapes and edges.
+
+\begin{table}[H]
+\centering
+\caption{The five detailed process families.}
+\begin{tabularx}{\textwidth}{@{}l X X@{}}
+\toprule
+Family & Main behavior & Critical negative/default paths \\
+\midrule
+Normal operation & Device observations, Home Assistant ingestion, automations, CPE metadata and twin synchronization & Offline source, stale event, unavailable Home Assistant, stale twin update \\
+Incident/tampering & Entry, presence, door state, automation, tamper and disconnect & Missed presence, lost door event, failed automation acknowledgement \\
+Detection/case trigger & Evidence-bounded alert/context to case creation & No external detector, insufficient context, duplicate trigger \\
+Lawful acquisition & Request, authorization verification, scope evaluation, minimization and source collection & Absent, invalid, expired, revoked, purpose mismatch, out-of-scope or empty source window \\
+Evidence investigation & Canonicalization, hashing, custody, normalization, correlation, reconstruction and reporting & Hash mismatch, broken custody, missing evidence, unsupported claim \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The process models use stable entity and data-object IDs, making them traceable to the JSON/CSV model and Python modules. Message flows express logical exchange; they do not assert an unvalidated physical protocol.
+
+\section{Software Architecture and Execution}
+
+\subsection{Module decomposition}
+
+The Python package separates contracts and concerns:
+
+\begin{table}[H]
+\centering
+\caption{Principal executable modules.}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+Module & Responsibility \\
+\midrule
+\code{models.py} & Strict Pydantic configuration, event, evidence and entity models \\
+\code{validation.py} & JSON Schema, cross-field, graph, BPMN, fixture and integration validation \\
+\code{event\_queue.py} & Stable monotonic discrete-event scheduling \\
+\code{entities.py}, \code{dynamics.py} & Physical, Home Assistant, twin and stochastic observation behavior \\
+\code{traffic.py} & CPE service, capacity, occupancy, loss and conservation \\
+\code{authorization.py} & Fail-closed record eligibility, purpose/scope and minimization \\
+\code{collection.py}, \code{custody.py} & Canonical bytes, evidence content hashes and custody chain \\
+\code{reconstruction.py} & Evidence-only normalization and qualified claim construction \\
+\code{runtime\_graph.py}, \code{queries.py} & Temporal graph materialization and competency queries \\
+\code{simulation.py} & End-to-end orchestration, invariants, metrics and export \\
+\code{experiments.py}, \code{analysis.py} & Negative matrix, Monte Carlo, confidence intervals and sensitivity \\
+\code{handoff.py} & Self-excluding final artifact inventory and SHA-256 verification \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Determinism and canonical results}
+
+Every stochastic component receives the configured seed; no module-level random state is used. Deterministic documents are serialized canonically and hashed together. The wall-clock generation timestamp exists only in the run manifest and is explicitly excluded from the canonical result hash. Equal configurations and seeds therefore reproduce the same canonical result; tests also confirm that a changed seed alters stochastic observations and the result hash.
+
+\subsection{Run package}
+
+A successful run exports the following core package:
+
+\begin{lstlisting}
+run_manifest.json             resolved_config.yaml
+entities.json                 relationships.json
+ground_truth_events.jsonl     observed_events.jsonl
+policy_decisions.jsonl        evidence_manifest.json
+custody_events.jsonl          reconstructed_timeline.json
+graph.json                    metrics.json
+validation_report.json        investigation_summary.md
+competency_queries.json       graph_overview.svg
+\end{lstlisting}
+
+The ground-truth file is restricted evaluation data. Tests search investigator-facing outputs for a truth-only movement marker and require it to be absent.
+
+\section{Runtime Graph and Competency Queries}
+
+The runtime graph extends static nodes and edges with observed events, source records, policy decisions, evidence items, custody actions and reconstruction claims. It is directed, temporal and a multigraph. The nominal runtime graph has 171 nodes and 408 edges: 37 enabled static nodes and 134 runtime nodes. Hidden truth is excluded by schema and test.
+
+Nine data-driven queries answer whether:
+
+\begin{enumerate}
+  \item each physical device resolves to one Digital Twin;
+  \item home-LAN entities route through the CPE;
+  \item source artefact classes can be discovered from entity capabilities and relations;
+  \item evidence resolves to source provenance;
+  \item evidence resolves to authorization and policy decisions;
+  \item custody paths exist and verify;
+  \item claims resolve to evidence and observed events;
+  \item policy outcomes and reason codes remain auditable; and
+  \item assumption/TBD records remain visible.
+\end{enumerate}
+
+The query layer also reports genuine gaps: no canonical service claims an implemented detection model, and no SDN service is enabled. The graph does not fabricate either component to satisfy a query.
+
+\section{Experimental Design}
+
+\subsection{Deterministic and negative-path matrix}
+
+The 16-branch experiment matrix was specified before execution. Table~\ref{tab:experiments} summarizes its coverage.
+
+\begin{longtable}{@{}p{0.29\textwidth}p{0.62\textwidth}@{}}
+\caption{Experiment matrix and expected observable effect.}\label{tab:experiments}\\
+\toprule
+Branch & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+Branch & Purpose \\
+\midrule
+\endhead
+Baseline & Ordinary monitoring, no incident and no protected collection \\
+Nominal lawful incident & Complete entry, automation, tamper, acquisition and reconstruction \\
+Authorization absent/invalid/expired/revoked & Separate fail-closed decision states, each with zero evidence release \\
+Out-of-scope device & Entity scope fails despite an otherwise structured request \\
+Presence event missed & True movement remains hidden and no observation is invented \\
+Door event lost & Downstream automation evidence disappears because its observable cause is absent \\
+Source records evicted & Retention expires incident records before collection \\
+CPE queue overflow & Network evidence suffers measurable queue loss while other sources remain available \\
+Maximum clock skew & Ordering intervals widen and adjacent events become ambiguous \\
+Evidence content tampered & Hash mismatch quarantines one item \\
+Custody link tampered & Broken first link invalidates downstream custody and strong support \\
+Home Assistant unavailable & Automation path disappears; direct device/CPE evidence remains \\
+CPE unavailable & Network evidence disappears; device and Home Assistant sources remain \\
+\bottomrule
+\end{longtable}
+
+All declared assertions passed. All authorization-negative branches produced zero evidence items and at least one denial. The congestion branch produced a queue loss rate of approximately 0.8687. Content tampering quarantined one item, while custody-link tampering left zero verified items.
+
+\subsection{Monte Carlo design}
+
+The uncertainty design contains $N=100$ independently parameterized, deterministically seeded runs. The master seed is 20260908 and simulation seeds are 44000 through 44099. Five independent uniform factors are sampled:
+
+\begin{itemize}
+  \item observation-loss probability in $[0,0.30]$;
+  \item clock-offset bound in $[0,30]$~s;
+  \item background network load fraction in $[0,0.95]$;
+  \item sensor-error probability in $[0,0.25]$; and
+  \item collection-start delay in $[0,650]$~s.
+\end{itemize}
+
+The sample count and intervals were fixed before viewing results. Continuous means use a two-sided 95\% normal-approximation interval with sample standard deviation. Binary proportions use the Wilson score interval. Undefined outcomes remain \code{null}, are excluded from a continuous mean, and contribute to the reported undefined count. Pearson correlation is used only as descriptive univariate sensitivity, not causal attribution or global variance decomposition.
+
+\section{Results}
+
+\subsection{Nominal result}
+
+The nominal run uses seed 43004. Its canonical result SHA-256 is shown in a breakable path form:
+\path{497b2a1c226c72798a22f977354fd5614b28ea2430c2eae1032165cd312fac81}.
+Table~\ref{tab:nominal} reports selected metrics.
+
+\begin{table}[H]
+\centering
+\caption{Deterministic nominal metrics.}
+\label{tab:nominal}
+\begin{tabular}{@{}l r@{}}
+\toprule
+Metric & Value \\
+\midrule
+Preserved/verified evidence items & 17 / 17 \\
+Evidence capture recall & 1.0000 \\
+Evidence precision & 1.0000 \\
+Unauthorized disclosure bytes & 0 \\
+Collection latency, p95 & 0.0160 s \\
+Investigation latency & 20.0170 s \\
+Reconstruction recall & 1.0000 \\
+Reconstruction precision & 0.5000 \\
+Timestamp mean absolute error & 0.0424 s \\
+Detected custody/content failures & 0 \\
+Mean Digital Twin lag & 0.4883 s \\
+Acquisition utilization & 0.1901 \\
+Acquisition queue occupancy & 4040 bytes \\
+Strong claims & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reconstruction precision of 0.5 is not hidden: several source-specific records can normalize to observations of the same relevant event type, whereas the evaluator performs one-to-one matching against five relevant truth events. This highlights a modelling trade-off between preserving multi-source corroboration and deduplicating event hypotheses. It is a useful target for future calibrated fusion, not an error to remove from reporting.
+
+\subsection{Uncertainty results}
+
+\begin{table}[H]
+\centering
+\caption{Selected 100-sample Monte Carlo mean outcomes and 95\% confidence intervals.}
+\label{tab:mc}
+\begin{tabular}{@{}l r r r@{}}
+\toprule
+Outcome & Defined $n$ & Mean & 95\% CI \\
+\midrule
+Evidence capture recall & 99 & 0.8990 & [0.8393, 0.9587] \\
+Evidence precision & 89 & 1.0000 & [1.0000, 1.0000] \\
+Evidence items & 100 & 10.7800 & [9.7016, 11.8584] \\
+Investigation latency (s) & 100 & 327.6993 & [289.3063, 366.0924] \\
+Reconstruction recall & 100 & 0.6647 & [0.6048, 0.7246] \\
+Reconstruction precision & 89 & 0.5000 & [0.5000, 0.5000] \\
+Timestamp MAE (s) & 89 & 0.0390 & [0.0351, 0.0429] \\
+Mean twin lag (s) & 100 & 4.8723 & [4.2352, 5.5093] \\
+Acquisition utilization & 100 & 0.4009 & [0.3402, 0.4615] \\
+Acquisition occupancy (bytes) & 100 & 2566.61 & [2310.40, 2822.82] \\
+Strong claim count & 100 & 2.0300 & [1.8282, 2.2318] \\
+Unauthorized disclosure bytes & 100 & 0.0000 & [0.0000, 0.0000] \\
+Custody failures & 100 & 0.0000 & [0.0000, 0.0000] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Eleven runs had no preserved evidence, making evidence precision, collection latency, reconstruction precision, timestamp error and acquisition loss rate undefined in those cases. One additional run had observable relevant source records but no captured item, leaving capture recall defined at zero while precision remained undefined. This explicit denominator handling is central to defensible analysis.
+
+\subsection{Sensitivity}
+
+The largest observed input/output correlations were:
+
+\begin{itemize}
+  \item collection delay with collection p95 latency: $r\approx1.000$;
+  \item collection delay with investigation latency: $r\approx1.000$;
+  \item clock-offset bound with twin lag: $r=0.883$;
+  \item background load with acquisition utilization: $r=0.732$;
+  \item collection delay with capture recall: $r=-0.537$; and
+  \item collection delay with reconstruction recall: $r=-0.364$.
+\end{itemize}
+
+These effects are structurally interpretable. Delayed collection can cross retention or authorization boundaries; larger clock offsets increase apparent synchronization lag; and background traffic reduces effective service capacity. Correlations near zero may reflect a weak effect, event sparsity, interactions or limited abstraction sensitivity. They do not prove operational irrelevance.
+
+\subsection{Privacy and integrity interpretation}
+
+No tested denied path released protected bytes, and no uncorrupted run failed custody verification. These results show that the implemented branches obey their software invariants. They do not establish GDPR compliance, lawful authority, evidentiary admissibility or resistance to production threats. Similarly, a synthetic model yielding zero unauthorized bytes cannot estimate an organizational compliance rate.
+
+\section{Verification and Traceability}
+
+\subsection{Automated validation}
+
+The final clean Python 3.12 environment installed the exact dependency lock, passed \code{pip check}, and executed 47 tests with zero failures, errors or skips. The repository validator accepts both baseline and lawful-incident configurations and reports:
+
+\begin{itemize}
+  \item nine valid JSON Schemas;
+  \item 38 valid entity instances;
+  \item 123 valid relationships and a connected graph;
+  \item seven structurally valid BPMN files; and
+  \item seven valid integration contracts.
+\end{itemize}
+
+Tests cover schema round trips and migration, cross-field constraints, stable identifiers, graph integrity, BPMN structure, state legality, event ordering, observation reproducibility, queue conservation, all authorization terms, minimization, zero-byte denial, canonical numeric serialization, evidence/custody corruption, twin uniqueness/staleness, ground-truth isolation, equal/different seeds, graph queries, experiment assertions, Monte Carlo statistics, integration contracts and final manifest tamper detection.
+
+\subsection{Requirements traceability}
+
+The validation matrix maps each proposal and roadmap requirement through five layers:
+
+\begin{equation}
+\text{requirement}\rightarrow\text{model artefact}\rightarrow\text{code module}\rightarrow\text{test}\rightarrow\text{validation evidence}.
+\end{equation}
+
+No validation judgment remains Missing or TBD. Candidate research/pilot dataset calibration is Partial, with the seeded observation model as fallback, a documented inability to claim real performance, and a replacement procedure through a versioned dataset or lab adapter. Partner and external legal validation are outside the agreed implementation gate and are not converted into technical success claims.
+
+\section{Integration Contracts and Handoff}
+
+Seven machine-readable contracts connect the implementation to adjacent SALUS tasks and WP6:
+
+\begin{table}[H]
+\centering
+\caption{Versioned integration boundaries.}
+\begin{tabularx}{\textwidth}{@{}l l X l@{}}
+\toprule
+ID & Task & Boundary & State \\
+\midrule
+IC-01 & T4.4 & Entity/event ingestion, twin state, lag and simulation control & Internal \\
+IC-02 & T4.2 & Zones, metadata flows and abstract SDN NBI/SBI & Disabled \\
+IC-03 & T3.3 & Observable features and traceable alert/XAI output & Abstract \\
+IC-04 & T3.4 & Provenance-qualified threat context and graph links & TBD adapter \\
+IC-05 & T3.5 & Device identity and purpose/scope-controlled acquisition & Internal \\
+IC-06 & T3.1/T3.6 & Evidence, custody, controlled sharing, RBAC/encryption assumptions & Mixed \\
+IC-07 & WP6 UC4 & Measured configuration and pilot adapter provenance & Replacement \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Each contract specifies direction, schema references, required fields, semantics, authorization constraints, failure handling, assumption IDs and replacement steps. Unknown versions or required semantics fail closed. AI alerts, threat intelligence, SDN context and case triggers cannot authorize acquisition. Encryption/KMS, deployment RBAC and evidence sharing are required external controls but are not misrepresented as features of the in-memory synthetic adapter.
+
+Exact direct dependencies are pinned in \code{pyproject.toml}; transitive Python 3.12 versions are pinned in \code{requirements.lock}. A controlled update procedure requires fresh installation, \code{pip check}, both validations, all tests, experiments, uncertainty analysis, canonical-hash comparison, changelog update and manifest regeneration.
+
+The final self-excluding SHA-256 manifest inventories every source, model, configuration, test and generated report while excluding caches, bytecode, virtual environments and editable-install metadata. It is regenerated after new deliverables are added; the machine-readable manifest is authoritative for the current artefact count.
+
+\section{Discussion}
+
+\subsection{Why the combined approach matters}
+
+Many cyber-physical demonstrations stop at either a process diagram, a data schema, a simulator or an analytical result. The distinctive contribution here is alignment across all four. A BPMN activity references the same canonical entity that appears in the graph; the graph relation is validated against a schema; the simulator instantiates that entity; the policy decision cites the source record; evidence cites the decision and authorization; custody cites the evidence hash; the reconstruction cites verified evidence; and tests link these paths to proposal/roadmap requirements.
+
+This alignment makes negative outcomes informative. A missed sensor observation propagates to Home Assistant automation, evidence availability, Digital Twin updates and claim qualification. An expired authorization suppresses evidence without suppressing the historical incident. A broken custody link invalidates trust without deleting content. These distinctions are important for any system that aims to reason about incomplete and governed data.
+
+\subsection{Privacy-by-construction properties}
+
+Privacy is implemented as data-path structure, not only prose. Hidden truth is segregated; payload capture is prohibited by configuration schema; collection is inactive by default; policy is evaluated per record; purpose and scope are explicit; minimization precedes hashing; evidence retains authorization and decision IDs; denied paths release zero bytes; and analyst outputs cite only visible evidence. The method therefore offers testable privacy-relevant engineering properties while stopping short of a legal-compliance claim.
+
+\subsection{Reproducibility and falsifiability}
+
+Every experiment has a validated configuration and seed. Every generated package records a canonical result hash. The Monte Carlo ledger retains all samples rather than selecting favourable seeds. Undefined outcomes remain visible. Deliberate corruption and adverse conditions are first-class experiments. Together, these choices make model assertions falsifiable and changes reviewable.
+
+\section{Limitations and Future Work}
+
+The implementation has deliberate limits:
+
+\begin{itemize}
+  \item device dynamics, rates, clock behavior, retention and topology are synthetic and uncalibrated;
+  \item no candidate research dataset has yet been mapped or licensed for execution;
+  \item no real CPE, Home Assistant, Digital Twin, SDN, AI/XAI, threat-intelligence, KMS, RBAC or sharing endpoint is connected;
+  \item the queue is an abstract byte-service model rather than a packet/network emulator;
+  \item evidence custody is a deterministic hash chain, not a production ledger or legal procedure;
+  \item reconstruction uses transparent weighted rules and type matching, not a validated probabilistic forensic model;
+  \item Pearson sensitivity is descriptive and does not quantify interactions or global variance; and
+  \item synthetic authorization objects do not constitute real lawful authority.
+\end{itemize}
+
+Future work should implement adapters behind the existing contracts, map approved research or lab data into canonical events, calibrate distributions with uncertainty and firmware context, strengthen event fusion/deduplication, perform global sensitivity analysis, add platform-specific hash-locked dependencies and CI, and subject operational security, governance and legal procedures to their respective external validation processes.
+
+\section{Conclusion}
+
+The project transformed UC4 from high-level smart-home forensic intent into a complete, source-traceable and executable modelling package. It connects canonical entities, relationships, processes, mathematics, code, evidence controls, runtime graphs, experiments, tests and integration contracts without blurring their epistemic boundaries. Its most important result is methodological: an incident may exist without an observation; an observation may exist without lawful collectability; evidence may exist without verified custody; and a claim may exist only to the extent supported by verified visible evidence.
+
+Within the declared synthetic scope, all twelve implementation stages are complete, all 47 tests pass, the negative matrix satisfies its assertions, the uncertainty design is reproducible, and all final artefacts are hashed. This provides a rigorous baseline for later pilot replacement while keeping unvalidated real-world details explicit and preventing synthetic performance from being reported as operational fact.
+
+\appendix
+
+\section{Reproduction Commands}
+
+\begin{lstlisting}[language={}]
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.lock
+.venv\Scripts\python -m pip install --no-deps -e .
+.venv\Scripts\python -m pip check
+
+.venv\Scripts\salus-t43 validate \
+  --config configs/uc4/incident_lawful_access.yaml
+.venv\Scripts\python -m pytest -q
+.venv\Scripts\salus-t43 run \
+  --config configs/uc4/incident_lawful_access.yaml
+.venv\Scripts\salus-t43 experiment \
+  --matrix configs/uc4/experiments.yaml
+.venv\Scripts\salus-t43 analyze \
+  --design configs/uc4/monte_carlo.yaml
+.venv\Scripts\salus-t43 manifest \
+  --output reports/final/UC4_artifact_manifest.json
+\end{lstlisting}
+
+\section{Authoritative Repository Entry Points}
+
+\begin{longtable}{@{}p{0.32\textwidth}p{0.61\textwidth}@{}}
+\toprule
+Purpose & Path \\
+\midrule
+Scenario contract & \path{docs/use_cases/UC4.md} \\
+Assumption register & \path{docs/assumptions/UC4_assumptions.md} \\
+Entity instances & \path{models/instances/uc4_entities.json} \\
+Relationship inventory & \path{models/relationships/uc4_relationships.csv} \\
+Formal model & \path{models/formal/uc4_mathematical_model.md} \\
+BPMN models & \path{diagrams/process_flows/}, \path{diagrams/state_machines/} \\
+Simulation guide & \path{docs/simulation/UC4_simulation.md} \\
+Experiment results & \path{reports/generated/uc4/experiments/} \\
+Monte Carlo results & \path{reports/generated/uc4/monte_carlo/} \\
+Validation matrix & \path{reports/validation/UC4_validation_matrix.md} \\
+Integration contracts & \path{contracts/integration/uc4_integration_contracts.yaml} \\
+Final handoff & \path{reports/final/UC4_final_handoff.md} \\
+Artifact manifest & \path{reports/final/UC4_artifact_manifest.json} \\
+\bottomrule
+\end{longtable}
+
+\begin{thebibliography}{9}
+
+\bibitem{proposal}
+SALUS Consortium,
+\emph{SALUS Project Proposal, SEP-211108743},
+technical proposal, especially pp.~162--164, 169--171 and 190.
+
+\bibitem{roadmap}
+SALUS T4.3 Team,
+\emph{SALUS HUA T4.3 Roadmap},
+project roadmap document, phases 1--7 and ordered implementation guidance.
+
+\bibitem{uc4contract}
+SALUS T4.3 UC4 Implementation,
+\emph{UC4: Lawful Forensic Investigation in a Smart Home},
+\path{docs/use_cases/UC4.md}, version 1.0, 2026.
+
+\bibitem{formalmodel}
+SALUS T4.3 UC4 Implementation,
+\emph{UC4 Formal Hybrid Mathematical Model},
+\path{models/formal/uc4_mathematical_model.md}, version 1.0, 2026.
+
+\bibitem{bpmn}
+Object Management Group,
+\emph{Business Process Model and Notation (BPMN), Version 2.0.2},
+formal specification, 2014.
+
+\bibitem{jsonschema}
+JSON Schema Project,
+\emph{JSON Schema Core and Validation, Draft 2020-12},
+schema specification.
+
+\end{thebibliography}
+
+\end{document}

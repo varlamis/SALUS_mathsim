@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "UC4-EVT-FIXTURE-000001",
+  "use_case": "UC4",
+  "event_time": 600.0,
+  "ingest_time": 601.11,
+  "source_entity": "UC4-D03",
+  "event_type": "door.open",
+  "payload": {
+    "state": "open_online",
+    "version": 1
+  },
+  "correlation_ids": ["UC4-CORR-ENTRY-0001"],
+  "provenance": {
+    "source_record_id": "UC4-SRC-D03-000001",
+    "sequence": 1,
+    "clock_domain": "door_sensor_clock",
+    "quality": "estimated"
+  },
+  "visibility": "observable"
+}
+

@@ -1,0 +1,902 @@
+[
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-002"
+    ],
+    "description": "Controlled environment belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-001",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-ENV01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-007"
+    ],
+    "description": "Vehicle belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-002",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-008"
+    ],
+    "description": "OBU belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-003",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-010"
+    ],
+    "description": "RSU belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-004",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-011"
+    ],
+    "description": "Controller belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-005",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D06",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-002"
+    ],
+    "description": "Vehicle is in controlled environment",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-006",
+    "relationship_type": "DEPLOYED_IN",
+    "source_entity": "UC1-D01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-ENV01",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-002"
+    ],
+    "description": "RSU is in controlled environment",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-007",
+    "relationship_type": "DEPLOYED_IN",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-ENV01",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-004"
+    ],
+    "description": "OBU transmits through abstract Car2X zone",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-008",
+    "relationship_type": "COMMUNICATES_WITH",
+    "source_entity": "UC1-D02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-NZ02",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-004"
+    ],
+    "description": "RSU receives through abstract Car2X zone",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-009",
+    "relationship_type": "COMMUNICATES_WITH",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-NZ02",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-004"
+    ],
+    "description": "OBU and RSU exchange abstract messages",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-010",
+    "relationship_type": "COMMUNICATES_WITH",
+    "source_entity": "UC1-D02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-013"
+    ],
+    "description": "RSU messages use abstract trust validation",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-011",
+    "relationship_type": "VALIDATED_BY",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-S02",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-011"
+    ],
+    "description": "Accepted requests may reach controller",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-012",
+    "relationship_type": "ROUTES_TO",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-011"
+    ],
+    "description": "Controller determines simulated signal phase",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-013",
+    "relationship_type": "CONTROLS",
+    "source_entity": "UC1-D06",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D07",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-001"
+    ],
+    "description": "Synthetic transmitter targets RSU",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-014",
+    "relationship_type": "TARGETS",
+    "source_entity": "UC1-D08",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-001"
+    ],
+    "description": "Synthetic request attempts controller effect",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-015",
+    "relationship_type": "ATTEMPTS_TO_TRIGGER",
+    "source_entity": "UC1-D08",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-012"
+    ],
+    "description": "Observations feed detector",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-016",
+    "relationship_type": "FEEDS",
+    "source_entity": "UC1-D09",
+    "source_references": [
+      "PROPOSAL-T33-PP36-37"
+    ],
+    "target_entity": "UC1-S03",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-014"
+    ],
+    "description": "Trust results feed detector",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-017",
+    "relationship_type": "FEEDS",
+    "source_entity": "UC1-S02",
+    "source_references": [
+      "PROPOSAL-T33-PP36-37"
+    ],
+    "target_entity": "UC1-S03",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-015"
+    ],
+    "description": "Alert triggers policy decision",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-018",
+    "relationship_type": "TRIGGERS",
+    "source_entity": "UC1-S03",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-S04",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-015"
+    ],
+    "description": "Policy action is applied at abstract RSU boundary",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-019",
+    "relationship_type": "MITIGATED_BY",
+    "source_entity": "UC1-S04",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-D05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-015"
+    ],
+    "description": "Controller path is policy protected",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-020",
+    "relationship_type": "PROTECTED_BY",
+    "source_entity": "UC1-D06",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-S04",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Vehicle has Digital Twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-021",
+    "relationship_type": "MIRRORED_BY",
+    "source_entity": "UC1-D01",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT01",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "OBU has Digital Twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-022",
+    "relationship_type": "MIRRORED_BY",
+    "source_entity": "UC1-D02",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT02",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "RSU has Digital Twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-023",
+    "relationship_type": "MIRRORED_BY",
+    "source_entity": "UC1-D05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Controller has Digital Twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-024",
+    "relationship_type": "MIRRORED_BY",
+    "source_entity": "UC1-D06",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Twin service updates vehicle twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-025",
+    "relationship_type": "SYNCHRONIZES_WITH",
+    "source_entity": "UC1-S05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT01",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Twin service updates OBU twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-026",
+    "relationship_type": "SYNCHRONIZES_WITH",
+    "source_entity": "UC1-S05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT02",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Twin service updates RSU twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-027",
+    "relationship_type": "SYNCHRONIZES_WITH",
+    "source_entity": "UC1-S05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Twin service updates controller twin",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-028",
+    "relationship_type": "SYNCHRONIZES_WITH",
+    "source_entity": "UC1-S05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1-DT06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-017"
+    ],
+    "description": "Alert can become evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-029",
+    "relationship_type": "PRODUCES_EVIDENCE",
+    "source_entity": "UC1-S03",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1-S06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-017"
+    ],
+    "description": "Trust decision can become evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-030",
+    "relationship_type": "PRODUCES_EVIDENCE",
+    "source_entity": "UC1-S02",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1-S06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-017"
+    ],
+    "description": "Policy decision can become evidence",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-031",
+    "relationship_type": "PRODUCES_EVIDENCE",
+    "source_entity": "UC1-S04",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1-S06",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-018"
+    ],
+    "description": "Verified evidence feeds reconstruction",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-032",
+    "relationship_type": "FEEDS",
+    "source_entity": "UC1-S06",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1-S07",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-018"
+    ],
+    "description": "Reconstruction is reviewed by analyst",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-033",
+    "relationship_type": "FEEDS",
+    "source_entity": "UC1-S07",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1-A04",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-019"
+    ],
+    "description": "Authorized operator runs test vehicle",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-034",
+    "relationship_type": "OPERATED_BY",
+    "source_entity": "UC1-A01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D01",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-020"
+    ],
+    "description": "Infrastructure operator owns RSU role",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-035",
+    "relationship_type": "OWNED_BY",
+    "source_entity": "UC1-A02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D05",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-001"
+    ],
+    "description": "Authorized red team controls symbolic transmitter",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-036",
+    "relationship_type": "OPERATED_BY",
+    "source_entity": "UC1-A03",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1-D08",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-003"
+    ],
+    "description": "In-vehicle zone belongs to UC1",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-037",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-NZ01",
+    "source_references": [
+      "WORKING-TEMPLATE-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-004"
+    ],
+    "description": "Car2X zone belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-038",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-NZ02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-005"
+    ],
+    "description": "Roadside backhaul belongs to UC1",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-039",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-NZ03",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-006"
+    ],
+    "description": "SALUS zone belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-040",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-NZ04",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-003"
+    ],
+    "description": "Vehicle gateway belongs to UC1",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-041",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D03",
+    "source_references": [
+      "WORKING-TEMPLATE-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-009"
+    ],
+    "description": "Abstract controller belongs to UC1",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-042",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D04",
+    "source_references": [
+      "PROPOSAL-DATASET-DS1-P19"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-011"
+    ],
+    "description": "Traffic signal belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-043",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D07",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-001"
+    ],
+    "description": "Synthetic transmitter belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-044",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D08",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-012"
+    ],
+    "description": "Observation component belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-045",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-D09",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-005"
+    ],
+    "description": "Traffic-management service belongs to UC1",
+    "record_status": "assumed",
+    "relationship_id": "UC1-REL-046",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-013"
+    ],
+    "description": "Trust service belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-047",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-014"
+    ],
+    "description": "Detector belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-048",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S03",
+    "source_references": [
+      "PROPOSAL-T33-PP36-37"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-015"
+    ],
+    "description": "Policy service belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-049",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S04",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Twin service belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-050",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-017"
+    ],
+    "description": "Evidence service belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-051",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S06",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-018"
+    ],
+    "description": "Reconstruction service belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-052",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-S07",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-019"
+    ],
+    "description": "Vehicle operator belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-053",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-A01",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-020"
+    ],
+    "description": "Infrastructure operator belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-054",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-A02",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-001"
+    ],
+    "description": "Red-team operator belongs to UC1",
+    "record_status": "engineering_decision",
+    "relationship_id": "UC1-REL-055",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-A03",
+    "source_references": [
+      "PROPOSAL-UC1-PP14-15"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-017"
+    ],
+    "description": "Analyst belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-056",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-A04",
+    "source_references": [
+      "ROADMAP-T43"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Vehicle twin belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-057",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-DT01",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "OBU twin belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-058",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-DT02",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "RSU twin belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-059",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-DT05",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  },
+  {
+    "assumption_ids": [
+      "ASSUMPTION-UC1-016"
+    ],
+    "description": "Controller twin belongs to UC1",
+    "record_status": "proposal",
+    "relationship_id": "UC1-REL-060",
+    "relationship_type": "BELONGS_TO_USE_CASE",
+    "source_entity": "UC1-DT06",
+    "source_references": [
+      "PROPOSAL-T41-T45-PP37-38"
+    ],
+    "target_entity": "UC1",
+    "use_case": "UC1"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "device_name": "Smart Infusion Pump",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "Infusion_Basal_Rate_Mlh",
+        "description": "The pre-set, continuous baseline delivery rate of intravenous medication measured in mL/h."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Occlusion_Alarm_Trigger",
+        "description": "Instant mechanical safety alarm triggered upon detection of a blockage or fluid pathway obstruction."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Total_Volume_Infused_Ml",
+        "description": "Continuously aggregating metric representing the precise total volume of medication dispensed to the patient."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "Hospital_Ward_Bed_ID",
+        "description": "Localized tracking attributes assigning the medical asset to a specific hospital floor, ward, and bed index."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "Pump_Model_Hardware_UUID",
+        "description": "Globally unique hardware identifier hardcoded into the regulatory-compliant clinical asset."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Pumping_State (Infusing/KVO/Stop)",
+        "description": "The active mode flag of the pumping core state machine (Infusing, Keep Vein Open, or Paused)."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Nurse_Badge_Login_ID",
+        "description": "Authentication signature log of the verified clinical staff member programming or altering dosage limits."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Battery_State_Charge_SoC",
+        "description": "Remaining internal battery capacity monitoring percentage used during mobile patient transport."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "Drug_Library_Limits_Enforced",
+        "description": "System checks verifying that the programmed dose falls within safety boundaries defined by the hospital's central library."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Medicine_Vial_Barcode_RFID",
+        "description": "RFID verification scan capturing the unique drug vial serialization payload to confirm patient mapping match."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Patient_Dosage_History_24h",
+        "description": "Rolling historical audit log tracking exact medication timestamps and administered volumes over the preceding 24 hours."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "Medical_Band_WMTS_Signal_Db",
+        "description": "Wireless link quality and RSSI measurements on the dedicated protected Wireless Medical Telemetry Service band."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Room_Humidity_Setting",
+        "description": "Clinical room relative humidity monitoring, cross-referenced against fluid sensor calibration tables."
+      }
+    ]
+  }
+}

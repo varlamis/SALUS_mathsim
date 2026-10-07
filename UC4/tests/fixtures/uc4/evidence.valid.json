@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_id": "UC4-EV-000001",
+  "use_case": "UC4",
+  "source_entity": "UC4-D03",
+  "source_record_ids": ["UC4-SRC-D03-000001"],
+  "authorization_id": "UC4-AUTH-0001",
+  "policy_decision_id": "UC4-PD-000001",
+  "acquisition_method": "device_state_export",
+  "source_time_range": {
+    "start": 600.0,
+    "end": 610.0
+  },
+  "acquisition_time": 925.0,
+  "content_hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "canonicalization": "RFC8785-JCS",
+  "collector_id": "UC4-S02",
+  "sensitivity": "High",
+  "transformations": [
+    {
+      "transformation_id": "UC4-TRANSFORM-MINIMIZE-0001",
+      "type": "minimize",
+      "input_evidence_ids": [],
+      "time": 924.5,
+      "actor_id": "UC4-S02"
+    }
+  ],
+  "custody_status": "verified",
+  "storage_reference": "evidence://sha256/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+}

@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "5cddb81e9dde367a4a68b5d473403b709724d0da774cc0bc3c8f32da2e677701",
+  "scenario_id": "UC3-SMART-FUZZING",
+  "schema_version": "1.0.0",
+  "seed": 3103,
+  "synthetic": true,
+  "use_case": "UC3"
+}

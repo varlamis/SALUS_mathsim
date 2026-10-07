@@ -1,0 +1,785 @@
+{
+  "entities": [
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-001"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "UseCase",
+      "entity_id": "UC1",
+      "name": "Car2X attack-surface modelling scenario",
+      "network_zones": [],
+      "notes": "Nominal attack is an engineering choice within proposal scope.",
+      "record_status": "proposal",
+      "role": "Bounds the controlled UC1 vertical slice",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "defined",
+        "configured",
+        "running",
+        "completed",
+        "failed"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-002"
+      ],
+      "data_sensitivity": "Medium",
+      "designation": "physical",
+      "entity_class": "PhysicalEnvironment",
+      "entity_id": "UC1-ENV01",
+      "name": "Controlled road or laboratory environment",
+      "network_zones": [],
+      "notes": "No real location is committed.",
+      "record_status": "proposal",
+      "role": "Contains synthetic vehicle and roadside infrastructure",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "closed"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-003"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC1-NZ01",
+      "name": "Abstract in-vehicle network",
+      "network_zones": [],
+      "notes": "Exact bus and ECU topology TBD.",
+      "record_status": "assumed",
+      "role": "Separates the OBU/gateway from in-vehicle controllers",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-004"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC1-NZ02",
+      "name": "Car2X channel zone",
+      "network_zones": [],
+      "notes": "Interface profile is abstract until confirmed.",
+      "record_status": "proposal",
+      "role": "Abstracts the active vehicle-to-infrastructure interface",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "congested",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-005"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC1-NZ03",
+      "name": "Roadside and control backhaul",
+      "network_zones": [],
+      "notes": "Topology TBD.",
+      "record_status": "assumed",
+      "role": "Connects roadside and traffic-control services",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-006"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "NetworkZone",
+      "entity_id": "UC1-NZ04",
+      "name": "SALUS security and forensics zone",
+      "network_zones": [],
+      "notes": "Deployment details are not implied.",
+      "record_status": "engineering_decision",
+      "role": "Hosts abstract detection, policy, twin, and evidence services",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "available",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-007"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "ConnectedVehicle",
+      "entity_id": "UC1-D01",
+      "name": "Police test vehicle",
+      "network_zones": [
+        "UC1-NZ01",
+        "UC1-NZ02"
+      ],
+      "notes": "Synthetic identity and bounded motion only.",
+      "record_status": "proposal",
+      "role": "Protected demonstration platform",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "parked",
+        "moving",
+        "stopped",
+        "offline"
+      ],
+      "twin_id": "UC1-DT01",
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-004",
+        "ASSUMPTION-UC1-008"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "VehicleCommunicationUnit",
+      "entity_id": "UC1-D02",
+      "name": "On-board unit",
+      "network_zones": [
+        "UC1-NZ01",
+        "UC1-NZ02"
+      ],
+      "notes": "No vendor or standard profile is asserted.",
+      "record_status": "proposal",
+      "role": "Vehicle Car2X endpoint",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "offline",
+        "initializing",
+        "trusted",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": "UC1-DT02",
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-003"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "Gateway",
+      "entity_id": "UC1-D03",
+      "name": "Vehicle gateway",
+      "network_zones": [
+        "UC1-NZ01"
+      ],
+      "notes": "Optional until NRW confirms architecture.",
+      "record_status": "assumed",
+      "role": "Abstract boundary to in-vehicle systems",
+      "source_references": [
+        "WORKING-TEMPLATE-T43"
+      ],
+      "states": [
+        "offline",
+        "online",
+        "degraded",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-009"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "Controller",
+      "entity_id": "UC1-D04",
+      "name": "Abstract in-vehicle controller",
+      "network_zones": [
+        "UC1-NZ01"
+      ],
+      "notes": "No real actuation or ECU semantics.",
+      "record_status": "assumed",
+      "role": "Represents a bounded downstream cyber target",
+      "source_references": [
+        "PROPOSAL-DATASET-DS1-P19"
+      ],
+      "states": [
+        "normal",
+        "request_received",
+        "safe_fallback",
+        "offline"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-010"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "RoadsideUnit",
+      "entity_id": "UC1-D05",
+      "name": "Roadside unit",
+      "network_zones": [
+        "UC1-NZ02",
+        "UC1-NZ03"
+      ],
+      "notes": "Logical RSU role; exact hardware TBD.",
+      "record_status": "proposal",
+      "role": "Infrastructure Car2X endpoint and validation point",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "offline",
+        "initializing",
+        "operational",
+        "overloaded",
+        "isolated"
+      ],
+      "twin_id": "UC1-DT05",
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-011"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "Controller",
+      "entity_id": "UC1-D06",
+      "name": "Traffic-signal controller",
+      "network_zones": [
+        "UC1-NZ03"
+      ],
+      "notes": "Control linkage and timing are synthetic.",
+      "record_status": "assumed",
+      "role": "Evaluates accepted requests subject to safety interlocks",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "safe_all_red",
+        "north_south",
+        "east_west",
+        "safe_fallback",
+        "offline"
+      ],
+      "twin_id": "UC1-DT06",
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-011"
+      ],
+      "data_sensitivity": "Medium",
+      "designation": "physical",
+      "entity_class": "Actuator",
+      "entity_id": "UC1-D07",
+      "name": "Traffic signal",
+      "network_zones": [
+        "UC1-NZ03"
+      ],
+      "notes": "Never connected to physical infrastructure.",
+      "record_status": "proposal",
+      "role": "Displays the bounded simulated controller phase",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "safe_all_red",
+        "north_south",
+        "east_west",
+        "offline"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-001"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "TestAsset",
+      "entity_id": "UC1-D08",
+      "name": "Synthetic adversarial transmitter",
+      "network_zones": [
+        "UC1-NZ02"
+      ],
+      "notes": "Simulation only; no transmit capability.",
+      "record_status": "engineering_decision",
+      "role": "Injects symbolic attack messages",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "inactive",
+        "active",
+        "isolated"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-012"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "MonitoringAsset",
+      "entity_id": "UC1-D09",
+      "name": "Observation component",
+      "network_zones": [
+        "UC1-NZ02",
+        "UC1-NZ04"
+      ],
+      "notes": "Payload collection disabled.",
+      "record_status": "engineering_decision",
+      "role": "Produces bounded message and flow observations",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "monitoring",
+        "degraded",
+        "offline"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-005"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "Service",
+      "entity_id": "UC1-S01",
+      "name": "Traffic-management service",
+      "network_zones": [
+        "UC1-NZ03"
+      ],
+      "notes": "Optional abstract service.",
+      "record_status": "assumed",
+      "role": "Provides supervisory infrastructure context",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "offline"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-013"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "SecurityService",
+      "entity_id": "UC1-S02",
+      "name": "PKI and trust validation service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "No private keys and no claim of cryptographic conformance.",
+      "record_status": "proposal",
+      "role": "Produces abstract credential, freshness, and authorization decisions",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-014"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "SecurityService",
+      "entity_id": "UC1-S03",
+      "name": "Explainable detection service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Rule baseline, not trained AI.",
+      "record_status": "engineering_decision",
+      "role": "Scores explicit validation and traffic features",
+      "source_references": [
+        "PROPOSAL-T33-PP36-37"
+      ],
+      "states": [
+        "warming",
+        "monitoring",
+        "alerted",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-015"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "SecurityService",
+      "entity_id": "UC1-S04",
+      "name": "SDN and policy decision service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Abstract capability contract only.",
+      "record_status": "proposal",
+      "role": "Requests configured mitigation and records acknowledgement",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "inactive",
+        "requested",
+        "applied",
+        "failed",
+        "expired",
+        "rolled_back"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-016"
+      ],
+      "data_sensitivity": "High",
+      "designation": "digital",
+      "entity_class": "DigitalTwinService",
+      "entity_id": "UC1-S05",
+      "name": "Digital Twin synchronization service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Hidden truth never updates operational twins.",
+      "record_status": "proposal",
+      "role": "Maintains versioned observable entity state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-017"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "ForensicsService",
+      "entity_id": "UC1-S06",
+      "name": "Evidence and custody service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Hash-chain abstraction only.",
+      "record_status": "engineering_decision",
+      "role": "Minimizes, hashes, and registers authorized evidence",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "available",
+        "degraded",
+        "offline"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-018"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "logical",
+      "entity_class": "ForensicsService",
+      "entity_id": "UC1-S07",
+      "name": "Reconstruction service",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Consumes only observable authorized evidence.",
+      "record_status": "engineering_decision",
+      "role": "Builds evidence-linked uncertainty-aware claims",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "idle",
+        "reconstructing",
+        "complete",
+        "inconclusive"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-019"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "HumanActor",
+      "entity_id": "UC1-A01",
+      "name": "Authorized vehicle operator",
+      "network_zones": [],
+      "notes": "Pseudonymous identity.",
+      "record_status": "proposal",
+      "role": "Operates the synthetic test drive",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "authorized",
+        "session_closed"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-020"
+      ],
+      "data_sensitivity": "High",
+      "designation": "logical",
+      "entity_class": "OrganisationActor",
+      "entity_id": "UC1-A02",
+      "name": "Traffic infrastructure operator",
+      "network_zones": [],
+      "notes": "Specific authority TBD.",
+      "record_status": "proposal",
+      "role": "Owns or supervises roadside assets",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "available",
+        "unavailable"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-001"
+      ],
+      "data_sensitivity": "High",
+      "designation": "physical",
+      "entity_class": "HumanActor",
+      "entity_id": "UC1-A03",
+      "name": "Authorized red-team operator",
+      "network_zones": [],
+      "notes": "No live attack instructions.",
+      "record_status": "engineering_decision",
+      "role": "Initiates the controlled attack run",
+      "source_references": [
+        "PROPOSAL-UC1-PP14-15"
+      ],
+      "states": [
+        "authorized",
+        "active",
+        "closed"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-017"
+      ],
+      "data_sensitivity": "Critical",
+      "designation": "physical",
+      "entity_class": "LEAUser",
+      "entity_id": "UC1-A04",
+      "name": "LEA analyst",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Authentication alone does not grant evidence access.",
+      "record_status": "proposal",
+      "role": "Reviews minimized evidence and reconstruction",
+      "source_references": [
+        "ROADMAP-T43"
+      ],
+      "states": [
+        "authenticated",
+        "authorized",
+        "session_closed"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-016"
+      ],
+      "data_sensitivity": "High",
+      "designation": "digital",
+      "entity_class": "TwinEntity",
+      "entity_id": "UC1-DT01",
+      "name": "Vehicle Digital Twin",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Versioned observable state.",
+      "record_status": "proposal",
+      "role": "Mirrors observable vehicle state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-016"
+      ],
+      "data_sensitivity": "High",
+      "designation": "digital",
+      "entity_class": "TwinEntity",
+      "entity_id": "UC1-DT02",
+      "name": "OBU Digital Twin",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Versioned observable state.",
+      "record_status": "proposal",
+      "role": "Mirrors observable OBU state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-016"
+      ],
+      "data_sensitivity": "High",
+      "designation": "digital",
+      "entity_class": "TwinEntity",
+      "entity_id": "UC1-DT05",
+      "name": "RSU Digital Twin",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Versioned observable state.",
+      "record_status": "proposal",
+      "role": "Mirrors observable RSU state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    },
+    {
+      "assumption_ids": [
+        "ASSUMPTION-UC1-016"
+      ],
+      "data_sensitivity": "High",
+      "designation": "digital",
+      "entity_class": "TwinEntity",
+      "entity_id": "UC1-DT06",
+      "name": "Signal-controller Digital Twin",
+      "network_zones": [
+        "UC1-NZ04"
+      ],
+      "notes": "Cannot command physical infrastructure.",
+      "record_status": "proposal",
+      "role": "Mirrors observable safe controller state",
+      "source_references": [
+        "PROPOSAL-T41-T45-PP37-38"
+      ],
+      "states": [
+        "synchronized",
+        "stale",
+        "degraded"
+      ],
+      "twin_id": null,
+      "use_case": "UC1"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "use_case": "UC1"
+}

@@ -1,0 +1,16 @@
+{
+  "alert_count": 1,
+  "essential_monitoring_interruption_count": 0,
+  "evidence_items": 84,
+  "flow_observation_count": 80,
+  "flow_truth_count": 80,
+  "integrity_failure_count": 0,
+  "observation_loss": 0,
+  "patient_data_disclosure_count": 0,
+  "privacy_violation_count": 0,
+  "process_effect_count": 0,
+  "queue_overflow": 0,
+  "safety_rejection_count": 1,
+  "safety_violation_count": 0,
+  "shared_evidence_items": 84
+}

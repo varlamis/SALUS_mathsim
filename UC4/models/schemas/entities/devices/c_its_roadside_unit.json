@@ -1,0 +1,83 @@
+{
+  "device_name": "C-ITS Roadside Unit (RSU)",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "CAM_Broadcast_Rate",
+        "description": "Scheduled frequency of broadcast Cooperative Awareness Messages containing baseline telemetry."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Priority_Request_Signal",
+        "description": "Active prioritization message handled when an approaching police vehicle requests a green signal corridor."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Signal_Phase_Current_Sec",
+        "description": "Real-time volatile tracking of remaining seconds before the active traffic signal changes phase."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "Intersection_ID_Coordinates",
+        "description": "Geometric intersection identifier mapped alongside absolute geographic coordinates."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "PKI_Certificate_Serial",
+        "description": "Cryptographic public key infrastructure serial number validating authorized infrastructure communication."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Light_Bulb_Failure_State",
+        "description": "Hardware diagnostic state highlighting if an active traffic light element is burned out."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Traffic_Control_Center_User",
+        "description": "Identifier of the centralized municipal traffic management operator overriding the system."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Interface_Error_Logs",
+        "description": "Internal operational logs logging exceptions across C-V2X or ITS-G5 radio interfaces."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "MAP_Topology_Data",
+        "description": "On-demand intersection topology data detailing lanes, crosswalks, and geometric restrictions."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Cabinet_Door_Sensor_ID",
+        "description": "RFID switch logging unauthorized physical opening of the roadside equipment cabinet."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Weekly_Traffic_Volume_Counts",
+        "description": "Aggregated historical vehicle throughput metrics used for anomaly baseline generation."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "DSRC_5.9GHz_Channel_Load",
+        "description": "Channel load ratio measurement indicating congestion levels within the 5.9 GHz automotive band."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Road_Surface_Temperature",
+        "description": "Physical infrared roadway surface temperature reading used to predict ice formation."
+      }
+    ]
+  }
+}

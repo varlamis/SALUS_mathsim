@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "salus-t43-uc2"
+version = "0.1.0"
+description = "Deterministic UC2 passive IoT identification and response model"
+requires-python = ">=3.11"
+dependencies = ["jsonschema==4.26.0", "networkx==3.6.1", "pydantic==2.13.5", "PyYAML==6.0.3"]
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+
+[project.scripts]
+salus-uc2 = "salus_t43.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+

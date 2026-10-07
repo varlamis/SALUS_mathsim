@@ -1,0 +1,83 @@
+{
+  "device_name": "Tactical Signal Catcher",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "RF_Background_Noise_Floor",
+        "description": "Continuous background radio-frequency noise floor sweeping within target areas."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Deauth_Trigger_Signal",
+        "description": "Intentional wireless de-authentication injection packet targeted at an adversarial or unverified IoT device."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Signal_RSSI_Live",
+        "description": "Real-time fluctuation of target signal strength used by tactical teams for proximity triangulation."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "Catcher_Compass_Heading",
+        "description": "Direction-finding compass telemetry tracking the relative angle of the incoming radio source."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "SDR_Board_Firmware_Version",
+        "description": "Firmware version and technical identifier of the Software Defined Radio board assembly."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Base_Station_Emulation_State",
+        "description": "Current state machine flag defining device mode (Scanning, Rogue Cell Emulation, Idle)."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Field_Officer_ID",
+        "description": "Tactical badge identifier of the tactical team officer deploying the mobile equipment."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Internal_Battery_Runtime_Min",
+        "description": "Telemetry monitoring remaining run-time in minutes for the mobile field deployment battery unit."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "Target_Device_Categorization",
+        "description": "Local AI inference classification tagging the intercepted device architecture (e.g., Hidden Camera)."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Catcher_Chassis_RFID",
+        "description": "Inventory tracking RFID chip scanned during tactical armory checkout procedures."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "Target_IMSI_IMEI_History_Log",
+        "description": "Historical database of previously captured IMSI/IMEI/MAC identities detected within this specific sector."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "Scanned_Bands (LTE/5G-SA/BLE)",
+        "description": "Comprehensive matrix of radio bands being concurrently monitored by the receiver path."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Catcher_Internal_Fan_Speed",
+        "description": "Active cooling fan RPM tracking thermal dissipation based on environmental field exposure."
+      }
+    ]
+  }
+}

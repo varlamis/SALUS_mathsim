@@ -1,0 +1,58 @@
+[
+  {
+    "alternatives": [],
+    "association_window_seconds": 2.0,
+    "hypothesis_id": "UC2-HYP-000001",
+    "observation_ids": [
+      "UC2-EV-000001",
+      "UC2-EV-000002",
+      "UC2-EV-000003",
+      "UC2-EV-000004",
+      "UC2-EV-000005",
+      "UC2-EV-000006",
+      "UC2-EV-000007",
+      "UC2-EV-000008",
+      "UC2-EV-000009",
+      "UC2-EV-000010",
+      "UC2-EV-000011"
+    ]
+  },
+  {
+    "alternatives": [],
+    "association_window_seconds": 2.0,
+    "hypothesis_id": "UC2-HYP-000002",
+    "observation_ids": [
+      "UC2-EV-000014",
+      "UC2-EV-000015",
+      "UC2-EV-000016",
+      "UC2-EV-000017",
+      "UC2-EV-000018",
+      "UC2-EV-000019",
+      "UC2-EV-000020",
+      "UC2-EV-000021",
+      "UC2-EV-000022",
+      "UC2-EV-000023",
+      "UC2-EV-000024",
+      "UC2-EV-000025"
+    ]
+  },
+  {
+    "alternatives": [],
+    "association_window_seconds": 2.0,
+    "hypothesis_id": "UC2-HYP-000003",
+    "observation_ids": [
+      "UC2-EV-000028",
+      "UC2-EV-000029",
+      "UC2-EV-000030",
+      "UC2-EV-000031",
+      "UC2-EV-000032",
+      "UC2-EV-000033",
+      "UC2-EV-000034",
+      "UC2-EV-000035",
+      "UC2-EV-000036",
+      "UC2-EV-000037",
+      "UC2-EV-000038",
+      "UC2-EV-000039"
+    ]
+  }
+]

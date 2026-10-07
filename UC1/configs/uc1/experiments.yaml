@@ -1,0 +1,13 @@
+schema_version: 1.0.0
+base_config: configs/uc1/forged_message_attack.yaml
+experiments:
+  - {id: baseline, overrides: {attack: {enabled: false}}, expect: {alerts: 0, safety_violations: 0}}
+  - {id: nominal_forged_request, overrides: {}, expect: {alerts_min: 1, controller_effects: 0, safety_violations: 0}}
+  - {id: expired_certificate, overrides: {attack: {credential_state: expired}}, expect: {alerts_min: 1, controller_effects: 0}}
+  - {id: revoked_certificate, overrides: {attack: {credential_state: revoked}}, expect: {alerts_min: 1, controller_effects: 0}}
+  - {id: replay_outside_window, overrides: {attack: {kind: replay, credential_state: valid, replay_age_seconds: 10.0}}, expect: {alerts_min: 1, controller_effects: 0}}
+  - {id: message_flood, overrides: {attack: {kind: flood, count: 50, interval_seconds: 0.01}, channel: {buffer_messages: 3, capacity_messages_per_second: 5.0}}, expect: {loss_min: 1, safety_violations: 0}}
+  - {id: trust_service_unavailable, overrides: {trust: {service_available: false}}, expect: {alerts_min: 1, controller_effects: 0}}
+  - {id: policy_enforcement_failed, overrides: {policy: {enforcement_available: false}}, expect: {alerts_min: 1, safety_violations: 0}}
+  - {id: observation_loss, overrides: {channel: {observation_probability: 0.0}}, expect: {observed_attacks: 0, safety_violations: 0}}
+

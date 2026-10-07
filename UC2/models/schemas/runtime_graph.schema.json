@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://salus.example/schemas/uc2/runtime_graph.schema.json","type":"object","additionalProperties":false,"required":["schema_version","use_case","nodes","edges"],"properties":{"schema_version":{"const":"1.0.0"},"use_case":{"const":"UC2"},"nodes":{"type":"array"},"edges":{"type":"array"}}}
+

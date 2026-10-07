@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"><process id="UC2_expert_consultation"><startEvent id="Start"/><task id="Consult" name="Consult authorized expert"/><endEvent id="End"/><sequenceFlow id="F1" sourceRef="Start" targetRef="Consult"/><sequenceFlow id="F2" sourceRef="Consult" targetRef="End"/></process></definitions>

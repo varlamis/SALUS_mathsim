@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+use_case: UC1
+migrations: []
+policy: Unknown versions fail before simulation; migrations must be explicit, non-mutating, and idempotent.
+

@@ -1,0 +1,48 @@
+classification:
+  accuracy: 0.9
+  threshold: 0.7
+clock_skew_seconds: 0.0
+description: Passive synthetic detection and categorization of one unapproved device
+duration_seconds: 60.0
+evidence:
+  allowed_fields:
+  - event_id
+  - event_type
+  - event_time
+  - source_entity
+  - target_entity
+  - message_id
+  - attributes
+  - payload_hash
+  allowed_types:
+  - observation
+  - classification
+  - registry_decision
+  - alert
+  - policy_decision
+  enabled: true
+  retention_seconds: 3600.0
+observation:
+  association_window_seconds: 2.0
+  coverage_probability: 0.95
+  interfaces:
+  - 3gpp
+  - wifi
+  - ble
+  loss_probability: 0.02
+  queue_capacity: 50
+outputs:
+  directory: reports/generated/uc2/unapproved_device
+policy:
+  available: true
+  selected_action: request_review
+registry:
+  available: true
+  stale: false
+scenario_id: UC2-UNAPPROVED-DEVICE
+scene:
+  approved_devices: 3
+  emissions_per_device: 4
+  unapproved_devices: 1
+schema_version: 1.0.0
+seed: 2202

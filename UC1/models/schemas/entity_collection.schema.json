@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://salus.example/schemas/uc1/entity_collection.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "use_case", "entities"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "use_case": {"const": "UC1"},
+    "entities": {"type": "array", "items": {"$ref": "entity.schema.json"}, "minItems": 1}
+  }
+}
+

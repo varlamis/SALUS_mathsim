@@ -1,0 +1,13 @@
+schema_version: 1.0.0
+scenario_id: UC2-UNAPPROVED-DEVICE
+description: Passive synthetic detection and categorization of one unapproved device
+seed: 2202
+duration_seconds: 60
+scene: {approved_devices: 3, unapproved_devices: 1, emissions_per_device: 4}
+observation: {interfaces: [3gpp, wifi, ble], coverage_probability: 0.95, loss_probability: 0.02, association_window_seconds: 2.0, queue_capacity: 50}
+classification: {accuracy: 0.90, threshold: 0.70}
+registry: {available: true, stale: false}
+policy: {selected_action: request_review, available: true}
+evidence: {enabled: true, allowed_types: [observation, classification, registry_decision, alert, policy_decision], allowed_fields: [event_id, event_type, event_time, source_entity, target_entity, message_id, attributes, payload_hash], retention_seconds: 3600}
+clock_skew_seconds: 0.0
+outputs: {directory: reports/generated/uc2/unapproved_device}

@@ -1,0 +1,8 @@
+{
+  "integrity_errors": [],
+  "safety_invariants": {
+    "conflicting_phases": false,
+    "live_control": false
+  },
+  "status": "valid"
+}

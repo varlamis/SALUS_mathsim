@@ -1,0 +1,12 @@
+{
+  "event_id": "UC3-EV-000001",
+  "event_type": "process_observation",
+  "event_time": 1.0,
+  "ingest_time": 1.01,
+  "source_entity": "UC3-D02",
+  "target_entity": "UC3-D05",
+  "message_id": null,
+  "attributes": {"level_m": 5.0, "synthetic": true},
+  "payload_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "observable": true
+}

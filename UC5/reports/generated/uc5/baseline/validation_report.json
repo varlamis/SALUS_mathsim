@@ -1,0 +1,10 @@
+{
+  "integrity_errors": [],
+  "invariants": {
+    "clinical_continuity_preserved": true,
+    "hidden_truth_isolated": true,
+    "no_live_interface": true,
+    "patient_data_disclosure_count": 0
+  },
+  "status": "valid"
+}

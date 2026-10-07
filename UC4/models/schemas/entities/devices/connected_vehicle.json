@@ -1,0 +1,83 @@
+{
+  "device_name": "Connected Vehicle (OBD-II)",
+  "salus_data_types": {
+    "Passive": [
+      {
+        "field_name": "Odometer_Reading",
+        "description": "Cumulative distance traveled by the vehicle, captured continuously without active polling."
+      }
+    ],
+    "Active": [
+      {
+        "field_name": "Airbag_Deployment_Trigger",
+        "description": "Emergency event signal broadcast immediately upon crash sensor activation."
+      }
+    ],
+    "Dynamic": [
+      {
+        "field_name": "Engine_RPM_Speed_Kmh",
+        "description": "Highly volatile real-time telemetry representing engine revs and current vehicle speed."
+      }
+    ],
+    "Location": [
+      {
+        "field_name": "GNSS_Heading_Speed",
+        "description": "Global navigation satellite data indicating accurate direction heading and speed vectors."
+      }
+    ],
+    "Equipment": [
+      {
+        "field_name": "VIN (Vehicle Identification Number)",
+        "description": "Unique alpha-numeric vehicle identification number hardcoded into the engine control unit."
+      }
+    ],
+    "Status": [
+      {
+        "field_name": "Gear_Position_PRND",
+        "description": "The active transmission gear selection state (Park, Reverse, Neutral, Drive)."
+      }
+    ],
+    "User": [
+      {
+        "field_name": "Driver_Seat_Profile_ID",
+        "description": "Biometric or custom seat configuration profile indicating which suspect/user was driving."
+      }
+    ],
+    "Operational": [
+      {
+        "field_name": "Fuel_Level_Battery_SoC",
+        "description": "Remaining physical fuel levels or high-voltage electric vehicle State of Charge (SoC)."
+      }
+    ],
+    "Service": [
+      {
+        "field_name": "Navigation_Route_Destination",
+        "description": "Active GPS application service telemetry mapping out the programmed route and final destination."
+      }
+    ],
+    "RFID": [
+      {
+        "field_name": "Immobilizer_Key_Fob_ID",
+        "description": "Cryptographic RFID identifier transmitted by the physical key fob to authorize engine ignition."
+      }
+    ],
+    "Historical": [
+      {
+        "field_name": "DTC_Trouble_Codes_History",
+        "description": "Historical diagnostic trouble codes stored in memory indicating past mechanical/electronic sensor faults."
+      }
+    ],
+    "Spectrum": [
+      {
+        "field_name": "Cellular_4G_5G_LTE_Band",
+        "description": "Active telecommunication frequency band and provider metrics used for emergency eCall connectivity."
+      }
+    ],
+    "Environmental": [
+      {
+        "field_name": "Outside_Air_Temperature",
+        "description": "External atmospheric temperature reading taken by the front bumper sensor array."
+      }
+    ]
+  }
+}

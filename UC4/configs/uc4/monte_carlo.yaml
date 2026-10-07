@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+base_config: configs/uc4/incident_lawful_access.yaml
+design:
+  sample_count: 100
+  master_seed: 20260908
+  simulation_seed_start: 44000
+factors:
+  observation_loss_probability: {distribution: uniform, minimum: 0.0, maximum: 0.30}
+  clock_offset_bound_seconds: {distribution: uniform, minimum: 0.0, maximum: 30.0}
+  network_background_load_fraction: {distribution: uniform, minimum: 0.0, maximum: 0.95}
+  sensor_error_probability: {distribution: uniform, minimum: 0.0, maximum: 0.25}
+  collection_start_delay_seconds: {distribution: uniform, minimum: 0.0, maximum: 650.0}

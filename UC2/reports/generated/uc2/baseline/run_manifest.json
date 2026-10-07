@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "2a813709ea8f0f7761c74a4d418d6b0bb5616fb370ce0855c168a4130746a502",
+  "scenario_id": "UC2-BASELINE",
+  "schema_version": "1.0.0",
+  "seed": 2201,
+  "synthetic": true,
+  "use_case": "UC2"
+}

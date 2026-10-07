@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+base_config: configs/uc3/smart_fuzzing_attack.yaml
+seed: 33100
+samples: 100
+ranges:
+  process.sensor_noise_std_m: [0.0, 0.05]
+  process.sensor_bias_m: [-0.10, 0.10]
+  channel.loss_probability: [0.0, 0.15]
+  channel.observation_probability: [0.70, 1.0]
+  detection.threshold: [0.30, 0.70]
+  policy.enforcement_delay_seconds: [0.01, 0.50]

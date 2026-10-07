@@ -1,0 +1,13 @@
+schema_version: 1.0.0
+scenario_id: UC5-COMPROMISED-MONITOR
+description: Synthetic patient-monitor anomalous egress with clinical safety constrained response
+seed: 5505
+duration_seconds: 60
+device: {essential: true, backup_monitoring: false, normal_flows: 20, normal_bytes: 1000}
+attack: {enabled: true, kind: anomalous_egress, multiplier: 4.0, new_destination: true}
+channel: {observation_probability: 1.0, loss_probability: 0.0, queue_capacity: 100}
+detection: {threshold: 0.5, weights: {rate: 0.25, bytes: 0.25, destination: 0.30, health: 0.20}}
+policy: {selected_action: isolate, authorized: true, enforcement_available: true}
+evidence: {enabled: true, allowed_types: [flow_observation, health_observation, alert, safety_decision, policy_decision], allowed_fields: [event_id, event_type, event_time, source_entity, target_entity, message_id, attributes, payload_hash], sharing_authorized: true, redaction_enabled: true, retention_seconds: 3600}
+clock_skew_seconds: 0.0
+outputs: {directory: reports/generated/uc5/compromised_monitor}

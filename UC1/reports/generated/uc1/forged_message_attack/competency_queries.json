@@ -1,0 +1,44 @@
+{
+  "assumed_entities": [
+    "UC1-D03",
+    "UC1-D04",
+    "UC1-D06",
+    "UC1-NZ01",
+    "UC1-NZ03",
+    "UC1-S01"
+  ],
+  "attack_surface": [
+    "UC1-D08"
+  ],
+  "message_path": [
+    "UC1-D02",
+    "UC1-NZ02",
+    "UC1-D05",
+    "UC1-D06",
+    "UC1-D07"
+  ],
+  "mitigation_points": [
+    "UC1-D05"
+  ],
+  "physical_and_twins": [
+    "UC1-A01",
+    "UC1-A03",
+    "UC1-A04",
+    "UC1-D01",
+    "UC1-D02",
+    "UC1-D03",
+    "UC1-D04",
+    "UC1-D05",
+    "UC1-D06",
+    "UC1-D07",
+    "UC1-DT01",
+    "UC1-DT02",
+    "UC1-DT05",
+    "UC1-DT06",
+    "UC1-ENV01",
+    "UC1-S05"
+  ],
+  "trust_validators": [
+    "UC1-S02"
+  ]
+}

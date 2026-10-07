@@ -1,0 +1,1 @@
+{"attributes": {"action": "request_review", "active_rf_action": false, "effective": true}, "event_id": "UC2-EV-000056", "event_time": 3.0, "event_type": "mitigation_action", "ingest_time": 3.0, "message_id": null, "observable": true, "payload_hash": "8b8867ee16465201a3d98733b1d76857a9327eb70bfa5d19d01277a59fdefb47", "source_entity": "UC2-A01", "target_entity": "UC2-S01"}

@@ -1,0 +1,7 @@
+# UC2 canonical entity model
+
+The canonical collection contains 25 entities. Five device/observer assets cover three passive observers plus approved and unapproved IoT classes. Six services cover association/classification, approval registry, detection/XAI, policy/review, evidence/custody and consultation. Two human and two organizational roles delimit responsibility. Three zones separate scene, analytics and forensics. Five twins mirror observer availability and pseudonymous hypotheses. Two data sources distinguish deterministic synthetic input from the unavailable DS2/DS3 import boundary.
+
+Each entity has a stable `UC2-*` identifier, type/designation, role, allowed states, network-zone references, optional twin, sensitivity, record status, source references, assumptions and notes. The 26 typed relations capture observation, deployment, mirroring, governance, alerting, evidence and claim support. Validation rejects duplicate/dangling IDs, malformed directions and unresolved twin/zone references.
+
+The device hypothesis—not a person—is the classification referent. Rotating pseudonyms and classifications must not be promoted to subscriber identity, precise location or person attribution. The authoritative machine-readable files are `models/instances/uc2_entities.json` and `models/relationships/uc2_relationships.csv`; `data/inventory/uc2_entity_inventory.csv` is their review-oriented projection.

@@ -1,0 +1,8 @@
+{
+  "canonical_result_sha256": "1b17a1d56b53d3b78651c4c9bae773dfe05fa617f907042a664a576b22b833e7",
+  "scenario_id": "UC2-UNAPPROVED-DEVICE",
+  "schema_version": "1.0.0",
+  "seed": 2202,
+  "synthetic": true,
+  "use_case": "UC2"
+}
